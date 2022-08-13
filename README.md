@@ -22,3 +22,11 @@
 
 ![image](https://user-images.githubusercontent.com/89268597/184509149-b32d1f65-7dd6-4e25-8f37-86acd875a798.png)
 
+
+<sup>:rocket:Passo 3</sup> 
+
+- [x] :point_right: **Preencha os campos de acordo com sua issue e click em :point_right: *Submit new issue***
+
+![image](https://user-images.githubusercontent.com/89268597/184509383-125cc256-ea5e-4c39-9543-0abd58e17a9d.png)
+
+
