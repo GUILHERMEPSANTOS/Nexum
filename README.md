@@ -29,4 +29,15 @@
 
 ![image](https://user-images.githubusercontent.com/89268597/184509383-125cc256-ea5e-4c39-9543-0abd58e17a9d.png)
 
+<sup>:computer: Passo 4</sup> 
+
+- [x]  :point_right: **Click em :arrow_right: *create a branch***
+
+![image](https://user-images.githubusercontent.com/89268597/184509792-db296f91-f2d3-415a-9829-df6e490ef7b0.png)
+
+<sup>:bulb: Passo 5</sup> 
+
+- [x]  :point_right: **Click em :point_right: *create branch***
+
+
 
