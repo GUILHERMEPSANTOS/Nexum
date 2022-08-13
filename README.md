@@ -12,7 +12,7 @@
 
 # Criação de issues
 
-                                  SEMPRE TRABALHE E DEPOIS FECHE E EXCLUA SUA ISSUE E BRANCH
+<p align="center">SEMPRE TRABALHE NA SUA BRANCH E DEPOIS FECHE E EXCLUA SUA ISSUE E BRANCH</p>
 
 <sup>:star:Passo 1</sup> 
 
