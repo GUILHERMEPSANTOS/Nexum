@@ -3,8 +3,9 @@ import ITEMS from './Constants'
 
 const Modal = () => {
     return( 
-        <>
-        </>
+        <section>
+            
+        </section>
     )
 }
 

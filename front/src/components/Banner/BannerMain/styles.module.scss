@@ -1,0 +1,26 @@
+
+.card {
+  overflow: hidden;
+  height: 90vh;
+  border: 2px solid red;
+}
+
+.teste {
+animation: testando 10s linear infinite;
+
+  @keyframes testando {
+    100% {
+      transform: translateY(calc(-500px * 4));
+    }
+    
+  }
+}
+
+.container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+}
+

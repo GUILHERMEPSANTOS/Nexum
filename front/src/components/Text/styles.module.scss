@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+
+.text {
+color: $white;
+font-size: $--subtitle;
+}
+
+.upperCase {
+@extend .text;
+text-transform: uppercase;
+font-size: $--text;
+}

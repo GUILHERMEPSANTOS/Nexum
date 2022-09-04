@@ -1,10 +1,11 @@
-import styles from './styles.module.scss'
-import ITEMS from './Constants'
 
-const Button = ({name}) => {
+import styles from './styles.module.scss'
+
+const Button = ({text, isPink}) => {
+
     return( 
-        <button>
-            {name}
+        <button className={isPink ? styles.buttonFillBackground : styles.buttonEmptyBackground}>
+            {text}
         </button>
     )
 }
