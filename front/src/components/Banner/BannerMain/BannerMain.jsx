@@ -24,10 +24,9 @@ const BannerMain = () => {
                 />
                 <div className={styles.buttons}>
                 <Button 
-                isPink={true} 
                 text="Freelancer"/>
                 <Button 
-                isPink={false} 
+                isEmpty={true} 
                 text="Contratante"/>
                 </div>
                 </div>
