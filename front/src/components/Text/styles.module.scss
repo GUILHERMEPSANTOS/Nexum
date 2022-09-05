@@ -6,6 +6,11 @@ font-size: $--subtitle;
 font-family: $--text__font;
 }
 
+.text__small {
+  @extend .text;
+  font-size: $--text;
+}
+
 .upperCase {
 @extend .text;
 text-transform: uppercase;
