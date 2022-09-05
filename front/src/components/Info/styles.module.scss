@@ -12,6 +12,10 @@
     padding: $--padding__buttons;
     display: flex;
     justify-content: space-around;
+
+    img {
+        width: 8%;
+    }
 }
 
 .container {
@@ -24,6 +28,10 @@
 
 .card {
     width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 200px;
 }
 
 .line {
