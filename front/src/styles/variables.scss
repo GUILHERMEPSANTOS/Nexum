@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Montserrat:wght@700&display=swap');
+
 //colors
 $black: #000;
 $white: #fff;
@@ -20,6 +22,8 @@ $--width__button: 300px;
 
 //border
 $--border__buttons: 50px;
+$--border__images: 20px;
+$--border__cards: 10px;
 
 //padding
 $--padding__buttons: 1%;
@@ -31,3 +35,4 @@ $desktop: 1280px;
 
 //fonts
 $--title__font: 'Montserrat', sans-serif;
+$--text__font: 'Montserrat', sans-serif;

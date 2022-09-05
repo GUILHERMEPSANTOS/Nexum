@@ -1,7 +1,29 @@
-.card {
-    background-color: gray;
-    width: 350px;
-    height: 550px;
-    margin: 10px 0;
-    border: 2px solid red;
+@import '../../../../styles/variables.scss';
+
+.card { 
+  background-color: rgba(255,255,255,0.3);
+  color: $white;
+  position: absolute;
+  bottom: 10px;
+  left: 40px;
+  width: 65%;
+  padding: 20px 30px;
+  font-size: $--text;
+  border-radius: $--border__cards;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 8%;
+    height: 8%;
+  }
+}
+
+.container { 
+  display: flex;
+  justify-content: space-between;
+}
+
+.container__location { 
+  display: flex;
 }

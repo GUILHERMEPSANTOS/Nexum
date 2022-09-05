@@ -1,4 +1,5 @@
 import Button from '../../Buttons/Button';
+import CardBanner from '../../Cards/CardsBanner/CardBanner';
 import CardInfo from '../../Cards/CardsBanner/CardInfo/CardInfo';
 import Text from '../../Text/Text';
 import Title from '../../Title/Title';
@@ -16,12 +17,12 @@ const BannerMain = () => {
                 <Text 
                 upperCase={false} 
                 text="A Nexum conecta pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades"
-                /><div className={styles.buttons}>
+                /><div>
                  <Text 
                 upperCase={true} 
                 text="crie agora mesmo a sua conta"
                 />
-                
+                <div className={styles.buttons}>
                 <Button 
                 isPink={true} 
                 text="Freelancer"/>
@@ -29,16 +30,9 @@ const BannerMain = () => {
                 isPink={false} 
                 text="Contratante"/>
                 </div>
+                </div>
             </div>
-            <div className={styles.card}>
-                <div className={styles.teste}>
-           <CardInfo/>
-           <CardInfo/>
-           <CardInfo/>
-           <CardInfo/>
-           <CardInfo/>
-           </div>
-           </div>
+        <CardBanner/>
         </Banner>
     )
 }

@@ -1,5 +1,33 @@
-.card {
-    background-color: gray;
-    width: 350px;
-    height: 550px;
+@import '../../../styles/variables.scss';
+
+.wrapper {
+  display: block;
 }
+.container { 
+  height: 90vh;
+  overflow: hidden;
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  border-radius: $--border__images;
+  img {
+    border-radius: $--border__images;
+  }
+}
+
+.card__animation {
+    animation: animate 40s linear infinite;
+
+    
+      @keyframes animate {
+        0% {
+          transform: translateY(45%);
+        }
+        100% {
+          transform: translateY(-50%);
+        }
+      }
+    }
+  

@@ -9,6 +9,10 @@
     padding: $--padding__buttons;
     color: $white;
     cursor: pointer;
+
+    &:hover {
+        @extend .buttonFillBackground;
+    }
 }
 
 
