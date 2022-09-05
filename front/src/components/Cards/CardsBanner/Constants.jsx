@@ -9,7 +9,7 @@ export const DATA = [
   },
   {
     id: 2,
-    name: 'Drodo Baggins',
+    name: 'Frodo Baggins',
     location: 'São Paulo, São Paulo',
     profession: 'Desenvolvedor de Software'
   },
@@ -27,7 +27,7 @@ export const DATA = [
   },
   {
     id: 2,
-    name: 'Drodo Baggins',
+    name: 'Frodo Baggins',
     location: 'São Paulo, São Paulo',
     profession: 'Desenvolvedor de Software'
   },
