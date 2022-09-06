@@ -1,11 +1,8 @@
-import styles from './styles.module.scss'
-import ITEMS from './Constants'
+import styles from "./styles.module.scss";
+import ITEMS from "./Constants";
 
 const Modal = () => {
-    return( 
-        <>
-        </>
-    )
-}
+  return <section></section>;
+};
 
 export default Modal;

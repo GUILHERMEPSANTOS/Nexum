@@ -1,10 +1,11 @@
-import styles from './styles.module.scss'
+import styles from "./styles.module.scss";
 
-const Banner = () => {
-    return(
-        <section>
-        </section>
-    )
-}
+const Banner = ({ main, children }) => {
+  return (
+    <section className={main ? styles.backgroundMain : styles.background}>
+      <div className={styles.container}>{children}</div>
+    </section>
+  );
+};
 
 export default Banner;

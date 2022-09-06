@@ -1,8 +1,14 @@
-* { 
-    margin: 0;
-    padding: 0;
+@import "../styles/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $--primary-dark-gray;
 }

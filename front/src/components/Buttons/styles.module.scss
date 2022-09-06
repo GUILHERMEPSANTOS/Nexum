@@ -1,3 +1,20 @@
-.exemplo {
-    border: 2px solid red;
+@import "../../styles/variables.scss";
+
+.buttonEmptyBackground {
+  background-color: transparent;
+  border: 2px solid $--primary-purple;
+  width: $--width__button;
+  border-radius: $--border__buttons;
+  padding: $--padding__buttons;
+  color: $white;
+  cursor: pointer;
+
+  &:hover {
+    @extend .buttonFillBackground;
+  }
+}
+
+.buttonFillBackground {
+  @extend .buttonEmptyBackground;
+  background-color: $--primary-purple;
 }
