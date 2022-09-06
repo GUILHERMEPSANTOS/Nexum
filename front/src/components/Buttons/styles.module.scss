@@ -1,18 +1,16 @@
-@import '../../styles/variables.scss';
-
+@import "../../styles/variables.scss";
 
 .buttonEmptyBackground {
-    background-color: transparent;
-    border: 2px solid  $--primary__purple;
-    width: $--width__button;
-    border-radius: $--border__buttons;
-    padding: $--padding__buttons;
-    color: $white;
-    cursor: pointer;
+  background-color: transparent;
+  border: 2px solid $--primary__purple;
+  width: $--width__button;
+  border-radius: $--border__buttons;
+  padding: $--padding__buttons;
+  color: $white;
+  cursor: pointer;
 }
 
-
 .buttonFillBackground {
-    @extend .buttonEmptyBackground;
-    background-color: $--primary__purple;
+  @extend .buttonEmptyBackground;
+  background-color: $--primary__purple;
 }
