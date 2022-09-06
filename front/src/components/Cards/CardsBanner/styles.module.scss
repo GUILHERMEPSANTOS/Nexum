@@ -19,10 +19,8 @@
 
 .card__animation {
   animation: animate 60s linear infinite;
-
   @keyframes animate {
     100% {
       transform: translateY(-100%);
     }
-  }
 }
