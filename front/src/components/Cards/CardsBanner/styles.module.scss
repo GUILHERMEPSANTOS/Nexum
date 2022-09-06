@@ -1,9 +1,9 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 .wrapper {
   display: block;
 }
-.container { 
+.container {
   height: 90vh;
   overflow: hidden;
 }
@@ -18,16 +18,14 @@
 }
 
 .card__animation {
-    animation: animate 40s linear infinite;
+  animation: animate 40s linear infinite;
 
-    
-      @keyframes animate {
-        0% {
-          transform: translateY(45%);
-        }
-        100% {
-          transform: translateY(-50%);
-        }
-      }
+  @keyframes animate {
+    0% {
+      transform: translateY(45%);
     }
-  
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+}

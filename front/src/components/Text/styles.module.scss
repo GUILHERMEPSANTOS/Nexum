@@ -1,13 +1,13 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .text {
-color: $white;
-font-size: $--subtitle;
-font-family: $--text__font;
+  color: $white;
+  font-size: $--subtitle;
+  font-family: $--text__font;
 }
 
 .upperCase {
-@extend .text;
-text-transform: uppercase;
-font-size: $--text;
+  @extend .text;
+  text-transform: uppercase;
+  font-size: $--text;
 }

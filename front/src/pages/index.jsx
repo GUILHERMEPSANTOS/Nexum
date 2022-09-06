@@ -1,11 +1,7 @@
 import BannerMain from "../components/Banner/BannerMain/BannerMain";
 
 function HomePage() {
-
-  return (
-<BannerMain/>
-  )
+  return <BannerMain />;
 }
 
-export default HomePage
- 
+export default HomePage;
