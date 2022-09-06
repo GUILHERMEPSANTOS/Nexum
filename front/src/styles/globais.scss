@@ -7,8 +7,9 @@
 
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
-  background-color: $--primary-dark-gray;
+  background-color: $--primary__dark-gray;
 }
