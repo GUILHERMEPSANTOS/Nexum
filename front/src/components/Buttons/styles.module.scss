@@ -3,10 +3,11 @@
 .buttonEmptyBackground {
   background-color: transparent;
   border: 2px solid $--primary__purple;
-  width: $--width__button;
+  width: inherit;
   border-radius: $--border__buttons;
   padding: $--padding__buttons;
   color: $white;
+  font-size: $--text;
   cursor: pointer;
 }
 

@@ -3,15 +3,17 @@
 .wrapper {
   display: block;
 }
+
 .container {
-  height: 90vh;
+  height  : 90vh;
   overflow: hidden;
 }
 
 .card {
-  overflow: hidden;
-  position: relative;
+  overflow     : hidden;
+  position     : relative;
   border-radius: $--border__images;
+
   img {
     border-radius: $--border__images;
   }
@@ -19,8 +21,10 @@
 
 .card__animation {
   animation: animate 60s linear infinite;
+
   @keyframes animate {
     100% {
       transform: translateY(-100%);
     }
+}
 }

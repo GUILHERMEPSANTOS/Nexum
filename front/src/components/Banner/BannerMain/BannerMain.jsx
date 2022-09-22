@@ -17,8 +17,8 @@ const BannerMain = () => {
         <div>
           <Text upperCase={true} text="crie agora mesmo a sua conta" />
           <div className={styles.buttons}>
-            <Button isPink={true} text="Freelancer" />
-            <Button isPink={false} text="Contratante" />
+            <Button text="Freelancer" />
+            <Button isEmpty={true} text="Contratante" />
           </div>
         </div>
       </div>

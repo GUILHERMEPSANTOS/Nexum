@@ -1,10 +1,10 @@
 import styles from "./styles.module.scss";
 
-const Button = ({ text, isPink }) => {
+const Button = ({ text, isEmpty }) => {
   return (
     <button
       className={
-        isPink ? styles.buttonFillBackground : styles.buttonEmptyBackground
+        isEmpty ? styles.buttonEmptyBackground : styles.buttonFillBackground
       }
     >
       {text}
