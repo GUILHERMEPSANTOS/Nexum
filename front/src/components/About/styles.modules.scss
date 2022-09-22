@@ -1,0 +1,33 @@
+.style {
+    display        : flex;
+    justify-content: space-evenly;
+    width          : 100%;
+    padding-top    : 100px;
+}
+
+.describe {
+    float          : left;
+    display        : flex;
+    justify-content: space-evenly;
+}
+
+.describe #image {
+    height: 500px;
+}
+
+#about {
+    display        : flex;
+    flex-direction : column;
+    justify-content: space-evenly;
+    width          : 700px;
+    height         : 600px;
+}
+
+.hr {
+    border-color: #7509bd;
+    align-items : center;
+}
+
+.teste {
+    width: 530px;
+}
