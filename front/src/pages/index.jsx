@@ -7,6 +7,7 @@ function HomePage() {
     <>
       <BannerMain />
       <Info />
+      <BannerRanking />
     </>
   );
 }

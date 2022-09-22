@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-const Button = ({ text, isPink }) => {
+const Button = ({ text, isPink = false }) => {
   return (
     <button
       className={

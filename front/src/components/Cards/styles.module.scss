@@ -1,3 +1,25 @@
-.exemplo {
-  border: 2px solid red;
+@import "../../styles/variables.scss";
+
+.list {
+  display: flex;
+  justify-content: space-around;
+  width: 200vw;
+  overflow-x: scroll;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-left: -10%;
+  
+  > li {
+    background-color: $--primary__purple;
+    display: flex;  
+    border-radius: $--border__cards;
+    justify-content: center;
+    width: 690px;
+    margin: 0 5px;
+
+    > img {
+      height: 100%;
+    }
+  }
 }
+
