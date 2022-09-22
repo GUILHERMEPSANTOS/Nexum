@@ -10,7 +10,7 @@ public class User {
     private String cpf;
     private String profissao;
 
-    public User() {
+    public User(String nome, String email, String senha, String userDTOSenha, String cpf, String profissao) {
     }
 
     public User(Long id_usuario, String nome, String email, String senha,

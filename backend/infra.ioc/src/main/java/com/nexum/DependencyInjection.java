@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DependencyInjection {
 
-    
+
     @Bean
     UserServicePort userService(UserRepositoryPort userRepositoryPort){
         return new UserServiceImp(userRepositoryPort);

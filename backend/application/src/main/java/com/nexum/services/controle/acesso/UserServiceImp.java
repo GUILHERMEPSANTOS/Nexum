@@ -30,4 +30,12 @@ public class UserServiceImp implements UserServicePort {
         return users.stream().map(user -> new UserDTO(user)).collect(Collectors.toList());
 
     }
+
+    @Override
+    public void update(UserDTO userDTO) throws DomainExceptionValidation {
+        User user = new User(userDTO.getNome(),userDTO.getEmail(), userDTO.getSenha(),
+                userDTO.getSenha(),userDTO.getCpf(),userDTO.getProfissao());
+
+        userRepositoryPort.update(user);
+    }
 }

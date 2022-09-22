@@ -9,4 +9,6 @@ public interface UserServicePort {
     void create(UserDTO user) throws DomainExceptionValidation;
 
     List<UserDTO> list();
+
+    void update(UserDTO user) throws DomainExceptionValidation;
 }

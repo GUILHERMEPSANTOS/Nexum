@@ -6,6 +6,7 @@ import com.nexum.interfaces.UserRepositoryPort;
 import com.nexum.validation.DomainExceptionValidation;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,4 +36,20 @@ public class UserRepository implements UserRepositoryPort {
             }
         }).collect(Collectors.toList());
     }
+
+    @Override
+    public void update(User user) {
+
+        UserEntity userEntity = new UserEntity(user);
+
+        springUserRepository.save(userEntity);
+    }
+
+    public User findById(Long id) throws DomainExceptionValidation {
+        UserEntity userEntity =  springUserRepository.findById(id).orElseThrow();
+        return userEntity.toUser();
+    }
+
+
+
 }
