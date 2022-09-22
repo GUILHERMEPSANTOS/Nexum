@@ -1,13 +1,12 @@
-import HomePage from "./pages"
-import './styles/globais.scss'
+import HomePage from "./pages";
+import "./styles/globais.scss";
 
 function App() {
-
   return (
-<>
-<HomePage/>
-</>
-  )
+    <>
+      <HomePage />
+    </>
+  );
 }
 
-export default App
+export default App;

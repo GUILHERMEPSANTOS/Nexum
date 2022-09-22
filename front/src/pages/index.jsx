@@ -3,15 +3,12 @@ import BannerRanking from "../components/Banner/BannerRanking/BannerRanking";
 import Info from "../components/Info/Info";
 
 function HomePage() {
-
   return (
     <>
-<BannerMain/>
-<Info/>
-<BannerRanking/>
-</>
-  )
+      <BannerMain />
+      <Info />
+    </>
+  );
 }
 
-export default HomePage
- 
+export default HomePage;

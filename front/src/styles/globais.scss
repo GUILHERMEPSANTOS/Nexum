@@ -1,15 +1,15 @@
-@import '../styles/variables.scss';
+@import "../styles/variables.scss";
 
-* { 
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 62.5%;
-    overflow-x: hidden;
+  font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
-    background-color: $--primary__dark-gray;
+  background-color: $--primary__dark-gray;
 }

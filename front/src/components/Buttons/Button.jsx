@@ -1,13 +1,15 @@
+import styles from "./styles.module.scss";
 
-import styles from './styles.module.scss'
-
-const Button = ({text, isEmpty}) => {
-
-    return( 
-        <button className={isEmpty ? styles.buttonEmptyBackground : styles.buttonFillBackground}>
-            {text}
-        </button>
-    )
-}
+const Button = ({ text, isPink }) => {
+  return (
+    <button
+      className={
+        isPink ? styles.buttonFillBackground : styles.buttonEmptyBackground
+      }
+    >
+      {text}
+    </button>
+  );
+};
 
 export default Button;

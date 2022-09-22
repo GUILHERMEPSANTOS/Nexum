@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=Nexum;encrypt=false;
+    username: root
+    password: '@Planeta2011'
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    show-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.SQLServer2016Dialect
+      ddl-auto: update

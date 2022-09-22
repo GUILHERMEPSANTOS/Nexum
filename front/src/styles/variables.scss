@@ -1,12 +1,12 @@
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Montserrat:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Montserrat:wght@700&display=swap");
 
 //colors
 $black: #000;
 $white: #fff;
 
 //primary
-$--primary__purple: #7509BD;
+
+$--primary__purple: #7509bd;
 $--primary__dark-gray: #101010;
 
 //secundary
@@ -17,7 +17,7 @@ $--title: 4.2rem;
 $--subtitle: 3rem;
 
 //widths
-$--width__content: 80%; 
+$--width__content: 80%;
 $--width__button: 300px;
 
 //border
@@ -34,5 +34,5 @@ $tablet: 1024px;
 $desktop: 1280px;
 
 //fonts
-$--title__font: 'Montserrat', sans-serif;
-$--text__font: 'Montserrat', sans-serif;
+$--title__font: "Montserrat", sans-serif;
+$--text__font: "DM Sans", sans-serif;
