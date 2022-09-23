@@ -45,7 +45,7 @@ public class UserRepository implements UserRepositoryPort {
         springUserRepository.save(userEntity);
     }
 
-    public User findById(Long id) throws DomainExceptionValidation {
+    public User findById(Long id) throws DomainExceptionValidation{
         UserEntity userEntity =  springUserRepository.findById(id).orElseThrow();
         return userEntity.toUser();
     }
