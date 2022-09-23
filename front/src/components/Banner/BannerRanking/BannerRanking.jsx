@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 
 const BannerRanking = () => {
   return (
-    <Banner main={false}>
+    <Banner>
       <section className={styles.container}>
         <div>
           <Title text="Alguns dos Freelancers mais bem avaliados" />
