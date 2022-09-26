@@ -19,7 +19,9 @@ const BannerMain = () => {
           </div>
         </div>
       </div>
-      <CardBanner />
+      <div className={styles.images}>
+        <CardBanner />
+      </div>
     </Banner>
   );
 };
