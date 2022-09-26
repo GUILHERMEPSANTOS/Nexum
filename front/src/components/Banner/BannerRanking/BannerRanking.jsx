@@ -9,16 +9,10 @@ const BannerRanking = () => {
   return (
     <Banner>
       <section className={styles.container}>
-        <div>
-          <Title text="Alguns dos Freelancers mais bem avaliados" />
-        </div>
-
+        <Title text="Alguns dos Freelancers mais bem avaliados" />
         <Cards />
-
-        <div>
-          <Text text="Entre agora mesmo e encontre o Profissional perfeito para o seu projeto" />
-        </div>
-        <Button text="Entrar" />
+        <Text text="Entre agora mesmo e encontre o Profissional perfeito para o seu projeto" />
+        <Button text="Faça seu cadastro" />
       </section>
     </Banner>
   );
