@@ -10,10 +10,7 @@ const BannerMain = () => {
     <Banner main={true}>
       <div className={styles.container}>
         <Title text="Nexum criado para você encontrar a conexão perfeita" />
-        <Text
-          upperCase={false}
-          text="A Nexum conecta pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades"
-        />
+        <Text text="A Nexum conecta pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades" />
         <div>
           <Text upperCase={true} text="crie agora mesmo a sua conta" />
           <div className={styles.buttons}>
@@ -22,7 +19,9 @@ const BannerMain = () => {
           </div>
         </div>
       </div>
-      <CardBanner />
+      <div className={styles.images}>
+        <CardBanner />
+      </div>
     </Banner>
   );
 };

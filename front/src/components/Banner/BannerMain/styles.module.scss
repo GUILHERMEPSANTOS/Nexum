@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 350px;
+  margin: 15% 0;
 }
 
 .buttons {
@@ -15,4 +16,13 @@
   > button {
     margin-right: 2%;
   }
+}
+
+.images {
+  position: absolute;
+  height: 750px;
+  align-self: flex-end;
+  bottom: 10vh;
+  overflow: hidden;
+  right: 10%;
 }
