@@ -1,3 +1,53 @@
-.exemplo {
-  border: 2px solid red;
+@import "../../styles/variables.scss";
+.containerEmpty {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 99;
+
+  .navigation {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    color: $white;
+    padding: 30px;
+    justify-content: space-between;
+
+    > img {
+      height: 85%;
+    }
+
+    > ul {
+      list-style: none;
+      display: flex;
+      font-size: $--text;
+      justify-content: space-evenly;
+      align-items: center;
+
+      > li {
+        margin: 0 40px;
+        cursor: pointer;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-left: 150px;
+      > li:last-of-type {
+        width: 180px;
+      }
+      > li {
+        margin: 0 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.containerFill {
+  @extend .containerEmpty;
+  background-color: $black;
 }

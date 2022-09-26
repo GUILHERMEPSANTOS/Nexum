@@ -1,24 +1,24 @@
-.style {
+@import "../../styles/variables.scss";
+
+.wrapper {
+    width          : 100vw;
+    background: $black;
+    padding-top    : 100px;
+
+.container {
     display        : flex;
     justify-content: space-evenly;
-    width          : 100%;
-    padding-top    : 100px;
-}
+    width          : 80%;
+    margin: 0 auto;
+
+    > img {
+        max-height: 500px;
+    }
 
 .describe {
-    float          : left;
     display        : flex;
     justify-content: space-evenly;
-}
-
-.describe #image {
-    height: 500px;
-}
-
-#about {
-    display        : flex;
-    flex-direction : column;
-    justify-content: space-evenly;
+    flex-direction: column;
     width          : 700px;
     height         : 600px;
 }
@@ -28,6 +28,8 @@
     align-items : center;
 }
 
-.teste {
+.buttons {
     width: 530px;
+}
+}
 }

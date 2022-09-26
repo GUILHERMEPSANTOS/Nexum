@@ -1,3 +1,50 @@
-.exemplo {
-  border: 2px solid red;
+@import "../../styles/variables.scss";
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: $--primary__purple;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+.wrapper {
+  overflow: hidden;
+  width: 100vw;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $--primary__purple;
+  }
+  .list {
+    display: flex;
+    justify-content: space-around;
+    width: 200vw;
+    white-space: nowrap;
+    align-self: flex-start;
+
+    > li {
+      background-color: $--primary__purple;
+      display: flex;
+      border-radius: $--border__cards;
+      justify-content: center;
+      width: 690px;
+      margin: 0 5px;
+
+      > img {
+        height: 100%;
+      }
+    }
+  }
 }
