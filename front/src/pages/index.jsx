@@ -1,4 +1,5 @@
 
+import FooterMain from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import AboutMain from "../components/About/About";
 import BannerMain from "../components/Banner/BannerMain/BannerMain";
@@ -14,7 +15,8 @@ function HomePage() {
       <Info />
       <BannerRanking />
       <AboutMain />
-      <UserMain />
+
+      <FooterMain />
     </>
   );
 }
