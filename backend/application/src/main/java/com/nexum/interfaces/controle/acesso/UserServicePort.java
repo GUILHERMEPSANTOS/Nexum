@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface UserServicePort {
     void create(UserDTO user) throws DomainExceptionValidation;
-
     List<UserDTO> list();
 }

@@ -15,7 +15,6 @@ public class UserServiceImp implements UserServicePort {
     public UserServiceImp(UserRepositoryPort userRepositoryPort) {
         this.userRepositoryPort = userRepositoryPort;
     }
-
     @Override
     public void create(UserDTO userDTO) throws DomainExceptionValidation {
         User user = new User(userDTO.getNome(), userDTO.getEmail(),
@@ -23,7 +22,6 @@ public class UserServiceImp implements UserServicePort {
 
         userRepositoryPort.create(user);
     }
-
     @Override
     public List<UserDTO> list() {
         List<User> users = userRepositoryPort.list();
