@@ -1,0 +1,1 @@
+export const WORDS = ["Nexum","conexão", "Freelancers", "avaliados", "Desenvolvida", "inovador", "rápida", "aprendizado", "Salvar perto", "Curtir perfil", "Passar para o próximo perfil" ]

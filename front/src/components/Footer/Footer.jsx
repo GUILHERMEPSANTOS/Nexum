@@ -1,33 +1,32 @@
-import Banner from "../Banner/Banner";
-import Title from "../Title/Title";
+
 import Text from "../Text/Text";
-import Button from "../Buttons/Button";
-import Styles from "./styles.modules.scss"
+import styles from "./styles.module.scss"
 
 
 
 const FooterMain = () => {
     return (
 
-        <div className="conteiner">
-            <div className="conteinerConteudo">
-                <div className="sobre">
+        <footer className={styles.conteiner}>
+            <div className={styles.wrapper}>
+            <div className={styles.conteinerConteudo}>
+                <div className={styles.sobre}>
                     <p>
                         <Text
-                            text="Sobre"
+                            text="SOBRE"
                         />
                     </p>
                     <ul>
                         <li>A Nexum conecta pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades</li>
                     </ul>
-                    <ul className="membro">
+                    <ul className={styles.membro}>
                         <li>TORNE-SE MEMBRO</li>
                     </ul>
                 </div>
-                <div className="box">
+                <div className={styles.box}>
                     <p>
                         <Text
-                            text="SERVIÇOES"
+                            text="SERVIÇOS"
                         />
                     </p>
                     <ul>
@@ -36,7 +35,7 @@ const FooterMain = () => {
                         <li>Sobre nós</li>
                     </ul>
                 </div>
-                <div className="box">
+                <div className={styles.box}>
                     <p><Text
                         text="AJUDA & SUPORTE"
                     />
@@ -48,13 +47,13 @@ const FooterMain = () => {
                         <li>Reporte Algo</li>
                     </ul>
                 </div>
-                <div className="box">
+                <div className={styles.box}>
                     <p>
                         <Text
                             text="REDES SOCIAIS"
                         />
                     </p>
-                    <ul className="redesSociais">
+                    <ul className={styles.redesSociais}>
                         <li>
                             <img src="assets\imgs\instagram.png" alt="Icon instagram" />
                             Instagram
@@ -71,14 +70,14 @@ const FooterMain = () => {
                 </div>
             </div>
             <hr />
-            <div className="finalFooter">
+            <div className={styles.finalFooter}>
                 <img src="assets\imgs\logo_footer.png" alt="Logo Nexum" />
                 <span>
                     COPYRIGHT © 2022 for NEXUM COMPANY - TODOS OS DIREITOS RESERVADOS
                 </span>
             </div>
-
-        </div>
+            </div>
+        </footer>
     )
 }
 
