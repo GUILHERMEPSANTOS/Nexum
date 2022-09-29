@@ -10,5 +10,5 @@ public interface UserServicePort {
 
     List<UserDTO> list();
 
-    void update(UserDTO user) throws DomainExceptionValidation;
+    void update(Long id_user, UserDTO user) throws DomainExceptionValidation;
 }

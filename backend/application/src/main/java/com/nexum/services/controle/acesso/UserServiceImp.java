@@ -32,10 +32,17 @@ public class UserServiceImp implements UserServicePort {
     }
 
     @Override
-    public void update(UserDTO userDTO) throws DomainExceptionValidation {
-        User user = new User(userDTO.getNome(),userDTO.getEmail(), userDTO.getSenha(),
-                userDTO.getSenha(),userDTO.getCpf(),userDTO.getProfissao());
+    public void update(Long id_user, UserDTO userDTO) throws DomainExceptionValidation {
+        User user = userRepositoryPort.findById(id_user);
+
+        user.update(userDTO.getNome(),
+                userDTO.getSenha(),
+                userDTO.getEmail(),
+                userDTO.getCpf(),
+                userDTO.getProfissao()
+        );
 
         userRepositoryPort.update(user);
     }
+
 }

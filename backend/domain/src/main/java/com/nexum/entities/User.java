@@ -14,19 +14,27 @@ public class User {
     }
 
     public User(Long id_usuario, String nome, String email, String senha,
-                String cpf, String profissao) throws DomainExceptionValidation {
+            String cpf, String profissao) throws DomainExceptionValidation {
 
         DomainExceptionValidation.when(id_usuario < 0, "Invalid ID value");
         this.id_usuario = id_usuario;
     }
 
-    public User(String nome, String email, String senha, String cpf, String profissao) throws DomainExceptionValidation {
+    public User(String nome, String email, String senha, String cpf, String profissao)
+            throws DomainExceptionValidation {
         validateDomain(nome, email, senha, cpf, profissao);
     }
 
+    public void update(String nome, String email, String senha, String cpf, String profissao) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.cpf = cpf;
+        this.profissao = profissao;
+    }
 
     public void validateDomain(String nome, String email, String senha,
-                               String cpf, String profissao) throws DomainExceptionValidation {
+            String cpf, String profissao) throws DomainExceptionValidation {
 
         DomainExceptionValidation.when(nome.length() < 3, "Invalid nome, too short, minimum 3 charecters");
         DomainExceptionValidation.when(nome.isBlank(), "Invalid nome, Name is required");
@@ -42,11 +50,6 @@ public class User {
         this.profissao = profissao;
     }
 
-    public void update(String nome, String email, String senha,
-                       String cpf, String profissao) throws DomainExceptionValidation {
-        validateDomain(nome, email, senha, cpf, profissao);
-    }
-
     public Long getId_usuario() {
         return id_usuario;
     }
@@ -59,8 +62,9 @@ public class User {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public String setNome(String nome) {
         this.nome = nome;
+        return nome;
     }
 
     public String getEmail() {
