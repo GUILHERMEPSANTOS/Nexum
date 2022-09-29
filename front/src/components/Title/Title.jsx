@@ -14,9 +14,9 @@ const Title = ({ text }) => {
       {words.map((item) => {
         const color =
           item == "Nexum" ||
-          item == "conexão" ||
-          item == "Freelancers" ||
-          item == "avaliados"
+            item == "conexão" ||
+            item == "Freelancers" ||
+            item == "avaliados"
             ? "#7509BD"
             : "#fff";
         return <span style={{ color: `${color}` }}>{item + ` `}</span>;
