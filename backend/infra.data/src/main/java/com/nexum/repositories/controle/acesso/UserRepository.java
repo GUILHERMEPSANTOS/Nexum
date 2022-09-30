@@ -1,6 +1,8 @@
 package com.nexum.repositories.controle.acesso;
 
-import com.nexum.entities.User;
+import com.nexum.entities.controle.acesso.ContratanteEntity;
+import com.nexum.entities.controle.acesso.FreelancerEntity;
+import com.nexum.entities.controle.acesso.User;
 import com.nexum.entities.controle.acesso.UserEntity;
 import com.nexum.interfaces.UserRepositoryPort;
 import com.nexum.validation.DomainExceptionValidation;
@@ -18,8 +20,15 @@ public class UserRepository implements UserRepositoryPort {
     }
 
     @Override
-    public void create(User user) {
-        UserEntity userEntity = new UserEntity(user);
+    public void createContratante(User user) {
+        UserEntity userEntity = new ContratanteEntity(user);
+
+        springUserRepository.save(userEntity);
+    }
+
+    @Override
+    public void createFreelancer(User user) {
+        UserEntity userEntity = new FreelancerEntity(user);
 
         springUserRepository.save(userEntity);
     }
