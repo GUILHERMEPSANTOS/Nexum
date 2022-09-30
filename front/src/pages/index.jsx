@@ -11,6 +11,7 @@ function HomePage() {
     <>
       <Header />
       <BannerMain />
+      <SecondSection />
       <Info />
       <BannerRanking />
       <AboutMain />
