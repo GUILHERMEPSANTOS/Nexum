@@ -8,6 +8,7 @@ function HomePage() {
   return (
     <>
       <BannerMain />
+      <SecondSection />
       <Info />
       <AboutMain />
     </>
