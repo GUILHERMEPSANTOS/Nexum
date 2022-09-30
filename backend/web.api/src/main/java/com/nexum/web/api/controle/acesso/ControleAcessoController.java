@@ -28,6 +28,7 @@ public class ControleAcessoController {
 
         return new ResponseEntity("User Created", HttpStatus.OK);
     }
+
     @PostMapping("create-account/freelancer")
     public ResponseEntity createFreelancer(@RequestBody UserDTO userDTO) throws DomainExceptionValidation {
         userServicePort.createFreelancer(userDTO);
