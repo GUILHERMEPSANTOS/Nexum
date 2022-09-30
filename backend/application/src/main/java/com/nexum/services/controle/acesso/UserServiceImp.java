@@ -1,7 +1,9 @@
 package com.nexum.services.controle.acesso;
 
 import com.nexum.dtos.controle.acesso.UserDTO;
-import com.nexum.entities.User;
+import com.nexum.entities.controle.acesso.Contratante;
+import com.nexum.entities.controle.acesso.Freelancer;
+import com.nexum.entities.controle.acesso.User;
 import com.nexum.interfaces.UserRepositoryPort;
 import com.nexum.interfaces.controle.acesso.UserServicePort;
 import com.nexum.validation.DomainExceptionValidation;
@@ -16,12 +18,21 @@ public class UserServiceImp implements UserServicePort {
         this.userRepositoryPort = userRepositoryPort;
     }
     @Override
-    public void create(UserDTO userDTO) throws DomainExceptionValidation {
-        User user = new User(userDTO.getNome(), userDTO.getEmail(),
+    public void createContratante(UserDTO userDTO) throws DomainExceptionValidation {
+        User user = new Contratante(userDTO.getNome(), userDTO.getEmail(),
                 userDTO.getSenha(), userDTO.getCpf(), userDTO.getProfissao());
 
-        userRepositoryPort.create(user);
+        userRepositoryPort.createContratante(user);
     }
+
+    @Override
+    public void createFreelancer(UserDTO userDTO) throws DomainExceptionValidation {
+        User user = new Freelancer(userDTO.getNome(), userDTO.getEmail(),
+                userDTO.getSenha(), userDTO.getCpf(), userDTO.getProfissao());
+
+        userRepositoryPort.createFreelancer(user);
+    }
+
     @Override
     public List<UserDTO> list() {
         List<User> users = userRepositoryPort.list();

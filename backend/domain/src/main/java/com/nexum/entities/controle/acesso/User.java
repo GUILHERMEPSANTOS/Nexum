@@ -1,4 +1,4 @@
-package com.nexum.entities;
+package com.nexum.entities.controle.acesso;
 
 import com.nexum.validation.DomainExceptionValidation;
 

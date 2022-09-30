@@ -1,6 +1,5 @@
 package com.nexum.entities.controle.acesso;
 
-import com.nexum.entities.User;
 import com.nexum.validation.DomainExceptionValidation;
 
 import javax.persistence.*;
@@ -9,7 +8,9 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "tb_users")
-
+@Inheritance(
+        strategy = InheritanceType.JOINED
+)
 public class UserEntity {
     @Id
     @Column(name = "id_usuario")

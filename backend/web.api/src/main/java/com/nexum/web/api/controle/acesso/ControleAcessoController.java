@@ -22,9 +22,15 @@ public class ControleAcessoController {
     }
 
 
-    @PostMapping("create/user")
-    public ResponseEntity createUser(@RequestBody UserDTO userDTO) throws DomainExceptionValidation {
-        userServicePort.create(userDTO);
+    @PostMapping("create-account/contratante")
+    public ResponseEntity createContratante(@RequestBody UserDTO userDTO) throws DomainExceptionValidation {
+        userServicePort.createContratante(userDTO);
+
+        return new ResponseEntity("User Created", HttpStatus.OK);
+    }
+    @PostMapping("create-account/freelancer")
+    public ResponseEntity createFreelancer(@RequestBody UserDTO userDTO) throws DomainExceptionValidation {
+        userServicePort.createFreelancer(userDTO);
 
         return new ResponseEntity("User Created", HttpStatus.OK);
     }
