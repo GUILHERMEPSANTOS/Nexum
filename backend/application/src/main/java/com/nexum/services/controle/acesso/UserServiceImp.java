@@ -4,7 +4,7 @@ import com.nexum.dtos.controle.acesso.UserDTO;
 import com.nexum.entities.controle.acesso.Contratante;
 import com.nexum.entities.controle.acesso.Freelancer;
 import com.nexum.entities.controle.acesso.User;
-import com.nexum.interfaces.UserRepositoryPort;
+import com.nexum.interfaces.controle.acesso.UserRepositoryPort;
 import com.nexum.interfaces.controle.acesso.UserServicePort;
 import com.nexum.validation.DomainExceptionValidation;
 

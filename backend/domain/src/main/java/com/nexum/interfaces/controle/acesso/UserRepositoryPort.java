@@ -1,4 +1,4 @@
-package com.nexum.interfaces;
+package com.nexum.interfaces.controle.acesso;
 
 import com.nexum.entities.controle.acesso.User;
 
