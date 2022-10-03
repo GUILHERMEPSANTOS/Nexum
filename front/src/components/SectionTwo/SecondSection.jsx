@@ -1,47 +1,35 @@
-import Button from "../../Buttons/Button";
-import SecondSection from "./SecondSection";
-import Text from "../../Text/Text";
-import Title from "../../Title/Title";
 import Banner from "../Banner";
 import styles from "./styles.module.scss";
-import { useEffect } from "react";
+import { Component, useEffect } from "react";
+import React  from "react";
+import Slider from 'react-slick'
 
-const SecontSection = () => {
-    var slideIndex = 0;
-    showSlides();
-    
-    function showSlides() {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      setTimeout(showSlides, 8000);
-    }    
+export default class SecondSection extends Component(){
+  render() {
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    }
+  
+    return{
+      <div style={{ marginTop: 100}}>
+        <Slider {...settings}>
+          {[1, 2, 3].map(item, index) => {
+            return (
+              <div key={index}>{item}
+                <h1 style={{ color: "red", fontSize: 100, textAlign: "center"}}>
 
-    useEffect(() => {
-      showSlides()
-    },[showSlides])
-
-  return (
-    <Banner main={true}>
-        <div className={styles.container}>
-            <div className="mySlides fade">
-                <div className="banner"></div>
-                <div className="banner"></div>
-                <div className="banner"></div>
-            </div>
-        </div>
-      <CardBanner />
-    </Banner>
-  );
-};
+                </h1>
+              </div>
+            )
+          }}
+        </Slider>
+      </div>
+    }
+  }
+}    
 
 export default BannerMain;
