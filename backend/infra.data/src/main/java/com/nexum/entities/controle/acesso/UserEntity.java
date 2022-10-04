@@ -57,17 +57,9 @@ public class UserEntity {
         this.senha = user.getSenha();
         this.cpf = user.getCpf();
         this.profissao = user.getProfissao();
-    }
 
-    public UserEntity(Long id_usuario, String nome, String email, String senha,
-                      String cpf, String profissao, Collection<RoleEntity> roles) {
-        this.id_usuario = id_usuario;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.cpf = cpf;
-        this.profissao = profissao;
-        this.roles = roles;
+        userRoleToUserEntityRole(user.getRoles());
+
     }
 
     public Long getId_usuario() {
@@ -128,6 +120,10 @@ public class UserEntity {
 
     public User toUser() throws DomainExceptionValidation {
         return new User(this.id_usuario, this.nome, this.email, this.senha, this.cpf, this.profissao);
+    }
+
+    public void userRoleToUserEntityRole(Collection<Role> rolesDomain){
+        rolesDomain.stream().forEach(roleDomain -> this.roles.add(new RoleEntity(roleDomain)));
     }
 
     public User toUserWithRole() throws DomainExceptionValidation {

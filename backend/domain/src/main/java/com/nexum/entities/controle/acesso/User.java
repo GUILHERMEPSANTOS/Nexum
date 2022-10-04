@@ -3,6 +3,7 @@ package com.nexum.entities.controle.acesso;
 import com.nexum.enums.RoleName;
 import com.nexum.validation.DomainExceptionValidation;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class User {
@@ -12,7 +13,7 @@ public class User {
     private String senha;
     private String cpf;
     private String profissao;
-    private Collection<Role> roles;
+    private Collection<Role> roles = new ArrayList<>();
 
     public User() {
     }

@@ -28,6 +28,12 @@ public class RoleEntity {
         this.roleName = roleName;
     }
 
+
+    public RoleEntity (Role role){
+        this.id_role = role.getId_role();
+        this.roleName = role.getRole();
+    }
+
     public Long getId_role() {
         return id_role;
     }

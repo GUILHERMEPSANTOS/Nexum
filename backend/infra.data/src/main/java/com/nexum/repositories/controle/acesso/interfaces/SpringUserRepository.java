@@ -1,4 +1,4 @@
-package com.nexum.repositories.controle.acesso;
+package com.nexum.repositories.controle.acesso.interfaces;
 
 import com.nexum.entities.controle.acesso.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

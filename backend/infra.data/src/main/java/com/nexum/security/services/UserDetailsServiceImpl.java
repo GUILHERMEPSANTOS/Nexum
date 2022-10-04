@@ -1,7 +1,7 @@
 package com.nexum.security.services;
 
 import com.nexum.entities.controle.acesso.UserEntity;
-import com.nexum.repositories.controle.acesso.SpringUserRepository;
+import com.nexum.repositories.controle.acesso.interfaces.SpringUserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
