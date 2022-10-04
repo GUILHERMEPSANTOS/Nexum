@@ -1,15 +1,16 @@
 package com.nexum.dtos.controle.acesso;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.nexum.entities.User;
+import com.nexum.entities.controle.acesso.User;
 
 public class UserDTO {
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Long id_userDTO;
     private String nome;
 
     private String email;
 
-    @JsonProperty(access = JsonProperty.Access.READ_WRITE)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String senha;
 
     private String cpf;

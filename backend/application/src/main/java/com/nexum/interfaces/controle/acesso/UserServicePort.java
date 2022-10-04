@@ -6,7 +6,7 @@ import com.nexum.validation.DomainExceptionValidation;
 import java.util.List;
 
 public interface UserServicePort {
-    void create(UserDTO user) throws DomainExceptionValidation;
-
+    void createContratante(UserDTO user) throws DomainExceptionValidation;
+    void createFreelancer(UserDTO user) throws DomainExceptionValidation;
     List<UserDTO> list();
 }

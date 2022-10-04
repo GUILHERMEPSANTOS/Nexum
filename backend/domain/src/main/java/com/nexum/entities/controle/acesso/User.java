@@ -1,6 +1,10 @@
-package com.nexum.entities;
+package com.nexum.entities.controle.acesso;
 
+import com.nexum.enums.RoleName;
 import com.nexum.validation.DomainExceptionValidation;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class User {
     private Long id_usuario;
@@ -9,6 +13,7 @@ public class User {
     private String senha;
     private String cpf;
     private String profissao;
+    private Collection<Role> roles = new ArrayList<>();
 
     public User() {
     }
@@ -18,10 +23,21 @@ public class User {
 
         DomainExceptionValidation.when(id_usuario < 0, "Invalid ID value");
         this.id_usuario = id_usuario;
+        validateDomain(nome, email, senha, cpf, profissao);
     }
 
     public User(String nome, String email, String senha, String cpf, String profissao) throws DomainExceptionValidation {
         validateDomain(nome, email, senha, cpf, profissao);
+    }
+
+    public User(Long id_usuario, String nome, String email, String senha,
+                String cpf, String profissao, Collection<Role> roles) throws DomainExceptionValidation {
+
+        DomainExceptionValidation.when(id_usuario < 0, "Invalid ID value");
+        validateDomain(nome, email, senha, cpf, profissao);
+
+        this.id_usuario = id_usuario;
+        this.roles = roles;
     }
 
 
@@ -95,4 +111,11 @@ public class User {
         this.profissao = profissao;
     }
 
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Role role) {
+        this.roles.add(role);
+    }
 }
