@@ -2,17 +2,17 @@
 
 .text {
   color: $white;
-  font-size: $--subtitle;
-  font-family: $--text__font;
+  font-size: $subtitle;
+  font-family: $text-font;
 }
 
-.text__small {
+.text-small {
   @extend .text;
-  font-size: $--text;
+  font-size: $text;
 }
 
 .upperCase {
   @extend .text;
   text-transform: uppercase;
-  font-size: $--text;
+  font-size: $text;
 }
