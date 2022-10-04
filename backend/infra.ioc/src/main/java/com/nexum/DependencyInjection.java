@@ -1,5 +1,6 @@
 package com.nexum;
 
+import com.nexum.interfaces.controle.acesso.RoleRepositoryPort;
 import com.nexum.interfaces.controle.acesso.UserRepositoryPort;
 import com.nexum.interfaces.controle.acesso.UserServicePort;
 import com.nexum.services.controle.acesso.UserServiceImp;
@@ -10,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 public class DependencyInjection {
 
     @Bean
-    UserServicePort userService(UserRepositoryPort userRepositoryPort){
-        return new UserServiceImp(userRepositoryPort);
+    UserServicePort userService(UserRepositoryPort userRepositoryPort, RoleRepositoryPort roleRepositoryPort) {
+        return new UserServiceImp(userRepositoryPort, roleRepositoryPort);
     }
 
 }
