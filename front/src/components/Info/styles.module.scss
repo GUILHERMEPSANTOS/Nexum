@@ -1,7 +1,11 @@
 @import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .wrapper {
   background-color: $black;
+  @include mobile {
+    display: none;
+  }
 }
 .background {
   background-color: $black;
