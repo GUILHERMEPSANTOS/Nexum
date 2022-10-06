@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
-const Title = ({ text }) => {
+const Title = ({ text, isForm }) => {
   const [words, setWords] = useState([]);
 
   useEffect(() => {
-    const teste = text.split(" ");
-    setWords(teste);
+    const setList = text.split(" ");
+    setWords(setList);
   }, []);
 
   return (
     <h1 className={styles.title}>
       {words.map((item) => {
-        const color =
+        const color = isForm ? "#fff" :
           item == "Nexum" ||
           item == "conexão" ||
           item == "Freelancers" ||
