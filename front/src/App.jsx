@@ -9,6 +9,9 @@ function App() {
     case "/cadastro":
       Page = Submit;
       break;
+      case "/login":
+      Page = Submit;
+      break;
     default:
       Page = HomePage;
   }

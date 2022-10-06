@@ -1,11 +1,26 @@
+@import "../../styles/variables.scss";
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
 
 .content {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    width: 25%;
+    height: 200px;
 }
 
 .children {
-    background-color: $white;
+    background-color: $dark-gray;
+    margin: 5% 0;
+    height: 65%;
+    padding: 100px 250px ;
+    border-radius: $border-cards;
 }

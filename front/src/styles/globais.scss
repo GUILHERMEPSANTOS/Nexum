@@ -13,3 +13,14 @@ html {
 body {
   background-color: $dark-gray;
 }
+
+input {
+  background-color: $dark-blue;
+  outline: none;
+  border-radius: $border-input;
+  border: none;
+  width: 100%;
+  padding: 2%;
+  color: $white;
+  font-size: $text;
+}

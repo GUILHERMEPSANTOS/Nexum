@@ -1,22 +1,32 @@
-import Title from "src/components/Title/Title";
-import Form from "../Form";
+import Title from "../../Title/Title";
+import Text from "../../Text/Text";
 import styles from "./styles.module.scss"
+import Button from "../../Buttons/Button";
 
 const Login = () => {
   return (
-    <Form>
-      <Title isForm={true} text="Seja bem vindo"/>
+    <section className={styles.container}>
+      <Title text="Seja bem-vindo"/>
       <Text text="Preecha os campos para continuar"/>
-      <label>Usuário</label>
+      <div className={styles.content}>
+      <label className={styles.labels}>Usuário</label>
       <input/>
-      <label>Senha</label>
+      <label  className={styles.labels}>Senha</label>
       <input/>
-      <div>
-        <input/> <label>Lembrar conta</label>
-        <label>Esqueci a senha</label>
       </div>
-    </Form>
+      <div className={styles.settings}>
+        <div className={styles.remember}>
+        <input type="checkbox" /> 
+        <label  className={styles.labelSetting}>Lembrar conta</label>
+        </div>
+        <label className={styles.labels}>Esqueci a senha</label>
+      </div>
+      <div className={styles.buttons}>
+      <Button text="Entrar"/>
+      <Button  isEmpty={true} text="Criar conta"/>
+      </div>
+      </section>
   );
 };
 
-export default Form;
+export default Login;
