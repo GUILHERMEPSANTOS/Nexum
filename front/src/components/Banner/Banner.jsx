@@ -1,12 +1,12 @@
 import styles from "./styles.module.scss";
 
-const Banner = ({ main, children, form }) => {
+const Banner = ({ isMain, children, isForm }) => {
   return (
     <section
       className={
-        main
+        isMain
           ? styles.backgroundMain
-          : form
+          : isForm
           ? styles.backgroundForm
           : styles.background
       }

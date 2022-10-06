@@ -4,12 +4,16 @@ import styles from "./styles.module.scss"
 
 const Form = ({ children }) => {
   return (
-    <Banner form={true}>
+    <Banner isForm={true}>
       <section className={styles.content}>
       <img src="../../../assets/imgs/company.png" alt="Nexum" />
-        <Title text="Nexum criado para você encontrar a conexão perfeita" />
+        <Title isForm={true} text="Nexum criado para você encontrar a conexão perfeita" />
       </section>
-      <section className={styles.children}>{children}</section>
+      <section className={styles.children}>
+        <form>
+        {children}
+        </form>
+        </section>
     </Banner>
   );
 };

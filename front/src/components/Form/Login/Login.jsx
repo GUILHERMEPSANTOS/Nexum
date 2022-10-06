@@ -5,7 +5,7 @@ import styles from "./styles.module.scss"
 const Login = () => {
   return (
     <Form>
-      <Title text="Seja bem vindo"/>
+      <Title isForm={true} text="Seja bem vindo"/>
       <Text text="Preecha os campos para continuar"/>
       <label>Usuário</label>
       <input/>
