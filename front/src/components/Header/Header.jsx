@@ -18,7 +18,9 @@ const Header = () => {
           <div className={styles.buttons}>
             <li>Entrar</li>
             <li>
-              <Button text="Criar conta" />
+              <a href="/cadastro">
+                <Button text="Criar conta" />
+              </a>
             </li>
           </div>
         </ul>

@@ -18,3 +18,9 @@
   background-image: url(../../../assets/imgs/background.png);
   background-size: cover;
 }
+
+.backgroundForm {
+  @extend .backgroundMain;
+    height: 100vh;
+  
+}

@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 
 const BannerMain = () => {
   return (
-    <Banner main={true}>
+    <Banner isMain={true}>
       <div className={styles.container}>
         <Title text="Nexum criado para você encontrar a conexão perfeita" />
         <Text text="A Nexum conecta pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades" />

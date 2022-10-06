@@ -12,7 +12,9 @@ const BannerRanking = () => {
         <Title text="Alguns dos Freelancers mais bem avaliados" />
         <Cards />
         <Text text="Entre agora mesmo e encontre o Profissional perfeito para o seu projeto" />
+        <div className={styles.buttons}>
         <Button text="Faça seu cadastro" />
+        </div>
       </section>
     </Banner>
   );

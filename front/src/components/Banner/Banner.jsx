@@ -1,8 +1,16 @@
 import styles from "./styles.module.scss";
 
-const Banner = ({ main, children }) => {
+const Banner = ({ isMain, children, isForm }) => {
   return (
-    <section className={main ? styles.backgroundMain : styles.background}>
+    <section
+      className={
+        isMain
+          ? styles.backgroundMain
+          : isForm
+          ? styles.backgroundForm
+          : styles.background
+      }
+    >
       <div className={styles.container}>{children}</div>
     </section>
   );
