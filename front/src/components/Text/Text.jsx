@@ -4,7 +4,7 @@ const Text = ({ text, upperCase, small }) => {
   return (
     <p
       className={
-        upperCase ? styles.upperCase : small ? styles.text__small : styles.text
+        upperCase ? styles.upperCase : small ? styles.text-small : styles.text
       }
     >
       {text}

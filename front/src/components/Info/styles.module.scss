@@ -6,8 +6,8 @@
 .background {
   background-color: $black;
   margin: 0 auto;
-  width: $--width__content;
-  padding: $--padding__buttons;
+  width: $width-content;
+  padding: $padding-buttons;
   display: flex;
   justify-content: space-around;
 
@@ -33,5 +33,5 @@
 }
 
 .line {
-  border-color: $--primary__purple;
+  border-color: $purple;
 }

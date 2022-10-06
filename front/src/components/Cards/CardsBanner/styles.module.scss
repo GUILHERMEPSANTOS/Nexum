@@ -12,10 +12,10 @@
 .card {
   overflow     : hidden;
   position     : relative;
-  border-radius: $--border__images;
+  border-radius: $border-images;
 
   img {
-    border-radius: $--border__images;
+    border-radius: $border-images;
   }
 }
 
