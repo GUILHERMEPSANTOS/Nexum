@@ -6,11 +6,14 @@ import com.nexum.backend.domain.controle.acesso.RoleEntity;
 import com.nexum.backend.domain.controle.acesso.UserEntity;
 import com.nexum.backend.dto.controle.acesso.UserDTO;
 import com.nexum.backend.enums.RoleName;
+import com.nexum.backend.helperFile.CSVhelper;
 import com.nexum.backend.repositories.controle.acesso.SpringRoleRepository;
 import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,4 +54,16 @@ public class UserServiceImp {
         return users.stream().map(user -> new UserDTO(user)).collect(Collectors.toList());
 
     }
+
+
+
+    public ByteArrayInputStream load() {
+        List<UserEntity> userEntitys = springUserRepository.findAll();
+
+        ByteArrayInputStream in = CSVhelper.userToCSV(userEntitys);
+        return in;
+    }
+
+
+
 }
