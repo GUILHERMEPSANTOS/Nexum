@@ -1,10 +1,16 @@
 @import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
 .containerEmpty {
   background-color: transparent;
   position: fixed;
   top: 0;
   width: 100vw;
   z-index: 99;
+
+  @include mobile {
+    display: none;
+  }
 
   .navigation {
     width: 80%;
