@@ -1,21 +1,16 @@
 @import "../../styles/variables.scss";
-
-::-webkit-scrollbar {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: $purple;
-  border-radius: 30px;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
+@import "../../styles/mixins.scss";
 
 .wrapper {
   overflow: hidden;
   width: 100vw;
   overflow-x: scroll;
+
+  @include mobile {
+    > p {
+      font-size: 2.4rem;
+    }
+  }
 
   &::-webkit-scrollbar {
     height: 5px;
@@ -33,6 +28,10 @@
     width: 200vw;
     white-space: nowrap;
     align-self: flex-start;
+    
+    @include mobile {
+      width: 400vw;
+    }
 
     > li {
       background-color: $purple;
@@ -44,6 +43,10 @@
 
       > img {
         height: 100%;
+
+        @include mobile {
+          height: 250px;
+        }
       }
     }
   }

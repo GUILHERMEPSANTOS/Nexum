@@ -1,3 +1,6 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
 .container {
     background-color: #101010;
     height          : 90vh;
@@ -7,11 +10,45 @@
     align-items     : center;
     margin-right    : 100px;
 
+
+    @include mobile {
+        height         : 1400px;
+        display        : flex;
+        flex-direction : column;
+        margin-right   : 0px;
+        justify-content: space-between;
+
+        >p {
+            font-size: 2.4rem;
+        }
+
+    }
 }
 
 .saiba_mais {
-    height          : 50%;
-    width           : 40%;
+    height: 56%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    @include mobile {
+        height         : 600px;
+        width          : 100%;
+        align-items    : flex-start;
+        display        : flex;
+        flex-direction : column;
+        justify-content: space-evenly;
+
+        >p {
+            font-size: 2.4rem;
+        }
+
+        >h1>span {
+            font-size: 2.8rem;
+        }
+    }
+
 }
 
 .box_conta {
@@ -25,10 +62,31 @@
     text-align      : left;
     border-radius   : 10px;
     padding         : 10px 40px 10px 40px;
+
+    @include mobile {
+        padding    : 0px;
+        width      : 70%;
+        height     : 350px;
+        display    : flex;
+        align-items: flex-start;
+
+
+        >h1>span {
+            font-size: 2.8rem;
+        }
+
+    }
 }
 
 .buttons {
-    width           : 90%;
-    align-self      : center;
-    display         : flex;
+    width     : 90%;
+    align-self: center;
+    display   : flex;
+
+    @include mobile {
+        width    : 200px;
+        font-size: 2.4rem;
+
+    }
+
 }

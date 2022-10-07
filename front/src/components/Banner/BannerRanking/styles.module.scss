@@ -1,4 +1,5 @@
-// @import '../../../../styles/variables.scss';
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .container { 
   display: flex;
@@ -8,6 +9,18 @@
   width: 100%;
   height: 90vh;
 
+  @include mobile {
+    > h1 > span {
+      font-size: 4rem;
+      width: 100%;
+      
+    }
+
+    height: 130vh;
+
+    width: 100%;
+  }
+  
   .buttons {
     width: 400px;
   }

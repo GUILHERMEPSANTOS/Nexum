@@ -1,3 +1,5 @@
+@import "../../../styles/mixins.scss";
+
 .container {
   width: 50%;
   display: flex;
@@ -5,6 +7,19 @@
   justify-content: space-between;
   height: 350px;
   margin: 15% 0;
+  
+  @include mobile {
+    width: 100%;
+
+    > h1 > span {
+      font-size: 4rem;
+    }
+
+    > p {
+      font-size: 2.4rem;
+      margin: 20px 0;
+    }
+  }
 }
 
 .buttons {
@@ -25,4 +40,8 @@
   bottom: 10vh;
   overflow: hidden;
   right: 10%;
+
+  @include mobile {
+    display: none;
+  }
 }
