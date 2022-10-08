@@ -6,7 +6,7 @@
   font-family: $text-font;
 }
 
-.text-small {
+.textSmall {
   @extend .text;
   font-size: $text;
 }
