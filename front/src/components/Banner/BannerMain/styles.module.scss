@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 350px;
-  margin: 15% 0;
+  margin: 20% 0;
 
   @include mobile {
     width: 100%;
@@ -39,10 +39,9 @@
 
 .images {
   position: absolute;
-  height: 750px;
+  height: 100%;
   align-self: flex-end;
-  bottom: 10vh;
-  overflow: hidden;
+  top: 20vh;
   right: 10%;
 
   @include mobile {

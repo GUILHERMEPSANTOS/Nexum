@@ -1,46 +1,57 @@
 @import "../../../styles/variables.scss";
 
 .container {
-    > h1 > span {
-        color: $purple !important;
-    }
+  > h1 > span {
+    color: $purple !important;
+  }
 }
 
 .labels {
-    color: $white;
-    font-size: $text;
+  color: $white;
+  font-size: $text;
 }
 
 .content {
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-top: 10%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 10%;
 }
 
 .settings {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .buttons {
-    width: 100%;
-    margin-top: 20%;
-    display: flex;
-    justify-content: space-between;
-    height: 100px;
-    flex-direction: column;
+  width: 100%;
+  margin-top: 20%;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  flex-direction: column;
 }
 
 .labelSetting {
-    @extend .labels; 
-    width: 300px;
+  @extend .labels;
+  width: 300px;
 }
 
 .remember {
-    display: flex;
-    width: 50%;
+  display: flex;
+  width: 50%;
+}
+.password {
+  display: flex;
+  position: relative;
+  width: 104%;
+
+  > img {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+  }
 }

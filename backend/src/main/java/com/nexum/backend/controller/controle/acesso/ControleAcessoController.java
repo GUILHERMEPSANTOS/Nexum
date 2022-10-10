@@ -1,11 +1,20 @@
 package com.nexum.backend.controller.controle.acesso;
 
+import com.nexum.backend.domain.controle.acesso.UserEntity;
 import com.nexum.backend.dto.controle.acesso.UserDTO;
+import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
 import com.nexum.backend.services.controle.acesso.UserServiceImp;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -13,9 +22,11 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ControleAcessoController {
     private final UserServiceImp userServicePort;
+    private final SpringUserRepository userRepository;
 
-    public ControleAcessoController(UserServiceImp userServicePort) {
+    public ControleAcessoController(UserServiceImp userServicePort, SpringUserRepository userRepository) {
         this.userServicePort = userServicePort;
+        this.userRepository = userRepository;
     }
 
     @GetMapping
@@ -35,5 +46,36 @@ public class ControleAcessoController {
 
         return new ResponseEntity("User Created", HttpStatus.OK);
     }
+
+    @Autowired
+    UserServiceImp fileService;
+
+    @PreAuthorize("hasRole('ROLE_CONTRATANTE')")
+    @GetMapping("/download")
+    public ResponseEntity<Resource> getFile() {
+        String filename = "list-Users.csv";
+        InputStreamResource file = new InputStreamResource(fileService.load());
+
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
+                .contentType(MediaType.parseMediaType("application/csv"))
+                .body(file);
+
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity update(@PathVariable("id") long id,
+                                 @RequestBody UserDTO userDTO) {
+        return userRepository.findById(id)
+                .map(userEntity -> {
+                    userEntity.setNome(userDTO.getNome());
+                    userEntity.setEmail(userDTO.getEmail());
+                    userEntity.setProfissao(userDTO.getProfissao());
+                    userEntity.setCpf(userDTO.getCpf());
+                    UserEntity updated = userRepository.save(userEntity);
+                    return ResponseEntity.ok().body(updated);
+                }).orElse(ResponseEntity.notFound().build());
+    }
+
 
 }

@@ -5,13 +5,13 @@
 }
 
 .container {
-  height  : 90vh;
+  height: 110vh;
   overflow: hidden;
 }
 
 .card {
-  overflow     : hidden;
-  position     : relative;
+  overflow: hidden;
+  position: relative;
   border-radius: $border-images;
 
   img {
@@ -20,11 +20,11 @@
 }
 
 .card__animation {
-  animation: animate 60s linear infinite;
+  animation: animate 120s linear infinite;
 
   @keyframes animate {
     100% {
       transform: translateY(-100%);
     }
-}
+  }
 }
