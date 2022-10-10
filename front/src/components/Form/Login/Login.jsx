@@ -13,38 +13,43 @@ const Login = () => {
     <section className={styles.container}>
       <Title text="Seja bem-vindo" />
       <Text text="Preecha os campos para continuar" />
-      <div className={styles.content}>
-        <label className={styles.labels}>Usuário</label>
-        <input value={user} onChange={({ target }) => setUser(target.value)} />
-        <label className={styles.labels}>Senha</label>
-        <div className={styles.password}>
+      <form method="GET">
+        <div className={styles.content}>
+          <label className={styles.labels}>Usuário</label>
           <input
-            type={type}
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
+            value={user}
+            onChange={({ target }) => setUser(target.value)}
           />
-          <img
-            onClick={() =>
-              type == "text" ? setType("password") : setType("text")
-            }
-            src={`../../../../assets/icons/${
-              type == "text" ? "unsee" : "see"
-            }.svg`}
-            alt="ver senha"
-          />
+          <label className={styles.labels}>Senha</label>
+          <div className={styles.password}>
+            <input
+              type={type}
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
+            />
+            <img
+              onClick={() =>
+                type == "text" ? setType("password") : setType("text")
+              }
+              src={`../../../../assets/icons/${
+                type == "text" ? "unsee" : "see"
+              }.svg`}
+              alt="ver senha"
+            />
+          </div>
         </div>
-      </div>
-      <div className={styles.settings}>
-        <div className={styles.remember}>
-          <input type="checkbox" />
-          <label className={styles.labelSetting}>Lembrar conta</label>
+        <div className={styles.settings}>
+          <div className={styles.remember}>
+            <input type="checkbox" />
+            <label className={styles.labelSetting}>Lembrar conta</label>
+          </div>
+          <label className={styles.labels}>Esqueci a senha</label>
         </div>
-        <label className={styles.labels}>Esqueci a senha</label>
-      </div>
-      <div className={styles.buttons}>
-        <Button text="Entrar" />
-        <Button isEmpty={true} text="Criar conta" />
-      </div>
+        <div className={styles.buttons}>
+          <Button type="submit" text="Entrar" />
+          <Button isEmpty={true} text="Criar conta" />
+        </div>
+      </form>
     </section>
   );
 };

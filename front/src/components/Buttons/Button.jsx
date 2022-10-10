@@ -1,8 +1,9 @@
 import styles from "./styles.module.scss";
 
-const Button = ({ text, isEmpty }) => {
+const Button = ({ text, isEmpty, type }) => {
   return (
     <button
+      type={type}
       className={
         isEmpty ? styles.buttonEmptyBackground : styles.buttonFillBackground
       }
