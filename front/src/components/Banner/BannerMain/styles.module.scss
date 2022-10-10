@@ -7,7 +7,7 @@
   justify-content: space-between;
   height: 350px;
   margin: 15% 0;
-  
+
   @include mobile {
     width: 100%;
 
@@ -27,6 +27,10 @@
   justify-content: space-between;
   width: 85%;
   margin-top: 10px;
+
+  > div {
+    width: 45%;
+  }
 
   > button {
     margin-right: 2%;
