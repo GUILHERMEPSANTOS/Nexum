@@ -75,8 +75,6 @@
 
 .buttons {
   width: 90%;
-  align-self: center;
-  display: flex;
 
   @include mobile {
     width: 200px;
