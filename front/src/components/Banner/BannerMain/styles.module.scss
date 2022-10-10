@@ -8,6 +8,10 @@
   height: 350px;
   margin: 20% 0;
 
+  @include tablet {
+    width: 55%;
+  }
+
   @include mobile {
     width: 100%;
 
@@ -27,6 +31,10 @@
   justify-content: space-between;
   width: 85%;
   margin-top: 10px;
+
+  > div {
+    width: 45%;
+  }
 
   > button {
     margin-right: 2%;

@@ -45,10 +45,10 @@ const Login = () => {
           </div>
           <label className={styles.labels}>Esqueci a senha</label>
         </div>
-        <div className={styles.buttons}>
-          <Button type="submit" text="Entrar" />
-          <Button isEmpty={true} text="Criar conta" />
-        </div>
+      <div className={styles.buttons}>
+        <Button type="submit" text="Entrar" />
+        <Button link={"/cadastro"} isEmpty={true} text="Criar conta" />
+      </div>
       </form>
     </section>
   );

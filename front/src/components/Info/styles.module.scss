@@ -15,8 +15,22 @@
   display: flex;
   justify-content: space-around;
 
-  img {
+  @include tablet {
+    > div > p {
+      font-size: 2rem;
+    }
+    > div > div > h1 > span {
+      font-size: 2.5rem;
+    }
+    width: 90%;
+  }
+
+  > img {
     width: 8%;
+    @include tablet {
+      width: 10%;
+      margin-right: 10px;
+    }
   }
 }
 
@@ -38,4 +52,7 @@
 
 .line {
   border-color: $purple;
+  @include tablet {
+    margin: 10px;
+  }
 }

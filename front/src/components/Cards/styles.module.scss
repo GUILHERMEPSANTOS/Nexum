@@ -28,7 +28,7 @@
     width: 200vw;
     white-space: nowrap;
     align-self: flex-start;
-    
+
     @include mobile {
       width: 400vw;
     }
@@ -43,6 +43,10 @@
 
       > img {
         height: 100%;
+
+        @include tablet {
+          height: 250px;
+        }
 
         @include mobile {
           height: 250px;

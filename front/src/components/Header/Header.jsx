@@ -1,5 +1,6 @@
-import Button from "../Buttons/Button";
 import useChange from "./hooks";
+import Button from "../Buttons/Button";
+import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 const Header = () => {
@@ -16,11 +17,11 @@ const Header = () => {
           <li>Contratante</li>
           <li>Contato</li>
           <div className={styles.buttons}>
-            <li>Entrar</li>
             <li>
-              <a href="/cadastro">
-                <Button text="Criar conta" />
-              </a>
+              <Link to="/login"> Entrar</Link>
+            </li>
+            <li>
+              <Button link="/cadastro" text="Criar conta" />
             </li>
           </div>
         </ul>

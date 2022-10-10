@@ -14,8 +14,12 @@ const BannerMain = () => {
         <div>
           <Text upperCase={true} text="crie agora mesmo a sua conta" />
           <div className={styles.buttons}>
-            <Button text="Freelancer" />
-            <Button isEmpty={true} text="Contratante" />
+            <div>
+              <Button link="/cadastro" text="Freelancer" />
+            </div>
+            <div>
+              <Button link="/cadastro" isEmpty={true} text="Contratante" />
+            </div>
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 @import "../../styles/variables.scss";
 @import "../../styles/mixins.scss";
 
-
 .background {
   width: 100vw;
   height: 90vh;
@@ -19,11 +18,14 @@
   @extend .background;
   background-image: url(../../../assets/imgs/background.png);
   background-size: cover;
-  height: 130vh
+  height: 130vh;
+
+  @include mobile {
+    height: 90vh;
+  }
 }
 
 .backgroundForm {
   @extend .backgroundMain;
-    height: 100vh;
-  
+  height: 100vh;
 }

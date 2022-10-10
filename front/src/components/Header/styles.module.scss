@@ -12,6 +12,10 @@
     display: none;
   }
 
+  @include tablet {
+    display: none;
+  }
+
   .navigation {
     width: 80%;
     display: flex;
@@ -19,7 +23,6 @@
     color: $white;
     padding: 30px;
     justify-content: space-between;
-
     > img {
       height: 85%;
     }
@@ -34,6 +37,12 @@
       > li {
         margin: 0 40px;
         cursor: pointer;
+
+        @include desktop {
+          width: 90px;
+          margin: 0 20px;
+          text-align: center;
+        }
       }
     }
 
@@ -42,12 +51,22 @@
       justify-content: space-around;
       align-items: center;
       margin-left: 150px;
+
+      @include desktop {
+        margin-left: 30px;
+      }
+
       > li:last-of-type {
         width: 180px;
       }
       > li {
         margin: 0 10px;
         cursor: pointer;
+
+        > a {
+          color: white;
+          text-decoration: none;
+        }
       }
     }
   }
