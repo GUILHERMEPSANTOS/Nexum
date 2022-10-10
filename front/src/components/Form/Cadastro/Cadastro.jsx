@@ -40,7 +40,9 @@ const Cadastro = () => {
           />
           <img
             onClick={() =>
-              passwordType == "text" ? setType("password") : setType("text")
+              passwordType == "text"
+                ? setPasswordType("password")
+                : setPasswordType("text")
             }
             src={`../../../../assets/icons/${
               passwordType == "text" ? "unsee" : "see"
