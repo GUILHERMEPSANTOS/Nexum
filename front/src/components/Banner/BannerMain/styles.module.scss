@@ -8,6 +8,10 @@
   height: 350px;
   margin: 20% 0;
 
+  @include tablet {
+    width: 55%;
+  }
+
   @include mobile {
     width: 100%;
 
