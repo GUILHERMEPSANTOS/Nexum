@@ -1,69 +1,79 @@
 @import "../../styles/variables.scss";
 @import "../../styles/mixins.scss";
 
-
 .wrapper {
-    width          : 100vw;
-    background: $black;
-    padding-top    : 100px;
+  width: 100vw;
+  background: $black;
+  padding-top: 100px;
 
-    
-    .container {
-        display        : flex;
-        justify-content: space-evenly;
-        width          : 80%;
-        margin: 0 auto;
-        
-        > img {
-            max-height: 500px;
-
-            @include mobile {
-                width: 115.75px;
-            }
-        }
-        @include mobile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-            margin-bottom: 100px;
-            margin-top: 150px;
-
-            
-        }
-
-.describe {
-    display        : flex;
+  .container {
+    display: flex;
     justify-content: space-evenly;
-    flex-direction: column;
-    width          : 700px;
-    height         : 600px;
+    width: 80%;
+    margin: 0 auto;
 
+    > img {
+      max-height: 500px;
+
+      @include tablet {
+        height: 300px;
+        align-self: center;
+      }
+
+      @include mobile {
+        width: 115.75px;
+      }
+    }
     @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-bottom: 100px;
+      margin-top: 150px;
+    }
+
+    .describe {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      width: 700px;
+      height: 600px;
+
+      @include mobile {
         max-width: 400px;
         margin-left: 20px;
 
         > p {
-            font-size: 2.4rem;
+          font-size: 2.4rem;
         }
+      }
+      @include tablet {
+        > p {
+          font-size: 2.4rem;
+        }
+      }
     }
-}
 
-.hr {
-    border-color: #7509bd;
-    align-items : center;
+    .hr {
+      border-color: #7509bd;
+      align-items: center;
 
-    @include mobile {
+      @include mobile {
         display: none;
+      }
+
+      @include tablet {
+        margin: 0 15px;
+      }
     }
-}
 
-.buttons {
-    width: 530px;
+    .buttons {
+      width: 530px;
 
-    @include mobile {
+      @include mobile {
         width: 300px;
+      }
     }
-}
-}
+  }
 }
