@@ -40,6 +40,10 @@ public class UserEntity {
     @NotEmpty(message = "Profissao is required")
     private String profissao;
 
+
+    @Column
+    private Boolean isLogged = false;
+
     @ManyToMany
     @JoinTable(name = "TB_USERS_ROLES",
             joinColumns = @JoinColumn(name = "id_usuario"),
@@ -109,6 +113,14 @@ public class UserEntity {
 
     public Collection<RoleEntity> getRoles() {
         return roles;
+    }
+
+    public Boolean getLogged() {
+        return isLogged;
+    }
+
+    public void setLogged(Boolean logged) {
+        isLogged = logged;
     }
 
     public void setRoles(RoleEntity role) {

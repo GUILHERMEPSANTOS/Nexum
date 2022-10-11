@@ -17,6 +17,16 @@ public class UserDTO {
 
     private String profissao;
 
+    private Boolean isLogged;
+
+    public Boolean getLogged() {
+        return isLogged;
+    }
+
+    public void setLogged(Boolean logged) {
+        isLogged = logged;
+    }
+
     public UserDTO() {
     }
 
@@ -35,6 +45,7 @@ public class UserDTO {
         this.senha = user.getSenha();
         this.cpf = user.getCpf();
         this.profissao = user.getProfissao();
+        this.isLogged = user.getLogged();
     }
 
     public String getNome() {
