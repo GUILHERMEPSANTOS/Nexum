@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/controle-acesso")
+@CrossOrigin(origins = "*")
 public class ControleAcessoController {
     private final UserServiceImp userServicePort;
     private final SpringUserRepository userRepository;
@@ -66,7 +67,6 @@ public class ControleAcessoController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
                 .contentType(MediaType.parseMediaType("application/csv"))
                 .body(file);
-
     }
 
     @PutMapping("/update/{id}")
