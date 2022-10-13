@@ -47,7 +47,7 @@ public class ControleAcessoController {
 
     @PostMapping("sign-in")
     public ResponseEntity<UserDTO> SignIn(@RequestBody UserSignInDTO userSignInDTO) {
-        UserDTO userDTO = userServicePort.SignIn(userSignInDTO);
+        UserDTO userDTO = userServicePort.signIn(userSignInDTO);
 
         if (userDTO == null) {
             return ResponseEntity.status(400).build();
@@ -58,7 +58,7 @@ public class ControleAcessoController {
 
     @GetMapping("/download")
     public ResponseEntity<Resource> getFile() {
-        String filename = "list-Users.csv";
+        String filename = "list-Users.txt";
         InputStreamResource file = new InputStreamResource(userServicePort.load());
 
 
