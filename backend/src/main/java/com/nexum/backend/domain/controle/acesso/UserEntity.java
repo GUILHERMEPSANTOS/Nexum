@@ -38,7 +38,7 @@ public class UserEntity {
 
     @Column
     @NotEmpty(message = "Profissao is required")
-    private String profissao;
+    private String numero;
 
 
     @Column
@@ -59,7 +59,7 @@ public class UserEntity {
         this.email = userDTO.getEmail();
         this.senha = userDTO.getSenha();
         this.cpf = userDTO.getCpf();
-        this.profissao = userDTO.getProfissao();
+        this.numero = userDTO.getNumero();
 
     }
 
@@ -103,12 +103,12 @@ public class UserEntity {
         this.cpf = cpf;
     }
 
-    public String getProfissao() {
-        return profissao;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setProfissao(String profissao) {
-        this.profissao = profissao;
+    public void setNumero(String profissao) {
+        this.numero = numero;
     }
 
     public Collection<RoleEntity> getRoles() {

@@ -21,7 +21,7 @@ public class CSVhelper {
                         userEntity.getNome(),
                         userEntity.getSenha(),
                         userEntity.getCpf(),
-                        userEntity.getProfissao(),
+                        userEntity.getNumero(),
                         userEntity.getEmail()
                 );
 

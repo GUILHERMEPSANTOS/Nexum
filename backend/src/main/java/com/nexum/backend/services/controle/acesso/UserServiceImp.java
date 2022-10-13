@@ -8,6 +8,7 @@ import com.nexum.backend.dto.controle.acesso.UserDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
 import com.nexum.backend.enums.RoleName;
 import com.nexum.backend.helperFile.CSVhelper;
+import com.nexum.backend.helperFile.TXThelper;
 import com.nexum.backend.repositories.controle.acesso.SpringRoleRepository;
 import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
 import org.springframework.stereotype.Service;
@@ -72,6 +73,5 @@ public class UserServiceImp {
         ByteArrayInputStream in = CSVhelper.userToCSV(userEntitys);
         return in;
     }
-
 
 }

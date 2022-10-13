@@ -45,6 +45,7 @@ public class ControleAcessoController {
     }
 
 
+
     @PostMapping("sign-in")
     public ResponseEntity<UserDTO> SignIn(@RequestBody UserSignInDTO userSignInDTO) {
         UserDTO userDTO = userServicePort.signIn(userSignInDTO);
@@ -56,9 +57,9 @@ public class ControleAcessoController {
         }
     }
 
-    @GetMapping("/download")
-    public ResponseEntity<Resource> getFile() {
-        String filename = "list-Users.txt";
+    @GetMapping("/downloadCSV")
+    public ResponseEntity<Resource> getFileCSV() {
+        String filename = "list-Users.csv";
         InputStreamResource file = new InputStreamResource(userServicePort.load());
 
 
@@ -69,6 +70,7 @@ public class ControleAcessoController {
 
     }
 
+
     @PutMapping("/update/{id}")
     public ResponseEntity update(@PathVariable("id") long id,
                                  @RequestBody UserDTO userDTO) {
@@ -76,7 +78,7 @@ public class ControleAcessoController {
                 .map(userEntity -> {
                     userEntity.setNome(userDTO.getNome());
                     userEntity.setEmail(userDTO.getEmail());
-                    userEntity.setProfissao(userDTO.getProfissao());
+                    userEntity.setNumero(userDTO.getNumero());
                     userEntity.setCpf(userDTO.getCpf());
                     UserEntity updated = userRepository.save(userEntity);
                     return ResponseEntity.ok().body(updated);

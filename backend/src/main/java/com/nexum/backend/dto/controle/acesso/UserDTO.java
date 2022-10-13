@@ -15,7 +15,7 @@ public class UserDTO {
 
     private String cpf;
 
-    private String profissao;
+    private String numero;
 
     private Boolean isLogged;
 
@@ -30,12 +30,12 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(String nome, String email, String senha, String cpf, String profissao) {
+    public UserDTO(String nome, String email, String senha, String cpf, String numero) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.cpf = cpf;
-        this.profissao = profissao;
+        this.numero = numero;
     }
 
 
@@ -44,7 +44,7 @@ public class UserDTO {
         this.email = user.getEmail();
         this.senha = user.getSenha();
         this.cpf = user.getCpf();
-        this.profissao = user.getProfissao();
+        this.numero = user.getNumero();
         this.isLogged = user.getLogged();
     }
 
@@ -80,11 +80,11 @@ public class UserDTO {
         this.cpf = cpf;
     }
 
-    public String getProfissao() {
-        return profissao;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setProfissao(String profissao) {
-        this.profissao = profissao;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 }
