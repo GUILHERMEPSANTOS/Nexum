@@ -11,11 +11,21 @@ const Header = () => {
       <nav className={styles.navigation}>
         <img src="../../../assets/imgs/company.png" alt="Nexum" />
         <ul>
-          <li>Início</li>
-          <li>Sobre nós</li>
-          <li>Freelancer</li>
-          <li>Contratante</li>
-          <li>Contato</li>
+          <li>
+            Início<div></div>
+          </li>
+          <li>
+            Sobre nós<div></div>
+          </li>
+          <li>
+            Freelancer<div></div>
+          </li>
+          <li>
+            Contratante<div></div>
+          </li>
+          <li>
+            Contato<div></div>
+          </li>
           <div className={styles.buttons}>
             <li>
               <Link to="/login"> Entrar</Link>

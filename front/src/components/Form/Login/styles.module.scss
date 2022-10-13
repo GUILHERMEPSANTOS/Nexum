@@ -1,8 +1,19 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .container {
   > h1 > span {
     color: $purple !important;
+  }
+  @include mobile {
+    > h1 > span {
+      font-size: 3rem;
+    }
+
+    > p {
+      font-size: 2.4rem;
+    }
+    width: 320px;
   }
 }
 
@@ -42,6 +53,11 @@
 .remember {
   display: flex;
   width: 50%;
+
+  > input {
+    width: 30px;
+    margin-right: 10px;
+  }
 }
 .password {
   display: flex;

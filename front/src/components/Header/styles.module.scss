@@ -17,7 +17,7 @@
   }
 
   .navigation {
-    width: 80%;
+    width: 90%;
     display: flex;
     margin: 0 auto;
     color: $white;
@@ -37,9 +37,26 @@
       > li {
         margin: 0 40px;
         cursor: pointer;
+        width: 90px;
+
+        &:hover {
+          > div {
+            height: 4px;
+            animation: border 0.8s linear 1 forwards;
+            background-color: $purple;
+          }
+          @keyframes border {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+        }
 
         @include desktop {
-          width: 90px;
+          width: 100px;
           margin: 0 20px;
           text-align: center;
         }
@@ -50,7 +67,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-left: 150px;
+      margin-left: 80px;
 
       @include desktop {
         margin-left: 30px;
