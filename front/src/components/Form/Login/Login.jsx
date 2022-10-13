@@ -3,6 +3,7 @@ import Text from "../../Text/Text";
 import styles from "./styles.module.scss";
 import Button from "../../Buttons/Button";
 import { useState } from "react";
+import { APILogin } from "src/services";
 
 const Login = () => {
   const [user, setUser] = useState();
@@ -14,6 +15,7 @@ const Login = () => {
       <Title text="Seja bem-vindo" />
       <Text text="Preecha os campos para continuar" />
       <form method="GET">
+        <APILogin email={user} senha={password} />
         <div className={styles.content}>
           <label className={styles.labels}>Usuário</label>
           <input

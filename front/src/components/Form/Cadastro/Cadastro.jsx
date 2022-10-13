@@ -4,6 +4,7 @@ import Text from "../../Text/Text";
 
 import styles from "./styles.module.scss";
 import { useState } from "react";
+import { APICadastro } from "src/services";
 
 const Cadastro = () => {
   const [user, setUser] = useState();
@@ -19,6 +20,12 @@ const Cadastro = () => {
       <Title text="Crie uma conta" />
       <Text text="Realize o cadastro para se conectar" />
       <form method="POST">
+        <APICadastro
+          email={email}
+          senha={password}
+          celular={cellphone}
+          nome={user}
+        />
         <div className={styles.content}>
           <label className={styles.labels}>Usuário</label>
           <input
