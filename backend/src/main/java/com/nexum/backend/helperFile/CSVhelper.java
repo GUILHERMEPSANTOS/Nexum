@@ -20,8 +20,7 @@ public class CSVhelper {
                 List<String> data = Arrays.asList(
                         userEntity.getNome(),
                         userEntity.getSenha(),
-                        userEntity.getCpf(),
-                        userEntity.getNumero(),
+                        userEntity.getCelular(),
                         userEntity.getEmail()
                 );
 

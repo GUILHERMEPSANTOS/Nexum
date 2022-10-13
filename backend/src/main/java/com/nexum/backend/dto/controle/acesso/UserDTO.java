@@ -13,9 +13,7 @@ public class UserDTO {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String senha;
 
-    private String cpf;
-
-    private String numero;
+    private String celular;
 
     private Boolean isLogged;
 
@@ -30,12 +28,11 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(String nome, String email, String senha, String cpf, String numero) {
+    public UserDTO(String nome, String email, String senha, String cpf, String celular) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.cpf = cpf;
-        this.numero = numero;
+        this.celular = celular;
     }
 
 
@@ -43,8 +40,7 @@ public class UserDTO {
         this.nome = user.getNome();
         this.email = user.getEmail();
         this.senha = user.getSenha();
-        this.cpf = user.getCpf();
-        this.numero = user.getNumero();
+        this.celular = user.getCelular();
         this.isLogged = user.getLogged();
     }
 
@@ -72,19 +68,11 @@ public class UserDTO {
         this.senha = senha;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 }
