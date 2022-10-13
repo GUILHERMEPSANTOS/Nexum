@@ -1,5 +1,7 @@
 import styles from "./styles.module.scss";
 import { ITEMS } from "./Constants";
+import Title from "../Title/Title";
+import Text from "../Text/Text";
 
 const Cards = () => {
   return (
@@ -8,11 +10,10 @@ const Cards = () => {
         {ITEMS.map((item, i) => (
           <li key={`item-${i}`}>
             <img src={`../../../assets/imgs/person-${i + 1}.png`} />
-            {/* <div>
-              <h2>{item.name}</h2>
-              <h3>{item.profession}</h3>
-              <p>{item.description}</p>
-            </div> */}
+            <div className={styles.info}>
+              <Title text={item.name} />
+              <Text text={item.profession} />
+            </div>
           </li>
         ))}
       </ul>

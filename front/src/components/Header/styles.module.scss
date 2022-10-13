@@ -39,6 +39,22 @@
         cursor: pointer;
         width: 90px;
 
+        &:hover {
+          > div {
+            height: 4px;
+            animation: border 0.8s linear 1 forwards;
+            background-color: $purple;
+          }
+          @keyframes border {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+        }
+
         @include desktop {
           width: 100px;
           margin: 0 20px;
