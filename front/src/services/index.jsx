@@ -1,5 +1,6 @@
+import axios from "axios";
+
 export const APILogin = ({ email, senha }) => {
-  const axios = require("axios");
   axios
     .get("https://localhost/8080/login", {
       email: { email },
@@ -9,7 +10,6 @@ export const APILogin = ({ email, senha }) => {
     .catch((err) => console.log(err));
 };
 export const APICadastro = ({ email, senha, nome, cellphone }) => {
-  const axios = require("axios");
   axios
     .post("https://localhost/8080/cadastro", {
       email: { email },
