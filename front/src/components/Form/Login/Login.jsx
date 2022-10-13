@@ -47,7 +47,7 @@ const Login = () => {
         </div>
         <div className={styles.buttons}>
           <Button type="submit" text="Entrar" />
-          <Button link="/cadastro" isEmpty={true} text="Criar conta" />
+          <Button link={"/cadastro"} isEmpty={true} text="Criar conta" />
         </div>
       </form>
     </section>

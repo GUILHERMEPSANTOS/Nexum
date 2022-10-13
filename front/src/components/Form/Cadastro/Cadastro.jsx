@@ -72,6 +72,7 @@ const Cadastro = () => {
             />
           </div>
         </div>
+
         <div className={styles.buttons}>
           <Button type="submit" text="Entrar" />
           <Button link="/login" isEmpty={true} text="Já possui uma conta?" />
