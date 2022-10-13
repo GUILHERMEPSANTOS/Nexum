@@ -2,24 +2,20 @@ package com.nexum.backend.controller.controle.acesso;
 
 import com.nexum.backend.domain.controle.acesso.UserEntity;
 import com.nexum.backend.dto.controle.acesso.UserDTO;
+import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
 import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
 import com.nexum.backend.services.controle.acesso.UserServiceImp;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/controle-acesso")
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class ControleAcessoController {
     private final UserServiceImp userServicePort;
     private final SpringUserRepository userRepository;
@@ -30,7 +26,7 @@ public class ControleAcessoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserDTO>> lits(){
+    public ResponseEntity<List<UserDTO>> lits() {
         return ResponseEntity.ok().body(userServicePort.list());
     }
 
@@ -40,6 +36,7 @@ public class ControleAcessoController {
 
         return new ResponseEntity("User Created", HttpStatus.OK);
     }
+
     @PostMapping("create-account/freelancer")
     public ResponseEntity createFreelancer(@RequestBody UserDTO userDTO) {
         userServicePort.createFreelancer(userDTO);
@@ -47,14 +44,22 @@ public class ControleAcessoController {
         return new ResponseEntity("User Created", HttpStatus.OK);
     }
 
-    @Autowired
-    UserServiceImp fileService;
 
-    @PreAuthorize("hasRole('ROLE_CONTRATANTE')")
+    @PostMapping("sign-in")
+    public ResponseEntity<UserDTO> SignIn(@RequestBody UserSignInDTO userSignInDTO) {
+        UserDTO userDTO = userServicePort.signIn(userSignInDTO);
+
+        if (userDTO == null) {
+            return ResponseEntity.status(400).build();
+        } else {
+            return ResponseEntity.status(200).body(userDTO);
+        }
+    }
+
     @GetMapping("/download")
     public ResponseEntity<Resource> getFile() {
-        String filename = "list-Users.csv";
-        InputStreamResource file = new InputStreamResource(fileService.load());
+        String filename = "list-Users.txt";
+        InputStreamResource file = new InputStreamResource(userServicePort.load());
 
 
         return ResponseEntity.ok()
@@ -63,6 +68,7 @@ public class ControleAcessoController {
                 .body(file);
 
     }
+
     @PutMapping("/update/{id}")
     public ResponseEntity update(@PathVariable("id") long id,
                                  @RequestBody UserDTO userDTO) {
