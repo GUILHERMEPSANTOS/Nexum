@@ -3,12 +3,12 @@ import Title from "../../Title/Title";
 import Text from "../../Text/Text";
 
 import styles from "./styles.module.scss";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { APICadastro } from "../../../services";
 
 const Cadastro = () => {
   const [user, setUser] = useState();
-  const [cpf, setCpf] = useState();
+  const [cellphone, setCellphone] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
@@ -16,8 +16,8 @@ const Cadastro = () => {
   const [type, setType] = useState("password");
 
   const handleSubmit = useCallback(() => {
-    APILogin({ email, senha: password, nome: user, cpf });
-  }, [email, password, user, cpf]);
+    APICadastro({ email, senha: password, nome: user, cellphone });
+  }, [email, password, user, cellphone]);
 
   return (
     <section className={styles.container}>
@@ -29,10 +29,10 @@ const Cadastro = () => {
             value={user}
             onChange={({ target }) => setUser(target.value)}
           />
-          <label className={styles.labels}>CPF</label>
+          <label className={styles.labels}>Celular</label>
           <input
-            value={cpf}
-            onChange={({ target }) => setCpf(target.value)}
+            value={cellphone}
+            onChange={({ target }) => setCellphone(target.value)}
           />
           <label className={styles.labels}>E-mail</label>
           <input

@@ -9,6 +9,7 @@ import UserMain from "../components/TypeUser/TypeUser";
 
 
 function HomePage() {
+  document.title="Nexum"
   return (
     <>
       <Header />
