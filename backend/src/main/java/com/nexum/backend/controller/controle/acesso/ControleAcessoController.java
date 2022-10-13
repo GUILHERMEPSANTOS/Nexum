@@ -78,8 +78,7 @@ public class ControleAcessoController {
                 .map(userEntity -> {
                     userEntity.setNome(userDTO.getNome());
                     userEntity.setEmail(userDTO.getEmail());
-                    userEntity.setNumero(userDTO.getNumero());
-                    userEntity.setCpf(userDTO.getCpf());
+                    userEntity.setCelular(userDTO.getCelular());
                     UserEntity updated = userRepository.save(userEntity);
                     return ResponseEntity.ok().body(updated);
                 }).orElse(ResponseEntity.notFound().build());

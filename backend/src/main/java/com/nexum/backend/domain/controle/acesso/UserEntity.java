@@ -31,14 +31,9 @@ public class UserEntity {
     @Column(length = 100)
     @NotEmpty(message = "Senah is required")
     private String senha;
-
-    @Column(length = 11, unique = true)
-    @NotEmpty(message = "CPF is required")
-    private String cpf;
-
     @Column
     @NotEmpty(message = "Profissao is required")
-    private String numero;
+    private String celular;
 
 
     @Column
@@ -58,8 +53,7 @@ public class UserEntity {
         this.nome = userDTO.getNome();
         this.email = userDTO.getEmail();
         this.senha = userDTO.getSenha();
-        this.cpf = userDTO.getCpf();
-        this.numero = userDTO.getNumero();
+        this.celular = userDTO.getCelular();
 
     }
 
@@ -95,20 +89,12 @@ public class UserEntity {
         this.senha = senha;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String profissao) {
-        this.numero = numero;
+    public void setCelular(String profissao) {
+        this.celular = celular;
     }
 
     public Collection<RoleEntity> getRoles() {
