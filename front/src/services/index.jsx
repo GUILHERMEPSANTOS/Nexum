@@ -14,7 +14,7 @@ export function APILogin({ email, senha }) {
 
 export function APICadastro({ email, senha, nome, cellphone }) {
   axios
-    .post("https://localhost:8080/api/v1/controle-acesso/cadastro", {
+    .post("https://localhost:8080/api/v1/controle-acesso/create-account/freelancer", {
       email: email,
       senha: senha,
       nome: nome,
