@@ -42,8 +42,8 @@
 .children {
   background-color: $dark-gray;
   margin: 5% 0;
-  height: 65%;
-  padding: 100px 250px;
+  height: 85%;
+  padding: 20px 200px 100px 200px;
   border-radius: $border-cards;
 
   @include desktop {
