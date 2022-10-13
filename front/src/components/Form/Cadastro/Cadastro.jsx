@@ -4,7 +4,7 @@ import Text from "../../Text/Text";
 
 import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
-import { APICadastro } from "src/services";
+import { APICadastro } from "../../../services";
 
 const Cadastro = () => {
   const [user, setUser] = useState();
@@ -15,15 +15,11 @@ const Cadastro = () => {
   const [passwordType, setPasswordType] = useState("password");
   const [type, setType] = useState("password");
 
-  useEffect(() => {
-    APICadastro(email, password, user, cellphone);
-  }, [user, cellphone, email, password]);
-
   return (
     <section className={styles.container}>
       <Title text="Crie uma conta" />
       <Text text="Realize o cadastro para se conectar" />
-      <form method="POST">
+      <form onSubmit={APICadastro(email, password, user, cellphone)} method="POST">
         <div className={styles.content}>
           <label className={styles.labels}>Usuário</label>
           <input

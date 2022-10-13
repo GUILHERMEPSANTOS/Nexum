@@ -1,61 +1,62 @@
+import { useCallback } from "react";
+
 import Title from "../../Title/Title";
 import Text from "../../Text/Text";
 import styles from "./styles.module.scss";
 import Button from "../../Buttons/Button";
-import { useState, useEffect } from "react";
-import { APILogin } from "src/services";
-import { useEffect } from "react";
+import { useState } from "react";
+import { APILogin } from "../../../services";
 
 const Login = () => {
-  const [user, setUser] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [type, setType] = useState("password");
 
-  useEffect(() => {
-    APILogin(user, password);
-  }, [user]);
+  const handleSubmit = useCallback(() => {
+    APILogin({ email, senha: password });
+  }, [email, password]);
 
   return (
     <section className={styles.container}>
       <Title text="Seja bem-vindo" />
       <Text text="Preecha os campos para continuar" />
-      <form method="GET">
-        <div className={styles.content}>
-          <label className={styles.labels}>Usuário</label>
+
+      <div className={styles.content}>
+        <label className={styles.labels}>Usuário</label>
+        <input
+          value={email}
+          onChange={({ target }) => setEmail(target.value)}
+        />
+        <label className={styles.labels}>Senha</label>
+        <div className={styles.password}>
           <input
-            value={user}
-            onChange={({ target }) => setUser(target.value)}
+            type={type}
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
           />
-          <label className={styles.labels}>Senha</label>
-          <div className={styles.password}>
-            <input
-              type={type}
-              value={password}
-              onChange={({ target }) => setPassword(target.value)}
-            />
-            <img
-              onClick={() =>
-                type == "text" ? setType("password") : setType("text")
-              }
-              src={`../../../../assets/icons/${
-                type == "text" ? "unsee" : "see"
-              }.svg`}
-              alt="ver senha"
-            />
-          </div>
+          <img
+            onClick={() =>
+              type == "text" ? setType("password") : setType("text")
+            }
+            src={`../../../../assets/icons/${
+              type == "text" ? "unsee" : "see"
+            }.svg`}
+            alt="ver senha"
+          />
         </div>
-        <div className={styles.settings}>
-          <div className={styles.remember}>
-            <input type="checkbox" />
-            <label className={styles.labelSetting}>Lembrar conta</label>
-          </div>
-          <label className={styles.labels}>Esqueci a senha</label>
+      </div>
+      <div className={styles.settings}>
+        <div className={styles.remember}>
+          <input type="checkbox" />
+          <label className={styles.labelSetting}>Lembrar conta</label>
         </div>
-        <div className={styles.buttons}>
-          <Button type="submit" text="Entrar" />
-          <Button link={"/cadastro"} isEmpty={true} text="Criar conta" />
-        </div>
-      </form>
+        <label className={styles.labels}>Esqueci a senha</label>
+      </div>
+      <div className={styles.buttons}>
+        {/* <Button type="submit" text="Entrar" /> */}
+        <button onClick={handleSubmit}>Login</button>
+        <Button link={"/cadastro"} isEmpty={true} text="Criar conta" />
+      </div>
     </section>
   );
 };

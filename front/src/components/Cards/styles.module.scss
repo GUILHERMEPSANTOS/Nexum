@@ -26,8 +26,10 @@
     display: flex;
     justify-content: space-around;
     width: 230vw;
+    min-width: 230vw;
     white-space: nowrap;
     align-self: flex-start;
+    margin-left: 22%;
 
     @include mobile {
       width: 400vw;
@@ -39,6 +41,7 @@
       border-radius: $border-cards;
       justify-content: center;
       width: 690px;
+      min-width: 690px;
       height: 500px;
       margin: 0 5px;
       position: relative;
