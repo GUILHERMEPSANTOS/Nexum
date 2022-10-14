@@ -16,7 +16,7 @@ const Cadastro = () => {
   const [type, setType] = useState("password");
 
   const handleSubmit = useCallback(() => {
-    APICadastro({ email, senha: password, nome: user, cellphone });
+    APICadastro({ email, senha: password, nome: user, celular: cellphone });
   }, [email, password, user, cellphone]);
 
   return (
@@ -78,7 +78,7 @@ const Cadastro = () => {
         </div>
 
         <div className={styles.buttons}>
-          <Button onClick={handleSubmit} text="Entrar" />
+          <Button link="/login" onClick={handleSubmit} text="Entrar" />
           <Button link="/login" isEmpty={true} text="Já possui uma conta?" />
         </div>
     </section>
