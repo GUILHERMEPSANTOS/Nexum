@@ -41,15 +41,17 @@ const useCadastro = ({ email, password, user, cellphone, confirmPassword }) => {
   };
 
   const verifyCellphone = () => {
+    const validCellphone = new RegExp('([0-9]{2,3})?(\([0-9]{2}\))([0-9]{4,5})([0-9]{4})')
     if (!!!cellphone) {
       setErrorCellphone("Preencher celular");
-    } else {
+    } else if(!validCellphone.test(cellphone)) {
+      setErrorCellphone("Preencha um celular válido");
+    }else {
       setErrorCellphone("");
     }
   };
 
   useEffect(() => {
-    console.log(user);
     user != undefined &&
     email != undefined &&
     cellphone != undefined &&
@@ -69,8 +71,6 @@ const useCadastro = ({ email, password, user, cellphone, confirmPassword }) => {
     errorCellphone,
     errorConfirmPassword,
   ]);
-
-  console.log(disabled);
 
   return {
     errorEmail,
