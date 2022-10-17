@@ -15,3 +15,9 @@
   @extend .buttonEmptyBackground;
   background-color: $purple;
 }
+
+button:disabled {
+  background-color: #505050;
+  border-color: #505050;
+  cursor: default;
+}
