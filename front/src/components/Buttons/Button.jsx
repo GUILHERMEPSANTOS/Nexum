@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
-const Button = ({ text, isEmpty, link, type, onClick }) => {
+const Button = ({ text, isEmpty, link, type, onClick, disabled }) => {
   return (
     <Link to={link}>
       <button
+        disabled={disabled ? true : ""}
         type={type}
         onClick={onClick}
         className={
