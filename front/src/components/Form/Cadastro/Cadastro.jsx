@@ -17,7 +17,7 @@ const Cadastro = () => {
   const [type, setType] = useState("password");
 
   const handleSubmit = useCallback(() => {
-    APICadastro({ email, senha: password, nome: user, cellphone });
+    APICadastro({ email, senha: password, nome: user, celular: cellphone });
   }, [email, password, user, cellphone]);
 
   const {
@@ -109,10 +109,13 @@ const Cadastro = () => {
         <p className={styles.error}>{errorConfirmPassword}</p>
       </div>
 
-      <div className={styles.buttons}>
-        <Button disabled={disabled} onClick={handleSubmit} text="Entrar" />
-        <Button link="/login" isEmpty={true} text="Já possui uma conta?" />
-      </div>
+
+        <div className={styles.buttons}>
+          <Button disabled={disabled} link="/login" onClick={handleSubmit} text="Entrar" />
+          <Button link="/login" isEmpty={true} text="Já possui uma conta?" />
+        </div>
+
+
     </section>
   );
 };

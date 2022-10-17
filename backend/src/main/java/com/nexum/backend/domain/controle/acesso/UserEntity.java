@@ -29,10 +29,10 @@ public class UserEntity {
     private String email;
 
     @Column(length = 100)
-    @NotEmpty(message = "Senah is required")
+    @NotEmpty(message = "Senha is required")
     private String senha;
     @Column
-    @NotEmpty(message = "Profissao is required")
+    @NotEmpty(message = "celular is required")
     private String celular;
 
 
