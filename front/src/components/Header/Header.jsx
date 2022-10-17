@@ -1,5 +1,6 @@
-import Button from "../Buttons/Button";
 import useChange from "./hooks";
+import Button from "../Buttons/Button";
+import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 const Header = () => {
@@ -10,15 +11,27 @@ const Header = () => {
       <nav className={styles.navigation}>
         <img src="../../../assets/imgs/company.png" alt="Nexum" />
         <ul>
-          <li>Início</li>
-          <li>Sobre nós</li>
-          <li>Freelancer</li>
-          <li>Contratante</li>
-          <li>Contato</li>
+          <li>
+            Início<div></div>
+          </li>
+          <li>
+            Sobre nós<div></div>
+          </li>
+          <li>
+            Freelancer<div></div>
+          </li>
+          <li>
+            Contratante<div></div>
+          </li>
+          <li>
+            Contato<div></div>
+          </li>
           <div className={styles.buttons}>
-            <li>Entrar</li>
             <li>
-              <Button text="Criar conta" />
+              <Link to="/login"> Entrar</Link>
+            </li>
+            <li>
+              <Button link="/cadastro" text="Criar conta" />
             </li>
           </div>
         </ul>

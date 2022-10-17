@@ -1,10 +1,29 @@
+@import "../../../styles/mixins.scss";
+
 .container {
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 350px;
-  margin: 15% 0;
+  margin: 20% 0;
+
+  @include tablet {
+    width: 55%;
+  }
+
+  @include mobile {
+    width: 100%;
+
+    > h1 > span {
+      font-size: 4rem;
+    }
+
+    > p {
+      font-size: 2.4rem;
+      margin: 20px 0;
+    }
+  }
 }
 
 .buttons {
@@ -13,6 +32,10 @@
   width: 85%;
   margin-top: 10px;
 
+  > div {
+    width: 45%;
+  }
+
   > button {
     margin-right: 2%;
   }
@@ -20,9 +43,12 @@
 
 .images {
   position: absolute;
-  height: 750px;
+  height: 100%;
   align-self: flex-end;
-  bottom: 10vh;
-  overflow: hidden;
+  top: 20vh;
   right: 10%;
+
+  @include mobile {
+    display: none;
+  }
 }

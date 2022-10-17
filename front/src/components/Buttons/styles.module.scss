@@ -2,16 +2,22 @@
 
 .buttonEmptyBackground {
   background-color: transparent;
-  border: 2px solid $--primary__purple;
-  width: inherit;
-  border-radius: $--border__buttons;
-  padding: $--padding__buttons;
+  border: 2px solid $purple;
+  width: 100%;
+  border-radius: $border-buttons;
+  padding: $padding-buttons;
   color: $white;
-  font-size: $--text;
+  font-size: $text;
   cursor: pointer;
 }
 
 .buttonFillBackground {
   @extend .buttonEmptyBackground;
-  background-color: $--primary__purple;
+  background-color: $purple;
+}
+
+button:disabled {
+  background-color: #505050;
+  border-color: #505050;
+  cursor: default;
 }

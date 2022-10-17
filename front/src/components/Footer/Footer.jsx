@@ -7,28 +7,27 @@ import styles from "./styles.module.scss"
 const FooterMain = () => {
     return (
 
-        <footer className={styles.conteiner}>
-            <div className={styles.wrapper}>
+        <div className={styles.conteiner}>
             <div className={styles.conteinerConteudo}>
                 <div className={styles.sobre}>
-                    <p>
+                    
                         <Text
                             text="SOBRE"
                         />
-                    </p>
+                    
                     <ul>
                         <li>A Nexum conecta pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades</li>
-                    </ul>
-                    <ul className={styles.membro}>
-                        <li>TORNE-SE MEMBRO</li>
+                    
+                     
+                        <li className={styles.membro}>TORNE-SE MEMBRO</li>
                     </ul>
                 </div>
                 <div className={styles.box}>
-                    <p>
+                    
                         <Text
                             text="SERVIÇOS"
                         />
-                    </p>
+                    
                     <ul>
                         <li>Plataforma Web</li>
                         <li>Comunidade Nexum</li>
@@ -36,10 +35,9 @@ const FooterMain = () => {
                     </ul>
                 </div>
                 <div className={styles.box}>
-                    <p><Text
+                    <Text
                         text="AJUDA & SUPORTE"
-                    />
-                    </p>
+                   />   
                     <ul>
                         <li>SAQ</li>
                         <li>Contate-nos</li>
@@ -48,11 +46,11 @@ const FooterMain = () => {
                     </ul>
                 </div>
                 <div className={styles.box}>
-                    <p>
+                    
                         <Text
                             text="REDES SOCIAIS"
                         />
-                    </p>
+                   
                     <ul className={styles.redesSociais}>
                         <li>
                             <img src="assets\imgs\instagram.png" alt="Icon instagram" />
@@ -69,6 +67,7 @@ const FooterMain = () => {
                     </ul>
                 </div>
             </div>
+            <div className={styles.finalFooterContainer}>
             <hr />
             <div className={styles.finalFooter}>
                 <img src="assets\imgs\logo_footer.png" alt="Logo Nexum" />
@@ -77,7 +76,7 @@ const FooterMain = () => {
                 </span>
             </div>
             </div>
-        </footer>
+        </div>
     )
 }
 

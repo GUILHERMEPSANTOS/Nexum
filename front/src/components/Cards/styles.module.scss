@@ -1,21 +1,16 @@
 @import "../../styles/variables.scss";
-
-::-webkit-scrollbar {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: $--primary__purple;
-  border-radius: 30px;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
+@import "../../styles/mixins.scss";
 
 .wrapper {
   overflow: hidden;
   width: 100vw;
   overflow-x: scroll;
+
+  @include mobile {
+    > p {
+      font-size: 2.4rem;
+    }
+  }
 
   &::-webkit-scrollbar {
     height: 5px;
@@ -25,26 +20,85 @@
     background: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background: $--primary__purple;
+    background: $purple;
   }
   .list {
     display: flex;
     justify-content: space-around;
-    width: 200vw;
+    width: 230vw;
+    min-width: 230vw;
     white-space: nowrap;
     align-self: flex-start;
+    margin-left: 22%;
+
+    @include mobile {
+      width: 400vw;
+    }
 
     > li {
-      background-color: $--primary__purple;
+      background-color: $purple;
       display: flex;
-      border-radius: $--border__cards;
+      border-radius: $border-cards;
       justify-content: center;
       width: 690px;
+      min-width: 690px;
+      height: 500px;
       margin: 0 5px;
+      position: relative;
+
+      @include mobile {
+        display: block;
+        position: initial;
+        min-width: 300px;
+      }
 
       > img {
         height: 100%;
+        position: absolute;
+        left: 30%;
+        z-index: 5;
+        border: 12px solid $purple;
+        background-color: $purple;
+
+        @include mobile {
+          display: block;
+          position: initial;
+          margin: 0 auto;
+        }
+
+        &:hover {
+          animation: moove 2s linear 1 forwards;
+        }
+
+        @keyframes moove {
+          100% {
+            left: 0;
+            border: transparent;
+            background-color: transparent;
+          }
+        }
+
+        @include tablet {
+          height: 250px;
+        }
+
+        @include mobile {
+          height: 250px;
+        }
       }
+    }
+  }
+
+  .info {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 30%;
+
+    @include mobile {
+      display: block;
+      position: initial;
     }
   }
 }

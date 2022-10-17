@@ -2,12 +2,6 @@
 
 .title {
   color: $white;
-  font-size: $--title;
-  font-family: $--title__font;
-  margin-right: 15px;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
+  font-size: $title;
+  font-family: $title-font;
 }

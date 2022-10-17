@@ -1,66 +1,101 @@
+@import "../../styles/mixins.scss";
+
 .conteiner {
-    height : 410px;
-    width: 100vw;
+  height: 410px;
+  padding: 5% 10% 0 10%;
 
-.wrapper {
-    margin: 0 auto;
-    padding: 3% 10% 0 10%;
-    width: 80%;
+  @include mobile {
+    margin-top: 700px;
+  }
 
-
-.conteinerConteudo {
-    height         : 300px;
-    display        : flex;
+  .conteinerConteudo {
+    height: 300px;
+    display: flex;
     justify-content: space-between;
 
-}
+    @include mobile {
+      flex-wrap: wrap;
+    }
+  }
 
-p {
+  p {
     margin-bottom: 30px;
-    cursor       : default
-}
+    cursor: default;
+  }
 
-
-li {
-    list-style   : none;
-    font-size    : 21px;
+  li {
+    list-style: none;
+    font-size: 21px;
     margin-bottom: 20px;
-    font-family  : "DM Sans", sans-serif;
-    color        : white;
-    cursor       : pointer;
-    display      : flex;
-    align-items  : center;
-}
+    font-family: "DM Sans", sans-serif;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
 
-.membro {
+  .membro {
     margin-top: 55px;
-}
+  }
 
-.sobre {
+  .sobre {
     width: 510px;
-}
 
-.box {
+    @include mobile {
+      width: 150px;
+    }
+  }
+
+  .box {
     float: left;
     width: 300px;
-}
 
-.redesSociais img {
-    color       : white;
-    height      : 30px;
+    @include mobile {
+      width: 150px;
+
+      > p {
+        font-size: 2.4rem;
+      }
+    }
+
+    @include tablet {
+      > p {
+        font-size: 2.4rem;
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .redesSociais img {
+    color: white;
+    height: 30px;
     margin-right: 20px;
-}
+  }
 
-.finalFooter {
-    display        : flex;
+  .finalFooter {
+    display: flex;
     justify-content: space-between;
-    align-items    : center;
-}
+    align-items: center;
 
-span {
-    color      : white;
-    font-size  : 15px;
+    @include mobile {
+      > img {
+        width: 30%;
+      }
+      > p {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .finalFooterContainer {
+    @include mobile {
+      margin-top: 150%;
+    }
+  }
+
+  span {
+    color: white;
+    font-size: 15px;
     font-family: "DM Sans", sans-serif;
-}
-}
+  }
 }

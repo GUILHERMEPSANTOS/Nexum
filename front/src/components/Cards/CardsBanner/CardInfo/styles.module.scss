@@ -1,4 +1,5 @@
 @import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins.scss";
 
 .card {
   background-color: rgba(255, 255, 255, 0.3);
@@ -8,10 +9,15 @@
   left: 40px;
   width: 65%;
   padding: 20px 30px;
-  font-size: $--text;
-  border-radius: $--border__cards;
+  font-size: $text;
+  border-radius: $border-cards;
   display: flex;
   flex-direction: column;
+  @include tablet {
+    width: 240px;
+    left: 0;
+    padding: 5px;
+  }
 
   img {
     width: 8%;

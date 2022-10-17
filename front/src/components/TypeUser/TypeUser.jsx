@@ -23,7 +23,7 @@ const UserMain = () => {
                     
                 </div>
                 <div className={styles.box_conta}>
-                    <Text
+                    <Title
                         text="Frellancer"
                     />
                     <Text
@@ -36,7 +36,7 @@ const UserMain = () => {
                     </div>
                 </div>
                 <div className={styles.box_conta}>
-                    <Text
+                    <Title
                         text="Contratante"
                     />
                     <Text

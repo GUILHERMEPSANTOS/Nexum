@@ -1,14 +1,20 @@
+import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
-const Button = ({ text, isEmpty }) => {
+const Button = ({ text, isEmpty, link, type, onClick, disabled }) => {
   return (
-    <button
-      className={
-        isEmpty ? styles.buttonEmptyBackground : styles.buttonFillBackground
-      }
-    >
-      {text}
-    </button>
+    <Link to={link}>
+      <button
+        disabled={disabled ? true : ""}
+        type={type}
+        onClick={onClick}
+        className={
+          isEmpty ? styles.buttonEmptyBackground : styles.buttonFillBackground
+        }
+      >
+        {text}
+      </button>
+    </Link>
   );
 };
 
