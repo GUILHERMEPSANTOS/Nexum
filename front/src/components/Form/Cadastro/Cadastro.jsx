@@ -20,15 +20,25 @@ const Cadastro = () => {
     APICadastro({ email, senha: password, nome: user, cellphone });
   }, [email, password, user, cellphone]);
 
-  const { errorEmail, errorPassword, errorUser, errorCellphone, verifyUser } =
-    useCadastro({
-      email,
-      password,
-      user,
-      cellphone,
-    });
-
-  console.log(errorUser);
+  const {
+    errorEmail,
+    errorPassword,
+    errorUser,
+    errorCellphone,
+    errorConfirmPassword,
+    verifyUser,
+    verifyEmail,
+    verifyCellphone,
+    verifyPassword,
+    verifyConfirmPassword,
+    disabled,
+  } = useCadastro({
+    email,
+    password,
+    user,
+    cellphone,
+    confirmPassword,
+  });
 
   return (
     <section className={styles.container}>
@@ -37,7 +47,6 @@ const Cadastro = () => {
       <div className={styles.content}>
         <label className={styles.labels}>Usuário</label>
         <input
-          placeholder="nome do usuário"
           onBlur={verifyUser}
           value={user}
           onChange={({ target }) => setUser(target.value)}
@@ -45,14 +54,15 @@ const Cadastro = () => {
         <p className={styles.error}>{errorUser}</p>
         <label className={styles.labels}>Celular</label>
         <input
-          placeholder="celular"
+          placeholder="(00) 00000-0000"
+          onBlur={verifyCellphone}
           value={cellphone}
           onChange={({ target }) => setCellphone(target.value)}
         />
         <p className={styles.error}>{errorCellphone}</p>
         <label className={styles.labels}>E-mail</label>
         <input
-          placeholder="email"
+          onBlur={verifyEmail}
           value={email}
           onChange={({ target }) => setEmail(target.value)}
         />
@@ -60,7 +70,7 @@ const Cadastro = () => {
         <label className={styles.labels}>Senha</label>
         <div className={styles.password}>
           <input
-            placeholder="senha"
+            onBlur={verifyPassword}
             value={password}
             onChange={({ target }) => setPassword(target.value)}
             type={passwordType}
@@ -81,7 +91,7 @@ const Cadastro = () => {
         <label className={styles.labels}>Confirmar senha</label>
         <div className={styles.password}>
           <input
-            placeholder="confirmar senha"
+            onBlur={verifyConfirmPassword}
             value={confirmPassword}
             onChange={({ target }) => setConfirmPassword(target.value)}
             type={type}
@@ -96,11 +106,11 @@ const Cadastro = () => {
             alt="ver senha"
           />
         </div>
-        <p className={styles.error}>Eu sou o erro</p>
+        <p className={styles.error}>{errorConfirmPassword}</p>
       </div>
 
       <div className={styles.buttons}>
-        <Button onClick={handleSubmit} text="Entrar" />
+        <Button disabled={disabled} onClick={handleSubmit} text="Entrar" />
         <Button link="/login" isEmpty={true} text="Já possui uma conta?" />
       </div>
     </section>
