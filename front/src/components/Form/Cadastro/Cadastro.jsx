@@ -54,7 +54,7 @@ const Cadastro = () => {
         <p className={styles.error}>{errorUser}</p>
         <label className={styles.labels}>Celular</label>
         <input
-          placeholder="(00) 00000-0000"
+          type="number"
           onBlur={verifyCellphone}
           value={cellphone}
           onChange={({ target }) => setCellphone(target.value)}
