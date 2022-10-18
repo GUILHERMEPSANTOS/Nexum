@@ -64,7 +64,7 @@ const Cadastro = () => {
         <input
           onBlur={verifyEmail}
           value={email}
-          onChange={({ target }) => setEmail(target.value)}
+          onChange={({ target }) => setEmail((target.value).trim().toLocaleLowerCase())}
         />
         <p className={styles.error}>{errorEmail}</p>
         <label className={styles.labels}>Senha</label>
@@ -81,9 +81,8 @@ const Cadastro = () => {
                 ? setPasswordType("password")
                 : setPasswordType("text")
             }
-            src={`../../../../assets/icons/${
-              passwordType == "text" ? "unsee" : "see"
-            }.svg`}
+            src={`../../../../assets/icons/${passwordType == "text" ? "unsee" : "see"
+              }.svg`}
             alt="ver senha"
           />
         </div>
@@ -100,9 +99,8 @@ const Cadastro = () => {
             onClick={() =>
               type == "text" ? setType("password") : setType("text")
             }
-            src={`../../../../assets/icons/${
-              type == "text" ? "unsee" : "see"
-            }.svg`}
+            src={`../../../../assets/icons/${type == "text" ? "unsee" : "see"
+              }.svg`}
             alt="ver senha"
           />
         </div>
@@ -110,10 +108,10 @@ const Cadastro = () => {
       </div>
 
 
-        <div className={styles.buttons}>
-          <Button disabled={disabled} link="/login" onClick={handleSubmit} text="Entrar" />
-          <Button link="/login" isEmpty={true} text="Já possui uma conta?" />
-        </div>
+      <div className={styles.buttons}>
+        <Button disabled={disabled} link="/login" onClick={handleSubmit} text="Entrar" />
+        <Button link="/login" isEmpty={true} text="Já possui uma conta?" />
+      </div>
 
 
     </section>
