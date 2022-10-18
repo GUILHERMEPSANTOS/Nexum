@@ -20,11 +20,9 @@ public class CSVhelper {
                 List<String> data = Arrays.asList(
                         userEntity.getNome(),
                         userEntity.getSenha(),
-                        userEntity.getCpf(),
-                        userEntity.getNumero(),
+                        userEntity.getCelular(),
                         userEntity.getEmail()
                 );
-
                 csvPrinter.printRecord(data);
             }
 
@@ -34,4 +32,17 @@ public class CSVhelper {
             throw new RuntimeException("fail to import data to CSV file: " + e.getMessage());
         }
     }
+    //int n = 10;
+    //String nome[] = userEntitys.toArray(new String[0]);
+    //String temp;
+      //          for (int i = 0; i < n; i++){
+        //for (int j = i + 1; j < n; j++){
+          //  if (nome[i].compareTo(nome[j]) > 0){
+            //    temp = nome[i];
+              //  nome[i] = nome[j];
+                //nome[j] = temp;
+           // }
+      //  }
+    //}
+
 }

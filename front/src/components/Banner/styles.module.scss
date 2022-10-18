@@ -18,7 +18,7 @@
   @extend .background;
   background-image: url(../../../assets/imgs/background.png);
   background-size: cover;
-  height: 130vh;
+  height: 150vh;
 
   @include mobile {
     height: 90vh;
@@ -27,5 +27,5 @@
 
 .backgroundForm {
   @extend .backgroundMain;
-  height: 100vh;
+  height: 130vh;
 }

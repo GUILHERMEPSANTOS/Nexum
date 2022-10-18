@@ -12,13 +12,13 @@ export function APILogin({ email, senha }) {
     .catch((err) => console.log(err));
 }
 
-export function APICadastro({ email, senha, nome, cpf }) {
+export function APICadastro({ email, senha, nome, celular }) {
   axios
-    .post("https://localhost:8080/api/v1/controle-acesso/cadastro", {
+    .post("http://localhost:8080/api/v1/controle-acesso/create-account/freelancer", {
       email: email,
       senha: senha,
       nome: nome,
-      cpf: cpf,
+      celular: celular,
     })
     .then((response) => displayOutput(response))
     .catch((err) => console.log(err));

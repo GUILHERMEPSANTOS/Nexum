@@ -46,6 +46,12 @@
       margin: 0 5px;
       position: relative;
 
+      @include mobile {
+        display: block;
+        position: initial;
+        min-width: 300px;
+      }
+
       > img {
         height: 100%;
         position: absolute;
@@ -53,6 +59,12 @@
         z-index: 5;
         border: 12px solid $purple;
         background-color: $purple;
+
+        @include mobile {
+          display: block;
+          position: initial;
+          margin: 0 auto;
+        }
 
         &:hover {
           animation: moove 2s linear 1 forwards;
@@ -83,11 +95,10 @@
     position: absolute;
     right: 0;
     top: 30%;
-    // > p {
-    //   color: $purple;
-    // }
-    // > h1 > span {
-    //   color: $purple !important;
-    // }
+
+    @include mobile {
+      display: block;
+      position: initial;
+    }
   }
 }

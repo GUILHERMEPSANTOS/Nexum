@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100vh;
+  padding-top: 100px;
 }
 .home {
   position: absolute;
@@ -42,13 +43,13 @@
 .children {
   background-color: $dark-gray;
   margin: 5% 0;
-  height: 85%;
+  height: 100%;
   padding: 20px 200px 100px 200px;
   border-radius: $border-cards;
 
   @include desktop {
-    width: 30%;
-    padding: 100px 200px;
+    width: 50%;
+    padding:100px;
   }
 
   @include tablet {

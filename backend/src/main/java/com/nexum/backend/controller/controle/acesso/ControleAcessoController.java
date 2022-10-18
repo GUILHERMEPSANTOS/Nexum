@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,7 +31,7 @@ public class ControleAcessoController {
     @GetMapping
     public ResponseEntity<List<UserDTO>> lits() {
         return ResponseEntity.ok().body(userServicePort.list());
-    }
+   }
 
     @PostMapping("create-account/contratante")
     public ResponseEntity createContratante(@RequestBody UserDTO userDTO) {
@@ -44,7 +46,6 @@ public class ControleAcessoController {
 
         return new ResponseEntity("User Created", HttpStatus.OK);
     }
-
 
 
     @PostMapping("sign-in")
@@ -78,12 +79,39 @@ public class ControleAcessoController {
                 .map(userEntity -> {
                     userEntity.setNome(userDTO.getNome());
                     userEntity.setEmail(userDTO.getEmail());
-                    userEntity.setNumero(userDTO.getNumero());
-                    userEntity.setCpf(userDTO.getCpf());
+                    userEntity.setCelular(userDTO.getCelular());
                     UserEntity updated = userRepository.save(userEntity);
                     return ResponseEntity.ok().body(updated);
                 }).orElse(ResponseEntity.notFound().build());
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity delete(@PathVariable("id") long id,
+                                 @RequestBody UserDTO userDTO) {
+        if (userRepository.existsById(id)) {
+            userRepository.findById(id);
+            return ResponseEntity.status(200).build();
+        }
+        return ResponseEntity.status(404).build();
+    }
 
+    @GetMapping("/teste")
+    public ResponseEntity<ListObj<String>> ordenacaoSelectionSort() {
+        List<UserEntity> userEntities = userRepository.findAll();
+        ListObj<String> listaNomes = new ListObj<>(userEntities.size());
+        for (int i = 0; i < userEntities.size(); i++) {
+            listaNomes.adiciona(userEntities.get(i).getNome());
+        }
+        if (userEntities.isEmpty()) {
+            return ResponseEntity.status(204).build();
+        }
+        return ResponseEntity.status(200).body(ordenarLista(listaNomes));
+    }
+
+    public ListObj<String> ordenarLista(ListObj<String> listaDesordenada) {
+        ListObj<String> listObj = new ListObj<>(listaDesordenada.getTamanho());
+
+    return (ListObj<String>) listObj.selectionSort(listaDesordenada);
+
+    }
 }
