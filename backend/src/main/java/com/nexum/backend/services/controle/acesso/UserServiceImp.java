@@ -6,6 +6,7 @@ import com.nexum.backend.domain.controle.acesso.RoleEntity;
 import com.nexum.backend.domain.controle.acesso.UserEntity;
 import com.nexum.backend.dto.controle.acesso.UserDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
+import com.nexum.backend.dto.controle.acesso.UserSignOutDTO;
 import com.nexum.backend.enums.RoleName;
 import com.nexum.backend.helperFile.CSVhelper;
 import com.nexum.backend.helperFile.TXThelper;
@@ -56,10 +57,23 @@ public class UserServiceImp {
                 .findByEmailAndSenha(userSignInDTO.getEmail(), userSignInDTO.getSenha());
 
         if (userEntity.isPresent()) {
-            return new UserDTO(userEntity.get());
+            userEntity.get().setLogged(true);
+            return new UserDTO(springUserRepository.save(userEntity.get()));
         }
         return null;
     }
+
+    public UserDTO signOut(UserSignOutDTO userSignOutDTO){
+        Optional<UserEntity> userEntity = springUserRepository
+                .findByEmail(userSignOutDTO.email);
+
+        if (userEntity.isPresent()) {
+            userEntity.get().setLogged(false);
+            return new UserDTO(springUserRepository.save(userEntity.get()));
+        }
+        return null;
+    }
+
 
     public List<UserDTO> list() {
         List<UserEntity> users = springUserRepository.findAll();
@@ -73,7 +87,6 @@ public class UserServiceImp {
         ByteArrayInputStream in = CSVhelper.userToCSV(userEntitys);
         return in;
     }
-
 
 
 }

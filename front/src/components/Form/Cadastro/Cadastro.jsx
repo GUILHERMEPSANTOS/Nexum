@@ -109,7 +109,7 @@ const Cadastro = () => {
 
 
       <div className={styles.buttons}>
-        <Button disabled={disabled} link="/login" onClick={handleSubmit} text="Entrar" />
+        <Button disabled={disabled} link="/login" onClick={handleSubmit} text="Cadastrar" />
         <Button link="/login" isEmpty={true} text="Já possui uma conta?" />
       </div>
 

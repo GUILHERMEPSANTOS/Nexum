@@ -3,6 +3,7 @@ package com.nexum.backend.controller.controle.acesso;
 import com.nexum.backend.domain.controle.acesso.UserEntity;
 import com.nexum.backend.dto.controle.acesso.UserDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
+import com.nexum.backend.dto.controle.acesso.UserSignOutDTO;
 import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
 import com.nexum.backend.services.controle.acesso.UserServiceImp;
 import org.springframework.core.io.InputStreamResource;
@@ -31,20 +32,20 @@ public class ControleAcessoController {
     @GetMapping
     public ResponseEntity<List<UserDTO>> lits() {
         return ResponseEntity.ok().body(userServicePort.list());
-   }
+    }
 
     @PostMapping("create-account/contratante")
     public ResponseEntity createContratante(@RequestBody UserDTO userDTO) {
         userServicePort.createContratante(userDTO);
 
-        return new ResponseEntity("User Created", HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PostMapping("create-account/freelancer")
     public ResponseEntity createFreelancer(@RequestBody UserDTO userDTO) {
         userServicePort.createFreelancer(userDTO);
 
-        return new ResponseEntity("User Created", HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
 
@@ -73,7 +74,7 @@ public class ControleAcessoController {
 
 
     @PutMapping("/update/{id}")
-    public ResponseEntity update(@PathVariable("id") long id,
+    public ResponseEntity update(@PathVariable Long id,
                                  @RequestBody UserDTO userDTO) {
         return userRepository.findById(id)
                 .map(userEntity -> {
@@ -86,8 +87,7 @@ public class ControleAcessoController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity delete(@PathVariable("id") long id,
-                                 @RequestBody UserDTO userDTO) {
+    public ResponseEntity delete(@PathVariable Long id) {
         if (userRepository.existsById(id)) {
             userRepository.findById(id);
             return ResponseEntity.status(200).build();
@@ -95,7 +95,26 @@ public class ControleAcessoController {
         return ResponseEntity.status(404).build();
     }
 
-    @GetMapping("/teste")
+    public ListObj<String> ordenarLista(ListObj<String> listaDesordenada) {
+        ListObj<String> listObj = new ListObj<>(listaDesordenada.getTamanho());
+
+        return (ListObj<String>) listObj.selectionSort(listaDesordenada);
+
+    }
+
+    @PostMapping("sign-out")
+    public ResponseEntity singOut(@RequestBody UserSignOutDTO userSignOutDTO) {
+        UserDTO userDTO = userServicePort.signOut(userSignOutDTO);
+
+        if (userDTO == null){
+            return ResponseEntity.status(400).build();
+        }
+
+        return ResponseEntity.status(200).body(userDTO);
+    }
+
+
+    @GetMapping("/ordenacao")
     public ResponseEntity<ListObj<String>> ordenacaoSelectionSort() {
         List<UserEntity> userEntities = userRepository.findAll();
         ListObj<String> listaNomes = new ListObj<>(userEntities.size());
@@ -106,12 +125,5 @@ public class ControleAcessoController {
             return ResponseEntity.status(204).build();
         }
         return ResponseEntity.status(200).body(ordenarLista(listaNomes));
-    }
-
-    public ListObj<String> ordenarLista(ListObj<String> listaDesordenada) {
-        ListObj<String> listObj = new ListObj<>(listaDesordenada.getTamanho());
-
-    return (ListObj<String>) listObj.selectionSort(listaDesordenada);
-
     }
 }
