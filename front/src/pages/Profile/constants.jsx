@@ -1,0 +1,1 @@
+export const OPTIONS = ["Inicio", "Perfil", "Favoritos", "Contato"]
