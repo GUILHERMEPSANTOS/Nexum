@@ -12,7 +12,7 @@ const Info = () => {
         {ITEMS.map(({ title, text, icon, number }) => (
           <div className={styles.card}>
             <Text text={title} />
-            <Text text={text} small={true} />
+            <Text text={text} isSmall={true} />
             <div className={styles.container}>
               <img src={`../../assets/icons/${icon}.png`} alt={title} />
               <Title text={number} />

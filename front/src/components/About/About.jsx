@@ -1,6 +1,5 @@
 import Title from "../Title/Title";
 import Text from "../Text/Text";
-import Banner from "../Banner/Banner";
 import Button from "../Buttons/Button";
 import styles from "./styles.module.scss";
 

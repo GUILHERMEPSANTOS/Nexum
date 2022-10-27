@@ -1,4 +1,4 @@
-import * as Styles from "./styles.module.scss";
+import * as styles from "./styles.module.scss";
 
 const Degrees = () => {
   return <></>;

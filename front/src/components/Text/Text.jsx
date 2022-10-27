@@ -1,10 +1,10 @@
 import styles from "./styles.module.scss";
 
-const Text = ({ text, upperCase, small }) => {
+const Text = ({ text, upperCase, isSmall }) => {
   return (
     <p
       className={
-        upperCase ? styles.upperCase : small ? styles.textSmall : styles.text
+        upperCase ? styles.upperCase : isSmall ? styles.textSmall : styles.text
       }
     >
       {text}
