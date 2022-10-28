@@ -1,22 +1,22 @@
-import Title from "src/components/Title/Title";
+import Text from "../../Text/Text";
+import Title from "../../Title/Title";
 import styles from "./styles.module.scss";
 
 const List = ({ title, list }) => (
   <section className={styles.container}>
     <Title text={title} />
-    <div className={styles.listItemsContainer}>
-      {list.map(({ name, icon, data, number, rate, text }) => (
-        <div className={styles.listItems}>
-            
-          <img src={`../../assets/icons/${icon}.svg`} />
-          <Text isSmall={true} text={name} />
-          <Text isSmall={true} text={data} />
-          <Text isSmall={true} text={number} />
-          <Text isSmall={true} text={name} />
-          <Text isSmall={true} text={name} />
-        </div>
+    <ul className={styles.listItemsContainer}>
+      {list.map(({ name, icon, date, number, rate, text }) => (
+        <li className={styles.listItems}>
+          {!!!icon && <img src={`../../assets/icons/${icon}.svg`} />}
+          {!!!name && <Text isSmall={true} text={name} />}
+          {!!!date && <Text isSmall={true} text={date} />}
+          {!!!rate && <Text isSmall={true} text={number} />}
+          {!!!text && <Text isSmall={true} text={rate} />}
+          {!!!number && <Text isSmall={true} text={text} />}
+        </li>
       ))}
-    </div>
+    </ul>
   </section>
 );
 export default List;

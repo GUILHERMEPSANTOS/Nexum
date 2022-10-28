@@ -1,0 +1,25 @@
+@import "../../../styles/variables.scss";
+// @import "../../styles/mixins.scss";
+
+.socialMediaContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: auto;
+
+   
+}
+
+.socialMedia {
+    display: flex;
+    width: 100%;
+    background-color: $gray-profile;
+    padding: 2%;
+    margin: 0 5px;
+    border-radius: $border-buttons;
+    text-align: left;
+
+    > img {
+        margin-right: 30px;
+    }
+    
+}

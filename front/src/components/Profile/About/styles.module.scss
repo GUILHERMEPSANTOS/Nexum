@@ -26,29 +26,7 @@ justify-content: space-between;
         }
     }
 
-    .socialMediaContainer {
-        display: flex;
-        justify-content: space-evenly;
-        width: auto;
-
-       
-    }
-
-    .socialMedia {
-        display: flex;
-        width: 100%;
-        background-color: $gray-profile;
-        padding: 2%;
-        margin: 0 5px;
-        border-radius: $border-buttons;
-        text-align: left;
-
-        > img {
-            margin-right: 30px;
-        }
-        
-    }
-
+   
     .aboutContainer {
         display: flex;
         flex-direction: column;

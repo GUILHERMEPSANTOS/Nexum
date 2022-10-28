@@ -3,7 +3,7 @@ import Button from "../Buttons/Button";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
-const Header = ({ options, buttonText,buttonTextLogin }) => {
+const Header = ({ options, buttonText, buttonTextLogin, link }) => {
   const { position } = useChange();
 
   return (
@@ -18,14 +18,13 @@ const Header = ({ options, buttonText,buttonTextLogin }) => {
             </li>
           ))}
           <div className={styles.buttons}>
-            { buttonTextLogin &&
+            {buttonTextLogin && (
+              <li>
+                <Link to="/login"> Entrar</Link>
+              </li>
+            )}
             <li>
-              <Link to="/login"> Entrar</Link>
-            </li>
-
-            }
-            <li>
-              <Button link="/cadastro" text={buttonText} />
+              <Button link={link} text={buttonText} />
             </li>
           </div>
         </ul>

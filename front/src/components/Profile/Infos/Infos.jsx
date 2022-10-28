@@ -1,20 +1,17 @@
-import Title from "src/components/Title/Title";
+import Title from "../../Title/Title";
+import List from "../List/List";
+import { INFOS, ACHIEVEMENT, HABILITIES } from "./constants";
 import styles from "./styles.module.scss";
 
 const Infos = () => (
   <section className={styles.container}>
     <Title text="Análise" />
     <Text text="Informações" />
-    <div className={styles.socialMediaContainer}>
-      {INFOS.map(({ name, number, rate, date }) => (
-        <div className={styles.socialMedia}>
-          <Text text={name} />
-          <Text text={number} />
-          <Text text={rate} />
-          <Text text={date} />
-        </div>
-      ))}
-    </div>
+    <List list={INFOS} />
+    <Text text="Habilidades" />
+    <List list={HABILITIES} />
+    <Text text="Consquistas" />
+    <List list={ACHIEVEMENT} />
   </section>
 );
 
