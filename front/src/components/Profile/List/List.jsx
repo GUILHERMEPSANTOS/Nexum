@@ -2,7 +2,7 @@ import Text from "../../Text/Text";
 import Title from "../../Title/Title";
 import styles from "./styles.module.scss";
 
-const List = ({ title, list }) => (
+const List = ({ title = "", list }) => (
   <section className={styles.container}>
     <Title text={title} />
     <ul className={styles.listItemsContainer}>

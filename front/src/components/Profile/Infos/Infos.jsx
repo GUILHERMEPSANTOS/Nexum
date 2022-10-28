@@ -1,4 +1,5 @@
 import Title from "../../Title/Title";
+import Text from "../../Text/Text";
 import List from "../List/List";
 import { INFOS, ACHIEVEMENT, HABILITIES } from "./constants";
 import styles from "./styles.module.scss";
