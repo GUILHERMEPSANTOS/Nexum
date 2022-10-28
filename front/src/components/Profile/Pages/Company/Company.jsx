@@ -1,7 +1,8 @@
-import * as styles from "./styles.module.scss";
+import About from "../../About/Profile";
+import styles from "./styles.module.scss";
 
 const Company = () => {
-  return <></>;
+  return <About />;
 };
 
 export default Company;
