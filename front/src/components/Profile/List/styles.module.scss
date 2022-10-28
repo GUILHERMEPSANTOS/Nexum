@@ -1,23 +1,21 @@
 @import "../../../styles/variables.scss";
 // @import "../../styles/mixins.scss";
 
-.socialMediaContainer {
+.listItemsContainer {
     display: flex;
-    justify-content: space-evenly;
     width: auto;
-
-   
+    list-style: none;
+    flex-wrap: wrap;
 }
 
-.socialMedia {
+.listItems {
     display: flex;
-    width: 100%;
+    width: auto;
     background-color: $gray-profile;
     padding: 2%;
     margin: 0 5px;
     border-radius: $border-buttons;
     text-align: left;
-
     > img {
         margin-right: 30px;
     }
