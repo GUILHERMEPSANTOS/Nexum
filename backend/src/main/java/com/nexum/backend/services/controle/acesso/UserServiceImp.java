@@ -63,7 +63,7 @@ public class UserServiceImp {
         return null;
     }
 
-    public UserDTO signOut(UserSignOutDTO userSignOutDTO){
+    public UserDTO signOut(UserSignOutDTO userSignOutDTO) {
         Optional<UserEntity> userEntity = springUserRepository
                 .findByEmail(userSignOutDTO.email);
 
@@ -74,11 +74,9 @@ public class UserServiceImp {
         return null;
     }
 
-
-    public List<UserDTO> list() {
+    public List<UserEntity> list() {
         List<UserEntity> users = springUserRepository.findAll();
-        return users.stream().map(user -> new UserDTO(user)).collect(Collectors.toList());
-
+        return users;
     }
 
     public ByteArrayInputStream load() {
