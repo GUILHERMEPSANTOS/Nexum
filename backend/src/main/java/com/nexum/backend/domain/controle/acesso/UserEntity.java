@@ -1,5 +1,10 @@
 package com.nexum.backend.domain.controle.acesso;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.nexum.backend.domain.endereco.EnderecoEntity;
+import com.nexum.backend.domain.social.SocialUserEntity;
 import com.nexum.backend.dto.controle.acesso.UserDTO;
 
 import javax.persistence.*;
@@ -10,24 +15,23 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "tb_users")
-@Inheritance(
-        strategy = InheritanceType.JOINED
-)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id_usuario")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class UserEntity {
     @Id
     @Column(name = "id_usuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_usuario;
-
     @Column(length = 45)
     @NotEmpty(message = "Name is required")
     private String nome;
-
     @Column(length = 80)
     @NotEmpty(message = "Email is required")
     @Email(message = "Email is invalid")
     private String email;
-
     @Column(length = 100)
     @NotEmpty(message = "Senha is required")
     private String senha;
@@ -35,16 +39,32 @@ public class UserEntity {
     @NotEmpty(message = "celular is required")
     private String celular;
 
+    @Column(length = 500)
+    private String sobre;
 
     @Column
     private Boolean isLogged = false;
 
     @ManyToMany
-    @JoinTable(name = "TB_USERS_ROLES",
+    @JoinTable(
+            name = "TB_USERS_ROLES",
             joinColumns = @JoinColumn(name = "id_usuario"),
             inverseJoinColumns = @JoinColumn(name = "id_role")
     )
     private Collection<RoleEntity> roles = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "user",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Collection<SocialUserEntity> socialUsers = new ArrayList<>();
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Collection<EnderecoEntity> enderecos;
 
     public UserEntity() {
     }
@@ -54,7 +74,6 @@ public class UserEntity {
         this.email = userDTO.getEmail();
         this.senha = userDTO.getSenha();
         this.celular = userDTO.getCelular();
-
     }
 
     public Long getId_usuario() {
@@ -113,4 +132,31 @@ public class UserEntity {
         this.roles.add(role);
     }
 
+    public void setRoles(Collection<RoleEntity> roles) {
+        this.roles = roles;
+    }
+
+    public String getSobre() {
+        return sobre;
+    }
+
+    public void setSobre(String sobre) {
+        this.sobre = sobre;
+    }
+
+    public Collection<SocialUserEntity> getSocialUsers() {
+        return socialUsers;
+    }
+
+    public void setSocialUsers(SocialUserEntity socialUser) {
+        this.socialUsers.add(socialUser);
+    }
+
+    public Collection<EnderecoEntity> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(EnderecoEntity endereco) {
+        this.enderecos.add(endereco);
+    }
 }
