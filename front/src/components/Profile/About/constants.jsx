@@ -12,3 +12,22 @@ export const SOCIAL_MEDIA = [
     icon: "twitter",
   },
 ];
+
+export const INFO = [
+  {
+    name: "Designer",
+    icon: "designer",
+  },
+  {
+    name: "Illustrator",
+    icon: "illustrator",
+  },
+  {
+    name: "Prettier",
+    icon: "prettier",
+  },
+  {
+    name: "Photoshop",
+    icon: "photoshop",
+  },
+];

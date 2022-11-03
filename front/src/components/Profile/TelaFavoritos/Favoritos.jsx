@@ -1,4 +1,5 @@
-import Title from "../Title/Title";
+import List from "../List/List";
+import { HABILITIES } from "./constants";
 import styles from "./styles.module.scss";
 
 
@@ -34,6 +35,7 @@ const FavoritosMain = () => {
                     </p>
 
                     {/* criar os icones das habilidades aqui */}
+                    <List list={HABILITIES} title={"Habilidades"}/>
 
                 </div>
             </div>
