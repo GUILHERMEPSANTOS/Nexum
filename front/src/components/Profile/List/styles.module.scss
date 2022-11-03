@@ -13,11 +13,15 @@
     width: auto;
     background-color: $gray-profile;
     padding: 2%;
-    margin: 0 5px;
-    border-radius: $border-buttons;
+    margin: 5px;
+    border-radius: $border-cards;
     text-align: left;
     > img {
         margin-right: 30px;
+    }
+
+    > p {
+        margin: 0 5px;
     }
     
 }

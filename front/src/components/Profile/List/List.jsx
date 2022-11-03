@@ -3,21 +3,23 @@ import Title from "../../Title/Title";
 import styles from "./styles.module.scss";
 
 const List = ({ title = "", list }) => {
-  console.log(title, list);
   return (
     <section className={styles.container}>
       <Title text={title} />
       <ul className={styles.listItemsContainer}>
-        {list.map(({ name, icon, date, number, rate, text }) => (
+        {list.map(({ name, icon, date, number, rate, text }) => {
+          return(
           <li className={styles.listItems}>
-            {!!!icon && <img src={`../../assets/icons/${icon}.svg`} />}
-            {!!!name && <Text isSmall={true} text={name} />}
-            {!!!date && <Text isSmall={true} text={date} />}
-            {!!!rate && <Text isSmall={true} text={number} />}
-            {!!!text && <Text isSmall={true} text={rate} />}
-            {!!!number && <Text isSmall={true} text={text} />}
+            {!!icon && <img src={`../../assets/icons/${icon}.svg`} />}
+           <div>
+            {!!name && <Text isSmall={true} text={name} />}
+            {!!text && <Text isSmall={true} text={text} />}
+           </div>
+            {!!number && <Text isSmall={true} text={number} />}
+            {!!rate && <Text isSmall={true} text={rate} />}
+            {!!date && <Text isSmall={true} text={date} />}
           </li>
-        ))}
+        )})}
       </ul>
     </section>
   );

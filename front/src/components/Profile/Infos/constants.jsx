@@ -20,8 +20,8 @@ export const HABILITIES = [
     text: "Figma",
   },
   {
-    icon: "ilustrator",
-    text: "Ilustrator",
+    icon: "illustrator",
+    text: "Illustrator",
   },
   {
     icon: "premier",
@@ -32,40 +32,40 @@ export const HABILITIES = [
     text: "Photoshop",
   },
   {
-    icon: "inkscaoe",
-    text: "Inkscaoe",
+    icon: "inkscape",
+    text: "Inkscape",
   },
 ];
 
 export const ACHIEVEMENT = [
   {
     text: "Realizou determinada coisa",
-    icon: "conquista",
+    icon: "conquista1",
     name: "Conquista",
   },
   {
     text: "Realizou determinada coisa",
-    icon: "conquista",
+    icon: "conquista2",
     name: "Conquista",
   },
   {
     text: "Realizou determinada coisa",
-    icon: "conquista",
+    icon: "conquista3",
     name: "Conquista",
   },
   {
     text: "Realizou determinada coisa",
-    icon: "conquista",
+    icon: "conquista4",
     name: "Conquista",
   },
   {
     text: "Realizou determinada coisa",
-    icon: "conquista",
+    icon: "conquista5",
     name: "Conquista",
   },
   {
     text: "Realizou determinada coisa",
-    icon: "conquista",
+    icon: "conquista6",
     name: "Conquista",
   },
 ];
