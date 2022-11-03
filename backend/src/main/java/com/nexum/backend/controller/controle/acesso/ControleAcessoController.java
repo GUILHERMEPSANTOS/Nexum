@@ -21,29 +21,29 @@ import java.util.List;
 @RequestMapping("api/v1/controle-acesso")
 @CrossOrigin(origins = "*")
 public class ControleAcessoController {
-    private final UserServiceImp userServicePort;
+    private final UserServiceImp UserServiceImp;
     private final SpringUserRepository userRepository;
 
-    public ControleAcessoController(UserServiceImp userServicePort, SpringUserRepository userRepository) {
-        this.userServicePort = userServicePort;
+    public ControleAcessoController(UserServiceImp UserServiceImp, SpringUserRepository userRepository) {
+        this.UserServiceImp = UserServiceImp;
         this.userRepository = userRepository;
     }
 
     @GetMapping
-    public ResponseEntity<List<UserDTO>> lits() {
-        return ResponseEntity.ok().body(userServicePort.list());
+    public ResponseEntity<List<UserEntity>> lits() {
+        return ResponseEntity.ok().body(UserServiceImp.list());
     }
 
     @PostMapping("create-account/contratante")
     public ResponseEntity createContratante(@RequestBody UserDTO userDTO) {
-        userServicePort.createContratante(userDTO);
+        UserServiceImp.createContratante(userDTO);
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PostMapping("create-account/freelancer")
     public ResponseEntity createFreelancer(@RequestBody UserDTO userDTO) {
-        userServicePort.createFreelancer(userDTO);
+        UserServiceImp.createFreelancer(userDTO);
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
@@ -51,7 +51,7 @@ public class ControleAcessoController {
 
     @PostMapping("sign-in")
     public ResponseEntity<UserDTO> SignIn(@RequestBody UserSignInDTO userSignInDTO) {
-        UserDTO userDTO = userServicePort.signIn(userSignInDTO);
+        UserDTO userDTO = UserServiceImp.signIn(userSignInDTO);
 
         if (userDTO == null) {
             return ResponseEntity.status(400).build();
@@ -63,7 +63,7 @@ public class ControleAcessoController {
     @GetMapping("/downloadCSV")
     public ResponseEntity<Resource> getFileCSV() {
         String filename = "list-Users.csv";
-        InputStreamResource file = new InputStreamResource(userServicePort.load());
+        InputStreamResource file = new InputStreamResource(UserServiceImp.load());
 
 
         return ResponseEntity.ok()
@@ -101,10 +101,9 @@ public class ControleAcessoController {
         return (ListObj<String>) listObj.selectionSort(listaDesordenada);
 
     }
-
     @PostMapping("sign-out")
     public ResponseEntity singOut(@RequestBody UserSignOutDTO userSignOutDTO) {
-        UserDTO userDTO = userServicePort.signOut(userSignOutDTO);
+        UserDTO userDTO = UserServiceImp.signOut(userSignOutDTO);
 
         if (userDTO == null){
             return ResponseEntity.status(400).build();

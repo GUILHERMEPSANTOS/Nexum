@@ -12,7 +12,7 @@ public class RoleEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id_role;
-    @Column
+    @Column(name = "role_name")
     @Enumerated(EnumType.STRING)
     private RoleName roleName;
 
@@ -38,5 +38,4 @@ public class RoleEntity {
     public void setRoleName(RoleName roleName) {
         this.roleName = roleName;
     }
-
 }
