@@ -18,6 +18,7 @@ const List = ({ title = "", list }) => {
             {!!number && <Text isSmall={true} text={number} />}
             {!!rate && <Text isSmall={true} text={rate} />}
             {!!date && <Text isSmall={true} text={date} />}
+            
           </li>
         )})}
       </ul>
