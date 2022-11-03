@@ -3,7 +3,7 @@ import Button from "../Buttons/Button";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
-const Header = () => {
+const Header = ({ options, buttonText, buttonTextLogin, link }) => {
   const { position } = useChange();
 
   return (
@@ -11,27 +11,20 @@ const Header = () => {
       <nav className={styles.navigation}>
         <img src="../../../assets/imgs/company.png" alt="Nexum" />
         <ul>
-          <li>
-            Início<div></div>
-          </li>
-          <li>
-            Sobre nós<div></div>
-          </li>
-          <li>
-            Freelancer<div></div>
-          </li>
-          <li>
-            Contratante<div></div>
-          </li>
-          <li>
-            Contato<div></div>
-          </li>
-          <div className={styles.buttons}>
+          {options.map((options) => (
             <li>
-              <Link to="/login"> Entrar</Link>
+              {options}
+              <div></div>
             </li>
+          ))}
+          <div className={styles.buttons}>
+            {buttonTextLogin && (
+              <li>
+                <Link to="/login"> Entrar</Link>
+              </li>
+            )}
             <li>
-              <Button link="/cadastro" text="Criar conta" />
+              <Button link={link} text={buttonText} />
             </li>
           </div>
         </ul>

@@ -1,0 +1,9 @@
+@import "../../../styles/variables.scss";
+// @import "../../styles/mixins.scss";
+
+.container {
+    width: 80%;
+    background-color: $black-profile;
+    padding: 5%;
+    margin: 0 auto;
+}

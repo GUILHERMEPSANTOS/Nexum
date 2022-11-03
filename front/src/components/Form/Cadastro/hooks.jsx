@@ -49,7 +49,7 @@ const useCadastro = ({ email, password, user, cellphone, confirmPassword }) => {
   };
 
   useEffect(() => {
-    console.log(user);
+
     user != undefined &&
     email != undefined &&
     cellphone != undefined &&
@@ -70,7 +70,7 @@ const useCadastro = ({ email, password, user, cellphone, confirmPassword }) => {
     errorConfirmPassword,
   ]);
 
-  console.log(disabled);
+
 
   return {
     errorEmail,

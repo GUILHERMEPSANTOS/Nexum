@@ -1,0 +1,26 @@
+@import "../../../styles/variables.scss";
+// @import "../../styles/mixins.scss";
+
+.container {
+    width: 80%;
+    background-color: $black-profile;
+    margin: 20px auto;
+    border-radius: $border-cards;
+    padding: 5%;
+
+    .wrapper {
+        display: flex;
+        margin: 20px 0;
+    }
+
+    .contentContainer {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 20px;
+        width: 90%;
+
+        > a {
+            width: 20%;
+        }
+    }
+}
