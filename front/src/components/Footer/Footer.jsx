@@ -41,15 +41,15 @@ const Footer = () => {
 
           <ul className={styles.redesSociais}>
             <li>
-              <img src="assets\imgs\instagram.png" alt="Icon instagram" />
+              <img src="assets\icons\instagram.svg" alt="Icon instagram" />
               Instagram
             </li>
             <li>
-              <img src="assets\imgs\facebook.png" alt="Icon Facebook" />
+              <img src="assets\icons\facebook.svg" alt="Icon Facebook" />
               Facebook
             </li>
             <li>
-              <img src="assets\imgs\twitter.png" alt="Icon Twitter" />
+              <img src="assets\icons\twitter.svg" alt="Icon Twitter" />
               Twitter
             </li>
           </ul>
