@@ -4,7 +4,7 @@ import List from "../List/List";
 import { INFOS, ACHIEVEMENT, HABILITIES } from "./constants";
 import styles from "./styles.module.scss";
 
-const Infos = ({canEdit}) => (
+const Infos = ({canEdit = true}) => (
   <section className={styles.container}>
      {canEdit && 
      <div className={styles.edit}>

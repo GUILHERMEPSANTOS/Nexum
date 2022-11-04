@@ -4,7 +4,7 @@ import Text from "../../Text/Text";
 import { DEGREES } from "./constants";
 import styles from "./styles.module.scss";
 
-const Degrees = () => {
+const Degrees = ({canEdit = true}) => {
   return (
   <section className={styles.container} >
       {canEdit && 
