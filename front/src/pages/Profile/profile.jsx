@@ -4,10 +4,10 @@ import Footer from "../../components/Footer/Footer";
 import Company from "../../components/Profile/Pages/Company/Company";
 import Freelancer from "../../components/Profile/Pages/Freelancer/Profile";
 
-const Profile = ({ isCompanyProfile = false }) => (
+const Profile = ({ isCompanyProfile = true }) => (
   <>
     <Header options={OPTIONS} buttonText="Sair" link="/" />
-    {isCompanyProfile ? <Company /> : <Freelancer />}
+    {isCompanyProfile ? <Company isCompany={isCompanyProfile}/> : <Freelancer />}
     <Footer />
   </>
 );

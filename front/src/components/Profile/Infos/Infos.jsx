@@ -4,8 +4,14 @@ import List from "../List/List";
 import { INFOS, ACHIEVEMENT, HABILITIES } from "./constants";
 import styles from "./styles.module.scss";
 
-const Infos = () => (
+const Infos = ({canEdit}) => (
   <section className={styles.container}>
+     {canEdit && 
+     <div className={styles.edit}>
+       <img className={styles.editIcon} src="../../assets/icons/edit.svg" />
+       <img className={styles.editIcon} src="../../assets/icons/add.svg" />
+     </div>
+        }
     <Title text="Análise" />
     <Text text="Informações" />
     <List list={INFOS} />

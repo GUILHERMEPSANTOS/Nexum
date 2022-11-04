@@ -1,10 +1,10 @@
 import styles from "./styles.module.scss";
 import Title from "../../Title/Title";
 import Text from "../../Text/Text";
-import { SOCIAL_MEDIA } from "./constants";
+import { SOCIAL_MEDIA, INFO } from "./constants";
 import List from "../List/List";
 
-const About = ({ isCompanyView = true }) => {
+const About = ({ isOtherView, canEdit = true, isCompanyProfile }) => {
   return (
     <section className={styles.container}>
       <div>
@@ -19,7 +19,7 @@ const About = ({ isCompanyView = true }) => {
         </div>
         <Text text="Designer" />
 
-        {isCompanyView && (
+        {isOtherView && (
           <div className={styles.actions}>
             <button>
               <img src="../../assets/icons/back.svg" />
@@ -34,6 +34,9 @@ const About = ({ isCompanyView = true }) => {
         )}
       </div>
       <div className={styles.aboutContainer}>
+        {canEdit && 
+        <img className={styles.edit} src="../../assets/icons/editAbout.svg" />
+        }
         <Title text="Sobre" />
         <Text
           text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget urna egestas.
@@ -44,6 +47,12 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
         <div className={styles.socialMedia}>
           <Text isSmall={true} text="anacarolina2001@gmail.com.br" />
         </div>
+        {isCompanyProfile && 
+        <>
+        <List title="Informações do projeto" list={INFO}/>
+        <Text text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget."/>
+        </>
+        }
       </div>
     </section>
   );
