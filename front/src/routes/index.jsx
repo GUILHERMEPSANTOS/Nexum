@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
     element: <Form />,
   },
   {
-    path: "/profile",
+    path: "/perfil",
     element: <Profile />,
   },
 ]);

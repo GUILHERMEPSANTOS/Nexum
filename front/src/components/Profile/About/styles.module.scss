@@ -4,11 +4,13 @@
 .container {
     width: 80%;
     background-color: $black-profile;
-    margin: 20px auto;
+    margin: 150px auto;
     border-radius: $border-cards;
     padding: 5%;
     display: flex;
-justify-content: space-between;z
+justify-content: space-between;
+position: relative;
+top: 5%;
     .imgProfile {
         border-radius: 50%;
         width: 320px;
@@ -33,5 +35,12 @@ justify-content: space-between;z
         justify-content: space-around;
         min-height: 800px;
         width: 65%;
+    }
+
+    .edit {
+        width: 5%;
+        position: absolute;
+        right: 10px;
+        top: 10px;
     }
 }
