@@ -19,7 +19,7 @@ public class EnderecoEntity {
     private String estado;
 
     @JsonIgnore
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_usuario")
     private UserEntity user;
 
