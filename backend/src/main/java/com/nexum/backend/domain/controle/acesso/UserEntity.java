@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nexum.backend.domain.endereco.EnderecoEntity;
 import com.nexum.backend.domain.habilidades.HabilidadeEntity;
 import com.nexum.backend.domain.social.SocialUserEntity;
-import com.nexum.backend.dto.controle.acesso.UserDTO;
+import com.nexum.backend.dto.shared.UserDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -60,12 +60,12 @@ public class UserEntity {
             orphanRemoval = true
     )
     private Collection<SocialUserEntity> socialUsers = new ArrayList<>();
-    @OneToMany(
+    @OneToOne(
             mappedBy = "user",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Collection<EnderecoEntity> enderecos;
+    private EnderecoEntity endereco;
 
     @ManyToMany
     @JoinTable(name = "TB_USERS_HABILIDADES",
@@ -161,12 +161,12 @@ public class UserEntity {
         this.socialUsers.add(socialUser);
     }
 
-    public Collection<EnderecoEntity> getEnderecos() {
-        return enderecos;
+    public EnderecoEntity getEndereco() {
+        return endereco;
     }
 
-    public void setEnderecos(EnderecoEntity endereco) {
-        this.enderecos.add(endereco);
+    public void setEndereco(EnderecoEntity endereco) {
+        this.endereco = endereco;
     }
 
     public Collection<HabilidadeEntity> getHabilidades() {

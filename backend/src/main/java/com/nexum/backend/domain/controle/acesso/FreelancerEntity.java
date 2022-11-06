@@ -1,9 +1,8 @@
 package com.nexum.backend.domain.controle.acesso;
 
-import com.nexum.backend.domain.habilidades.HabilidadeEntity;
+import com.nexum.backend.domain.controle.acesso.interfaces.UserStrategy;
 import com.nexum.backend.domain.match.Match;
-import com.nexum.backend.domain.social.SocialUserEntity;
-import com.nexum.backend.dto.controle.acesso.UserDTO;
+import com.nexum.backend.dto.shared.UserDTO;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -14,7 +13,7 @@ import java.util.Collection;
 @Entity
 @Table(name = "tb_freelancer")
 @PrimaryKeyJoinColumn(name = "id_usuario")
-public class FreelancerEntity extends UserEntity {
+public class FreelancerEntity extends UserEntity implements UserStrategy {
     @Column
     private String cargo;
     @OneToMany(
@@ -46,5 +45,9 @@ public class FreelancerEntity extends UserEntity {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    public UserDTO toUserDTO(){
+        return new UserDTO(this);
     }
 }

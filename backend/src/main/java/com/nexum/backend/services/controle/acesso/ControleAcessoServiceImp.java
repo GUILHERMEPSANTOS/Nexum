@@ -4,7 +4,7 @@ import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import com.nexum.backend.domain.controle.acesso.RoleEntity;
 import com.nexum.backend.domain.controle.acesso.UserEntity;
-import com.nexum.backend.dto.controle.acesso.UserDTO;
+import com.nexum.backend.dto.shared.UserDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignOutDTO;
 import com.nexum.backend.enums.RoleName;

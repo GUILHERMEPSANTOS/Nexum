@@ -5,11 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
-import com.nexum.backend.dto.match.MatchDTO;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
+
 
 @Entity
 @Table(name = "tb_match")

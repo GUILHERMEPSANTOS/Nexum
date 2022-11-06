@@ -1,7 +1,7 @@
 package com.nexum.backend.controller.controle.acesso;
 
 import com.nexum.backend.domain.controle.acesso.UserEntity;
-import com.nexum.backend.dto.controle.acesso.UserDTO;
+import com.nexum.backend.dto.shared.UserDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignOutDTO;
 import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
