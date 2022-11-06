@@ -9,7 +9,6 @@ import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignOutDTO;
 import com.nexum.backend.enums.RoleName;
 import com.nexum.backend.helperFile.CSVhelper;
-import com.nexum.backend.helperFile.TXThelper;
 import com.nexum.backend.repositories.controle.acesso.SpringRoleRepository;
 import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
 import org.springframework.stereotype.Service;
@@ -18,15 +17,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class UserServiceImp {
+public class ControleAcessoServiceImp {
     private final SpringUserRepository springUserRepository;
     private final SpringRoleRepository springRoleRepository;
 
-    public UserServiceImp(SpringUserRepository springUserRepository, SpringRoleRepository springRoleRepository) {
+    public ControleAcessoServiceImp(SpringUserRepository springUserRepository, SpringRoleRepository springRoleRepository) {
         this.springUserRepository = springUserRepository;
         this.springRoleRepository = springRoleRepository;
     }
@@ -58,7 +56,7 @@ public class UserServiceImp {
 
         if (userEntity.isPresent()) {
             userEntity.get().setLogged(true);
-            return new UserDTO(springUserRepository.save(userEntity.get()));
+            return new UserDTO((FreelancerEntity) springUserRepository.save(userEntity.get()));
         }
         return null;
     }
@@ -69,7 +67,7 @@ public class UserServiceImp {
 
         if (userEntity.isPresent()) {
             userEntity.get().setLogged(false);
-            return new UserDTO(springUserRepository.save(userEntity.get()));
+            return new UserDTO((FreelancerEntity) springUserRepository.save(userEntity.get()));
         }
         return null;
     }

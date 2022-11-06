@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "tb_social_user")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id_social_user")
-public class SocialUserEntity {
+    public class SocialUserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_social_user;

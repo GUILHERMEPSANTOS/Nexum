@@ -1,8 +1,11 @@
 package com.nexum.backend.domain.controle.acesso;
 
 import com.nexum.backend.domain.habilidades.HabilidadeEntity;
+import com.nexum.backend.domain.match.Match;
 import com.nexum.backend.domain.social.SocialUserEntity;
 import com.nexum.backend.dto.controle.acesso.UserDTO;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,12 +17,13 @@ import java.util.Collection;
 public class FreelancerEntity extends UserEntity {
     @Column
     private String cargo;
-    @ManyToMany
-    @JoinTable(name = "TB_USERS_HABILIDADES",
-            joinColumns = @JoinColumn(name = "id_usuario"),
-            inverseJoinColumns = @JoinColumn(name = "id_habilidade")
+    @OneToMany(
+            mappedBy = "freelancer",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL
     )
-    private Collection<HabilidadeEntity> habilidades = new ArrayList<>();
+    @Fetch(FetchMode.SELECT)
+    private Collection<Match> match = new ArrayList<>();
 
     public FreelancerEntity() {
     }
@@ -28,11 +32,19 @@ public class FreelancerEntity extends UserEntity {
         super(userDTO);
     }
 
-    public Collection<HabilidadeEntity> getHabilidades() {
-        return habilidades;
+    public Collection<Match> getMatch() {
+        return match;
     }
 
-    public void setHabilidades(HabilidadeEntity habilidade) {
-        this.habilidades.add(habilidade);
+    public void setMatch(Match match) {
+        this.match.add(match);
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 }

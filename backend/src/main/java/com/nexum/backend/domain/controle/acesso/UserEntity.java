@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nexum.backend.domain.endereco.EnderecoEntity;
+import com.nexum.backend.domain.habilidades.HabilidadeEntity;
 import com.nexum.backend.domain.social.SocialUserEntity;
 import com.nexum.backend.dto.controle.acesso.UserDTO;
 
@@ -65,6 +66,14 @@ public class UserEntity {
             orphanRemoval = true
     )
     private Collection<EnderecoEntity> enderecos;
+
+    @ManyToMany
+    @JoinTable(name = "TB_USERS_HABILIDADES",
+            joinColumns = @JoinColumn(name = "id_usuario"),
+            inverseJoinColumns = @JoinColumn(name = "id_habilidade")
+    )
+    private Collection<HabilidadeEntity> habilidades = new ArrayList<>();
+
 
     public UserEntity() {
     }
@@ -159,4 +168,13 @@ public class UserEntity {
     public void setEnderecos(EnderecoEntity endereco) {
         this.enderecos.add(endereco);
     }
+
+    public Collection<HabilidadeEntity> getHabilidades() {
+        return habilidades;
+    }
+
+    public void setHabilidades(HabilidadeEntity habilidade) {
+        this.habilidades.add(habilidade);
+    }
+
 }

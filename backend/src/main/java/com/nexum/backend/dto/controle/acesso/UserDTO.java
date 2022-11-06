@@ -1,21 +1,26 @@
 package com.nexum.backend.dto.controle.acesso;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
+import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import com.nexum.backend.domain.controle.acesso.UserEntity;
+import com.nexum.backend.domain.match.Match;
+import com.nexum.backend.dto.match.MatchDTO;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class UserDTO {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long id_userDTO;
     private String nome;
-
     private String email;
-
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String senha;
-
     private String celular;
-
     private Boolean isLogged;
+    private Collection<MatchDTO> matchsDTO;
 
     public Boolean getLogged() {
         return isLogged;
@@ -36,13 +41,25 @@ public class UserDTO {
     }
 
 
-    public UserDTO(UserEntity user) {
+    public UserDTO(FreelancerEntity user) {
         this.nome = user.getNome();
         this.email = user.getEmail();
         this.senha = user.getSenha();
         this.celular = user.getCelular();
         this.isLogged = user.getLogged();
+        this.matchsDTO = this.toMatchDTO(user.getMatch());
     }
+
+
+    public UserDTO(ContratanteEntity user) {
+        this.nome = user.getNome();
+        this.email = user.getEmail();
+        this.senha = user.getSenha();
+        this.celular = user.getCelular();
+        this.isLogged = user.getLogged();
+        this.matchsDTO = this.toMatchDTO(user.getMatch());
+    }
+
 
     public String getNome() {
         return nome;
@@ -74,5 +91,19 @@ public class UserDTO {
 
     public void setCelular(String celular) {
         this.celular = celular;
+    }
+
+
+    public Collection<MatchDTO> getMatchsDTO() {
+        return matchsDTO;
+    }
+
+    public Collection<MatchDTO> toMatchDTO(Collection<Match> matchs)
+    {
+        Collection<MatchDTO> matchsDTO = new ArrayList<>();
+
+        matchs.forEach((match) -> matchsDTO.add(new MatchDTO(match)));
+
+        return matchsDTO;
     }
 }
