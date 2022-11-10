@@ -1,1 +1,7 @@
-export const OPTIONS = ["Inicio", "Sobre nós", "Freelancer", "Contratante", "Contato"]
+export const OPTIONS = [
+  { name: "Inicio", path: "/" },
+  { name: "Sobre nós", path: "/" },
+  { name: "Freelancer", path: "/" },
+  { name: "Contratante", path: "/" },
+  { name: "Contato", path: "/" },
+];
