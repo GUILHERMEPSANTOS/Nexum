@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.shared;
+package com.nexum.backend.dto.endereco;
 
 import com.nexum.backend.domain.endereco.EnderecoEntity;
 

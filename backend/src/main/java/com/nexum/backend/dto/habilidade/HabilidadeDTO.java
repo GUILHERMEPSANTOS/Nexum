@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.shared;
+package com.nexum.backend.dto.habilidade;
 
 import com.nexum.backend.domain.habilidades.HabilidadeEntity;
 
@@ -30,5 +30,7 @@ public class HabilidadeDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+
 }
 
