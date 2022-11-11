@@ -56,8 +56,8 @@ import javax.persistence.*;
         this.user = userEntity;
     }
 
-    public Long getSocial() {
-        return social.getId_social();
+    public SocialEntity getSocial() {
+        return social;
     }
 
     public void setSocial(SocialEntity social) {
