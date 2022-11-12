@@ -1,5 +1,4 @@
 package com.nexum.backend.dto.habilidade;
-
 import com.nexum.backend.domain.habilidades.HabilidadeEntity;
 
 public class HabilidadeDTO {
@@ -14,23 +13,17 @@ public class HabilidadeDTO {
         this.id_habilidade = habilidadeEntity.getId_habilidade();
         this.nome = habilidadeEntity.getNome();
     }
-
     public Long getId_habilidade() {
         return id_habilidade;
     }
-
     public void setId_habilidade(Long id_habilidade) {
         this.id_habilidade = id_habilidade;
     }
-
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-
 }
 

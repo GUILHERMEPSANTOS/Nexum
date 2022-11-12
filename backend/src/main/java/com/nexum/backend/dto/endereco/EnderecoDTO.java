@@ -4,8 +4,9 @@ import com.nexum.backend.domain.endereco.EnderecoEntity;
 
 public class EnderecoDTO {
     private String cidade;
-
     private String estado;
+    public EnderecoDTO() {
+    }
 
     public EnderecoDTO(String cidade, String estado) {
         this.cidade = cidade;
@@ -32,5 +33,4 @@ public class EnderecoDTO {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
 }

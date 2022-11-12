@@ -1,11 +1,6 @@
-package com.nexum.backend.controller.controle.acesso;
+package com.nexum.backend.controller.shared;
 
-import com.nexum.backend.domain.controle.acesso.UserEntity;
-import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
-
+// TODO: 12/11/2022 essa classe não deve ficar na controller criar um pacote de infra e deixar os metodos staticos
 public class ListObj <T> {
 
     private T[] vetor;

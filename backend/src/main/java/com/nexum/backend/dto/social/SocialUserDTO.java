@@ -11,11 +11,14 @@ public class SocialUserDTO {
     private SocialDTO social;
     private String user_url;
 
-    public SocialUserDTO(SocialUserEntity socialUserEntity) {
-        this.id_social_user = socialUserEntity.getId_social_user();
-        this.user_url = socialUserEntity.getUser_url();
-        toUserDTO(socialUserEntity.getUserEntity());
-        toSocialDTO(socialUserEntity.getSocial());
+    public SocialUserDTO(
+            Long id_social_user,
+            SocialDTO social,
+            String user_url
+    ) {
+        this.id_social_user = id_social_user;
+        this.social = social;
+        this.user_url = user_url;
     }
 
     public Long getId_social_user() {
@@ -46,11 +49,4 @@ public class SocialUserDTO {
         this.user_url = user_url;
     }
 
-    public void toUserDTO(UserEntity userEntity) {
-        this.user = new UserDTO(userEntity.getNome(), userEntity.getEmail());
-    }
-
-    public void toSocialDTO(SocialEntity socialEntity) {
-        this.social = new SocialDTO(socialEntity.getId_social(), socialEntity.getNome());
-    }
 }

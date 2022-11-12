@@ -77,6 +77,17 @@ public class UserEntity {
 
     public UserEntity() {
     }
+    public UserEntity(
+            String nome,
+            String email,
+            String senha,
+            String celular
+    ) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.celular = celular;
+    }
 
     public UserEntity(UserDTO userDTO) {
         this.nome = userDTO.getNome();

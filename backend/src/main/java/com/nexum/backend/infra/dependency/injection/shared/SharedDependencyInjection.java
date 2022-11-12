@@ -1,17 +1,17 @@
 package com.nexum.backend.infra.dependency.injection.shared;
 
-
 import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
-import com.nexum.backend.services.shered.UserService;
-import com.nexum.backend.services.shered.interfaces.UserServicePort;
+
+import com.nexum.backend.services.shared.controle.acesso.ControleAcessoService;
+import com.nexum.backend.services.shared.controle.acesso.interfaces.ControleAcessoServicePort;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SharedDependencyInjection {
-
     @Bean
-    UserServicePort userService(SpringUserRepository springUserRepository){
-        return new UserService(springUserRepository);
+    ControleAcessoServicePort userService(SpringUserRepository springUserRepository){
+        return new ControleAcessoService(springUserRepository);
     }
 }
