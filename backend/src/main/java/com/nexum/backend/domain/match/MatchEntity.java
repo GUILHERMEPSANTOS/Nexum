@@ -15,7 +15,7 @@ import javax.persistence.*;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id_match")
-public class Match {
+public class MatchEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_match;
@@ -60,6 +60,4 @@ public class Match {
     public void setStatus(Boolean status) {
         this.status = status;
     }
-
-
 }

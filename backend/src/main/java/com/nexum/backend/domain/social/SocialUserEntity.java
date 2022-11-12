@@ -15,14 +15,12 @@ import javax.persistence.*;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_social_user;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private UserEntity user;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_social")
     private SocialEntity social;
-
     @Column
     private String user_url;
 

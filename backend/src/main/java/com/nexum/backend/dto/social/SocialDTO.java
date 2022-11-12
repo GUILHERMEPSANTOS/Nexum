@@ -2,15 +2,8 @@ package com.nexum.backend.dto.social;
 
 import com.nexum.backend.domain.social.SocialEntity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 public class SocialDTO {
-
     private Long id_social;
-
     private String nome;
 
     public SocialDTO(Long id_social, String nome) {

@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SharedDependencyInjection {
-
     @Bean
     UserServicePort userService(SpringUserRepository springUserRepository){
         return new UserService(springUserRepository);

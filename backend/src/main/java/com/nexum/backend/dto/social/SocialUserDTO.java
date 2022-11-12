@@ -18,6 +18,16 @@ public class SocialUserDTO {
         toSocialDTO(socialUserEntity.getSocial());
     }
 
+    public SocialUserDTO(
+            Long id_social_user,
+            SocialDTO social,
+            String user_url
+    ) {
+        this.id_social_user = id_social_user;
+        this.social = social;
+        this.user_url = user_url;
+    }
+
     public Long getId_social_user() {
         return id_social_user;
     }

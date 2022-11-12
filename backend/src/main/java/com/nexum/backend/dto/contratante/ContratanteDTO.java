@@ -1,8 +1,6 @@
-package com.nexum.backend.dto.shared;
+package com.nexum.backend.dto.contratante;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
-import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import com.nexum.backend.domain.endereco.EnderecoEntity;
 import com.nexum.backend.domain.habilidades.HabilidadeEntity;
 import com.nexum.backend.domain.match.MatchEntity;
@@ -15,8 +13,7 @@ import com.nexum.backend.dto.social.SocialUserDTO;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class UserDTO {
-
+public class ContratanteDTO {
     private Long id_user;
     private String nome;
     private String email;
@@ -28,49 +25,30 @@ public class UserDTO {
     private Collection<HabilidadeDTO> habilidades = new ArrayList<>();
     private Collection<MatchDTO> matchs = new ArrayList<>();
     public Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
-    public Collection<HabilidadeDTO> getHabilidades() {
-        return habilidades;
-    }
 
-    public UserDTO() {
-    }
-    public UserDTO(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
-    }
 
-    public UserDTO(String nome, String email, String senha, String cpf, String celular) {
+    public ContratanteDTO(
+            Long id_user,
+            String nome,
+            String email,
+            String senha,
+            String celular,
+            Boolean isLogged,
+            EnderecoDTO endereco,
+            Collection<HabilidadeDTO> habilidades,
+            Collection<MatchDTO> matchs,
+            Collection<SocialUserDTO> socialsUserDTO
+    ) {
+        this.id_user = id_user;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.celular = celular;
-    }
-
-
-    public UserDTO(FreelancerEntity user) {
-        this.id_user = user.getId_usuario();
-        this.nome = user.getNome();
-        this.email = user.getEmail();
-        this.senha = user.getSenha();
-        this.celular = user.getCelular();
-        this.isLogged = user.getLogged();
-        toEnderecoDTO(user.getEndereco());
-        toMatchDTO(user.getMatch());
-        toHabilidadeDTO(user.getHabilidades());
-        toSocialUserDTO(user.getSocialUsers());
-    }
-
-    public UserDTO(ContratanteEntity user) {
-        this.id_user = user.getId_usuario();
-        this.nome = user.getNome();
-        this.email = user.getEmail();
-        this.senha = user.getSenha();
-        this.celular = user.getCelular();
-        this.isLogged = user.getLogged();
-        toEnderecoDTO(user.getEndereco());
-        toMatchDTO(user.getMatch());
-        toHabilidadeDTO(user.getHabilidades());
-        toSocialUserDTO(user.getSocialUsers());
+        this.isLogged = isLogged;
+        this.endereco = endereco;
+        this.habilidades = habilidades;
+        this.matchs = matchs;
+        this.socialsUserDTO = socialsUserDTO;
     }
 
     public Long getId_user() {
@@ -146,8 +124,7 @@ public class UserDTO {
     }
 
     private void toHabilidadeDTO(Collection<HabilidadeEntity> habilidadeEntities) {
-        habilidadeEntities.forEach((habilidadeEntity)
-                -> this.habilidades.add(new HabilidadeDTO(habilidadeEntity)));
+        habilidadeEntities.forEach((habilidadeEntity) -> this.habilidades.add(new HabilidadeDTO(habilidadeEntity)));
     }
 
     private void toEnderecoDTO(EnderecoEntity enderecoEntity) {
@@ -155,8 +132,6 @@ public class UserDTO {
     }
 
     private void toSocialUserDTO(Collection<SocialUserEntity> socialsUserEntity) {
-        socialsUserEntity.forEach((socialUserEntity) ->
-                this.socialsUserDTO.add(new SocialUserDTO(socialUserEntity)));
+        socialsUserEntity.forEach((socialUserEntity) -> this.socialsUserDTO.add(new SocialUserDTO(socialUserEntity)));
     }
-
 }

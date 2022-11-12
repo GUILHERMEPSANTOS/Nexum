@@ -1,23 +1,25 @@
 package com.nexum.backend.dto.match;
 
-import com.nexum.backend.domain.match.Match;
+import com.nexum.backend.domain.match.MatchEntity;
 
 public class MatchDTO {
-
     private Long id_match;
     private Long id_contratante;
     private Long id_freelancer;
     private Boolean status;
-
-    public MatchDTO(Long id_contratante, Long id_freelancer,
-                          Long id_match, Boolean status) {
+    public MatchDTO(
+            Long id_contratante,
+            Long id_freelancer,
+            Long id_match,
+            Boolean status
+    ) {
         this.id_match = id_match;
         this.id_contratante = id_contratante;
         this.id_freelancer = id_freelancer;
         this.status = status;
     }
 
-    public MatchDTO(Match match) {
+    public MatchDTO(MatchEntity match) {
         this.id_contratante = match.getContratante();
         this.id_freelancer = match.getFreelancer();
         this.id_match = match.getId_match();
