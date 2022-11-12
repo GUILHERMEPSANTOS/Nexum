@@ -35,13 +35,15 @@
       justify-content: space-evenly;
       align-items: center;
 
-      > li {
+      > a {
         margin: 0 40px;
         cursor: pointer;
         width: 110px;
+        color: white;
+        text-decoration: none;
 
         &:hover {
-          > div {
+          li > div {
             height: 4px;
             animation: border 0.8s linear 1 forwards;
             background-color: $purple;

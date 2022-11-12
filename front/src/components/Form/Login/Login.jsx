@@ -26,7 +26,6 @@ const Login = () => {
         <input
           value={email}
           onChange={({ target }) => setEmail(target.value)}
-          
         />
         <label className={styles.labels}>Senha</label>
         <div className={styles.password}>
@@ -54,8 +53,8 @@ const Login = () => {
         <label className={styles.labels}>Esqueci a senha</label>
       </div>
       <div className={styles.buttons}>
-        <Button onClick={handleSubmit} text="Entrar" />
-        <Button link={"/cadastro"} isEmpty={true} text="Criar conta" />
+        <Button link="/perfil" onClick={handleSubmit} text="Entrar" />
+        <Button link="/cadastro" isEmpty={true} text="Criar conta" />
       </div>
     </section>
   );

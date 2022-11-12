@@ -1,6 +1,6 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Profile from "../pages/profile/profile";
+import FreelancerChoose from "../pages/ProfilePages/FreelancersChoose/FreelancersChoose";
 import Form from "../components/Form/Form";
 import HomePage from "../pages/Home/homepage";
 import InicioMain from "../components/Profile/Inicio/tela_inicio";
@@ -24,6 +24,7 @@ export const router = createBrowserRouter([
     element: <Profile />,
   },
   {
+<<<<<<< HEAD
     path: "/inicio",
     element: <InicioMain />,
   },
@@ -32,4 +33,13 @@ export const router = createBrowserRouter([
     element: <CardMain />,
   },
 
+=======
+    path: "/favoritos",
+    element: <FreelancersOptions />,
+  },
+  {
+    path: "/escolha-freelancer",
+    element: <FreelancerChoose />,
+  },
+>>>>>>> 20d13f5ded4be227a30c65efdf564008410374aa
 ]);

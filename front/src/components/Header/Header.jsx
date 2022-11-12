@@ -5,17 +5,18 @@ import styles from "./styles.module.scss";
 
 const Header = ({ options, buttonText, buttonTextLogin, link }) => {
   const { position } = useChange();
-
   return (
     <header className={position}>
       <nav className={styles.navigation}>
         <img src="../../../assets/imgs/company.png" alt="Nexum" />
         <ul>
-          {options.map((options) => (
-            <li>
-              {options}
-              <div></div>
-            </li>
+          {options.map(({ name, path }) => (
+            <Link to={path}>
+              <li>
+                {name}
+                <div></div>
+              </li>
+            </Link>
           ))}
           <div className={styles.buttons}>
             {buttonTextLogin && (

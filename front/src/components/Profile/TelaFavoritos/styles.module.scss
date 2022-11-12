@@ -5,15 +5,22 @@
     width          : 482px;
     height         : 320px;
     border-radius  : 10px;
-    float          : left;
     padding        : 0.5% 1% 0.5% 1%;
     display        : flex;
     justify-content: space-evenly;
     font-family    : Montserrat;
     background     : #191A1D;
     color          : white;
+margin: 10px;
 }
 
+.competencia {
+    overflow-x: scroll;
+}
+
+.list {
+    width: 380%;
+}
 // Conteiner da imagem e nome usuário
 
 .usuario {
