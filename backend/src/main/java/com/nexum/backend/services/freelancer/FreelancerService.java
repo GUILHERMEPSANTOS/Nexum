@@ -1,10 +1,16 @@
 package com.nexum.backend.services.freelancer;
 
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
+import com.nexum.backend.domain.controle.acesso.RoleEntity;
+
 import com.nexum.backend.dto.freelancer.FreelancerDTO;
 import com.nexum.backend.dto.mappers.freelancer.FreelancerDTOMapper;
 
+import com.nexum.backend.enums.RoleName;
+
+import com.nexum.backend.repositories.controle.acesso.SpringRoleRepository;
 import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
+
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
 
 import java.util.Collection;
@@ -13,9 +19,30 @@ import java.util.stream.Collectors;
 
 public class FreelancerService implements FreelancerServicePort {
     private final SpringFreelancerRepository springFreelancerRepository;
+    private final SpringRoleRepository springRoleRepository;
 
-    public FreelancerService(SpringFreelancerRepository springFreelancerRepository) {
+    public FreelancerService(
+            SpringFreelancerRepository springFreelancerRepository,
+            SpringRoleRepository springRoleRepository
+    ) {
         this.springFreelancerRepository = springFreelancerRepository;
+        this.springRoleRepository = springRoleRepository;
+    }
+
+    @Override
+    public void create(FreelancerDTO freelancer) {
+        FreelancerEntity user = new FreelancerEntity(
+                freelancer.getNome(),
+                freelancer.getEmail(),
+                freelancer.getSenha(),
+                freelancer.getCelular()
+        );
+
+        RoleEntity role = springRoleRepository.findByRoleName(RoleName.ROLE_FREELANCER);
+
+        user.getRoles().add(role);
+
+        springFreelancerRepository.save(user);
     }
 
     @Override
@@ -28,13 +55,14 @@ public class FreelancerService implements FreelancerServicePort {
     }
 
     @Override
-    public FreelancerDTO getFreelancerById(Long id) {
-        // TODO: 12/11/2022
-//        Optional<FreelancerEntity> optionalFreelancer = springFreelancerRepository.findById(id);
-//        https://www.toptal.com/java/spring-boot-rest-api-error-handling
-//        if(optionalFreelancer.get()) {
-//
-//        }
+    public FreelancerDTO getById(Long id) {
+
+        Optional<FreelancerEntity> optionalFreelancer = springFreelancerRepository.findById(id);
+
+        if (optionalFreelancer.isPresent()) {
+            return FreelancerDTOMapper.toFreelancerDTO(optionalFreelancer.get());
+        }
+
         return null;
     }
 }

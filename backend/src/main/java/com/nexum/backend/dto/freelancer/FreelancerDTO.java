@@ -1,10 +1,7 @@
 package com.nexum.backend.dto.freelancer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.nexum.backend.domain.endereco.EnderecoEntity;
-import com.nexum.backend.domain.habilidades.HabilidadeEntity;
-import com.nexum.backend.domain.match.MatchEntity;
-import com.nexum.backend.domain.social.SocialUserEntity;
+
 import com.nexum.backend.dto.endereco.EnderecoDTO;
 import com.nexum.backend.dto.habilidade.HabilidadeDTO;
 import com.nexum.backend.dto.match.MatchDTO;
@@ -25,7 +22,8 @@ public class FreelancerDTO {
     private Collection<HabilidadeDTO> habilidades = new ArrayList<>();
     private Collection<MatchDTO> matchs = new ArrayList<>();
     public Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
-
+    public FreelancerDTO() {
+    }
 
     public FreelancerDTO(
             Long id_user,
@@ -49,6 +47,18 @@ public class FreelancerDTO {
         this.habilidades = habilidades;
         this.matchs = matchs;
         this.socialsUserDTO = socialsUserDTO;
+    }
+
+    public FreelancerDTO(
+            String nome,
+            String email,
+            String senha,
+            String celular
+    ) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.celular = celular;
     }
 
     public Long getId_user() {
@@ -117,21 +127,5 @@ public class FreelancerDTO {
 
     public void setSocialsUserDTO(SocialUserDTO socialsUserDTO) {
         this.socialsUserDTO.add(socialsUserDTO);
-    }
-
-    private void toMatchDTO(Collection<MatchEntity> matchs) {
-        matchs.forEach((match) -> this.matchs.add(new MatchDTO(match)));
-    }
-
-    private void toHabilidadeDTO(Collection<HabilidadeEntity> habilidadeEntities) {
-        habilidadeEntities.forEach((habilidadeEntity) -> this.habilidades.add(new HabilidadeDTO(habilidadeEntity)));
-    }
-
-    private void toEnderecoDTO(EnderecoEntity enderecoEntity) {
-        this.endereco = new EnderecoDTO(enderecoEntity);
-    }
-
-    private void toSocialUserDTO(Collection<SocialUserEntity> socialsUserEntity) {
-        socialsUserEntity.forEach((socialUserEntity) -> this.socialsUserDTO.add(new SocialUserDTO(socialUserEntity)));
     }
 }

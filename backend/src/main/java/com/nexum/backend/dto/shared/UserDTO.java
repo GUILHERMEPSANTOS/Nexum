@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class UserDTO {
-
     private Long id_user;
     private String nome;
     private String email;
@@ -24,57 +23,31 @@ public class UserDTO {
     private String senha;
     private String celular;
     private Boolean isLogged;
-    private EnderecoDTO endereco;
-    private Collection<HabilidadeDTO> habilidades = new ArrayList<>();
-    private Collection<MatchDTO> matchs = new ArrayList<>();
-    public Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
-    public Collection<HabilidadeDTO> getHabilidades() {
-        return habilidades;
-    }
 
     public UserDTO() {
     }
-    public UserDTO(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
-    }
 
-    public UserDTO(String nome, String email, String senha, String cpf, String celular) {
+    public UserDTO(Long id_user, String nome, String email, String celular) {
+        this.id_user = id_user;
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
         this.celular = celular;
     }
 
-
-    public UserDTO(FreelancerEntity user) {
-        this.id_user = user.getId_usuario();
-        this.nome = user.getNome();
-        this.email = user.getEmail();
-        this.senha = user.getSenha();
-        this.celular = user.getCelular();
-        this.isLogged = user.getLogged();
-        toEnderecoDTO(user.getEndereco());
-        toMatchDTO(user.getMatch());
-        toHabilidadeDTO(user.getHabilidades());
-        toSocialUserDTO(user.getSocialUsers());
-    }
-
-    public UserDTO(ContratanteEntity user) {
-        this.id_user = user.getId_usuario();
-        this.nome = user.getNome();
-        this.email = user.getEmail();
-        this.senha = user.getSenha();
-        this.celular = user.getCelular();
-        this.isLogged = user.getLogged();
-        toEnderecoDTO(user.getEndereco());
-        toMatchDTO(user.getMatch());
-        toHabilidadeDTO(user.getHabilidades());
-        toSocialUserDTO(user.getSocialUsers());
+    public UserDTO(Long id_user, String nome, String email, String celular, Boolean isLogged) {
+        this.id_user = id_user;
+        this.nome = nome;
+        this.email = email;
+        this.celular = celular;
+        this.isLogged = isLogged;
     }
 
     public Long getId_user() {
         return id_user;
+    }
+
+    public void setId_user(Long id_user) {
+        this.id_user = id_user;
     }
 
     public String getNome() {
@@ -108,55 +81,4 @@ public class UserDTO {
     public void setCelular(String celular) {
         this.celular = celular;
     }
-
-    public Collection<MatchDTO> getMatchs() {
-        return matchs;
-    }
-
-    public void setHabilidades(HabilidadeDTO habilidade) {
-        this.habilidades.add(habilidade);
-    }
-
-    public Boolean getLogged() {
-        return isLogged;
-    }
-
-    public void setLogged(Boolean logged) {
-        isLogged = logged;
-    }
-
-    public EnderecoDTO getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(EnderecoDTO endereco) {
-        this.endereco = endereco;
-    }
-
-    public Collection<SocialUserDTO> getSocialsUserDTO() {
-        return socialsUserDTO;
-    }
-
-    public void setSocialsUserDTO(SocialUserDTO socialsUserDTO) {
-        this.socialsUserDTO.add(socialsUserDTO);
-    }
-
-    private void toMatchDTO(Collection<MatchEntity> matchs) {
-        matchs.forEach((match) -> this.matchs.add(new MatchDTO(match)));
-    }
-
-    private void toHabilidadeDTO(Collection<HabilidadeEntity> habilidadeEntities) {
-        habilidadeEntities.forEach((habilidadeEntity)
-                -> this.habilidades.add(new HabilidadeDTO(habilidadeEntity)));
-    }
-
-    private void toEnderecoDTO(EnderecoEntity enderecoEntity) {
-        this.endereco = new EnderecoDTO(enderecoEntity);
-    }
-
-    private void toSocialUserDTO(Collection<SocialUserEntity> socialsUserEntity) {
-        socialsUserEntity.forEach((socialUserEntity) ->
-                this.socialsUserDTO.add(new SocialUserDTO(socialUserEntity)));
-    }
-
 }

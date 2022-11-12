@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 
 public class ContratanteDTOMapper {
     public static ContratanteDTO toContratanteDTO(ContratanteEntity contratanteEntity) {
+
+
         return new ContratanteDTO(
                 contratanteEntity.getId_usuario(),
                 contratanteEntity.getNome(),

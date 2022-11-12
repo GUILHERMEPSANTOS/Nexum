@@ -10,12 +10,10 @@ public class SocialDTO {
         this.id_social = id_social;
         this.nome = nome;
     }
-
     public SocialDTO(SocialEntity socialEntity) {
         this.id_social = socialEntity.getId_social();
         this.nome = socialEntity.getNome();
     }
-
     public Long getId_social() {
         return id_social;
     }
