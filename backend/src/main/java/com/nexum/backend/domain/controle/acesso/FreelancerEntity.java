@@ -25,6 +25,9 @@ public class FreelancerEntity extends UserEntity {
 
     public FreelancerEntity() {
     }
+    public FreelancerEntity(Long id_usuario) {
+        super(id_usuario);
+    }
 
     public FreelancerEntity(String nome, String email, String senha, String celular) {
         super(nome, email, senha, celular);

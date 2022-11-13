@@ -77,6 +77,11 @@ public class UserEntity {
 
     public UserEntity() {
     }
+
+    public UserEntity(Long id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
     public UserEntity(
             String nome,
             String email,

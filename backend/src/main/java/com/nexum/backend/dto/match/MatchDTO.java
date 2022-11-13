@@ -7,6 +7,10 @@ public class MatchDTO {
     private Long id_contratante;
     private Long id_freelancer;
     private Boolean status;
+
+    public MatchDTO() {
+    }
+
     public MatchDTO(
             Long id_contratante,
             Long id_freelancer,
