@@ -20,6 +20,10 @@ public class ContratanteEntity extends UserEntity {
     public ContratanteEntity() {
     }
 
+    public ContratanteEntity(Long id_usuario) {
+        super(id_usuario);
+    }
+
     public ContratanteEntity(String nome, String email, String senha, String celular) {
         super(nome, email, senha, celular);
     }

@@ -29,6 +29,10 @@ public class MatchEntity {
     @Column(name = "status")
     private Boolean status;
 
+    public MatchEntity() {
+        this.status = false;
+    }
+
     public Long getId_match() {
         return id_match;
     }
@@ -42,6 +46,7 @@ public class MatchEntity {
     }
 
     public void setFreelancer(FreelancerEntity freelancer) {
+        freelancer.setMatch(this);
         this.freelancer = freelancer;
     }
 
@@ -50,6 +55,7 @@ public class MatchEntity {
     }
 
     public void setContratante(ContratanteEntity contratante) {
+        contratante.setMatch(this);
         this.contratante = contratante;
     }
 
