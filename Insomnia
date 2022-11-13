@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-11-12T21:57:23.426Z
+__export_date: 2022-11-13T18:31:38.128Z
 __export_source: insomnia.desktop.app:v2022.6.0
 resources:
   - _id: req_758ea3194e1b4b7ea616cd21887952e9
@@ -439,15 +439,19 @@ resources:
     _type: request
   - _id: req_255d5f97cdb048b7ba732108ebfee7a7
     parentId: fld_820399f46119430eac7020b56aa7010e
-    modified: 1668265886174
+    modified: 1668360342252
     created: 1668265481949
     url: "{{ _.api }}api/v1/contratante/list"
     name: listAll
     description: ""
     method: GET
-    body: {}
+    body:
+      mimeType: application/json
+      text: ""
     parameters: []
-    headers: []
+    headers:
+      - name: Content-Type
+        value: application/json
     authentication: {}
     metaSortKey: -1668265481949
     isPrivate: false
@@ -551,9 +555,48 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1668289178295
     _type: request_group
+  - _id: req_c3b14cdeade24bceaef670dd2eacfaa9
+    parentId: fld_03f2cb694b544cdabda590839175c50e
+    modified: 1668363951560
+    created: 1668360146612
+    url: "{{ _.api }}api/v1/match"
+    name: enviarSolicitacaoMatch
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id_contratante":1,
+          "id_freelancer":2
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1668360146612
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_03f2cb694b544cdabda590839175c50e
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1668360144645
+    created: 1668360144645
+    name: Match
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668360144645
+    _type: request_group
   - _id: req_e1bf32487cb94f818cec3ff49493514c
     parentId: fld_3e5d8e5be5b5487f8cf4376db82d9e2b
-    modified: 1668289784549
+    modified: 1668360048317
     created: 1668289724833
     url: "{{ _.api }}api/v1/controle-acesso/sign-in"
     name: sign-in
@@ -563,8 +606,8 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"email": "",
-        	"senha": ""
+        	"email": "guilherme@hotmail.com",
+        	"senha": "123"
         }
     parameters: []
     headers:
@@ -644,7 +687,7 @@ resources:
     _type: cookie_jar
   - _id: spc_9d47bf2d61714b0b8f9ac15c71e886b1
     parentId: wrk_7c953201004542f992a58048bc0f88a6
-    modified: 1668264206367
+    modified: 1668360036584
     created: 1660426576527
     fileName: New Document
     contents: ""
