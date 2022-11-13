@@ -20,7 +20,7 @@ public class ControleAcessoService implements ControleAcessoServicePort {
     @Override
     public UserDTO signIn(UserSignInDTO userSignInDTO) {
         Optional<UserEntity> user =
-                springUserRepository.findByEmailAndSenha(userSignInDTO.getEmail(), userSignInDTO.getEmail());
+                springUserRepository.findByEmailAndSenha(userSignInDTO.getEmail(), userSignInDTO.getSenha());
 
         if(user.isPresent()){
             return UserDTOMapper.toUserDTOMapper(user.get());
