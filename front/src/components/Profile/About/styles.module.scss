@@ -45,4 +45,9 @@
     right: 10px;
     top: 10px;
   }
+
+  .editSocial {
+    @extend .edit;
+    top: 53%;
+  }
 }
