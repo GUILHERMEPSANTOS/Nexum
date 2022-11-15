@@ -3,8 +3,12 @@ import Title from "../../Title/Title";
 import Text from "../../Text/Text";
 import { SOCIAL_MEDIA, INFO } from "./constants";
 import List from "../List/List";
+import EditProfile from "../../Modals/EditProfile/EditProfile";
+import { useState } from "react";
 
 const About = ({ isOtherView, canEdit = true, isCompanyProfile }) => {
+  const [clickModal, setClickModal] = useState(false);
+
   return (
     <section className={styles.container}>
       <div>
@@ -34,9 +38,13 @@ const About = ({ isOtherView, canEdit = true, isCompanyProfile }) => {
         )}
       </div>
       <div className={styles.aboutContainer}>
-        {canEdit && 
-        <img className={styles.edit} src="../../assets/icons/editAbout.svg" />
-        }
+        {canEdit && (
+          <img
+            onClick={() => setClickModal(true)}
+            className={styles.edit}
+            src="../../assets/icons/editAbout.svg"
+          />
+        )}
         <Title text="Sobre" />
         <Text
           text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget urna egestas.
@@ -47,13 +55,16 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
         <div className={styles.socialMedia}>
           <Text isSmall={true} text="anacarolina2001@gmail.com.br" />
         </div>
-        {isCompanyProfile && 
-        <>
-        <List title="Informações do projeto" list={INFO}/>
-        <Text text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget."/>
-        </>
-        }
+        {isCompanyProfile && (
+          <>
+            <List title="Informações do projeto" list={INFO} />
+            <Text text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget." />
+          </>
+        )}
       </div>
+      {clickModal && (
+        <EditProfile actualState={clickModal} setActualState={setClickModal} />
+      )}
     </section>
   );
 };
