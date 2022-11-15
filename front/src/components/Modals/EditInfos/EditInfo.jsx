@@ -4,11 +4,12 @@ import Modal from "../Modal";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 
-const EditSocialMedia = ({ actualState, setActualState }) => {
-  const [linkedin, setLinkedin] = useState();
-  const [facebook, setFacebook] = useState();
-  const [instagram, setInstagram] = useState();
-  const [email, setEmail] = useState();
+const EditInfo = ({ actualState, setActualState }) => {
+  const [illustrator, setIllustrator] = useState(false);
+  const [premier, setPremier] = useState(false);
+  const [photoshop, setPhotoshop] = useState(false);
+  const [inkscape, setInkscape] = useState(false);
+  const [figma, setFigma] = useState(false);
 
   return (
     <Modal
@@ -18,26 +19,61 @@ const EditSocialMedia = ({ actualState, setActualState }) => {
       setActualState={setActualState}
     >
       <div className={styles.container}>
-        <Text isSmall={true} text="Linkedin" />
-        <input
-          onChange={({ target }) => setLinkedin(target.value)}
-          value={linkedin}
-        />
-        <Text isSmall={true} text="Facebook" />
-        <input
-          onChange={({ target }) => setFacebook(target.value)}
-          value={facebook}
-        />
-        <Text isSmall={true} text="Instagram" />
-        <input
-          onChange={({ target }) => setInstagram(target.value)}
-          value={instagram}
-        />
-        <Text isSmall={true} text="Email" />
-        <input
-          onChange={({ target }) => setEmail(target.value)}
-          value={email}
-        />
+        <div className={styles.containerLabel}>
+          <Text isSmall={true} text="Illustrator" />
+          <label className={styles.switch}>
+            <input
+              onChange={({ target }) => setIllustrator(target.checked)}
+              value={illustrator}
+              type="checkbox"
+            />
+            <span className={styles.slider}></span>
+          </label>
+        </div>
+        <div className={styles.containerLabel}>
+          <Text isSmall={true} text="Premier" />
+          <label className={styles.switch}>
+            <input
+              onChange={({ target }) => setPremier(target.checked)}
+              value={premier}
+              type="checkbox"
+            />
+            <span className={styles.slider}></span>
+          </label>
+        </div>
+        <div className={styles.containerLabel}>
+          <Text isSmall={true} text="Photoshop" />
+          <label className={styles.switch}>
+            <input
+              onChange={({ target }) => setPhotoshop(target.checked)}
+              value={photoshop}
+              type="checkbox"
+            />
+            <span className={styles.slider}></span>
+          </label>
+        </div>
+        <div className={styles.containerLabel}>
+          <Text isSmall={true} text="Inkscape" />
+          <label className={styles.switch}>
+            <input
+              onChange={({ target }) => setInkscape(target.checked)}
+              value={inkscape}
+              type="checkbox"
+            />
+            <span className={styles.slider}></span>
+          </label>
+        </div>
+        <div className={styles.containerLabel}>
+          <Text isSmall={true} text="Figma" />
+          <label className={styles.switch}>
+            <input
+              onChange={({ target }) => setFigma(target.checked)}
+              value={figma}
+              type="checkbox"
+            />
+            <span className={styles.slider}></span>
+          </label>
+        </div>
       </div>
       <div className={styles.buttons}>
         <Button
@@ -50,4 +86,4 @@ const EditSocialMedia = ({ actualState, setActualState }) => {
   );
 };
 
-export default EditSocialMedia;
+export default EditInfo;
