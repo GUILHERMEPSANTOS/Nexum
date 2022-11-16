@@ -4,7 +4,9 @@ import FreelancerChoose from "../pages/ProfilePages/FreelancersChoose/Freelancer
 import Form from "../components/Form/Form";
 import HomePage from "../pages/Home/homepage";
 import InicioMain from "../components/Profile/Inicio/tela_inicio";
-import CardMain from "../components/Profile/Card Tela Inicio/card";
+import CardMain from "../components/Profile/CardTelaInicio/card";
+import Profile from "../pages/Profile/profile";
+import FreelancersOptions from "../pages/ProfilePages/FreelancersOptions/FreelancersOptions";
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +26,6 @@ export const router = createBrowserRouter([
     element: <Profile />,
   },
   {
-<<<<<<< HEAD
     path: "/inicio",
     element: <InicioMain />,
   },
@@ -32,8 +33,7 @@ export const router = createBrowserRouter([
     path: "/card",
     element: <CardMain />,
   },
-
-=======
+{
     path: "/favoritos",
     element: <FreelancersOptions />,
   },
@@ -41,5 +41,4 @@ export const router = createBrowserRouter([
     path: "/escolha-freelancer",
     element: <FreelancerChoose />,
   },
->>>>>>> 20d13f5ded4be227a30c65efdf564008410374aa
 ]);
