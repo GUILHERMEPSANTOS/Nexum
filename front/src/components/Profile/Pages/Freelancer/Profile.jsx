@@ -1,5 +1,6 @@
 import About from "../../About/Profile";
 import Degrees from "../../Degrees/Profile";
+import Experience from "../../Experience/Experience";
 import Infos from "../../Infos/Infos";
 import styles from "./styles.module.scss";
 
@@ -9,6 +10,7 @@ const Freelancer = () => {
       <About />
       <Infos />
       <Degrees/>
+      <Experience/>
     </section>
   );
 };
