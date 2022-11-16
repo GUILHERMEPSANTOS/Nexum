@@ -79,11 +79,10 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
         <EditProfile actualState={editAbout} setActualState={setEditAbout} />
       )}
       {editSocial && (
-        // <EditSocialMedia
-        //   actualState={editSocial}
-        //   setActualState={setEditSocial}
-        // />
-        <CreateOffer actualState={editSocial} setActualState={setEditSocial} />
+        <EditSocialMedia
+          actualState={editSocial}
+          setActualState={setEditSocial}
+        />
       )}
     </>
   );
