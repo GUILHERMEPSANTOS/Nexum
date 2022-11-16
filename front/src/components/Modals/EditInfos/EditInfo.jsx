@@ -13,8 +13,8 @@ const EditInfo = ({ actualState, setActualState }) => {
 
   return (
     <Modal
-      text={"Perfil"}
-      label={"Coloque as suas redes sociais"}
+      text={"Habilidades"}
+      label={"Quais habilidades você possui?"}
       actualState={actualState}
       setActualState={setActualState}
     >

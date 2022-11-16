@@ -6,6 +6,7 @@ import List from "../List/List";
 import EditProfile from "../../Modals/EditProfile/EditProfile";
 import { useState } from "react";
 import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
+import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
 
 const About = ({ isOtherView, canEdit = true, isCompanyProfile }) => {
   const [editAbout, setEditAbout] = useState(false);
@@ -78,10 +79,11 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
         <EditProfile actualState={editAbout} setActualState={setEditAbout} />
       )}
       {editSocial && (
-        <EditSocialMedia
-          actualState={editSocial}
-          setActualState={setEditSocial}
-        />
+        // <EditSocialMedia
+        //   actualState={editSocial}
+        //   setActualState={setEditSocial}
+        // />
+        <CreateOffer actualState={editSocial} setActualState={setEditSocial} />
       )}
     </>
   );

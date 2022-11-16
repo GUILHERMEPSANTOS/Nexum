@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
 
 const EditProfile = ({ actualState, setActualState }) => {
+  const [about, setAbout] = useState();
   return (
     <Modal
       text={"Perfil"}
@@ -10,7 +12,11 @@ const EditProfile = ({ actualState, setActualState }) => {
       actualState={actualState}
       setActualState={setActualState}
     >
-      <textarea className={styles.textArea} />
+      <textarea
+        onChange={({ target }) => setAbout(target.value)}
+        value={about}
+        className={styles.textArea}
+      />
       <div className={styles.buttons}>
         <Button
           onClick={() => setActualState(false)}
