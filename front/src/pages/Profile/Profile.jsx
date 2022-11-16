@@ -1,14 +1,14 @@
-import { OPTIONS } from "./constants";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import Company from "../../components/Profile/Pages/Company/Company";
-import Freelancer from "../../components/Profile/Pages/Freelancer/Profile";
+import Company from "./Company/Company";
+import Freelancer from "./Freelancer/Profile";
+import ProfileContainer from "../ProfilePages/profile";
 
-const Profile = ({ isCompanyProfile = false }) => (
-  <>
-    <Header options={OPTIONS} buttonText="Sair" link="/" />
-    {isCompanyProfile ? <Company /> : <Freelancer />}
-    <Footer />
-  </>
+const Profile = ({ isCompanyProfile }) => (
+  <ProfileContainer>
+    {isCompanyProfile ? (
+      <Company isCompany={isCompanyProfile} />
+    ) : (
+      <Freelancer />
+    )}
+  </ProfileContainer>
 );
 export default Profile;

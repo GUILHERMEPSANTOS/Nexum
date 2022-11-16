@@ -11,18 +11,16 @@ import javax.persistence.*;
 @Table(name = "tb_social_user")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id_social_user")
-public class SocialUserEntity {
+    public class SocialUserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_social_user;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private UserEntity user;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_social")
     private SocialEntity social;
-
     @Column
     private String user_url;
 
@@ -56,8 +54,8 @@ public class SocialUserEntity {
         this.user = userEntity;
     }
 
-    public Long getSocial() {
-        return social.getId_social();
+    public SocialEntity getSocial() {
+        return social;
     }
 
     public void setSocial(SocialEntity social) {

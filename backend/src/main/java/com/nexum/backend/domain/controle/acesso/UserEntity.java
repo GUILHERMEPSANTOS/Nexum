@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nexum.backend.domain.endereco.EnderecoEntity;
+import com.nexum.backend.domain.habilidades.HabilidadeEntity;
 import com.nexum.backend.domain.social.SocialUserEntity;
-import com.nexum.backend.dto.controle.acesso.UserDTO;
+import com.nexum.backend.dto.shared.UserDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -59,14 +60,38 @@ public class UserEntity {
             orphanRemoval = true
     )
     private Collection<SocialUserEntity> socialUsers = new ArrayList<>();
-    @OneToMany(
+    @OneToOne(
             mappedBy = "user",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Collection<EnderecoEntity> enderecos;
+    private EnderecoEntity endereco;
+
+    @ManyToMany
+    @JoinTable(name = "TB_USERS_HABILIDADES",
+            joinColumns = @JoinColumn(name = "id_usuario"),
+            inverseJoinColumns = @JoinColumn(name = "id_habilidade")
+    )
+    private Collection<HabilidadeEntity> habilidades = new ArrayList<>();
+
 
     public UserEntity() {
+    }
+
+    public UserEntity(Long id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    public UserEntity(
+            String nome,
+            String email,
+            String senha,
+            String celular
+    ) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.celular = celular;
     }
 
     public UserEntity(UserDTO userDTO) {
@@ -152,11 +177,20 @@ public class UserEntity {
         this.socialUsers.add(socialUser);
     }
 
-    public Collection<EnderecoEntity> getEnderecos() {
-        return enderecos;
+    public EnderecoEntity getEndereco() {
+        return endereco;
     }
 
-    public void setEnderecos(EnderecoEntity endereco) {
-        this.enderecos.add(endereco);
+    public void setEndereco(EnderecoEntity endereco) {
+        this.endereco = endereco;
     }
+
+    public Collection<HabilidadeEntity> getHabilidades() {
+        return habilidades;
+    }
+
+    public void setHabilidades(HabilidadeEntity habilidade) {
+        this.habilidades.add(habilidade);
+    }
+
 }

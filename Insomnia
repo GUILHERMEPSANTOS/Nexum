@@ -1,0 +1,739 @@
+_type: export
+__export_format: 4
+__export_date: 2022-11-13T18:31:38.128Z
+__export_source: insomnia.desktop.app:v2022.6.0
+resources:
+  - _id: req_758ea3194e1b4b7ea616cd21887952e9
+    parentId: fld_f6fc4221ed1143c9b93e6ae73b68761c
+    modified: 1663514515072
+    created: 1660483917427
+    url: "{{ _.api }}/api/v1/controle-acesso/create/user"
+    name: GetUsers
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        		"nome": "Alberto",
+            "email": "Alberto@hotmail.com",
+        	  "senha": "1234",
+            "cpf": "30989876567",
+            "profissao": "dev"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_fd0b63fe5ac24189bc3f63ab4633635e
+    authentication: {}
+    metaSortKey: -1662587631646
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_f6fc4221ed1143c9b93e6ae73b68761c
+    parentId: fld_115d53854dc042779b051873d8014937
+    modified: 1662583776955
+    created: 1662583776955
+    name: Controle Acesso
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1662583776955
+    _type: request_group
+  - _id: fld_115d53854dc042779b051873d8014937
+    parentId: wrk_7c953201004542f992a58048bc0f88a6
+    modified: 1660483901817
+    created: 1660483901817
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1660483901817
+    _type: request_group
+  - _id: wrk_7c953201004542f992a58048bc0f88a6
+    parentId: null
+    modified: 1663514537600
+    created: 1660426576499
+    name: New Document
+    description: ""
+    scope: design
+    _type: workspace
+  - _id: req_fd3ccd19efe5451cb8e886295e7f5627
+    parentId: fld_f6fc4221ed1143c9b93e6ae73b68761c
+    modified: 1662669190954
+    created: 1660483996373
+    url: "{{ _.api }}/api/v1/controle-acesso/cadastro/freelancer"
+    name: SingUpFreelancer
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "Guilherme",
+        	"email": "guilherme.santos@hotmail.com",
+        	"senha": "123"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_fb3604c90ddd40f5bfe1d929e73fee14
+      - id: pair_626f7f1fc16a4cf7b96501d27305f63d
+        name: ""
+        value: ""
+        description: ""
+    authentication: {}
+    metaSortKey: -1660484193169.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7a7141873b694ca6962c5dad53d4e3a6
+    parentId: fld_f6fc4221ed1143c9b93e6ae73b68761c
+    modified: 1664584047086
+    created: 1660484258768
+    url: "{{ _.api }}/api/v1/controle-acesso/login"
+    name: SingIn
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "iuri.santos@hotmail.com",
+        	"senha": "123"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_a58965fc067e45a390ba242c1de389c7
+    authentication: {}
+    metaSortKey: -1660484193219.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_2d8b9e86801b4dedaa0ba2678731aa20
+    parentId: fld_f6fc4221ed1143c9b93e6ae73b68761c
+    modified: 1662588791570
+    created: 1662587631596
+    url: "{{ _.api }}/api/v1/controle-acesso/logoff/guilherme.santos@hotmail.com"
+    name: SingOut
+    description: ""
+    method: PUT
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1662587631596
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_087387f475b840219421d84c6cbdcbe4
+    parentId: fld_f6fc4221ed1143c9b93e6ae73b68761c
+    modified: 1662669166425
+    created: 1662587817701
+    url: "{{ _.api }}/api/v1/controle-acesso/cadastro/contratante"
+    name: SingUpContratante
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "iuri",
+        	"email": "iuri.santos@hotmail.com",
+        	"senha": "123"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_fb3604c90ddd40f5bfe1d929e73fee14
+      - id: pair_626f7f1fc16a4cf7b96501d27305f63d
+        name: ""
+        value: ""
+        description: ""
+    authentication: {}
+    metaSortKey: -1660484160369.875
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1a299cb2bb4342d1925cce3f9f262310
+    parentId: fld_a9c4eb7b785a47e99ad4477a4ba9f508
+    modified: 1663514537584
+    created: 1663514537584
+    url: http://localhost:8080/grifes/populares
+    name: Listar Grifes Populares
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1663514537584
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_a9c4eb7b785a47e99ad4477a4ba9f508
+    parentId: fld_78113d3174954dd6a53a8a47cde8eed5
+    modified: 1663514537593
+    created: 1663514537593
+    name: grifes
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1663514537593
+    _type: request_group
+  - _id: fld_78113d3174954dd6a53a8a47cde8eed5
+    parentId: wrk_7c953201004542f992a58048bc0f88a6
+    modified: 1663514537598
+    created: 1663514537598
+    name: prog-web-chamadas
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1663514537598
+    _type: request_group
+  - _id: req_612940c88f624481b8bfc4c387bee39f
+    parentId: fld_a9c4eb7b785a47e99ad4477a4ba9f508
+    modified: 1664672938551
+    created: 1663514537586
+    url: http://localhost:8080/parking-spot/5
+    name: Deletar
+    description: ""
+    method: DELETE
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: Guilherme
+      password: senha123
+    metaSortKey: -1663514537589
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_552a9c368fce4a2e903daa810a027eca
+    parentId: fld_a9c4eb7b785a47e99ad4477a4ba9f508
+    modified: 1664663047464
+    created: 1663514537588
+    url: http://localhost:8080/grifes/0
+    name: Atualizar Grife
+    description: ""
+    method: PUT
+    body:
+      mimeType: ""
+      text: |-
+        {
+          "nome": "Lacoste",
+          "anoDeFabricacao": 32,
+          "valorAcaoBolsa": 55.91,
+          "chaveAcesso": "eeee"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1663514537588
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7ed2c2b9cac0413fbbab0a5e303687a6
+    parentId: fld_a9c4eb7b785a47e99ad4477a4ba9f508
+    modified: 1666994106738
+    created: 1663514537590
+    url: https://firebase.googleapis.com/v1alpha/projects/-/apps/1:1045878401962:web:d0503360e66d5e512719d3/webConfig
+    name: Cadastrar
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_678021fd5daa4689bfa9a0f2a149a2d4
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: Guilherme
+      password: senha123
+    metaSortKey: -1663514537590
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_776297db4aaf4353adacf97185897c67
+    parentId: fld_a9c4eb7b785a47e99ad4477a4ba9f508
+    modified: 1664728125068
+    created: 1663514537592
+    url: http://localhost:8080/parking-spot?page=0&size=5&sort=registrationDate,ASC
+    name: TodasVagas
+    description: ""
+    method: GET
+    body:
+      mimeType: multipart/form-data
+      params: []
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: multipart/form-data
+        id: pair_ca5184aaabf94ad08e1ba35daec3a4a4
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: Pedro
+      password: senha123
+    metaSortKey: -1663514537592
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a831145d8bb549c3a16e297553afce46
+    parentId: fld_31805b678ce648239d8a18deef0a091a
+    modified: 1668290075573
+    created: 1664497010414
+    url: "{{ _.api }}api/v1/freelancer/create-account"
+    name: CreateFreelancer
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "Carlos",
+        	"email": "alcantara@hotmail.com",
+        	"senha": "senha123",
+        	"celular": "11 997368699"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_d8abcecb6e42412aa91876008f313842
+    authentication: {}
+    metaSortKey: -1668264561759
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_31805b678ce648239d8a18deef0a091a
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1668127239953
+    created: 1668127239953
+    name: Freelancer
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668127239953
+    _type: request_group
+  - _id: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    parentId: null
+    modified: 1664495971888
+    created: 1664495971888
+    name: Nexum
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_39299d6575254251abbe9f58e7d0d1fd
+    parentId: fld_31805b678ce648239d8a18deef0a091a
+    modified: 1668127268981
+    created: 1668127244231
+    url: "{{ _.api }}api/v1/freelancer/list"
+    name: listAll
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668127244231
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d66540558d79407b9ab80b0103d91140
+    parentId: fld_31805b678ce648239d8a18deef0a091a
+    modified: 1668264658113
+    created: 1668264561709
+    url: "{{ _.api }}api/v1/freelancer/2"
+    name: getFreelancerById
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668264561709
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_255d5f97cdb048b7ba732108ebfee7a7
+    parentId: fld_820399f46119430eac7020b56aa7010e
+    modified: 1668360342252
+    created: 1668265481949
+    url: "{{ _.api }}api/v1/contratante/list"
+    name: listAll
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1668265481949
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_820399f46119430eac7020b56aa7010e
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1668265480333
+    created: 1668265480333
+    name: Contratante
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668265480333
+    _type: request_group
+  - _id: req_5d396e298622449f982f7d80aedb38f5
+    parentId: fld_820399f46119430eac7020b56aa7010e
+    modified: 1668289084835
+    created: 1668265710490
+    url: "{{ _.api }}api/v1/contratante/1"
+    name: getContratanteById
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668265710490
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6dda8bfe006c4ed2b7736b25edf479b1
+    parentId: fld_820399f46119430eac7020b56aa7010e
+    modified: 1668290055071
+    created: 1668269190110
+    url: "{{ _.api }}api/v1/contratante/create-account"
+    name: createAccount
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"nome": "Pieroni",
+        	"email": "Pieroni@hotmail.com",
+        	"senha": "senha123",
+        	"celular": "11 997368699"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1668269190110
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_722f2eb0878e40f38f331314fa4c46dc
+    parentId: fld_a6a239fd97714aaaa2b3f9007a703be1
+    modified: 1668289216253
+    created: 1668289183796
+    url: "{{ _.api }}api/v1/admin/download-csv"
+    name: getFileCSV
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668289183796
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_a6a239fd97714aaaa2b3f9007a703be1
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1668289178295
+    created: 1668289178295
+    name: Admin
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668289178295
+    _type: request_group
+  - _id: req_c3b14cdeade24bceaef670dd2eacfaa9
+    parentId: fld_03f2cb694b544cdabda590839175c50e
+    modified: 1668363951560
+    created: 1668360146612
+    url: "{{ _.api }}api/v1/match"
+    name: enviarSolicitacaoMatch
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id_contratante":1,
+          "id_freelancer":2
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1668360146612
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_03f2cb694b544cdabda590839175c50e
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1668360144645
+    created: 1668360144645
+    name: Match
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668360144645
+    _type: request_group
+  - _id: req_e1bf32487cb94f818cec3ff49493514c
+    parentId: fld_3e5d8e5be5b5487f8cf4376db82d9e2b
+    modified: 1668360048317
+    created: 1668289724833
+    url: "{{ _.api }}api/v1/controle-acesso/sign-in"
+    name: sign-in
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "guilherme@hotmail.com",
+        	"senha": "123"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1668289724833
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_3e5d8e5be5b5487f8cf4376db82d9e2b
+    parentId: fld_9f391781972c4fba91fd8a64c5233bda
+    modified: 1668289690871
+    created: 1664495992363
+    name: Controle Acesso
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1665193094341.25
+    _type: request_group
+  - _id: fld_9f391781972c4fba91fd8a64c5233bda
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1667699234830
+    created: 1667699234830
+    name: Shared
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1667699234830
+    _type: request_group
+  - _id: env_c8c187694807da1e43f571de78371652f067e9a5
+    parentId: wrk_7c953201004542f992a58048bc0f88a6
+    modified: 1662850731214
+    created: 1660426576537
+    name: Base Environment
+    data:
+      api: http://localhost:8080
+    dataPropertyOrder:
+      "&":
+        - api
+    color: null
+    isPrivate: false
+    metaSortKey: 1660426576537
+    _type: environment
+  - _id: jar_c8c187694807da1e43f571de78371652f067e9a5
+    parentId: wrk_7c953201004542f992a58048bc0f88a6
+    modified: 1664728108028
+    created: 1660426576546
+    name: Default Jar
+    cookies:
+      - key: .AspNetCore.Identity.Application
+        value: CfDJ8GNnEVNpfc5Hogojycnzf7dXLCS-PS4rmriVU7gSH8uCQRyhLQbpjkNU-kppiSDeUYDhzVtpJ0g8flaTa6breLmGtAu9EfZ6FGu1_ZOl48kQDdFHl3SglyUsfxwtIbuYywfoxn9mfUlXrgTwxUkUTVNgXmxhcnAsV3zvqWzfwq6mHdKbFN7rpBE-3oKM2QmqmuQO827XemkEEI9pdvTWk1plQRzkJsO5zEFSYouyj7SeVjEnj0zsTv3li5JZaoLKpDfsleSmd7DTo70HFLruF04yjlseV6pPhZkDcvG1cbuBn2hNcDvRZ7i0o_eUCoN_Mobp9Kmf7LxtB56Cno0MZVAApZEytwNDjNL4K6AOqfgwNurQUDa610DybpwMPyBfLty1fbBplj2B2Y9aNXMFO7yo1iClzz00Op17S30HK8-qTu8AdY-7krzzwNIbG_yEPkYOKjPp61WMuA326C_pi7lj5p6aNNSmowOfoknvCvNSyEV1v2O1bCmL3swHhQyY_4agmltwBWKoAmkyM2bGzq6xQOIvHEsgyDo7cxYL1NY5fZuSX8YnIcuKbJtkGiJe92O14eRk_r5RE9rnwws6lzklzTFLgsEjUIlHbQfWYryBCE-EEOZDTuIRyfRh9SSHBZQ3FP0UM5jh-lfy-kcpYO_0psUV4-i2QZ2F1IOQZuKcdw_0xqzgOFMQChYIxt6-8u8Yxsw5WIrNiqdXr3e-XW4K5t56PL_l8wkO88L0z09MC9c6k98W415COb1_5VgF9HUiZs177TdOH0HghX8OTFlO9UyW8KT6sUUgLiZ3lYkYOOUPU3wswpD5OSZ9zM4wZRofc6vPXWP6bie7tjf2NwM
+        domain: localhost
+        path: /
+        secure: true
+        httpOnly: true
+        extensions:
+          - samesite=lax
+        hostOnly: true
+        creation: 2022-09-25T02:01:04.946Z
+        lastAccessed: 2022-09-25T12:54:07.974Z
+        id: "2928483771831356"
+      - key: JSESSIONID
+        value: 0814AAF81FC13FECEDD64FBFDC85782D
+        domain: localhost
+        path: /
+        httpOnly: true
+        hostOnly: true
+        creation: 2022-10-01T00:32:15.045Z
+        lastAccessed: 2022-10-02T16:28:28.028Z
+        id: "2870539313056135"
+    _type: cookie_jar
+  - _id: spc_9d47bf2d61714b0b8f9ac15c71e886b1
+    parentId: wrk_7c953201004542f992a58048bc0f88a6
+    modified: 1668360036584
+    created: 1660426576527
+    fileName: New Document
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: uts_2f11739e90004edaa2beffa22418954f
+    parentId: wrk_7c953201004542f992a58048bc0f88a6
+    modified: 1660426576559
+    created: 1660426576559
+    name: Example Test Suite
+    _type: unit_test_suite
+  - _id: env_6e6e2f180dbc9d99c505789c6d42ce00c2be7c06
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1664497099386
+    created: 1664495971907
+    name: Base Environment
+    data:
+      api: http://localhost:8080/
+    dataPropertyOrder:
+      "&":
+        - api
+    color: null
+    isPrivate: false
+    metaSortKey: 1664495971907
+    _type: environment
+  - _id: jar_6e6e2f180dbc9d99c505789c6d42ce00c2be7c06
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1664738460675
+    created: 1664495971915
+    name: Default Jar
+    cookies:
+      - key: JSESSIONID
+        value: AE5ADFCEEC9205E22BE64BED4EE4CF1A
+        domain: localhost
+        path: /
+        httpOnly: true
+        hostOnly: true
+        creation: 2022-10-02T19:21:00.672Z
+        lastAccessed: 2022-10-02T19:21:00.672Z
+        id: "2156831268234929"
+    _type: cookie_jar
+  - _id: spc_b7d8c4eac49f4e079f53312ddef67294
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1664495971896
+    created: 1664495971896
+    fileName: Nexum
+    contents: ""
+    contentType: yaml
+    _type: api_spec

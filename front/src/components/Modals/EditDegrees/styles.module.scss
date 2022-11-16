@@ -1,0 +1,25 @@
+@import "../../../styles/variables.scss";
+// @import "../../styles/mixins.scss";
+
+.container {
+  margin-top: 20px;
+
+  > input {
+    margin: 5px 0;
+  }
+}
+
+.location {
+  display: flex;
+
+  > input {
+    margin: 5px 10px;
+  }
+}
+
+.buttons {
+  width: 150px;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+}
