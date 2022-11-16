@@ -1,15 +1,15 @@
 export const INFOS = [
   {
-    text: "Projetos",
+    text: "Projetos:",
     number: 24,
   },
   {
-    text: "Avaliações",
+    text: "Avaliações:",
     number: 4.8,
     rate: "Positivas",
   },
   {
-    text: "Desde",
+    text: "Desde:",
     date: "04/08/2004",
   },
 ];
