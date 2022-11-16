@@ -69,8 +69,26 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
           </div>
           {isCompanyProfile && (
             <>
-              <List title="Informações do projeto" list={INFO} />
-              <Text text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget." />
+              {canEdit && (
+                <img
+                  onClick={() => setEditAbout(true)}
+                  className={styles.edit}
+                  src="../../assets/icons/editAbout.svg"
+                />
+              )}
+              {isOtherView && (
+                <>
+                  <List title="Informações do projeto" list={INFO} />
+                  <Text text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget." />
+                </>
+              )}
+              {canEdit && (
+                <img
+                  onClick={() => setEditSocial(true)}
+                  className={styles.editSocial}
+                  src="../../assets/icons/editAbout.svg"
+                />
+              )}
             </>
           )}
         </div>
