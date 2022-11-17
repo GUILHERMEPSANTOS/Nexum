@@ -53,7 +53,7 @@ const Login = () => {
         <label className={styles.labels}>Esqueci a senha</label>
       </div>
       <div className={styles.buttons}>
-        <Button link="/perfil" onClick={handleSubmit} text="Entrar" />
+        <Button link="/inicio" onClick={handleSubmit} text="Entrar" />
         <Button link="/cadastro" isEmpty={true} text="Criar conta" />
       </div>
     </section>
