@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+import { api } from "./api";
 
 export function APILogin({ email, senha }) {
   axios
@@ -7,9 +8,9 @@ export function APILogin({ email, senha }) {
       email: email,
       senha: senha,
     })
-    .then(
+    .then((res) =>
       res == 200
-        ? Navigate("/perfil")
+        ? Navigate("/inicio")
         : window.alert("Tem algo errado ai irmão")
     )
     .catch((err) => console.log(err));
