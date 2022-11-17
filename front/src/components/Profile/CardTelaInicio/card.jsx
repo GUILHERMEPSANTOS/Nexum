@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 import Text from "../../Text/Text";
 import styles from "./styles.module.scss"
 
-const CardMain = () => {
+const CardMain = ({title, text}) => {
     return (
         <div className={styles.containerCard}>
             <Link to="/escolha-freelancer">
             <p className={styles.texto}>
                 <Text
-                text="Clique aqui para visualizar"
+                text={title}
                 />
                 <Text 
-                text="Propostas"
+                text={text}
                 />
             </p>
             </Link>

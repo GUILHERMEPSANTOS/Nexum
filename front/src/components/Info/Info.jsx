@@ -9,8 +9,8 @@ const Info = () => {
       <section className={styles.background}>
         <img src={`../../assets/icons/logo.png`} alt="Nexum" />
         <hr className={styles.line} />
-        {ITEMS.map(({ title, text, icon, number }) => (
-          <div className={styles.card}>
+        {ITEMS.map(({ title, text, icon, number }, i) => (
+          <div key={`${title} - ${i}` }className={styles.card}>
             <Text text={title} />
             <Text text={text} isSmall={true} />
             <div className={styles.container}>

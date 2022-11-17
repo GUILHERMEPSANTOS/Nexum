@@ -15,7 +15,9 @@ const InicioMain = () => {
                         />
                    
                 </div>
-                <CardMain/>
+                <CardMain title="busque a experiencia" text="veja propostas"/>
+                <CardMain title="busque a experiencia" text="veja propostas"/>
+                <CardMain title="busque a experiencia" text="veja propostas"/>
             </div>
         </Banner>
     )

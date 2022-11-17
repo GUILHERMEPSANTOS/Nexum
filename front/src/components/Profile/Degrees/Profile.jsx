@@ -21,8 +21,8 @@ const Degrees = ({ canEdit = true }) => {
           </div>
         )}
         <Title text="Certificações" />
-        {DEGREES.map(({ name, icon, text, location }) => (
-          <div>
+        {DEGREES.map(({ name, icon, text, location }, i) => (
+          <div key={`${name} - ${i}`}>
             <div className={styles.wrapper}>
               <img src={`../../assets/icons/${icon}.svg`} />
               <div className={styles.contentContainer}>

@@ -9,8 +9,7 @@ import { useEffect, useState } from "react";
 
 
 const Freelancer = () => {
-  const [freelancer, setFreelancer] = useState({});
-
+  const [freelancer, setFreelancer] = useState({})
 
   useEffect(() => {
       const response = getFreelancerById(2);
@@ -18,6 +17,8 @@ const Freelancer = () => {
       if(response)
       setFreelancer(response);
   },[getFreelancerById]);
+
+  console.log(freelancer)
 
   return (
     <section className={styles.container}>
