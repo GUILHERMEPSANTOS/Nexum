@@ -1,28 +1,32 @@
 import Banner from "../../Banner/Banner";
-import {TEXTS} from "./constants"
+import { TEXTS, OPTIONS } from "./constants"
 import Title from "../../Title/Title";
 import CardMain from "../CardTelaInicio/card";
 import styles from "./styles.module.scss"
+import Header from "../../Header/Header";
 
 const InicioMain = () => {
-    return (
+    return (<div>
+             <Header options={OPTIONS} buttonText="Sair" link="/" />
         <Banner>
             <div className={styles.conteiner}>
                 <div className={styles.mensagem}>
-                    
-                        <Title
-                            text="Olá, Ana Carolina, te desejamos uma ótima expêriencia"
-                        />
-                   
+
+                    <Title
+                        text="Olá, Ana Carolina, te desejamos uma ótima expêriencia"
+                    />
+
                 </div>
-                <div>
-                    {TEXTS.map(({title, text}) => (
-                <CardMain title={title} text={text}/>
+                <div className={styles.containerCards}>
+                    {TEXTS.map(({ title, text }) => (
+
+                        <CardMain  title={title} text={text} />
                     ))}
-                
+
                 </div>
             </div>
         </Banner>
+        </div>
     )
 }
 

@@ -1,18 +1,32 @@
 export const TEXTS = [
     {
-    title: "Busque a melhor experiencia",
-    text: "aqui e agora"
+    title: "Clique aqui para visualizar ",
+    text: "Propostas"
 },
 {
-    title: "Busque a melhor experiencia",
-    text: "aqui e agora"
+    title: "Clique aqui para visualizar",
+    text: "Perfil"
 },
 {
-    title: "Busque a melhor experiencia",
-    text: "aqui e agora"
-}, {
-    title: "Busque a melhor experiencia",
-    text: "aqui e agora"
-},
+    title: "Clique aqui para entrar em ",
+    text: "Contato"
+}, 
 
 ]
+
+export const OPTIONS = [
+    {
+      name: "Inicio",
+      path: "/inicio",
+    },
+    { name: "Perfil", path: "/perfil" },
+    {
+      name: "Favoritos",
+      path: "/favoritos",
+    },
+    {
+      name: "Contato",
+      path: "/",
+    },
+  ];
+  
