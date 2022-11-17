@@ -1,5 +1,5 @@
 import Banner from "../../Banner/Banner";
-import Text from "../../Text/Text";
+import {TEXTS} from "./constants"
 import Title from "../../Title/Title";
 import CardMain from "../CardTelaInicio/card";
 import styles from "./styles.module.scss"
@@ -15,9 +15,13 @@ const InicioMain = () => {
                         />
                    
                 </div>
-                <CardMain title="busque a experiencia" text="veja propostas"/>
-                <CardMain title="busque a experiencia" text="veja propostas"/>
-                <CardMain title="busque a experiencia" text="veja propostas"/>
+                <div>
+                    {TEXTS.map(({title, text}) => (
+
+                <CardMain title={title} text={text}/>
+                    ))}
+                
+                </div>
             </div>
         </Banner>
     )
