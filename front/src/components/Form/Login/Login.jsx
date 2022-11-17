@@ -7,14 +7,24 @@ import Button from "../../Buttons/Button";
 import { useState } from "react";
 import { APILogin } from "../../../services";
 import useLogin from "./hooks";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [type, setType] = useState("password");
+  const navigate = useNavigate()
 
-  const handleSubmit = useCallback(() => {
-    APILogin({ email, senha: password });
+  const handleSubmit = useCallback(async () => {
+   const handlelogin = await APILogin({ email, senha: password });
+
+
+   handlelogin.status == 200 ?
+    navigate("/inicio")
+    :
+    window.alert("Usuário ou senha incorretos")
+;
+   console.log(handlelogin)
   }, [email, password]);
 
   const {

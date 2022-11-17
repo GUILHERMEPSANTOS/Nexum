@@ -1,19 +1,12 @@
 import axios from "axios";
-import { Navigate } from "react-router-dom";
-import { api } from "./api";
+import React, { useCallback} from 'react';
+import { useNavigate } from "react-router-dom";
 
-export function APILogin({ email, senha }) {
-  axios
-    .post("http://localhost:8080/api/v1/controle-acesso/sign-in", {
-      email: email,
-      senha: senha,
-    })
-    .then((res) =>
-      res == 200
-        ? Navigate("/inicio")
-        : window.alert("Tem algo errado ai irmão")
-    )
-    .catch((err) => console.log(err));
+export async function APILogin({ email, senha }) {
+  return await axios.post("http://localhost:8080/api/v1/controle-acesso/sign-in", {
+    email: email,
+    senha: senha,
+  });
 }
 
 export function APICadastro({ email, senha, nome, celular }) {
@@ -31,6 +24,8 @@ export function APICadastro({ email, senha, nome, celular }) {
     .catch((err) => console.log(err));
 }
 
+
+
 export function APIPerfil({ email, senha, nome, celular }) {
   axios
     .get(
@@ -44,4 +39,18 @@ export function APIPerfil({ email, senha, nome, celular }) {
     )
     .then((response) => displayOutput(response))
     .catch((err) => console.log(err));
+}
+
+
+const useLogin = () => {
+  const hanldeLogin = useCallback(() => {
+    const navigate = useNavigate();
+  
+      navigate("/inicio");
+  }, [])
+  
+
+  return {
+      hanldeLogin
+  }
 }

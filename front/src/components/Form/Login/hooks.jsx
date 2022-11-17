@@ -34,7 +34,7 @@ const useLogin = ({ email, password }) => {
       : setDisbaled(true);
   }, [
     errorEmail,
-    errorPassword,
+    errorPassword,email, password
   ]);
 
 
