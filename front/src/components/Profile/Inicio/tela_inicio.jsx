@@ -17,7 +17,6 @@ const InicioMain = () => {
                 </div>
                 <div>
                     {TEXTS.map(({title, text}) => (
-
                 <CardMain title={title} text={text}/>
                     ))}
                 

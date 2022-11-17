@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 import Button from "../../Buttons/Button";
 import { useState } from "react";
 import { APILogin } from "../../../services";
+import useLogin from "./hooks";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -16,6 +17,17 @@ const Login = () => {
     APILogin({ email, senha: password });
   }, [email, password]);
 
+  const {
+    errorEmail,
+    errorPassword,
+    verifyEmail,
+    verifyPassword,
+    disabled,
+  } = useLogin({
+    email,
+    password,
+  });
+
   return (
     <section className={styles.container}>
       <Title text="Seja bem-vindo" />
@@ -24,12 +36,15 @@ const Login = () => {
       <div className={styles.content}>
         <label className={styles.labels}>Usuário</label>
         <input
+         onBlur={verifyEmail}
           value={email}
           onChange={({ target }) => setEmail(target.value)}
         />
+        <p className={styles.error}>{errorEmail}</p>
         <label className={styles.labels}>Senha</label>
         <div className={styles.password}>
           <input
+          onBlur={verifyPassword}
             type={type}
             value={password}
             onChange={({ target }) => setPassword(target.value)}
@@ -44,6 +59,7 @@ const Login = () => {
             alt="ver senha"
           />
         </div>
+        <p className={styles.error}>{errorPassword}</p>
       </div>
       <div className={styles.settings}>
         <div className={styles.remember}>
@@ -53,7 +69,7 @@ const Login = () => {
         <label className={styles.labels}>Esqueci a senha</label>
       </div>
       <div className={styles.buttons}>
-        <Button link="/inicio" onClick={handleSubmit} text="Entrar" />
+        <Button disabled={disabled} onClick={handleSubmit} text="Entrar" />
         <Button link="/cadastro" isEmpty={true} text="Criar conta" />
       </div>
     </section>
