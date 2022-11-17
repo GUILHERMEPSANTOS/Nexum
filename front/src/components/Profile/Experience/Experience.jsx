@@ -10,8 +10,8 @@ const Experience = () => {
             {EXPERIENCE.map(({icon, area, name, location, date, about}) => (
                 <div>
                     <div className={styles.wrapper}>
-                        <img src={`../../assets/icons/${icon}.svg`} />
-                        <div className={syles.contantContainer}>
+                        <img src={`../../assets/icons/${icon}.jpg`} />
+                        <div className={styles.contantContainer}>
                             <div>
                                 <Text text={area}/>
                                 <Text text={name}/>

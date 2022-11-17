@@ -4,7 +4,6 @@ import Profile from "../pages/Profile/Profile";
 import FreelancerChoose from "../pages/ProfilePages/FreelancersChoose/FreelancersChoose";
 import Form from "../components/Form/Form";
 import HomePage from "../pages/Home/homepage";
-import Profile from "../pages/Profile/profile";
 import FreelancersOptions from "../pages/ProfilePages/FreelancersOptions/FreelancersOptions";
 
 export const router = createBrowserRouter([

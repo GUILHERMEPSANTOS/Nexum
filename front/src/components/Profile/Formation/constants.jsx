@@ -1,6 +1,6 @@
 export const FORMATION = [
     {
-        icon: 'EBAC',
+        icon: 'ebac',
         institution: 'EBAC - Escola Britânica de Artes Criativas e Tecnologia',
         UniversityDegree: 'Universidade particular em São Paulo',
         location: 'São Paulo - São Paulo',
@@ -8,7 +8,7 @@ export const FORMATION = [
         about: 'Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique. Sed molestie leo eget urna egestas tristique.'
     },
     {
-        icon: 'EBAC',
+        icon: 'ebac',
         institution: 'EBAC - Escola Britânica de Artes Criativas e Tecnologia',
         UniversityDegree: 'Universidade particular em São Paulo',
         location: 'São Paulo - São Paulo',
