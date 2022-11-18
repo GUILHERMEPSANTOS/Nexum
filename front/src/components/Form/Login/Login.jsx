@@ -23,8 +23,9 @@ const Login = () => {
     navigate("/inicio")
     :
     window.alert("Usuário ou senha incorretos")
-;
-   console.log(handlelogin)
+
+    localStorage.setItem("id", handlelogin.data)
+    console.log(handlelogin.data)
   }, [email, password]);
 
   const {
@@ -72,10 +73,6 @@ const Login = () => {
         <p className={styles.error}>{errorPassword}</p>
       </div>
       <div className={styles.settings}>
-        <div className={styles.remember}>
-          <input type="checkbox" />
-          <label className={styles.labelSetting}>Lembrar conta</label>
-        </div>
         <label className={styles.labels}>Esqueci a senha</label>
       </div>
       <div className={styles.buttons}>

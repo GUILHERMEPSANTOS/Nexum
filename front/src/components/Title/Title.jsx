@@ -18,7 +18,7 @@ const Title = ({ text, isForm }) => {
             item == "Freelancers" ||
             item == "avaliados" ||
             item == "Ana" ||
-            item == "Carolina" ||
+            item == "Carolina," ||
             item == "experiência" ||
             item == "Propostas" ||
             item == "Perfil" ||

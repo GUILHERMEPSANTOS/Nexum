@@ -6,8 +6,13 @@ import styles from "./styles.module.scss"
 import Header from "../../Header/Header";
 
 const InicioMain = () => {
+
+const data = localStorage.getItem("id")
+
+console.log(data)
+
     return (<div>
-             <Header options={OPTIONS} buttonText="Sair" link="/" />
+             <Header options={OPTIONS} buttonText="Sair" link="/" />s
         <Banner>
             <div className={styles.conteiner}>
                 <div className={styles.mensagem}>
