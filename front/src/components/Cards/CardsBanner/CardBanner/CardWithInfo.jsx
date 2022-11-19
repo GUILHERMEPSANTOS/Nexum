@@ -5,7 +5,7 @@ const CardWithInfo = ({ data }) => {
   return (
     <>
       {data.map(({ id, name, location, profession }) => (
-        <div className={styles.card}>
+        <div key={id} className={styles.card}>
           <img
             src={`../../../../../assets/imgs/person-card-${id}.png`}
             alt={name}

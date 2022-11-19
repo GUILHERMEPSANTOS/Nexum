@@ -16,7 +16,13 @@ const Title = ({ text, isForm }) => {
           item == "Nexum" ||
             item == "conexão" ||
             item == "Freelancers" ||
-            item == "avaliados"
+            item == "avaliados" ||
+            item == "Ana" ||
+            item == "Carolina," ||
+            item == "experiência" ||
+            item == "Propostas" ||
+            item == "Perfil" ||
+            item == "Contato"
             ? "#7509BD"
             : "#fff";
         return <span style={{ color: `${color}` }}>{item + ` `}</span>;

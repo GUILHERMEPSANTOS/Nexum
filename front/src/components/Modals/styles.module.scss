@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 0;
+  z-index: 20;
+}
+
+.modal {
+  width: 500px;
+  height: 500px;
+  background-color: $black-profile;
+  padding: 3% 2%;
+  z-index: 999;
+  position: fixed;
+  margin: 0 auto;
+  left: 35%;
+  top: 15%;
+  border-radius: $border-cards;
+
+  .close {
+    position: relative;
+    left: 90%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    top: -50px;
+
+    .xIcon {
+      position: absolute;
+      top: 3px;
+      left: 7px;
+    }
+  }
+}

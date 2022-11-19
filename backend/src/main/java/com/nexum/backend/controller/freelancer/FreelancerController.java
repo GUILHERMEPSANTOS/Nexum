@@ -12,6 +12,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/freelancer")
+@CrossOrigin(origins = "*")
 public class FreelancerController {
     private final FreelancerServicePort freelancerServicePort;
 
@@ -32,7 +33,11 @@ public class FreelancerController {
     }
 
     @GetMapping("{id}")
+<<<<<<< HEAD
     public ResponseEntity<FreelancerDTO> getFreelancerById(@PathVariable Long id) {
+=======
+    public ResponseEntity<FreelancerDTO> getFreelancerById(@PathVariable  Long id) {
+>>>>>>> d591daf1b883618eb3138813ea13bad5d6293f15
         return ResponseEntity.status(200).body(this.freelancerServicePort.getById(id));
     }
 }

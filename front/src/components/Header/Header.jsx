@@ -10,9 +10,9 @@ const Header = ({ options, buttonText, buttonTextLogin, link }) => {
       <nav className={styles.navigation}>
         <img src="../../../assets/imgs/company.png" alt="Nexum" />
         <ul>
-          {options.map(({ name, path }) => (
+          {options.map(({ name, path }, i) => (
             <Link to={path}>
-              <li>
+              <li key={`${name} - ${i}= ${path} `}>
                 {name}
                 <div></div>
               </li>
