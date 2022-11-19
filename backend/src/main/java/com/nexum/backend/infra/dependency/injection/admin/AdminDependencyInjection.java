@@ -1,6 +1,6 @@
 package com.nexum.backend.infra.dependency.injection.admin;
 
-import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
+import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
 import com.nexum.backend.services.admin.AdminService;
 import com.nexum.backend.services.admin.interfaces.AdminServicePort;
 import org.springframework.context.annotation.Bean;
