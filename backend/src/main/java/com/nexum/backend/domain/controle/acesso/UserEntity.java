@@ -78,6 +78,7 @@ public class UserEntity {
     public UserEntity() {
     }
 
+
     public UserEntity(Long id_usuario) {
         this.id_usuario = id_usuario;
     }
@@ -99,6 +100,12 @@ public class UserEntity {
         this.email = userDTO.getEmail();
         this.senha = userDTO.getSenha();
         this.celular = userDTO.getCelular();
+    }
+
+    public UserEntity(String nome, String email, String celular) {
+        this.nome = nome;
+        this.email = email;
+        this.celular = celular;
     }
 
     public Long getId_usuario() {
