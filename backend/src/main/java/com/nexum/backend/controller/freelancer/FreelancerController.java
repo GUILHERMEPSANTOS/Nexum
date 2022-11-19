@@ -26,13 +26,18 @@ public class FreelancerController {
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
+
     @GetMapping("list")
     public ResponseEntity<Collection<FreelancerDTO>> listAll() {
         return ResponseEntity.status(200).body(this.freelancerServicePort.listAll());
     }
 
     @GetMapping("{id}")
+<<<<<<< HEAD
+    public ResponseEntity<FreelancerDTO> getFreelancerById(@PathVariable Long id) {
+=======
     public ResponseEntity<FreelancerDTO> getFreelancerById(@PathVariable  Long id) {
+>>>>>>> d591daf1b883618eb3138813ea13bad5d6293f15
         return ResponseEntity.status(200).body(this.freelancerServicePort.getById(id));
     }
 }

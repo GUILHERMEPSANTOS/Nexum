@@ -4,9 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nexum.backend.domain.endereco.EnderecoEntity;
-import com.nexum.backend.domain.habilidades.HabilidadeEntity;
+import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 import com.nexum.backend.domain.social.SocialUserEntity;
-import com.nexum.backend.dto.shared.UserDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -94,14 +93,6 @@ public class UserEntity {
         this.senha = senha;
         this.celular = celular;
     }
-
-    public UserEntity(UserDTO userDTO) {
-        this.nome = userDTO.getNome();
-        this.email = userDTO.getEmail();
-        this.senha = userDTO.getSenha();
-        this.celular = userDTO.getCelular();
-    }
-
     public UserEntity(String nome, String email, String celular) {
         this.nome = nome;
         this.email = email;

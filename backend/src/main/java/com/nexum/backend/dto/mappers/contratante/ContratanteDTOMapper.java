@@ -2,10 +2,10 @@ package com.nexum.backend.dto.mappers.contratante;
 
 import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
 import com.nexum.backend.dto.contratante.ContratanteDTO;
-import com.nexum.backend.dto.mappers.endereco.EnderecoDTOMapper;
-import com.nexum.backend.dto.mappers.habilidades.HabilidadeDTOMapper;
-import com.nexum.backend.dto.mappers.match.MatchDTOMapper;
-import com.nexum.backend.dto.mappers.social.SocialUserDTOMapper;
+import com.nexum.backend.dto.mappers.shared.endereco.EnderecoDTOMapper;
+import com.nexum.backend.dto.mappers.shared.habilidades.HabilidadeDTOMapper;
+import com.nexum.backend.dto.mappers.shared.match.MatchDTOMapper;
+import com.nexum.backend.dto.mappers.shared.social.SocialUserDTOMapper;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

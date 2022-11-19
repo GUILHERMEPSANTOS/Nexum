@@ -1,6 +1,6 @@
 package com.nexum.backend.infra.dependency.injection.shared;
 
-import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
+import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
 
 import com.nexum.backend.services.shared.controle.acesso.ControleAcessoService;
 import com.nexum.backend.services.shared.controle.acesso.interfaces.ControleAcessoServicePort;

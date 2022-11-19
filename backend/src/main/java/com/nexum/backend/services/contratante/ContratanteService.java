@@ -9,7 +9,7 @@ import com.nexum.backend.dto.mappers.contratante.ContratanteDTOMapper;
 import com.nexum.backend.enums.RoleName;
 
 import com.nexum.backend.repositories.contratante.SpringContratanteRepository;
-import com.nexum.backend.repositories.controle.acesso.SpringRoleRepository;
+import com.nexum.backend.repositories.shared.controle.acesso.SpringRoleRepository;
 
 import com.nexum.backend.services.contratante.interfaces.ContratanteServicePort;
 
