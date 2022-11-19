@@ -28,10 +28,6 @@ public class ContratanteEntity extends UserEntity {
         super(nome, email, senha, celular);
     }
 
-    public ContratanteEntity(UserDTO userDTO) {
-        super(userDTO);
-    }
-
     public Collection<MatchEntity> getMatch() {
         return match;
     }

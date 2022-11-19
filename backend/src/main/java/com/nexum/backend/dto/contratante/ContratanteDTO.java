@@ -2,10 +2,10 @@ package com.nexum.backend.dto.contratante;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.nexum.backend.dto.endereco.EnderecoDTO;
-import com.nexum.backend.dto.habilidade.HabilidadeDTO;
-import com.nexum.backend.dto.match.MatchDTO;
-import com.nexum.backend.dto.social.SocialUserDTO;
+import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
+import com.nexum.backend.dto.shared.habilidade.HabilidadeDTO;
+import com.nexum.backend.dto.shared.match.MatchDTO;
+import com.nexum.backend.dto.shared.social.SocialUserDTO;
 
 import java.util.ArrayList;
 import java.util.Collection;

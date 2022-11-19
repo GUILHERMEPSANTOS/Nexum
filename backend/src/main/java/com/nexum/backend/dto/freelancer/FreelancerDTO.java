@@ -2,10 +2,12 @@ package com.nexum.backend.dto.freelancer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.nexum.backend.dto.endereco.EnderecoDTO;
-import com.nexum.backend.dto.habilidade.HabilidadeDTO;
-import com.nexum.backend.dto.match.MatchDTO;
-import com.nexum.backend.dto.social.SocialUserDTO;
+import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
+import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
+import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
+import com.nexum.backend.dto.shared.habilidade.HabilidadeDTO;
+import com.nexum.backend.dto.shared.match.MatchDTO;
+import com.nexum.backend.dto.shared.social.SocialUserDTO;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,12 +21,15 @@ public class FreelancerDTO {
     private String celular;
     private Boolean isLogged;
     private EnderecoDTO endereco;
+
+    private Collection<ExperienciaDTO> experienciasDTO;
+
+    private Collection<FormacaoDTO> formacoesDTO;
     private Collection<HabilidadeDTO> habilidades = new ArrayList<>();
     private Collection<MatchDTO> matchs = new ArrayList<>();
     public Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
     public FreelancerDTO() {
     }
-
     public FreelancerDTO(
             Long id_user,
             String nome,
@@ -35,7 +40,9 @@ public class FreelancerDTO {
             EnderecoDTO endereco,
             Collection<HabilidadeDTO> habilidades,
             Collection<MatchDTO> matchs,
-            Collection<SocialUserDTO> socialsUserDTO
+            Collection<SocialUserDTO> socialsUserDTO,
+            Collection<ExperienciaDTO> experienciasDTO,
+            Collection<FormacaoDTO> formacoesDTO
     ) {
         this.id_user = id_user;
         this.nome = nome;
@@ -47,6 +54,8 @@ public class FreelancerDTO {
         this.habilidades = habilidades;
         this.matchs = matchs;
         this.socialsUserDTO = socialsUserDTO;
+        this.experienciasDTO = experienciasDTO;
+        this.formacoesDTO = formacoesDTO;
     }
 
     public FreelancerDTO(
@@ -127,5 +136,21 @@ public class FreelancerDTO {
 
     public void setSocialsUserDTO(SocialUserDTO socialsUserDTO) {
         this.socialsUserDTO.add(socialsUserDTO);
+    }
+
+    public Collection<ExperienciaDTO> getExperienciasDTO() {
+        return experienciasDTO;
+    }
+
+    public void setExperienciasDTO(ExperienciaDTO experienciaDTO) {
+        this.experienciasDTO.add(experienciaDTO);
+    }
+
+    public Collection<FormacaoDTO> getFormacoesDTO() {
+        return formacoesDTO;
+    }
+
+    public void setFormacoesDTO(FormacaoDTO formacaoDTO) {
+        this.formacoesDTO.add(formacaoDTO);
     }
 }

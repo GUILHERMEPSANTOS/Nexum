@@ -8,7 +8,7 @@ import com.nexum.backend.dto.mappers.freelancer.FreelancerDTOMapper;
 
 import com.nexum.backend.enums.RoleName;
 
-import com.nexum.backend.repositories.controle.acesso.SpringRoleRepository;
+import com.nexum.backend.repositories.shared.controle.acesso.SpringRoleRepository;
 import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
@@ -64,5 +64,16 @@ public class FreelancerService implements FreelancerServicePort {
         }
 
         return null;
+    }
+
+    @Override
+    public Boolean existsById(Long id_freelancer) {
+        Boolean isValidFreelancer = springFreelancerRepository.existsById(id_freelancer);
+
+        if(!isValidFreelancer){
+            throw new IllegalArgumentException("idFreelancer não existe");
+        }
+
+        return isValidFreelancer;
     }
 }

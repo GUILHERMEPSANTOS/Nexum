@@ -1,7 +1,7 @@
 package com.nexum.backend.services.admin;
 
 import com.nexum.backend.helperFile.CSVhelper;
-import com.nexum.backend.repositories.controle.acesso.SpringUserRepository;
+import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
 import com.nexum.backend.services.admin.interfaces.AdminServicePort;
 import org.springframework.core.io.InputStreamResource;
 
