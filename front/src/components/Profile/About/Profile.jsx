@@ -12,6 +12,11 @@ const About = ({ isOtherView, canEdit = true, isCompanyProfile }) => {
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
 
+  const nome = localStorage.getItem("name");
+  const email = localStorage.getItem("email");
+  const nomeFormatted = nome.replace(/"/g, "");
+  const emailFormatted = email.replace(/"/g, "");
+
   return (
     <>
       <section className={styles.container}>
@@ -20,7 +25,7 @@ const About = ({ isOtherView, canEdit = true, isCompanyProfile }) => {
             className={styles.imgProfile}
             src="../../assets/imgs/person-card-1.png"
           />
-          <Title text={"Ana Carolina"} />
+          <h1 className={styles.title}>{nomeFormatted} </h1>
           <div className={styles.location}>
             <img src="../../assets/icons/location.png" />
             <Text isSmall={true} text="Osasco, São Paulo" />
@@ -65,7 +70,7 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
 
           <Title text="Email" />
           <div className={styles.socialMedia}>
-            <Text isSmall={true} text="anacarolina2001@gmail.com.br" />
+            <Text isSmall={true} text={emailFormatted} />
           </div>
           {isCompanyProfile && (
             <>

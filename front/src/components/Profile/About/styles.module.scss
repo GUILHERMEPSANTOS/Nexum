@@ -18,7 +18,21 @@
     border: 4px solid $purple;
     margin: 10% 0;
   }
+  .title {
+    color: $white;
+    font-size: $title;
+    font-family: $title-font;
+  }
 
+  .socialMedia {
+    display: flex;
+    width: 30%;
+    background-color: $gray-profile;
+    padding: 2%;
+    margin: 5px;
+    border-radius: $border-cards;
+    text-align: left;
+  }
   .location {
     display: flex;
     > img {

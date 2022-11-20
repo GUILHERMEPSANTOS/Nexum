@@ -13,31 +13,24 @@ const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [type, setType] = useState("password");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = useCallback(async () => {
-   const handlelogin = await APILogin({ email, senha: password });
+    const handlelogin = await APILogin({ email, senha: password });
 
+    handlelogin.status == 200
+      ? navigate("/inicio")
+      : window.alert("Usuário ou senha incorretos");
 
-   handlelogin.status == 200 ?
-    navigate("/inicio")
-    :
-    window.alert("Usuário ou senha incorretos")
-
-    localStorage.setItem("id", handlelogin.data)
-    console.log(handlelogin.data)
+    localStorage.setItem("name", JSON.stringify(handlelogin.data.nome));
+    localStorage.setItem("email", JSON.stringify(handlelogin.data.email));
   }, [email, password]);
 
-  const {
-    errorEmail,
-    errorPassword,
-    verifyEmail,
-    verifyPassword,
-    disabled,
-  } = useLogin({
-    email,
-    password,
-  });
+  const { errorEmail, errorPassword, verifyEmail, verifyPassword, disabled } =
+    useLogin({
+      email,
+      password,
+    });
 
   return (
     <section className={styles.container}>
@@ -47,7 +40,7 @@ const Login = () => {
       <div className={styles.content}>
         <label className={styles.labels}>Usuário</label>
         <input
-         onBlur={verifyEmail}
+          onBlur={verifyEmail}
           value={email}
           onChange={({ target }) => setEmail(target.value)}
         />
@@ -55,7 +48,7 @@ const Login = () => {
         <label className={styles.labels}>Senha</label>
         <div className={styles.password}>
           <input
-          onBlur={verifyPassword}
+            onBlur={verifyPassword}
             type={type}
             value={password}
             onChange={({ target }) => setPassword(target.value)}

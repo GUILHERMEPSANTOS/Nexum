@@ -8,23 +8,24 @@ const Title = ({ text, isForm }) => {
     const setList = text.split(" ");
     setWords(setList);
   }, []);
-
+  const data = localStorage.getItem("name");
+  const dataFormatted = data.replace(/"/g, "");
   return (
     <h1 className={styles.title}>
       {words.map((item) => {
-        const color = isForm ? "#fff" :
-          item == "Nexum" ||
+        const color = isForm
+          ? "#fff"
+          : item == "Nexum" ||
             item == "conexão" ||
             item == "Freelancers" ||
             item == "avaliados" ||
-            item == "Ana" ||
-            item == "Carolina," ||
+            item == dataFormatted ||
             item == "experiência" ||
             item == "Propostas" ||
             item == "Perfil" ||
             item == "Contato"
-            ? "#7509BD"
-            : "#fff";
+          ? "#7509BD"
+          : "#fff";
         return <span style={{ color: `${color}` }}>{item + ` `}</span>;
       })}
     </h1>
