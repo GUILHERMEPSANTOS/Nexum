@@ -8,7 +8,7 @@ const Title = ({ text, isForm }) => {
     const setList = text.split(" ");
     setWords(setList);
   }, []);
-  const data = localStorage.getItem("name");
+  const data = localStorage.getItem("name")  ? localStorage.getItem("name") : "";;
   const dataFormatted = data.replace(/"/g, "");
   return (
     <h1 className={styles.title}>

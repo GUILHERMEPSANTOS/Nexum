@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 import Header from "../../Header/Header";
 
 const InicioMain = () => {
-  const data = localStorage.getItem("name");
+  const data = localStorage.getItem("name")  ? localStorage.getItem("name") : "";;
   const dataFormatted = data.replace(/"/g, "");
 
   return (

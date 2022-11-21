@@ -5,13 +5,12 @@ import Title from "../../Title/Title";
 import Button from "../../Buttons/Button";
 import styles from "./styles.module.scss";
 import EditDegrees from "../../Modals/EditDegrees/EditDegrees";
-import { listByFreelancerId } from "../../../services/Freelancer/freelancer";
+import { listCertificadoByFreelancerId } from "../../../services/Freelancer/freelancer";
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
 
-  async function teste() {
-    console.log(listByFreelancerId());
+  async function cerficado() {
     return await listByFreelancerId();
   }
 
