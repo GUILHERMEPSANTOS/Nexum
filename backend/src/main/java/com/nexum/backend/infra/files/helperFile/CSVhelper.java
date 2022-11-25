@@ -19,9 +19,7 @@ public class CSVhelper {
             for (UserEntity userEntity : userEntitys ) {
                 List<String> data = Arrays.asList(
                         userEntity.getNome(),
-                        userEntity.getSenha(),
-                        userEntity.getCelular(),
-                        userEntity.getEmail()
+                        userEntity.getSobre()
                 );
                 csvPrinter.printRecord(data);
             }

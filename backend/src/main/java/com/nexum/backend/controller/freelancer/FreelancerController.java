@@ -42,3 +42,4 @@ public class FreelancerController {
         return ResponseEntity.status(200).body(freelancer);
     }
 }
+
