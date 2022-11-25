@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.mappers.shared.match.resquest;
+package com.nexum.backend.mappers.shared.match.resquest;
 
 import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;

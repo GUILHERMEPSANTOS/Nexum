@@ -1,4 +1,4 @@
-package com.nexum.backend.modelo;
+package com.nexum.backend.infra.middlewares.modelo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

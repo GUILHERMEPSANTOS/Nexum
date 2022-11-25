@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.mappers.freelancer.certificacao;
+package com.nexum.backend.mappers.freelancer.certificacao;
 
 import com.nexum.backend.domain.certificacao.CertificacaoEntity;
 import com.nexum.backend.dto.freelancer.certificacao.CertificacaoDTO;

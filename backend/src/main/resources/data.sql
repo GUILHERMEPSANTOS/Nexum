@@ -10,7 +10,7 @@
 		(2,3);
 
 		INSERT INTO TB_HABILIDADE (NOME) VALUES
-		('FIGMA');
+		('FIGMA'),('Premier'),('Photoshop'),('Inkscape'),('Illustrator');
 
 		INSERT INTO TB_FREELANCER (ID_USUARIO) VALUES
 		(2);

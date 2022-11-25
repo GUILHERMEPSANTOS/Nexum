@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.mappers.shared.endereco;
+package com.nexum.backend.mappers.shared.endereco;
 
 import com.nexum.backend.domain.endereco.EnderecoEntity;
 import com.nexum.backend.dto.shared.endereco.EnderecoDTO;

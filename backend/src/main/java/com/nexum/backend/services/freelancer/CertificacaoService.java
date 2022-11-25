@@ -5,10 +5,11 @@ import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import com.nexum.backend.dto.freelancer.certificacao.CertificacaoDTO;
 import com.nexum.backend.dto.freelancer.certificacao.request.CertificacaoDTOCreateRequest;
 import com.nexum.backend.dto.freelancer.certificacao.request.CertificacaoDTOUpdateRequest;
-import com.nexum.backend.dto.mappers.freelancer.certificacao.CertificacaoDTOMapper;
+import com.nexum.backend.mappers.freelancer.certificacao.CertificacaoDTOMapper;
 import com.nexum.backend.repositories.freelancer.certificacao.SpringCertificacaoRepository;
 import com.nexum.backend.services.freelancer.interfaces.CertificacaoServicePort;
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
+import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -17,18 +18,21 @@ public class CertificacaoService implements CertificacaoServicePort {
 
     private final SpringCertificacaoRepository springCertificacaoRepository;
     private final FreelancerServicePort freelancerServicePort;
+    private final UserServicePort userServicePort;
 
     public CertificacaoService(
             SpringCertificacaoRepository springCertificacaoRepository,
-            FreelancerServicePort freelancerServicePort
+            FreelancerServicePort freelancerServicePort,
+            UserServicePort userServicePort
     ) {
         this.springCertificacaoRepository = springCertificacaoRepository;
         this.freelancerServicePort = freelancerServicePort;
+        this.userServicePort = userServicePort;
     }
 
     @Override
     public CertificacaoDTO create(CertificacaoDTOCreateRequest request, Long id_freelancer) {
-        freelancerServicePort.existsById(id_freelancer);
+        this.userServicePort.existsById(id_freelancer);
 
         CertificacaoEntity certificacao = new CertificacaoEntity(
                 request.getCurso(),
@@ -72,7 +76,7 @@ public class CertificacaoService implements CertificacaoServicePort {
 
     @Override
     public Collection<CertificacaoDTO> listByFreelancerId(Long id_freelancer) {
-        freelancerServicePort.existsById(id_freelancer);
+        userServicePort.existsById(id_freelancer);
 
         return CertificacaoDTOMapper.toCollectionCertificacaoDTO(
                 springCertificacaoRepository.findByFreelancerId(id_freelancer)
@@ -81,11 +85,11 @@ public class CertificacaoService implements CertificacaoServicePort {
 
     @Override
     public CertificacaoDTO findById(Long id_certificacao) {
-         this.existsById(id_certificacao);
+        this.existsById(id_certificacao);
 
-         return CertificacaoDTOMapper.toCertificacaoDTOMapper(
-                 springCertificacaoRepository.findById(id_certificacao).get()
-         );
+        return CertificacaoDTOMapper.toCertificacaoDTOMapper(
+                springCertificacaoRepository.findById(id_certificacao).get()
+        );
 
     }
 
@@ -93,7 +97,7 @@ public class CertificacaoService implements CertificacaoServicePort {
     public Boolean existsById(Long id_certificacao) {
         Boolean isValidCertificaoId = springCertificacaoRepository.existsById(id_certificacao);
 
-        if(!isValidCertificaoId){
+        if (!isValidCertificaoId) {
             throw new IllegalArgumentException("id certificacao não existe");
         }
 

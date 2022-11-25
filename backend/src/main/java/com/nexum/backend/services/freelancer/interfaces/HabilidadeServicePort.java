@@ -1,13 +1,12 @@
-package com.nexum.backend.services.shared.habilidade.interfaces;
+package com.nexum.backend.services.freelancer.interfaces;
 
-import com.nexum.backend.dto.shared.habilidade.HabilidadeDTO;
-import org.springframework.transaction.annotation.Transactional;
+import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;
+import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
 
 import java.util.Collection;
 
 public interface HabilidadeServicePort {
-    Collection<HabilidadeDTO> listAll();
-
-    Boolean existsById(Long id_habilidade);
-
+    Collection<HabilidadeDTO> listAllHabilidades();
+    Boolean existsHabilidadeById(Long id_habilidade);
+    Collection<HabilidadeFreelancerDTO> listHabilidadeFreelancer(Long id_freelancer);
 }

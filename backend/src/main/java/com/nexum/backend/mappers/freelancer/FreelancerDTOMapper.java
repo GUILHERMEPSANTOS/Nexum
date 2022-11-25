@@ -1,17 +1,17 @@
-package com.nexum.backend.dto.mappers.freelancer;
+package com.nexum.backend.mappers.freelancer;
 
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 
+import com.nexum.backend.domain.habilidade.HabilidadeFreelancerEntity;
 import com.nexum.backend.dto.freelancer.FreelancerDTO;
-import com.nexum.backend.dto.mappers.freelancer.experiencia.ExperienciaDTOMapper;
-import com.nexum.backend.dto.mappers.freelancer.formacao.FormacaoDTOMapper;
-import com.nexum.backend.dto.mappers.shared.endereco.EnderecoDTOMapper;
-import com.nexum.backend.dto.mappers.shared.habilidades.HabilidadeDTOMapper;
-import com.nexum.backend.dto.mappers.shared.match.MatchDTOMapper;
-import com.nexum.backend.dto.mappers.shared.social.SocialUserDTOMapper;
+import com.nexum.backend.mappers.freelancer.experiencia.ExperienciaDTOMapper;
+import com.nexum.backend.mappers.freelancer.formacao.FormacaoDTOMapper;
+import com.nexum.backend.mappers.freelancer.habilidades.HabilidadeFreelancerDTOMapper;
+import com.nexum.backend.mappers.shared.endereco.EnderecoDTOMapper;
+import com.nexum.backend.mappers.shared.match.MatchDTOMapper;
+import com.nexum.backend.mappers.shared.social.SocialUserDTOMapper;
 
 import java.util.Collection;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class FreelancerDTOMapper {
@@ -24,7 +24,7 @@ public class FreelancerDTOMapper {
                 freelancerEntity.getCelular(),
                 freelancerEntity.getLogged(),
                 EnderecoDTOMapper.toEnderecoDTOMapper(freelancerEntity.getEndereco()),
-//                HabilidadeDTOMapper.toCollectionHabilidadeDTO(freelancerEntity.()),
+                HabilidadeFreelancerDTOMapper.toCollectionHabilidadeFreelancerDTO(freelancerEntity.getHabilidades_freelancer()),
                 MatchDTOMapper.toCollectionMatchDTO(freelancerEntity.getMatch()),
                 SocialUserDTOMapper.toCollectionSocialUserDTO(freelancerEntity.getSocialUsers()),
                 ExperienciaDTOMapper.toCollectionExperienciaDTOMapper(freelancerEntity.getExperiencias()),

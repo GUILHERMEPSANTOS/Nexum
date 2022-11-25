@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.mappers.freelancer.formacao;
+package com.nexum.backend.mappers.freelancer.formacao;
 
 import com.nexum.backend.domain.formacao.FormacaoEntity;
 import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;

@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Map;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/freelancer")
@@ -32,9 +35,9 @@ public class FreelancerController {
         return ResponseEntity.status(200).body(this.freelancerServicePort.listAll());
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<FreelancerDTO> getFre7elancerById(@PathVariable  Long id) {
-        FreelancerDTO freelancer = this.freelancerServicePort.getById(id);
+    @GetMapping("{id_freelancer}")
+    public ResponseEntity<FreelancerDTO> getFreelancerById(@PathVariable Long id_freelancer) {
+        FreelancerDTO freelancer = this.freelancerServicePort.getById(id_freelancer);
 
         return ResponseEntity.status(200).body(freelancer);
     }

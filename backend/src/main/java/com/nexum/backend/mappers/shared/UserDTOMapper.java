@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.mappers.shared;
+package com.nexum.backend.mappers.shared;
 
 import com.nexum.backend.domain.controle.acesso.UserEntity;
 import com.nexum.backend.dto.shared.UserDTO;

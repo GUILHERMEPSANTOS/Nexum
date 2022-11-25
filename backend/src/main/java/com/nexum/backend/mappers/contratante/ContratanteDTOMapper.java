@@ -1,11 +1,10 @@
-package com.nexum.backend.dto.mappers.contratante;
+package com.nexum.backend.mappers.contratante;
 
 import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
 import com.nexum.backend.dto.contratante.ContratanteDTO;
-import com.nexum.backend.dto.mappers.shared.endereco.EnderecoDTOMapper;
-import com.nexum.backend.dto.mappers.shared.habilidades.HabilidadeDTOMapper;
-import com.nexum.backend.dto.mappers.shared.match.MatchDTOMapper;
-import com.nexum.backend.dto.mappers.shared.social.SocialUserDTOMapper;
+import com.nexum.backend.mappers.shared.endereco.EnderecoDTOMapper;
+import com.nexum.backend.mappers.shared.match.MatchDTOMapper;
+import com.nexum.backend.mappers.shared.social.SocialUserDTOMapper;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -22,7 +21,6 @@ public class ContratanteDTOMapper {
                 contratanteEntity.getCelular(),
                 contratanteEntity.getLogged(),
                 EnderecoDTOMapper.toEnderecoDTOMapper(contratanteEntity.getEndereco()),
-//                HabilidadeDTOMapper.toCollectionHabilidadeDTO(contratanteEntity.getHabilidades()),
                 MatchDTOMapper.toCollectionMatchDTO(contratanteEntity.getMatch()),
                 SocialUserDTOMapper.toCollectionSocialUserDTO(contratanteEntity.getSocialUsers())
         );

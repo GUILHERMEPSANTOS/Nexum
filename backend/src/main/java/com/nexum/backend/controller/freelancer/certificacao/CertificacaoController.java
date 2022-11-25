@@ -12,13 +12,13 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/certificacao")
+@CrossOrigin(origins = "*")
 public class CertificacaoController {
     private final CertificacaoServicePort certificacaoServicePort;
 
     public CertificacaoController(CertificacaoServicePort certificacaoServicePort) {
         this.certificacaoServicePort = certificacaoServicePort;
     }
-
 
     @PostMapping("{id_freelancer}")
     public ResponseEntity<CertificacaoDTO> create(

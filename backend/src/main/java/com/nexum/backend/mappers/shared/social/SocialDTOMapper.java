@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.mappers.shared.social;
+package com.nexum.backend.mappers.shared.social;
 
 import com.nexum.backend.domain.social.SocialEntity;
 import com.nexum.backend.dto.shared.social.SocialDTO;
