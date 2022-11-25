@@ -33,11 +33,9 @@ public class FreelancerController {
     }
 
     @GetMapping("{id}")
-<<<<<<< HEAD
-    public ResponseEntity<FreelancerDTO> getFreelancerById(@PathVariable Long id) {
-=======
-    public ResponseEntity<FreelancerDTO> getFreelancerById(@PathVariable  Long id) {
->>>>>>> d591daf1b883618eb3138813ea13bad5d6293f15
-        return ResponseEntity.status(200).body(this.freelancerServicePort.getById(id));
+    public ResponseEntity<FreelancerDTO> getFre7elancerById(@PathVariable  Long id) {
+        FreelancerDTO freelancer = this.freelancerServicePort.getById(id);
+
+        return ResponseEntity.status(200).body(freelancer);
     }
 }

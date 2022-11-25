@@ -9,10 +9,7 @@ public class HabilidadeDTO {
         this.id_habilidade = id_habilidade;
         this.nome = nome;
     }
-    public HabilidadeDTO(HabilidadeEntity habilidadeEntity) {
-        this.id_habilidade = habilidadeEntity.getId_habilidade();
-        this.nome = habilidadeEntity.getNome();
-    }
+
     public Long getId_habilidade() {
         return id_habilidade;
     }

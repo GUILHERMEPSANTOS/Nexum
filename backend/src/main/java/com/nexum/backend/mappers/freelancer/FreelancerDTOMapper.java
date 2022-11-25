@@ -24,7 +24,7 @@ public class FreelancerDTOMapper {
                 freelancerEntity.getCelular(),
                 freelancerEntity.getLogged(),
                 EnderecoDTOMapper.toEnderecoDTOMapper(freelancerEntity.getEndereco()),
-                HabilidadeDTOMapper.toCollectionHabilidadeDTO(freelancerEntity.getHabilidades()),
+//                HabilidadeDTOMapper.toCollectionHabilidadeDTO(freelancerEntity.()),
                 MatchDTOMapper.toCollectionMatchDTO(freelancerEntity.getMatch()),
                 SocialUserDTOMapper.toCollectionSocialUserDTO(freelancerEntity.getSocialUsers()),
                 ExperienciaDTOMapper.toCollectionExperienciaDTOMapper(freelancerEntity.getExperiencias()),

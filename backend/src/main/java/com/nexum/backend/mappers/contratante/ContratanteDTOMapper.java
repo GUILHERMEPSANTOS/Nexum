@@ -22,7 +22,7 @@ public class ContratanteDTOMapper {
                 contratanteEntity.getCelular(),
                 contratanteEntity.getLogged(),
                 EnderecoDTOMapper.toEnderecoDTOMapper(contratanteEntity.getEndereco()),
-                HabilidadeDTOMapper.toCollectionHabilidadeDTO(contratanteEntity.getHabilidades()),
+//                HabilidadeDTOMapper.toCollectionHabilidadeDTO(contratanteEntity.getHabilidades()),
                 MatchDTOMapper.toCollectionMatchDTO(contratanteEntity.getMatch()),
                 SocialUserDTOMapper.toCollectionSocialUserDTO(contratanteEntity.getSocialUsers())
         );
