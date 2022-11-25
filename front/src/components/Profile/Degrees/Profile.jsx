@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Text from "../../Text/Text";
 import { DEGREES } from "./constants";
 import Title from "../../Title/Title";
 import Button from "../../Buttons/Button";
 import styles from "./styles.module.scss";
 import EditDegrees from "../../Modals/EditDegrees/EditDegrees";
+import { listCertificadoByFreelancerId } from "../../../services/Freelancer/freelancer";
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
+
+  async function cerficado() {
+    return await listByFreelancerId();
+  }
+
+  useState(() => {
+    teste();
+    console.log(teste);
+  }, [teste]);
+
   return (
     <>
       <section className={styles.container}>

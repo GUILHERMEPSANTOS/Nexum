@@ -23,6 +23,7 @@ const CreateOffer = ({ actualState, setActualState }) => {
 
   return (
     <Modal
+      offers={true}
       text={"Crie a sua vaga"}
       label={
         page == 1
