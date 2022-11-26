@@ -15,10 +15,6 @@
 		INSERT INTO TB_CONTRATANTE (ID_USUARIO) VALUES
         (1);
 
-		INSERT INTO TB_USERS_HABILIDADES (ID_USUARIO, ID_HABILIDADE) VALUES
-		(1,1),
-		(2,1);
-
 		INSERT INTO TB_SOCIAL (NOME) VALUES
 		('Facebook');
 
@@ -33,9 +29,6 @@
 		INSERT INTO TB_MATCH  (STATUS , CONTRATANTE_ID_USUARIO , FREELANCER_ID_USUARIO ) VALUES
         (false, 1, 2);
 
-
--- planejamento:  planner, figma, github, planejamento
--- ferramenta de ideação: lean ux, user stories, proto persona;
 
 
 
