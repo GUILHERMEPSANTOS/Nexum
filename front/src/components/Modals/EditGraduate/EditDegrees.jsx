@@ -4,7 +4,7 @@ import Modal from "../Modal";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 
-const EditGraduate = ({ actualState, setActualState }) => {
+const EditGraduate = ({ actualState, setActualState, add, edit }) => {
   const [curso, setCurso] = useState();
   const [ensino, setEnsino] = useState();
   const [estado, setEstado] = useState();

@@ -4,9 +4,21 @@ import styles from "./styles.module.scss";
 import { EXPERIENCE } from "./constants";
 import EditExperience from "../../Modals/EditExperience/EditExperience";
 import { useState } from "react";
+import { listExperienciaByFreelancerId } from "src/services/Freelancer/experienca";
 
 const Experience = ({ canEdit = true }) => {
   const [editExperience, setEditExperience] = useState(false);
+  const [experience, setExperience] = useState;
+  useEffect(() => {
+    if (perfil == `"ROLE_FREELANCER"`)
+      setExperience(localStorage.getItem("user_id"));
+  }, []);
+  async function experiencia() {
+    return await listExperienciaByFreelancerId(experience);
+  }
+  useState(() => {
+    experiencia();
+  }, [experiencia]);
   return (
     <>
       <section className={styles.container}>

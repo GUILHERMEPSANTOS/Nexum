@@ -9,10 +9,15 @@ import { listCertificadoByFreelancerId } from "../../../services/Freelancer/cert
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
+  const perfil = localStorage.getItem("role");
+  const [certificacao, setCertificado] = useState;
 
-  // Lembra de tirar o mock
+  useEffect(() => {
+    if (perfil == `"ROLE_FREELANCER"`)
+      setCertificado(localStorage.getItem("user_id"));
+  }, []);
   async function cerficado() {
-    return await listCertificadoByFreelancerId(1);
+    return await listCertificadoByFreelancerId(certificacao);
   }
 
   useState(() => {
@@ -23,6 +28,15 @@ const Degrees = ({ canEdit = true }) => {
     <>
       <section className={styles.container}>
         <Title text="Certificações" />
+        {canEdit && (
+          <div className={styles.add}>
+            <img
+              onClick={() => setEditExperience(true)}
+              className={styles.editIcon}
+              src="../../assets/icons/add.svg"
+            />
+          </div>
+        )}
         {DEGREES.map(({ name, icon, text, location }, i) => (
           <div key={`${name} - ${i}`}>
             {canEdit && (

@@ -4,9 +4,22 @@ import styles from "./styles.module.scss";
 import { FORMATION } from "./constants";
 import { useState } from "react";
 import EditGraduate from "../../Modals/EditGraduate/EditDegrees";
+import { listFormacaoByFreelancerId } from "src/services/Freelancer/formacao";
 
 const Formation = ({ canEdit = true }) => {
   const [editGraduate, setEditGraduate] = useState(false);
+  const [formation, setFormation] = useState;
+
+  useEffect(() => {
+    if (perfil == `"ROLE_FREELANCER"`)
+      setFormation(localStorage.getItem("user_id"));
+  }, []);
+  async function formacao() {
+    return await listFormacaoByFreelancerId(formation);
+  }
+  useState(() => {
+    formacao();
+  }, [formacao]);
   return (
     <>
       <section className={styles.container}>
