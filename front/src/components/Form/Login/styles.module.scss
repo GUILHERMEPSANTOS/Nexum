@@ -59,6 +59,14 @@
     margin-right: 10px;
   }
 }
+.labelsSenha {
+  @extend .labels;
+  cursor: pointer;
+
+  &:hover {
+    color: $purple;
+  }
+}
 .password {
   display: flex;
   position: relative;
