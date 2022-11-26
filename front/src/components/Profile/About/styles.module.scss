@@ -24,6 +24,14 @@
     font-family: $title-font;
   }
 
+  .actions {
+    > button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
   .socialMedia {
     display: flex;
     width: 30%;
