@@ -5,7 +5,7 @@ import Title from "../../Title/Title";
 import Button from "../../Buttons/Button";
 import styles from "./styles.module.scss";
 import EditDegrees from "../../Modals/EditDegrees/EditDegrees";
-import { listCertificadoByFreelancerId } from "../../../services/Freelancer/freelancer";
+import { listCertificadoByFreelancerId } from "../../../services/Freelancer/certificacao";
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
