@@ -12,8 +12,8 @@ const CardWithInfo = ({ data }) => {
           />
           <CardInfo
             name={nome}
-            locationCity={endereco.cidade}
-            location={endereco.estado}
+            locationCity={endereco?.cidade}
+            location={endereco?.estado}
             profession={profession}
           />
         </div>

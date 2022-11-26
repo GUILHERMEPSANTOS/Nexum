@@ -1,39 +1,48 @@
 import { useCallback, useEffect, useState } from "react";
+
+import { useQuery } from "@tanstack/react-query";
+import { getFreelancers } from "../../../services/Freelancer/freelancer";
+
 import CreateOffer from "../../../components/Modals/CreateOffer/CreateOffer";
 import CardWithInfo from "../../../components/Cards/CardsBanner/CardBanner/CardWithInfo";
+
 import ProfileContainer from "../profile";
 import { DATA } from "./Constants";
-import styles from "./styles.module.scss";
+
 import List from "../../../components/Profile/List/List";
 import Text from "../../../components/Text/Text";
-import { getFreelancer } from "../../../services/Freelancer/freelancer";
+
+import styles from "./styles.module.scss";
 
 const FreelancerChoose = () => {
   const [openModal, setOpenModal] = useState(true);
-  const [data, setData] = useState();
+  
   const [id, setId] = useState();
 
-  const handleSubmit = useCallback(async () => {
-    const teste = await getFreelancer();
-    setData(teste);
-  }, []);
-  console.log(data);
-  useEffect(() => {
-    handleSubmit();
-  }, []);
+  const { data, isLoading } = useQuery(
+    ["consultar freelancers"],
+     () =>  getFreelancers()
+  );
+
+
+  const handleSubmit = useCallback(() => {}, []);
+
+  if(isLoading) {
+    return <div>Loading...</div>
+  }
+
   return (
     <>
       <ProfileContainer>
         <div className={styles.cardWrapper}>
           <div className={styles.cardContainer}>
-            <CardWithInfo data={data} />
+            <CardWithInfo data={data?.data ?? []} />
           </div>
           <div className={styles.cardContainerInfo}>
-            {data.map(({ nome, endereco }, i) => (
-              // ({ sobre, habilidades }, i)
+            {data?.data?.map(({ nome, id_user }, i) => (
               <div key={i}>
                 <div className={styles.actions}>
-                  <button onClick={() => setId(data.id_user)}>
+                  <button onClick={() => setId(id_user)}>
                     <img src="../../assets/icons/like.svg" />
                   </button>
                   <button>

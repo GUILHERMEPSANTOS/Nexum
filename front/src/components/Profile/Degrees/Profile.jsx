@@ -10,8 +10,9 @@ import { listCertificadoByFreelancerId } from "../../../services/Freelancer/cert
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
 
+  // Lembra de tirar o mock
   async function cerficado() {
-    return await listCertificadoByFreelancerId(2);
+    return await listCertificadoByFreelancerId(1);
   }
 
   useState(() => {
