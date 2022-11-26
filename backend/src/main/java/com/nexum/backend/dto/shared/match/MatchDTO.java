@@ -1,4 +1,4 @@
-package com.nexum.backend.mappers.shared.social.shared.match;
+package com.nexum.backend.dto.shared.match;
 
 import com.nexum.backend.domain.match.MatchEntity;
 

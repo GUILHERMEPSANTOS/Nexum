@@ -24,6 +24,10 @@ public class SocialEntity {
     public SocialEntity() {
     }
 
+    public SocialEntity(Long id_social) {
+        this.id_social = id_social;
+    }
+
     public SocialEntity(String nome) {
         this.nome = nome;
     }

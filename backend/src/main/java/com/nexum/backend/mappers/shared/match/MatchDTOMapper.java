@@ -1,7 +1,7 @@
 package com.nexum.backend.mappers.shared.match;
 
 import com.nexum.backend.domain.match.MatchEntity;
-import com.nexum.backend.mappers.shared.social.shared.match.MatchDTO;
+import com.nexum.backend.dto.shared.match.MatchDTO;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

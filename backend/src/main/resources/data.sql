@@ -8,9 +8,6 @@
 		INSERT INTO TB_SOCIAL (NOME) VALUES
         ('Facebook'),('Instagram'),('LinkedIn');
 
-		INSERT INTO TB_USERS_ROLES (ID_USUARIO, ID_ROLE) VALUES
-		(1,2),
-		(2,3);
 
 		INSERT INTO TB_HABILIDADE (NOME) VALUES
 		('FIGMA'),('Premier'),('Photoshop'),('Inkscape'),('Illustrator');
@@ -35,9 +32,6 @@
 		INSERT INTO TB_MATCH  (STATUS , CONTRATANTE_ID_USUARIO , FREELANCER_ID_USUARIO ) VALUES
         (false, 1, 2);
 
-
--- planejamento:  planner, figma, github, planejamento
--- ferramenta de ideação: lean ux, user stories, proto persona;
 
 
 

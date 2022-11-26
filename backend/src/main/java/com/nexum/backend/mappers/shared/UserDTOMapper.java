@@ -2,7 +2,7 @@ package com.nexum.backend.mappers.shared;
 
 import com.nexum.backend.domain.controle.acesso.UserEntity;
 import com.nexum.backend.mappers.shared.role.RoleDTOMapper;
-import com.nexum.backend.mappers.shared.social.shared.UserDTO;
+import com.nexum.backend.dto.shared.UserDTO;
 
 public class UserDTOMapper {
     public static UserDTO toUserDTOMapper(UserEntity userEntity) {

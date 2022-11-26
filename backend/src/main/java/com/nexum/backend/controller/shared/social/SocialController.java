@@ -1,6 +1,6 @@
 package com.nexum.backend.controller.shared.social;
 
-import com.nexum.backend.mappers.shared.social.shared.social.SocialDTO;
+import com.nexum.backend.dto.shared.social.SocialDTO;
 import com.nexum.backend.services.shared.social.interfaces.SocialServicePort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
