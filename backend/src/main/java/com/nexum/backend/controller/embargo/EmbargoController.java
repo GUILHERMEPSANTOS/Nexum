@@ -1,7 +1,7 @@
 package com.nexum.backend.controller.embargo;
 
 import com.nexum.backend.domain.embargo.Embargo;
-import com.nexum.backend.responsedata.ResponseData;
+import com.nexum.backend.dto.responsedata.ResponseData;
 import com.nexum.backend.services.embargo.EmbargoService;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;

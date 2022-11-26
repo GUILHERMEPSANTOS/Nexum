@@ -11,6 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/formacao")
+@CrossOrigin(origins = "*")
 public class FormacaoController {
     private final FormacaoServicePort formacaoServicePort;
 

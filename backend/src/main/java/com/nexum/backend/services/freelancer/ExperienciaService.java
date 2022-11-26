@@ -5,10 +5,11 @@ import com.nexum.backend.domain.experiencia.ExperienciaEntity;
 import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
 import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOCreateRequest;
 import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOUpdateRequest;
-import com.nexum.backend.dto.mappers.freelancer.experiencia.ExperienciaDTOMapper;
+import com.nexum.backend.mappers.freelancer.experiencia.ExperienciaDTOMapper;
 import com.nexum.backend.repositories.freelancer.experiencia.SpringExperienciaRepository;
 import com.nexum.backend.services.freelancer.interfaces.ExperienciaServicePort;
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
+import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -16,13 +17,16 @@ import java.util.Optional;
 public class ExperienciaService implements ExperienciaServicePort {
     private final FreelancerServicePort freelancerServicePort;
     private final SpringExperienciaRepository springExperienciaRepository;
+    private final UserServicePort userServicePort;
 
     public ExperienciaService(
             FreelancerServicePort freelancerServicePort,
-            SpringExperienciaRepository springExperienciaRepository
+            SpringExperienciaRepository springExperienciaRepository,
+            UserServicePort userServicePort
     ) {
         this.freelancerServicePort = freelancerServicePort;
         this.springExperienciaRepository = springExperienciaRepository;
+        this.userServicePort = userServicePort;
     }
 
     @Override
@@ -30,7 +34,7 @@ public class ExperienciaService implements ExperienciaServicePort {
             ExperienciaDTOCreateRequest request,
             Long id_freelancer
     ) {
-        freelancerServicePort.existsById(id_freelancer);
+        userServicePort.existsById(id_freelancer);
 
         ExperienciaEntity experiencia = new ExperienciaEntity(
                 request.getCargo(),
@@ -82,7 +86,7 @@ public class ExperienciaService implements ExperienciaServicePort {
 
     @Override
     public Collection<ExperienciaDTO> listByFreelancerId(Long id_freelancer) {
-        freelancerServicePort.existsById(id_freelancer);
+        userServicePort.existsById(id_freelancer);
 
         return ExperienciaDTOMapper
                 .toCollectionExperienciaDTOMapper(

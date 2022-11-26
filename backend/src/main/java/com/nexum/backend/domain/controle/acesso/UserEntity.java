@@ -66,14 +66,6 @@ public class UserEntity {
     )
     private EnderecoEntity endereco;
 
-    @ManyToMany
-    @JoinTable(name = "TB_USERS_HABILIDADES",
-            joinColumns = @JoinColumn(name = "id_usuario"),
-            inverseJoinColumns = @JoinColumn(name = "id_habilidade")
-    )
-    private Collection<HabilidadeEntity> habilidades = new ArrayList<>();
-
-
     public UserEntity() {
     }
 
@@ -181,14 +173,6 @@ public class UserEntity {
 
     public void setEndereco(EnderecoEntity endereco) {
         this.endereco = endereco;
-    }
-
-    public Collection<HabilidadeEntity> getHabilidades() {
-        return habilidades;
-    }
-
-    public void setHabilidades(HabilidadeEntity habilidade) {
-        this.habilidades.add(habilidade);
     }
 
 }

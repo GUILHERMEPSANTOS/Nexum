@@ -8,7 +8,8 @@ import java.util.Collection;
 
 public interface FreelancerServicePort {
     void create(FreelancerDTO freelancerDTO);
+
     Collection<FreelancerDTO> listAll();
+
     FreelancerDTO getById(Long id);
-    Boolean existsById(Long id_freelancer);
 }

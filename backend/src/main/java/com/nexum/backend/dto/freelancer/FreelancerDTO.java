@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
 import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
+import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
 import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
-import com.nexum.backend.dto.shared.habilidade.HabilidadeDTO;
+import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;
 import com.nexum.backend.dto.shared.match.MatchDTO;
 import com.nexum.backend.dto.shared.social.SocialUserDTO;
 
@@ -21,11 +22,9 @@ public class FreelancerDTO {
     private String celular;
     private Boolean isLogged;
     private EnderecoDTO endereco;
-
     private Collection<ExperienciaDTO> experienciasDTO;
-
     private Collection<FormacaoDTO> formacoesDTO;
-    private Collection<HabilidadeDTO> habilidades = new ArrayList<>();
+    private Collection<HabilidadeFreelancerDTO> habilidades_freelancer = new ArrayList<>();
     private Collection<MatchDTO> matchs = new ArrayList<>();
     public Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
     public FreelancerDTO() {
@@ -38,7 +37,7 @@ public class FreelancerDTO {
             String celular,
             Boolean isLogged,
             EnderecoDTO endereco,
-            Collection<HabilidadeDTO> habilidades,
+            Collection<HabilidadeFreelancerDTO> habilidades_freelancer,
             Collection<MatchDTO> matchs,
             Collection<SocialUserDTO> socialsUserDTO,
             Collection<ExperienciaDTO> experienciasDTO,
@@ -51,7 +50,7 @@ public class FreelancerDTO {
         this.celular = celular;
         this.isLogged = isLogged;
         this.endereco = endereco;
-        this.habilidades = habilidades;
+        this.habilidades_freelancer = habilidades_freelancer;
         this.matchs = matchs;
         this.socialsUserDTO = socialsUserDTO;
         this.experienciasDTO = experienciasDTO;
@@ -110,8 +109,12 @@ public class FreelancerDTO {
         return matchs;
     }
 
-    public void setHabilidades(HabilidadeDTO habilidade) {
-        this.habilidades.add(habilidade);
+    public Collection<HabilidadeFreelancerDTO> getHabilidades_freelancer() {
+        return habilidades_freelancer;
+    }
+
+    public void setHabilidades_freelancer(HabilidadeFreelancerDTO habilidades_freelancer) {
+        this.habilidades_freelancer.add(habilidades_freelancer);
     }
 
     public Boolean getLogged() {
