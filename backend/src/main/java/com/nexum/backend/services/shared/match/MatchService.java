@@ -1,7 +1,7 @@
 package com.nexum.backend.services.shared.match;
 
 import com.nexum.backend.mappers.shared.match.resquest.MatchDTORequestToMatchEntityMapper;
-import com.nexum.backend.dto.shared.match.request.MatchDTORequest;
+import com.nexum.backend.mappers.shared.social.shared.match.request.MatchDTORequest;
 
 import com.nexum.backend.repositories.shared.match.SpringMatchRepository;
 import com.nexum.backend.services.shared.match.interfaces.MatchServicePort;
@@ -14,7 +14,6 @@ public class MatchService implements MatchServicePort {
     public MatchService(SpringMatchRepository springMatchRepository) {
         this.springMatchRepository = springMatchRepository;
     }
-
 
     @Override
     public void enviarSolicitacaoMatch(MatchDTORequest matchDTORequest) {

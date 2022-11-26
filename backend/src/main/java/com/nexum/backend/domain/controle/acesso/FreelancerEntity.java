@@ -1,9 +1,9 @@
 package com.nexum.backend.domain.controle.acesso;
 
+
 import com.nexum.backend.domain.certificacao.CertificacaoEntity;
 import com.nexum.backend.domain.experiencia.ExperienciaEntity;
 import com.nexum.backend.domain.formacao.FormacaoEntity;
-import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 import com.nexum.backend.domain.habilidade.HabilidadeFreelancerEntity;
 import com.nexum.backend.domain.match.MatchEntity;
 import org.hibernate.annotations.Fetch;

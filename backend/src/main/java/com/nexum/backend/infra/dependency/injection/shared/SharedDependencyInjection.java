@@ -1,13 +1,17 @@
 package com.nexum.backend.infra.dependency.injection.shared;
 
-import com.nexum.backend.repositories.shared.SpringHabilidadeRepository;
 import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
 
+import com.nexum.backend.repositories.shared.social.SpringSocialRepository;
 import com.nexum.backend.services.shared.controle.acesso.ControleAcessoService;
 import com.nexum.backend.services.shared.controle.acesso.interfaces.ControleAcessoServicePort;
 
-import com.nexum.backend.services.freelancer.HabilidadeService;
+import com.nexum.backend.repositories.shared.social.SpringSocialUserRepository;
 import com.nexum.backend.services.freelancer.interfaces.HabilidadeServicePort;
+import com.nexum.backend.services.shared.social.SocialUserService;
+import com.nexum.backend.services.shared.social.interfaces.SocialServicePort;
+import com.nexum.backend.services.shared.social.SocialService;
+import com.nexum.backend.services.shared.social.interfaces.SocialUserServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 import com.nexum.backend.services.shared.user.UserService;
 import org.springframework.context.annotation.Bean;
@@ -20,18 +24,21 @@ public class SharedDependencyInjection {
         return new ControleAcessoService(springUserRepository);
     }
 
-//    @Bean
-//    HabilidadeServicePort habilidadeService(
-//            SpringHabilidadeRepository springHabilidadeRepository
-//    ) {
-//        return new HabilidadeService(springHabilidadeRepository);
-//    }
-
     @Bean
     UserServicePort userService(
             SpringUserRepository springUserRepository,
             HabilidadeServicePort habilidadeServicePort
     ) {
-        return new UserService(springUserRepository,habilidadeServicePort);
+        return new UserService(springUserRepository, habilidadeServicePort);
+    }
+
+    @Bean
+    SocialServicePort socialService(SpringSocialRepository springSocialRepository) {
+        return new SocialService(springSocialRepository);
+    }
+
+    @Bean
+    SocialUserServicePort socialUserService(SpringSocialUserRepository springSocialUserRepository) {
+        return new SocialUserService(springSocialUserRepository);
     }
 }

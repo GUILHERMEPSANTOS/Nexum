@@ -1,7 +1,6 @@
 package com.nexum.backend.services.contratante.interfaces;
 
 import com.nexum.backend.dto.contratante.ContratanteDTO;
-import com.nexum.backend.dto.shared.UserDTO;
 
 import java.util.Collection;
 

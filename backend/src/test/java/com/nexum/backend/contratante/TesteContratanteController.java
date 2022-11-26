@@ -1,10 +1,8 @@
 package com.nexum.backend.contratante;
 
-import com.nexum.backend.controller.admin.AdminController;
 import com.nexum.backend.controller.contratante.ContratanteController;
 import com.nexum.backend.dto.contratante.ContratanteDTO;
 import com.nexum.backend.repositories.contratante.SpringContratanteRepository;
-import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 

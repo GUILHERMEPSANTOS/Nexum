@@ -15,12 +15,15 @@ import javax.persistence.*;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_social_user;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private UserEntity user;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_social")
     private SocialEntity social;
+
     @Column
     private String user_url;
 
@@ -51,6 +54,7 @@ import javax.persistence.*;
     }
 
     public void setUserEntity(UserEntity userEntity) {
+        userEntity.setSocialUsers(this);
         this.user = userEntity;
     }
 
@@ -59,6 +63,7 @@ import javax.persistence.*;
     }
 
     public void setSocial(SocialEntity social) {
+        social.setSocialUsers(this);
         this.social = social;
     }
 

@@ -1,14 +1,14 @@
 package com.nexum.backend.dto.freelancer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
 import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
+import com.nexum.backend.enums.RoleName;
+import com.nexum.backend.mappers.shared.social.shared.match.MatchDTO;
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
-import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
-import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;
-import com.nexum.backend.dto.shared.match.MatchDTO;
-import com.nexum.backend.dto.shared.social.SocialUserDTO;
+import com.nexum.backend.mappers.shared.social.shared.endereco.EnderecoDTO;
+import com.nexum.backend.mappers.shared.social.shared.social.SocialUserDTO;
+
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -26,7 +26,9 @@ public class FreelancerDTO {
     private Collection<FormacaoDTO> formacoesDTO;
     private Collection<HabilidadeFreelancerDTO> habilidades_freelancer = new ArrayList<>();
     private Collection<MatchDTO> matchs = new ArrayList<>();
-    public Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
+    private Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
+    private RoleName role;
+
     public FreelancerDTO() {
     }
     public FreelancerDTO(
@@ -155,5 +157,9 @@ public class FreelancerDTO {
 
     public void setFormacoesDTO(FormacaoDTO formacaoDTO) {
         this.formacoesDTO.add(formacaoDTO);
+    }
+
+    public String getRole() {
+        return RoleName.ROLE_FREELANCER.toString();
     }
 }

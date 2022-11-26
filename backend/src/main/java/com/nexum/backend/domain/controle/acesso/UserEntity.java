@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nexum.backend.domain.endereco.EnderecoEntity;
-import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 import com.nexum.backend.domain.social.SocialUserEntity;
 
 import javax.persistence.*;

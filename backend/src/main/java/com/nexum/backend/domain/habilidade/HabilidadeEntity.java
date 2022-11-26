@@ -3,8 +3,6 @@ package com.nexum.backend.domain.habilidade;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.nexum.backend.domain.controle.acesso.UserEntity;
-import com.nexum.backend.domain.social.SocialUserEntity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
