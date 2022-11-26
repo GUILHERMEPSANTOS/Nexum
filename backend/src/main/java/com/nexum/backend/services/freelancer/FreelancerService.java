@@ -11,9 +11,7 @@ import com.nexum.backend.enums.RoleName;
 import com.nexum.backend.repositories.shared.controle.acesso.SpringRoleRepository;
 import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 
-import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
-import com.nexum.backend.services.freelancer.interfaces.HabilidadeServicePort;
-import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
+import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FreelancerServicePort;
 
 import java.util.Collection;
 import java.util.Optional;

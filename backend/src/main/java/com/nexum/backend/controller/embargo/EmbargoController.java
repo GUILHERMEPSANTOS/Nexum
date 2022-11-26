@@ -1,8 +1,7 @@
 package com.nexum.backend.controller.embargo;
-
 import com.nexum.backend.domain.embargo.Embargo;
 import com.nexum.backend.dto.responsedata.ResponseData;
-import com.nexum.backend.services.embargo.EmbargoService;
+import com.nexum.backend.services.embargo.EmbargoServicePort;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -14,17 +13,17 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 public class EmbargoController {
-    private EmbargoService embargoService;
+    private EmbargoServicePort embargoServicePort;
 
-    public EmbargoController(EmbargoService embargoService) {
-        this.embargoService = embargoService;
+    public EmbargoController(EmbargoServicePort embargoServicePort) {
+        this.embargoServicePort = embargoServicePort;
     }
 
     @PostMapping("/upload")
     public ResponseData uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
         Embargo embargo = null;
         String downloadURl = "";
-        embargo = embargoService.saveEmbargo(file);
+        embargo = embargoServicePort.saveEmbargo(file);
         downloadURl = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/download/")
                 .path(embargo.getId())
@@ -39,7 +38,7 @@ public class EmbargoController {
     @GetMapping("/download/{fileId}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileId) throws Exception {
         Embargo embargo = null;
-        embargo = embargoService.getEmbargo(fileId);
+        embargo = embargoServicePort.getEmbargo(fileId);
         return  ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(embargo.getFileType()))
                 .header(HttpHeaders.CONTENT_DISPOSITION,

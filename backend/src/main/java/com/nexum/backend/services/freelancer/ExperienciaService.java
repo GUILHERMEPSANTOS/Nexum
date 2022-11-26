@@ -7,8 +7,8 @@ import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOCreate
 import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOUpdateRequest;
 import com.nexum.backend.mappers.freelancer.experiencia.ExperienciaDTOMapper;
 import com.nexum.backend.repositories.freelancer.experiencia.SpringExperienciaRepository;
-import com.nexum.backend.services.freelancer.interfaces.ExperienciaServicePort;
-import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
+import com.nexum.backend.repositories.freelancer.certificacao.interfaces.ExperienciaServicePort;
+import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FreelancerServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 
 import java.util.Collection;

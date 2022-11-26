@@ -1,4 +1,4 @@
-package com.nexum.backend.services.freelancer.interfaces;
+package com.nexum.backend.repositories.freelancer.certificacao.interfaces;
 
 
 

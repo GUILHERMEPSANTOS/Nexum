@@ -41,7 +41,7 @@ public class MatchEntity {
         this.id_match = id_match;
     }
 
-    public Long getFreelancer() {
+    public Long getIdFreelancer() {
         return freelancer.getId_usuario();
     }
 
@@ -50,13 +50,21 @@ public class MatchEntity {
         this.freelancer = freelancer;
     }
 
-    public Long getContratante() {
+    public Long getIdContratante() {
         return contratante.getId_usuario();
     }
 
     public void setContratante(ContratanteEntity contratante) {
         contratante.setMatch(this);
         this.contratante = contratante;
+    }
+
+    public FreelancerEntity getFreelancer() {
+        return freelancer;
+    }
+
+    public ContratanteEntity getContratante() {
+        return contratante;
     }
 
     public Boolean getStatus() {

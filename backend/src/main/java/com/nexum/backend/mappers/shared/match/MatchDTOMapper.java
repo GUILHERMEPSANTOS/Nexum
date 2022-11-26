@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 public class  MatchDTOMapper {
     public static MatchDTO toMatchDTOMapper(MatchEntity matchEntity) {
         return new MatchDTO(
-                matchEntity.getContratante(),
-                matchEntity.getFreelancer(),
+                matchEntity.getIdContratante(),
+                matchEntity.getIdFreelancer(),
                 matchEntity.getId_match(),
                 matchEntity.getStatus()
         );

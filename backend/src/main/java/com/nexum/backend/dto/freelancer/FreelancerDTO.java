@@ -1,14 +1,13 @@
 package com.nexum.backend.dto.freelancer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
 import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
 import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
-import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;
 import com.nexum.backend.dto.shared.match.MatchDTO;
 import com.nexum.backend.dto.shared.social.SocialUserDTO;
+
 
 import java.util.ArrayList;
 import java.util.Collection;

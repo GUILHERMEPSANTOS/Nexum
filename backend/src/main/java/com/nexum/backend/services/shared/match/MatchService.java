@@ -15,7 +15,6 @@ public class MatchService implements MatchServicePort {
         this.springMatchRepository = springMatchRepository;
     }
 
-
     @Override
     public void enviarSolicitacaoMatch(MatchDTORequest matchDTORequest) {
         validateMatchRequestAlreadyExists(

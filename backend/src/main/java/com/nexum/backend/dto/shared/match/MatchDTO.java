@@ -23,13 +23,6 @@ public class MatchDTO {
         this.status = status;
     }
 
-    public MatchDTO(MatchEntity match) {
-        this.id_contratante = match.getContratante();
-        this.id_freelancer = match.getFreelancer();
-        this.id_match = match.getId_match();
-        this.status = match.getStatus();
-    }
-
     public Long getId_freelancer() {
         return id_freelancer;
     }

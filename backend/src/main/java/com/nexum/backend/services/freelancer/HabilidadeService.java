@@ -1,6 +1,5 @@
 package com.nexum.backend.services.freelancer;
 
-import antlr.actions.python.CodeLexer;
 import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 import com.nexum.backend.domain.habilidade.HabilidadeFreelancerEntity;
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
@@ -9,12 +8,11 @@ import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;
 import com.nexum.backend.mappers.freelancer.habilidades.HabilidadeFreelancerDTOMapper;
 import com.nexum.backend.repositories.freelancer.habilidade.SpringHabilidadeFreelancerRepository;
 import com.nexum.backend.repositories.shared.SpringHabilidadeRepository;
-import com.nexum.backend.services.freelancer.interfaces.HabilidadeServicePort;
+import com.nexum.backend.repositories.freelancer.certificacao.interfaces.HabilidadeServicePort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collection;
-import java.util.List;
 
 
 public class HabilidadeService implements HabilidadeServicePort {

@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.Collection;
+
 public interface SpringMatchRepository extends JpaRepository<MatchEntity, Long> {
     @Query("select case when (count(match) > 0) " +
                         "then true " +
