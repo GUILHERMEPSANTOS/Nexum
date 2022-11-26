@@ -11,6 +11,7 @@ import { getFreelancer } from "../../../services/Freelancer/freelancer";
 const FreelancerChoose = () => {
   const [openModal, setOpenModal] = useState(true);
   const [data, setData] = useState();
+  const [id, setId] = useState();
 
   const handleSubmit = useCallback(async () => {
     const teste = await getFreelancer();
@@ -32,7 +33,7 @@ const FreelancerChoose = () => {
               // ({ sobre, habilidades }, i)
               <div key={i}>
                 <div className={styles.actions}>
-                  <button>
+                  <button onClick={() => setId(data.id_user)}>
                     <img src="../../assets/icons/like.svg" />
                   </button>
                   <button>
@@ -42,7 +43,7 @@ const FreelancerChoose = () => {
                 <Text isSmall={true} text={nome} />
 
                 <Text isSmall={true} text={"Ver perfil"} />
-                {/* <List list={endereco} /> */}
+                {/* <List list={habilidades} /> */}
               </div>
             ))}
           </div>
