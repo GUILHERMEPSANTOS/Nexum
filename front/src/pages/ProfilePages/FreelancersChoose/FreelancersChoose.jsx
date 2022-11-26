@@ -23,8 +23,6 @@ const FreelancerChoose = () => {
   );
 
   async function match(id) {
-    console.log(id, " id", idContratante);
-
     await postMatch({
       id_contratante: idContratante,
       id_freelancer: id,

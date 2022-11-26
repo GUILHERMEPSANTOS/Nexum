@@ -22,18 +22,19 @@ const Degrees = ({ canEdit = true }) => {
   return (
     <>
       <section className={styles.container}>
-        {canEdit && (
-          <div className={styles.edit}>
-            <img
-              onClick={() => setEditDegrees(true)}
-              className={styles.editIcon}
-              src="../../assets/icons/edit.svg"
-            />
-          </div>
-        )}
         <Title text="Certificações" />
         {DEGREES.map(({ name, icon, text, location }, i) => (
           <div key={`${name} - ${i}`}>
+            {canEdit && (
+              <div className={styles.edit}>
+                <img
+                  onClick={() => setEditDegrees(true)}
+                  className={styles.editIcon}
+                  src="../../assets/icons/edit.svg"
+                />
+              </div>
+            )}
+
             <div className={styles.wrapper}>
               <img src={`../../assets/icons/${icon}.svg`} />
               <div className={styles.contentContainer}>

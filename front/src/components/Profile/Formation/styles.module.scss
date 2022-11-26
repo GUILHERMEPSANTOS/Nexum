@@ -1,38 +1,49 @@
 @import "../../../styles/variables.scss";
 
 .container {
-    width: 80%;
-    background-color: $black-profile;
-    margin: 20px auto;
-    border-radius: $border-cards;
-    padding: 5%;
+  width: 80%;
+  background-color: $black-profile;
+  margin: 20px auto;
+  border-radius: $border-cards;
+  padding: 5%;
 
-    .containerAdd,
-    .wrapperContainer{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  .containerAdd,
+  .wrapperContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .wrapper {
+    display: flex;
+    margin: 20px 0;
+  }
+
+  .wrapper img {
+    width: 64px;
+    height: 68px;
+    padding-right: 16px;
+  }
+  .add {
+    position: relative;
+    left: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+  .contentContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    width: 90%;
+
+    > a {
+      width: 20%;
     }
-
-    .wrapper {
-        display: flex;
-        margin: 20px 0;
-    }
-
-    .wrapper img{
-        width: 64px;
-        height: 68px;
-        padding-right: 16px;
-    }
-
-    .contentContainer {
-        display: flex;
-        justify-content: space-between;
-        margin: 0 20px;
-        width: 90%;
-
-        > a {
-            width: 20%;
-        }
-    }
+  }
+  .edit {
+    position: relative;
+    left: 100%;
+    width: 30px;
+    cursor: pointer;
+  }
 }

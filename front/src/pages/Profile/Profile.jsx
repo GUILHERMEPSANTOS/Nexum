@@ -8,9 +8,9 @@ const Profile = () => {
   const [isCompanyProfile, setIsCompanyProfile] = useState(false);
 
   const perfil = localStorage.getItem("role");
-  console.log(perfil);
+
   useEffect(() => {
-    perfil == "ROLE_FREELANCER"
+    perfil == `"ROLE_FREELANCER"`
       ? setIsCompanyProfile(false)
       : setIsCompanyProfile(true);
   }, [perfil]);
