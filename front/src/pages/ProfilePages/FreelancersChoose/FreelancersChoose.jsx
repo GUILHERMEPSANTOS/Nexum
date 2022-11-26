@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import { getFreelancers } from "../../../services/Freelancer/freelancer";
@@ -7,28 +7,34 @@ import CreateOffer from "../../../components/Modals/CreateOffer/CreateOffer";
 import CardWithInfo from "../../../components/Cards/CardsBanner/CardBanner/CardWithInfo";
 
 import ProfileContainer from "../profile";
-import { DATA } from "./Constants";
-
-import List from "../../../components/Profile/List/List";
 import Text from "../../../components/Text/Text";
 
 import styles from "./styles.module.scss";
+import { postMatch } from "../../../services/Freelancer/match/freelancer";
 
 const FreelancerChoose = () => {
   const [openModal, setOpenModal] = useState(true);
-  
-  const [id, setId] = useState();
+  // const [id, setId] = useState();
 
-  const { data, isLoading } = useQuery(
-    ["consultar freelancers"],
-     () =>  getFreelancers()
+  const idContratante = localStorage.getItem("user_id");
+
+  const { data, isLoading } = useQuery(["consultar freelancers"], () =>
+    getFreelancers()
   );
 
+  function match(id) {
+    console.log(id, " id", idContratante);
 
-  const handleSubmit = useCallback(() => {}, []);
+    useCallback(async () => {
+      await postMatch({
+        id_contratante: idContratante,
+        id_freelancer: id,
+      });
+    }, [id]);
+  }
 
-  if(isLoading) {
-    return <div>Loading...</div>
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
   return (
@@ -42,7 +48,7 @@ const FreelancerChoose = () => {
             {data?.data?.map(({ nome, id_user }, i) => (
               <div key={i}>
                 <div className={styles.actions}>
-                  <button onClick={() => setId(id_user)}>
+                  <button onClick={() => match(id_user)}>
                     <img src="../../assets/icons/like.svg" />
                   </button>
                   <button>

@@ -2,39 +2,61 @@
 
 export const DATA = [
   {
-    id: 1,
-    name: "Ana Carolina",
-    location: "Osasco, São Paulo",
+    id_user: 1,
+    nome: "Ana Carolina",
+    endereco: {
+      estado: "Osasco",
+      cidade: " São Paulo",
+    },
+
     profession: "Design",
   },
   {
-    id: 2,
-    name: "Frodo Baggins",
-    location: "São Paulo, São Paulo",
+    id_user: 2,
+    nome: "Frodo Baggins",
+    endereco: {
+      estado: "São Paulo",
+      cidade: "São Paulo",
+    },
+
     profession: "Desenvolvedor de Software",
   },
   {
-    id: 3,
-    name: "Bruno Machado",
-    location: "Vila Mariana, São Paulo",
+    id_user: 3,
+    nome: "Bruno Machado",
+    endereco: {
+      estado: "Vila Mariana",
+      cidade: "São Paulo",
+    },
+
     profession: "Marketing",
   },
   {
-    id: 1,
-    name: "Ana Carolina",
-    location: "Osasco, São Paulo",
+    id_user: 1,
+    nome: "Ana Carolina",
+    endereco: {
+      estado: "Osasco",
+      cidade: " São Paulo",
+    },
     profession: "Design",
   },
   {
-    id: 2,
-    name: "Frodo Baggins",
-    location: "São Paulo, São Paulo",
+    id_user: 2,
+    nome: "Frodo Baggins",
+    endereco: {
+      estado: "São Paulo",
+      cidade: "São Paulo",
+    },
+
     profession: "Desenvolvedor de Software",
   },
   {
-    id: 3,
-    name: "Bruno Machado",
-    location: "Vila Mariana, São Paulo",
+    id_user: 3,
+    nome: "Bruno Machado",
+    endereco: {
+      estado: "Vila Mariana",
+      cidade: "São Paulo",
+    },
     profession: "Marketing",
   },
 ];
