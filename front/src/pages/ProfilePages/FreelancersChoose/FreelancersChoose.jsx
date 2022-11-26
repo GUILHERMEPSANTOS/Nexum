@@ -22,15 +22,13 @@ const FreelancerChoose = () => {
     getFreelancers()
   );
 
-  function match(id) {
+  async function match(id) {
     console.log(id, " id", idContratante);
 
-    useCallback(async () => {
-      await postMatch({
-        id_contratante: idContratante,
-        id_freelancer: id,
-      });
-    }, [id]);
+    await postMatch({
+      id_contratante: idContratante,
+      id_freelancer: id,
+    });
   }
 
   if (isLoading) {
