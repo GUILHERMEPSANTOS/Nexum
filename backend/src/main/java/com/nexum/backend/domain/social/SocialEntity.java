@@ -29,7 +29,7 @@ public class SocialEntity {
     }
 
     public SocialEntity(Long id_social, String nome) {
-        this.id_social = SocialEntity.this.id_social;
+        this.id_social = id_social;
         this.nome = nome;
     }
 

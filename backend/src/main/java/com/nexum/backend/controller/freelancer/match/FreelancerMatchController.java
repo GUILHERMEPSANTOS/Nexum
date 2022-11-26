@@ -1,7 +1,8 @@
 package com.nexum.backend.controller.freelancer.match;
 
-import com.nexum.backend.controller.embargo.dto.contratante.ContratanteDTO;
-import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FreelancerMatchServicePort;
+
+import com.nexum.backend.dto.freelancer.match.queries.GetMatchRequestsByFreelancerIdQuery;
+import com.nexum.backend.services.freelancer.interfaces.FreelancerMatchServicePort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,10 +22,10 @@ public class FreelancerMatchController {
     }
 
     @GetMapping("requests")
-    public ResponseEntity<Collection<ContratanteDTO>> getMatchsRequestByFreelancerId(
+    public ResponseEntity<Collection<GetMatchRequestsByFreelancerIdQuery>> getMatchsRequestByFreelancerId(
             @PathVariable Long id_freelancer
     ) {
-        Collection<ContratanteDTO> contratanteDTOS =
+        Collection<GetMatchRequestsByFreelancerIdQuery> contratanteDTOS =
                 freelancerMatchServicePort.getMatchsRequestByFreelancerId(id_freelancer);
 
         return ResponseEntity.status(200).body(contratanteDTOS);

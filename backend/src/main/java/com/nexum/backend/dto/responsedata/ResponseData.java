@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.embargo.dto.responsedata;
+package com.nexum.backend.dto.responsedata;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,10 +1,11 @@
-package com.nexum.backend.controller.embargo.dto.contratante;
+package com.nexum.backend.dto.contratante;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.nexum.backend.controller.embargo.dto.shared.endereco.EnderecoDTO;
-import com.nexum.backend.controller.embargo.dto.shared.match.MatchDTO;
-import com.nexum.backend.controller.embargo.dto.shared.social.SocialUserDTO;
+import com.nexum.backend.enums.RoleName;
+import com.nexum.backend.mappers.shared.social.shared.endereco.EnderecoDTO;
+import com.nexum.backend.mappers.shared.social.shared.match.MatchDTO;
+import com.nexum.backend.mappers.shared.social.shared.social.SocialUserDTO;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,6 +21,7 @@ public class ContratanteDTO {
     private EnderecoDTO endereco;
     private Collection<MatchDTO> matchs = new ArrayList<>();
     public Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
+    private RoleName role;
 
     public ContratanteDTO() {
     }
@@ -119,5 +121,9 @@ public class ContratanteDTO {
 
     public void setSocialsUserDTO(SocialUserDTO socialsUserDTO) {
         this.socialsUserDTO.add(socialsUserDTO);
+    }
+
+    public String getRole() {
+        return RoleName.ROLE_CONTRATANTE.toString();
     }
 }

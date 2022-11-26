@@ -1,4 +1,4 @@
-package com.nexum.backend.repositories.shared.acesso;
+package com.nexum.backend.services.shared.controle.acesso;
 
 import com.nexum.backend.domain.controle.acesso.UserEntity;
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
@@ -7,7 +7,7 @@ import com.nexum.backend.mappers.shared.UserDTOMapper;
 import com.nexum.backend.mappers.shared.social.shared.UserDTO;
 
 import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
-import com.nexum.backend.repositories.shared.acesso.interfaces.ControleAcessoServicePort;
+import com.nexum.backend.services.shared.controle.acesso.interfaces.ControleAcessoServicePort;
 
 import java.util.Optional;
 

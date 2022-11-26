@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.embargo.dto.controle.acesso;
+package com.nexum.backend.dto.controle.acesso;
 
 public class UserSignOutDTO {
     public String email;

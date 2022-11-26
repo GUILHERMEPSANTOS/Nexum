@@ -1,6 +1,6 @@
-package com.nexum.backend.controller.embargo.dto.freelancer.habilidade;
+package com.nexum.backend.dto.freelancer.habilidade;
 
-import com.nexum.backend.controller.embargo.dto.freelancer.FreelancerDTO;
+import com.nexum.backend.dto.freelancer.FreelancerDTO;
 
 public class HabilidadeFreelancerDTO {
     private Long id_habilidade_freelancer;

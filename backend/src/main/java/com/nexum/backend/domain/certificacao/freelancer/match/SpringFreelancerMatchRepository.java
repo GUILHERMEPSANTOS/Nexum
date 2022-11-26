@@ -1,4 +1,4 @@
-package com.nexum.backend.repositories.freelancer.match;
+package com.nexum.backend.domain.certificacao.freelancer.match;
 
 import com.nexum.backend.domain.match.MatchEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

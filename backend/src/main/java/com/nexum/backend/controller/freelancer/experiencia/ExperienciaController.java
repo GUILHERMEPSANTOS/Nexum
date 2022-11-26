@@ -1,10 +1,10 @@
 package com.nexum.backend.controller.freelancer.experiencia;
 
 
-import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.ExperienciaDTO;
-import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.request.ExperienciaDTOCreateRequest;
-import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.request.ExperienciaDTOUpdateRequest;
-import com.nexum.backend.repositories.freelancer.certificacao.interfaces.ExperienciaServicePort;
+import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
+import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOCreateRequest;
+import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOUpdateRequest;
+import com.nexum.backend.services.freelancer.interfaces.ExperienciaServicePort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.nexum.backend.repositories.contratante.mappers.freelancer.habilidades;
+package com.nexum.backend.mappers.freelancer.habilidades;
 
 import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;

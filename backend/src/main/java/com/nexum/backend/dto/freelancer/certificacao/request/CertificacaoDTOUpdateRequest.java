@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.embargo.dto.freelancer.certificacao.request;
+package com.nexum.backend.dto.freelancer.certificacao.request;
 
 public class CertificacaoDTOUpdateRequest {
     private String curso;

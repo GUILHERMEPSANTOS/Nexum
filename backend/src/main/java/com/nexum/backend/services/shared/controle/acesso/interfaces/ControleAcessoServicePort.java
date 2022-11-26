@@ -1,4 +1,4 @@
-package com.nexum.backend.repositories.shared.acesso.interfaces;
+package com.nexum.backend.services.shared.controle.acesso.interfaces;
 
 
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;

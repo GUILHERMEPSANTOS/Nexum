@@ -1,25 +1,25 @@
-package com.nexum.backend.dto.shared.social.request;
+package com.nexum.backend.mappers.shared.social.shared.social.request;
 
 public class GetlistSocialNetworksByUserQuery {
-    private Long id_user;
+    private Long id_social;
     private String nome;
     private String social_url;
 
     public GetlistSocialNetworksByUserQuery() {
     }
 
-    public GetlistSocialNetworksByUserQuery(Long id_user, String nome, String social_url) {
-        this.id_user = id_user;
+    public GetlistSocialNetworksByUserQuery(Long id_social, String nome, String social_url) {
+        this.id_social = id_social;
         this.nome = nome;
         this.social_url = social_url;
     }
 
-    public Long getId_user() {
-        return id_user;
+    public Long getId_social() {
+        return id_social;
     }
 
-    public void setId_user(Long id_user) {
-        this.id_user = id_user;
+    public void setId_social(Long id_social) {
+        this.id_social = id_social;
     }
 
     public String getNome() {

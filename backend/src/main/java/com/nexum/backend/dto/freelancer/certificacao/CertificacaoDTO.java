@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.embargo.dto.freelancer.certificacao;
+package com.nexum.backend.dto.freelancer.certificacao;
 
 public class CertificacaoDTO {
     private Long id_certificacao;

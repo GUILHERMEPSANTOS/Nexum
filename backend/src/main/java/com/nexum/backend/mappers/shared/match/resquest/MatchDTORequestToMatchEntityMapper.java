@@ -1,9 +1,9 @@
-package com.nexum.backend.repositories.contratante.mappers.shared.match.resquest;
+package com.nexum.backend.mappers.shared.match.resquest;
 
 import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import com.nexum.backend.domain.match.MatchEntity;
-import com.nexum.backend.dto.shared.match.request.MatchDTORequest;
+import com.nexum.backend.mappers.shared.social.shared.match.request.MatchDTORequest;
 
 public class MatchDTORequestToMatchEntityMapper {
     public static MatchEntity toMatchEntityMapper(MatchDTORequest matchDTORequest){

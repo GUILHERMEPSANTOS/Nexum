@@ -1,10 +1,10 @@
 package com.nexum.backend.controller.freelancer.certificacao;
 
 
-import com.nexum.backend.controller.embargo.dto.freelancer.certificacao.CertificacaoDTO;
-import com.nexum.backend.controller.embargo.dto.freelancer.certificacao.request.CertificacaoDTOCreateRequest;
-import com.nexum.backend.controller.embargo.dto.freelancer.certificacao.request.CertificacaoDTOUpdateRequest;
-import com.nexum.backend.repositories.freelancer.certificacao.interfaces.CertificacaoServicePort;
+import com.nexum.backend.dto.freelancer.certificacao.CertificacaoDTO;
+import com.nexum.backend.dto.freelancer.certificacao.request.CertificacaoDTOCreateRequest;
+import com.nexum.backend.dto.freelancer.certificacao.request.CertificacaoDTOUpdateRequest;
+import com.nexum.backend.services.freelancer.interfaces.CertificacaoServicePort;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

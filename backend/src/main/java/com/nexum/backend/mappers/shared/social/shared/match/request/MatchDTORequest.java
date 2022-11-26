@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.shared.match.request;
+package com.nexum.backend.mappers.shared.social.shared.match.request;
 
 import javax.validation.constraints.NotNull;
 

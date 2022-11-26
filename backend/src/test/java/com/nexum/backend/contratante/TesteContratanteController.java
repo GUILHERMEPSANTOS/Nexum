@@ -1,7 +1,7 @@
 package com.nexum.backend.contratante;
 
 import com.nexum.backend.controller.contratante.ContratanteController;
-import com.nexum.backend.controller.embargo.dto.contratante.ContratanteDTO;
+import com.nexum.backend.dto.contratante.ContratanteDTO;
 import com.nexum.backend.repositories.contratante.SpringContratanteRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

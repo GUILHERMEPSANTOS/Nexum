@@ -1,22 +1,34 @@
-package com.nexum.backend.mappers.freelancer.match;
+package com.nexum.backend.mappers.freelancer.formacao.match;
 
 import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
-import com.nexum.backend.dto.freelancer.match.GetMatchRequestsByFreelancerIdQuery;
-import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
-import com.nexum.backend.dto.shared.social.SocialUserDTO;
+import com.nexum.backend.dto.freelancer.match.queries.GetMatchRequestsByFreelancerIdQuery;
+import com.nexum.backend.mappers.shared.endereco.EnderecoDTOMapper;
+import com.nexum.backend.mappers.shared.social.SocialUserDTOMapper;
+
+import java.util.Collection;
+
+import java.util.stream.Collectors;
 
 public class GetMatchRequestsByFreelancerIdQueryMapper {
-    private GetMatchRequestsByFreelancerIdQueryMapper toGetMatchRequestsByFreelancerIdQueryMapper(
+    public static GetMatchRequestsByFreelancerIdQuery toGetMatchRequestsByFreelancerIdQuery(
             ContratanteEntity contratante
-    ){
+    ) {
         return new GetMatchRequestsByFreelancerIdQuery(
                 contratante.getId_usuario(),
                 contratante.getNome(),
                 contratante.getEmail(),
+                EnderecoDTOMapper.toEnderecoDTOMapper(contratante.getEndereco()),
+                contratante.getSobre(),
+                SocialUserDTOMapper.toCollectionSocialUserDTO(contratante.getSocialUsers())
+        );
+    }
 
-                EnderecoDTO endereco,
-                String sobre,
-                Collection< SocialUserDTO > socialsUserDTO
-        )
+    public static  Collection<GetMatchRequestsByFreelancerIdQuery> toCollectionGetMatchRequestsByFreelancerIdQuery(
+            Collection<ContratanteEntity> contratantes
+    ) {
+        return contratantes
+                .stream()
+                .map(GetMatchRequestsByFreelancerIdQueryMapper::toGetMatchRequestsByFreelancerIdQuery)
+                .collect(Collectors.toList());
     }
 }

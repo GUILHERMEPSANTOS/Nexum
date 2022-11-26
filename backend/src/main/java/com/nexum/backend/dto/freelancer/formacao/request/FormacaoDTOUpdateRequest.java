@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.embargo.dto.freelancer.formacao.request;
+package com.nexum.backend.dto.freelancer.formacao.request;
 
 import java.time.LocalDate;
 
