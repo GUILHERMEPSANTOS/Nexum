@@ -2,6 +2,7 @@
   overflow: hidden;
   overflow-x: scroll;
 }
+
 .cardContainer {
   display: flex;
   width: 180%;
@@ -18,15 +19,31 @@
       position: absolute;
       left: 0;
     }
-    &:hover {
-      // .tooltip {
-      //     display: block;
-      //     width: 200px;
-      //     height: 200px;
-      //     background-color: white;
-      //     z-index: 2;
-      //     position: absolute;
-      // }
+  }
+}
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+.cardContainerInfo {
+  margin: 0;
+  @extend .cardContainer;
+  > div {
+    width: 360px;
+    margin: 0 20px;
+    &::after {
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      z-index: 9999;
+      position: absolute;
+      left: 0;
     }
   }
 

@@ -1,17 +1,24 @@
 import Banner from "../../Banner/Banner";
-import { TEXTS, OPTIONS } from "./constants";
+import { TEXTS_FREELANCER, TEXTS_CONTRATANTE } from "./constants";
 import Title from "../../Title/Title";
 import CardMain from "../CardTelaInicio/card";
 import styles from "./styles.module.scss";
-import Header from "../../Header/Header";
+import { useEffect, useState } from "react";
 
 const InicioMain = () => {
-  const data = localStorage.getItem("name")  ? localStorage.getItem("name") : "";;
+  const data = localStorage.getItem("name") ? localStorage.getItem("name") : "";
   const dataFormatted = data.replace(/"/g, "");
+  const [isCompanyProfile, setIsCompanyProfile] = useState(TEXTS_FREELANCER);
 
+  const perfil = localStorage.getItem("role");
+
+  useEffect(() => {
+    perfil == "ROLE_FREELANCER"
+      ? setIsCompanyProfile(TEXTS_FREELANCER)
+      : setIsCompanyProfile(TEXTS_CONTRATANTE);
+  }, [perfil]);
   return (
     <div>
-      <Header options={OPTIONS} buttonText="Sair" link="/" />s
       <Banner>
         <div className={styles.conteiner}>
           <div className={styles.mensagem}>
@@ -20,7 +27,7 @@ const InicioMain = () => {
             />
           </div>
           <div className={styles.containerCards}>
-            {TEXTS.map(({ title, text, link }) => (
+            {isCompanyProfile.map(({ title, text, link }) => (
               <CardMain link={link} title={title} text={text} />
             ))}
           </div>
