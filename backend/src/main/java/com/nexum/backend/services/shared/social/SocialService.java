@@ -1,6 +1,6 @@
 package com.nexum.backend.services.shared.social;
 
-import com.nexum.backend.mappers.shared.social.shared.social.SocialDTO;
+import com.nexum.backend.dto.shared.social.SocialDTO;
 import com.nexum.backend.mappers.shared.social.SocialDTOMapper;
 import com.nexum.backend.repositories.shared.social.SpringSocialRepository;
 import com.nexum.backend.services.shared.social.interfaces.SocialServicePort;

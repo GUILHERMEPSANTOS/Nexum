@@ -1,4 +1,4 @@
-package com.nexum.backend.mappers.shared.social.shared;
+package com.nexum.backend.dto.shared;
 
 import antlr.actions.python.CodeLexer;
 import com.fasterxml.jackson.annotation.JsonProperty;
