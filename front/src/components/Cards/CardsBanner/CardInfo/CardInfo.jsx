@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 
-const CardInfo = ({ name, location, profession }) => {
+const CardInfo = ({ name, location, locationCity, profession }) => {
   return (
     <div className={styles.card}>
       <div className={styles.container}>
@@ -9,7 +9,9 @@ const CardInfo = ({ name, location, profession }) => {
       </div>
       <div className={styles.container__location}>
         <img src="../../../../../assets/icons/location.png" alt="localização" />
-        <p>{location}</p>
+        <p>
+          {locationCity},{location}
+        </p>
       </div>
       <p>{profession}</p>
     </div>
