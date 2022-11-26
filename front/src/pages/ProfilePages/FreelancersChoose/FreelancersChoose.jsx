@@ -6,9 +6,14 @@ import { DATA } from "./Constants";
 import styles from "./styles.module.scss";
 import List from "../../../components/Profile/List/List";
 import Text from "../../../components/Text/Text";
+import { getFreelancer } from "../../../services/Freelancer/freelancer";
 
 const FreelancerChoose = () => {
   const [openModal, setOpenModal] = useState(true);
+
+  useState(() => {
+    cerficado();
+  }, [cerficado]);
   return (
     <>
       <ProfileContainer>

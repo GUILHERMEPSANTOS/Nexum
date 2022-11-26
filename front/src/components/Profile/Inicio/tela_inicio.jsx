@@ -11,7 +11,7 @@ const InicioMain = () => {
   const [isCompanyProfile, setIsCompanyProfile] = useState(TEXTS_FREELANCER);
 
   const perfil = localStorage.getItem("role");
-  console.log(isCompanyProfile);
+
   useEffect(() => {
     perfil == "ROLE_FREELANCER"
       ? setIsCompanyProfile(TEXTS_FREELANCER)

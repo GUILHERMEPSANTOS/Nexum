@@ -5,6 +5,11 @@ const getFreelancerById = async (id = 1) => {
 
   return response.data;
 };
+const getFreelancer = async () => {
+  const response = await api.get(`/api/v1/freelancer/list`);
+
+  return response.data;
+};
 
 const listCertificadoByFreelancerId = async (id = 2) => {
   const response = await api.get(`/api/v1/certificacao/list/freelancer/${id}`);
@@ -24,4 +29,10 @@ const listExperienciaByFreelancerId = async (id = 2) => {
   return response.data;
 };
 
-export { getFreelancerById, listCertificadoByFreelancerId,listFormacaoByFreelancerId,listExperienciaByFreelancerId,  };
+export {
+  getFreelancerById,
+  listCertificadoByFreelancerId,
+  listFormacaoByFreelancerId,
+  listExperienciaByFreelancerId,
+  getFreelancer,
+};

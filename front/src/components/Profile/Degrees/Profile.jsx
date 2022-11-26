@@ -11,13 +11,12 @@ const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
 
   async function cerficado() {
-    return await listByFreelancerId();
+    return await listCertificadoByFreelancerId(2);
   }
 
   useState(() => {
-    teste();
-    console.log(teste);
-  }, [teste]);
+    cerficado();
+  }, [cerficado]);
 
   return (
     <>
