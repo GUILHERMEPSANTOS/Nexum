@@ -1,9 +1,7 @@
-package com.nexum.backend.dto.freelancer.match;
+package com.nexum.backend.controller.embargo.dto.freelancer.match;
 
-import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
-import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
-import com.nexum.backend.dto.shared.match.MatchDTO;
-import com.nexum.backend.dto.shared.social.SocialUserDTO;
+import com.nexum.backend.controller.embargo.dto.shared.endereco.EnderecoDTO;
+import com.nexum.backend.controller.embargo.dto.shared.social.SocialUserDTO;
 
 import java.util.ArrayList;
 import java.util.Collection;

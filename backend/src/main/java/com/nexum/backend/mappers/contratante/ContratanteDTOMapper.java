@@ -1,7 +1,7 @@
 package com.nexum.backend.mappers.contratante;
 
 import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
-import com.nexum.backend.dto.contratante.ContratanteDTO;
+import com.nexum.backend.controller.embargo.dto.contratante.ContratanteDTO;
 import com.nexum.backend.mappers.shared.endereco.EnderecoDTOMapper;
 import com.nexum.backend.mappers.shared.match.MatchDTOMapper;
 import com.nexum.backend.mappers.shared.social.SocialUserDTOMapper;

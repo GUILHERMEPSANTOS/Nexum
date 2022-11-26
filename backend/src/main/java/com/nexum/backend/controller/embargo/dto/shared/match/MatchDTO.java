@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.shared.match;
+package com.nexum.backend.controller.embargo.dto.shared.match;
 
 import com.nexum.backend.domain.match.MatchEntity;
 

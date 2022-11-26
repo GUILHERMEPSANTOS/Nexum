@@ -1,7 +1,6 @@
 package com.nexum.backend.repositories.freelancer.certificacao.interfaces;
 
-import com.nexum.backend.domain.match.MatchEntity;
-import com.nexum.backend.dto.contratante.ContratanteDTO;
+import com.nexum.backend.controller.embargo.dto.contratante.ContratanteDTO;
 import org.springframework.data.repository.query.Param;
 
 import java.util.Collection;

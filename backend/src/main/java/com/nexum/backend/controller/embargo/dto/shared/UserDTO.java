@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.shared;
+package com.nexum.backend.controller.embargo.dto.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

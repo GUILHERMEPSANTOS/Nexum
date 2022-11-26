@@ -1,10 +1,8 @@
 package com.nexum.backend.freelancer;
 
-import com.nexum.backend.controller.contratante.ContratanteController;
 import com.nexum.backend.controller.freelancer.FreelancerController;
-import com.nexum.backend.dto.contratante.ContratanteDTO;
-import com.nexum.backend.dto.freelancer.FreelancerDTO;
-import com.nexum.backend.repositories.contratante.SpringContratanteRepository;
+import com.nexum.backend.controller.embargo.dto.contratante.ContratanteDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.FreelancerDTO;
 import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

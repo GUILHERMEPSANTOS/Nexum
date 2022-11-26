@@ -1,7 +1,7 @@
 package com.nexum.backend.controller.freelancer;
 
 import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FreelancerServicePort;
-import com.nexum.backend.dto.freelancer.FreelancerDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.FreelancerDTO;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package com.nexum.backend.mappers.shared.social;
 
 import com.nexum.backend.domain.social.SocialUserEntity;
-import com.nexum.backend.dto.shared.social.SocialUserDTO;
+import com.nexum.backend.controller.embargo.dto.shared.social.SocialUserDTO;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

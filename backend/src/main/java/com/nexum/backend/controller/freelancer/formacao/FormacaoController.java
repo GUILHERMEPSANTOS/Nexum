@@ -1,9 +1,9 @@
 package com.nexum.backend.controller.freelancer.formacao;
 
 
-import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
-import com.nexum.backend.dto.freelancer.formacao.request.FormacaoDTOCreateRequest;
-import com.nexum.backend.dto.freelancer.formacao.request.FormacaoDTOUpdateRequest;
+import com.nexum.backend.controller.embargo.dto.freelancer.formacao.FormacaoDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.formacao.request.FormacaoDTOCreateRequest;
+import com.nexum.backend.controller.embargo.dto.freelancer.formacao.request.FormacaoDTOUpdateRequest;
 import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FormacaoServicePort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

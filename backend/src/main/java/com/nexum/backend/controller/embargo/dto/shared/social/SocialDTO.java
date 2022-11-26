@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.shared.social;
+package com.nexum.backend.controller.embargo.dto.shared.social;
 
 import com.nexum.backend.domain.social.SocialEntity;
 

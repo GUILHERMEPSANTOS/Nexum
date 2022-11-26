@@ -2,9 +2,9 @@ package com.nexum.backend.services.freelancer;
 
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import com.nexum.backend.domain.formacao.FormacaoEntity;
-import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
-import com.nexum.backend.dto.freelancer.formacao.request.FormacaoDTOCreateRequest;
-import com.nexum.backend.dto.freelancer.formacao.request.FormacaoDTOUpdateRequest;
+import com.nexum.backend.controller.embargo.dto.freelancer.formacao.FormacaoDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.formacao.request.FormacaoDTOCreateRequest;
+import com.nexum.backend.controller.embargo.dto.freelancer.formacao.request.FormacaoDTOUpdateRequest;
 import com.nexum.backend.mappers.freelancer.formacao.FormacaoDTOMapper;
 import com.nexum.backend.repositories.freelancer.formacao.SpringFormacaoRepository;
 import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FormacaoServicePort;

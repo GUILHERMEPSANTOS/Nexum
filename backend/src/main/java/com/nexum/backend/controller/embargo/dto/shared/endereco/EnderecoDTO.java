@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.shared.endereco;
+package com.nexum.backend.controller.embargo.dto.shared.endereco;
 
 import com.nexum.backend.domain.endereco.EnderecoEntity;
 

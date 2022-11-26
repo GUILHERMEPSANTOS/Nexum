@@ -2,8 +2,7 @@ package com.nexum.backend.mappers.freelancer;
 
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 
-import com.nexum.backend.domain.habilidade.HabilidadeFreelancerEntity;
-import com.nexum.backend.dto.freelancer.FreelancerDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.FreelancerDTO;
 import com.nexum.backend.mappers.freelancer.experiencia.ExperienciaDTOMapper;
 import com.nexum.backend.mappers.freelancer.formacao.FormacaoDTOMapper;
 import com.nexum.backend.mappers.freelancer.habilidades.HabilidadeFreelancerDTOMapper;

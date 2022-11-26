@@ -1,7 +1,6 @@
 package com.nexum.backend.domain.controle.acesso;
 
 import com.nexum.backend.domain.match.MatchEntity;
-import com.nexum.backend.dto.shared.UserDTO;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 

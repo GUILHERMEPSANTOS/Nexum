@@ -2,7 +2,7 @@ package com.nexum.backend.repositories.freelancer.certificacao.interfaces;
 
 
 
-import com.nexum.backend.dto.freelancer.FreelancerDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.FreelancerDTO;
 
 import java.util.Collection;
 

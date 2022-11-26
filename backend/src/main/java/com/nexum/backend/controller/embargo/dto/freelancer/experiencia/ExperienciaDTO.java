@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.freelancer.experiencia;
+package com.nexum.backend.controller.embargo.dto.freelancer.experiencia;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package com.nexum.backend.dto.freelancer.habilidade;
+package com.nexum.backend.controller.embargo.dto.freelancer.habilidade;
 import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 
 public class HabilidadeDTO {

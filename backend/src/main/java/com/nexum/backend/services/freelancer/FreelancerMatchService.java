@@ -1,7 +1,7 @@
 package com.nexum.backend.services.freelancer;
 
 import com.nexum.backend.domain.match.MatchEntity;
-import com.nexum.backend.dto.contratante.ContratanteDTO;
+import com.nexum.backend.controller.embargo.dto.contratante.ContratanteDTO;
 import com.nexum.backend.mappers.contratante.ContratanteDTOMapper;
 import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FreelancerMatchServicePort;
 import com.nexum.backend.repositories.freelancer.match.SpringFreelancerMatchRepository;

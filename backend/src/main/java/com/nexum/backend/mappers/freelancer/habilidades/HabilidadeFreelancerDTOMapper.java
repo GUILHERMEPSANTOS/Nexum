@@ -1,7 +1,7 @@
 package com.nexum.backend.mappers.freelancer.habilidades;
 
 import com.nexum.backend.domain.habilidade.HabilidadeFreelancerEntity;
-import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
 import com.nexum.backend.mappers.freelancer.FreelancerDTOMapper;
 
 import java.util.Collection;

@@ -1,8 +1,8 @@
 package com.nexum.backend.repositories.freelancer.certificacao.interfaces;
 
-import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
-import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOCreateRequest;
-import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOUpdateRequest;
+import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.ExperienciaDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.request.ExperienciaDTOCreateRequest;
+import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.request.ExperienciaDTOUpdateRequest;
 
 import java.util.Collection;
 

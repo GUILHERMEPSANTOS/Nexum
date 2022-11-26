@@ -1,6 +1,6 @@
 package com.nexum.backend.controller.contratante;
 
-import com.nexum.backend.dto.contratante.ContratanteDTO;
+import com.nexum.backend.controller.embargo.dto.contratante.ContratanteDTO;
 import com.nexum.backend.services.contratante.interfaces.ContratanteServicePort;
 
 import org.springframework.http.HttpStatus;

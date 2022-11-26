@@ -1,8 +1,8 @@
 package com.nexum.backend.controller.freelancer.habilidade;
 
 
-import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;
-import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.habilidade.HabilidadeDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
 import com.nexum.backend.repositories.freelancer.certificacao.interfaces.HabilidadeServicePort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

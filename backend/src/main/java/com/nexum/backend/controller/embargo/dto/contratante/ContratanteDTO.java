@@ -1,10 +1,10 @@
-package com.nexum.backend.dto.contratante;
+package com.nexum.backend.controller.embargo.dto.contratante;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
-import com.nexum.backend.dto.shared.match.MatchDTO;
-import com.nexum.backend.dto.shared.social.SocialUserDTO;
+import com.nexum.backend.controller.embargo.dto.shared.endereco.EnderecoDTO;
+import com.nexum.backend.controller.embargo.dto.shared.match.MatchDTO;
+import com.nexum.backend.controller.embargo.dto.shared.social.SocialUserDTO;
 
 import java.util.ArrayList;
 import java.util.Collection;

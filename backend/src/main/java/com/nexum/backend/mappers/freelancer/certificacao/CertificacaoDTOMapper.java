@@ -1,7 +1,7 @@
 package com.nexum.backend.mappers.freelancer.certificacao;
 
 import com.nexum.backend.domain.certificacao.CertificacaoEntity;
-import com.nexum.backend.dto.freelancer.certificacao.CertificacaoDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.certificacao.CertificacaoDTO;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

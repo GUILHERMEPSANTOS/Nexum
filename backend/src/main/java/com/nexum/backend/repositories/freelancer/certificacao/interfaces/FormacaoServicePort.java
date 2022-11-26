@@ -1,10 +1,9 @@
 package com.nexum.backend.repositories.freelancer.certificacao.interfaces;
 
-import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
-import com.nexum.backend.dto.freelancer.formacao.request.FormacaoDTOCreateRequest;
-import com.nexum.backend.dto.freelancer.formacao.request.FormacaoDTOUpdateRequest;
+import com.nexum.backend.controller.embargo.dto.freelancer.formacao.FormacaoDTO;
+import com.nexum.backend.controller.embargo.dto.freelancer.formacao.request.FormacaoDTOCreateRequest;
+import com.nexum.backend.controller.embargo.dto.freelancer.formacao.request.FormacaoDTOUpdateRequest;
 
-import java.time.LocalDate;
 import java.util.Collection;
 
 public interface FormacaoServicePort {
