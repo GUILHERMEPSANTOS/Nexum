@@ -1,0 +1,38 @@
+@import "../../../styles/variables.scss";
+
+.container {
+    width: 80%;
+    background-color: $black-profile;
+    margin: 20px auto;
+    border-radius: $border-cards;
+    padding: 5%;
+
+    .containerAdd,
+    .wrapperContainer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .wrapper {
+        display: flex;
+        margin: 20px 0;
+    }
+
+    .wrapper img{
+        width: 64px;
+        height: 68px;
+        padding-right: 16px;
+    }
+
+    .contentContainer {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 20px;
+        width: 90%;
+
+        > a {
+            width: 20%;
+        }
+    }
+}
