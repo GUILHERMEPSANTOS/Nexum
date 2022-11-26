@@ -1,7 +1,7 @@
-package com.nexum.backend.mappers.freelancer.formacao;
+package com.nexum.backend.repositories.contratante.mappers.freelancer.formacao;
 
 import com.nexum.backend.domain.formacao.FormacaoEntity;
-import com.nexum.backend.controller.embargo.dto.freelancer.formacao.FormacaoDTO;
+import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

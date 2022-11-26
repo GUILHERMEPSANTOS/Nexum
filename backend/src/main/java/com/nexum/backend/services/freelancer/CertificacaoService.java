@@ -2,13 +2,13 @@ package com.nexum.backend.services.freelancer;
 
 import com.nexum.backend.domain.certificacao.CertificacaoEntity;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
-import com.nexum.backend.controller.embargo.dto.freelancer.certificacao.CertificacaoDTO;
-import com.nexum.backend.controller.embargo.dto.freelancer.certificacao.request.CertificacaoDTOCreateRequest;
-import com.nexum.backend.controller.embargo.dto.freelancer.certificacao.request.CertificacaoDTOUpdateRequest;
+import com.nexum.backend.dto.freelancer.certificacao.CertificacaoDTO;
+import com.nexum.backend.dto.freelancer.certificacao.request.CertificacaoDTOCreateRequest;
+import com.nexum.backend.dto.freelancer.certificacao.request.CertificacaoDTOUpdateRequest;
 import com.nexum.backend.mappers.freelancer.certificacao.CertificacaoDTOMapper;
-import com.nexum.backend.repositories.freelancer.certificacao.SpringCertificacaoRepository;
-import com.nexum.backend.repositories.freelancer.certificacao.interfaces.CertificacaoServicePort;
-import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FreelancerServicePort;
+import com.nexum.backend.domain.certificacao.freelancer.certificacao.SpringCertificacaoRepository;
+import com.nexum.backend.services.freelancer.interfaces.CertificacaoServicePort;
+import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 
 import java.util.Collection;

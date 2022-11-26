@@ -3,7 +3,7 @@ package com.nexum.backend.services.contratante;
 import com.nexum.backend.domain.controle.acesso.ContratanteEntity;
 import com.nexum.backend.domain.controle.acesso.RoleEntity;
 
-import com.nexum.backend.controller.embargo.dto.contratante.ContratanteDTO;
+import com.nexum.backend.dto.contratante.ContratanteDTO;
 import com.nexum.backend.mappers.contratante.ContratanteDTOMapper;
 
 import com.nexum.backend.enums.RoleName;

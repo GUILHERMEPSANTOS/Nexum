@@ -1,7 +1,7 @@
 package com.nexum.backend.services.shared.match;
 
 import com.nexum.backend.mappers.shared.match.resquest.MatchDTORequestToMatchEntityMapper;
-import com.nexum.backend.controller.embargo.dto.shared.match.request.MatchDTORequest;
+import com.nexum.backend.mappers.shared.social.shared.match.request.MatchDTORequest;
 
 import com.nexum.backend.repositories.shared.match.SpringMatchRepository;
 import com.nexum.backend.services.shared.match.interfaces.MatchServicePort;

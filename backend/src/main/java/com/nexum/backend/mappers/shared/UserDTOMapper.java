@@ -1,7 +1,7 @@
-package com.nexum.backend.mappers.shared;
+package com.nexum.backend.repositories.contratante.mappers.shared;
 
 import com.nexum.backend.domain.controle.acesso.UserEntity;
-import com.nexum.backend.controller.embargo.dto.shared.UserDTO;
+import com.nexum.backend.dto.shared.UserDTO;
 
 public class UserDTOMapper {
     public static UserDTO toUserDTOMapper(UserEntity userEntity) {

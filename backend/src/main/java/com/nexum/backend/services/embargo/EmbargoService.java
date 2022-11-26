@@ -2,7 +2,7 @@ package com.nexum.backend.services.embargo;
 
 import com.nexum.backend.domain.embargo.Embargo;
 import com.nexum.backend.repositories.embargo.SpringEmbargoRepository;
-import org.springframework.stereotype.Service;
+import com.nexum.backend.services.embargo.interfaces.EmbargoServicePort;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 

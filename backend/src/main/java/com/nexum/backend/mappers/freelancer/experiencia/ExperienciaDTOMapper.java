@@ -1,7 +1,7 @@
-package com.nexum.backend.mappers.freelancer.experiencia;
+package com.nexum.backend.repositories.contratante.mappers.freelancer.experiencia;
 
 import com.nexum.backend.domain.experiencia.ExperienciaEntity;
-import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.ExperienciaDTO;
+import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

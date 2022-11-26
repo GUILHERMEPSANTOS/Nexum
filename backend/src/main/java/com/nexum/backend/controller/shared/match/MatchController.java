@@ -1,6 +1,6 @@
 package com.nexum.backend.controller.shared.match;
 
-import com.nexum.backend.controller.embargo.dto.shared.match.request.MatchDTORequest;
+import com.nexum.backend.dto.shared.match.request.MatchDTORequest;
 import com.nexum.backend.services.shared.match.interfaces.MatchServicePort;
 
 import org.springframework.http.ResponseEntity;

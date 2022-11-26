@@ -1,7 +1,7 @@
 package com.nexum.backend.services.shared.user;
 
 import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
-import com.nexum.backend.repositories.freelancer.certificacao.interfaces.HabilidadeServicePort;
+import com.nexum.backend.services.freelancer.interfaces.HabilidadeServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 
 public class UserService implements UserServicePort {

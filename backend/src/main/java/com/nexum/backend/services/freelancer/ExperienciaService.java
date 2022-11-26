@@ -2,13 +2,13 @@ package com.nexum.backend.services.freelancer;
 
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import com.nexum.backend.domain.experiencia.ExperienciaEntity;
-import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.ExperienciaDTO;
-import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.request.ExperienciaDTOCreateRequest;
-import com.nexum.backend.controller.embargo.dto.freelancer.experiencia.request.ExperienciaDTOUpdateRequest;
+import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
+import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOCreateRequest;
+import com.nexum.backend.dto.freelancer.experiencia.request.ExperienciaDTOUpdateRequest;
 import com.nexum.backend.mappers.freelancer.experiencia.ExperienciaDTOMapper;
-import com.nexum.backend.repositories.freelancer.experiencia.SpringExperienciaRepository;
-import com.nexum.backend.repositories.freelancer.certificacao.interfaces.ExperienciaServicePort;
-import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FreelancerServicePort;
+import com.nexum.backend.domain.certificacao.freelancer.experiencia.SpringExperienciaRepository;
+import com.nexum.backend.services.freelancer.interfaces.ExperienciaServicePort;
+import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 
 import java.util.Collection;

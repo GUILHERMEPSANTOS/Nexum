@@ -3,15 +3,15 @@ package com.nexum.backend.services.freelancer;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import com.nexum.backend.domain.controle.acesso.RoleEntity;
 
-import com.nexum.backend.controller.embargo.dto.freelancer.FreelancerDTO;
+import com.nexum.backend.dto.freelancer.FreelancerDTO;
 import com.nexum.backend.mappers.freelancer.FreelancerDTOMapper;
 
 import com.nexum.backend.enums.RoleName;
 
 import com.nexum.backend.repositories.shared.controle.acesso.SpringRoleRepository;
-import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
+import com.nexum.backend.domain.certificacao.freelancer.SpringFreelancerRepository;
 
-import com.nexum.backend.repositories.freelancer.certificacao.interfaces.FreelancerServicePort;
+import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
 
 import java.util.Collection;
 import java.util.Optional;
