@@ -5,10 +5,11 @@ import com.nexum.backend.domain.formacao.FormacaoEntity;
 import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
 import com.nexum.backend.dto.freelancer.formacao.request.FormacaoDTOCreateRequest;
 import com.nexum.backend.dto.freelancer.formacao.request.FormacaoDTOUpdateRequest;
-import com.nexum.backend.dto.mappers.freelancer.formacao.FormacaoDTOMapper;
+import com.nexum.backend.mappers.freelancer.formacao.FormacaoDTOMapper;
 import com.nexum.backend.repositories.freelancer.formacao.SpringFormacaoRepository;
 import com.nexum.backend.services.freelancer.interfaces.FormacaoServicePort;
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
+import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -16,13 +17,16 @@ import java.util.Optional;
 public class FormacaoService implements FormacaoServicePort {
     private final SpringFormacaoRepository springFormacaoRepository;
     private final FreelancerServicePort freelancerServicePort;
+    private final UserServicePort userServicePort;
 
     public FormacaoService(
             SpringFormacaoRepository springFormacaoRepository,
-            FreelancerServicePort freelancerServicePort
+            FreelancerServicePort freelancerServicePort,
+            UserServicePort userServicePort
     ) {
         this.springFormacaoRepository = springFormacaoRepository;
         this.freelancerServicePort = freelancerServicePort;
+        this.userServicePort = userServicePort;
     }
 
     @Override
@@ -31,7 +35,7 @@ public class FormacaoService implements FormacaoServicePort {
             Long id_freelancer
     ) {
 
-        freelancerServicePort.existsById(id_freelancer);
+        userServicePort.existsById(id_freelancer);
 
         FormacaoEntity formacao = new FormacaoEntity(
                 formacaoDTOCreateRequest.getCurso(),
@@ -78,7 +82,7 @@ public class FormacaoService implements FormacaoServicePort {
 
     @Override
     public Collection<FormacaoDTO> listByFreelancerId(Long id_freelancer) {
-        freelancerServicePort.existsById(id_freelancer);
+        userServicePort.existsById(id_freelancer);
 
         return FormacaoDTOMapper
                 .toCollectionFormacaoDTOMapper(springFormacaoRepository.findByFreelancerId(id_freelancer));

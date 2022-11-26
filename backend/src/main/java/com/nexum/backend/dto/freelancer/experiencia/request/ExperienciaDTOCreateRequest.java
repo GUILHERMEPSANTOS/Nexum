@@ -8,10 +8,11 @@ public class ExperienciaDTOCreateRequest {
     private String cidade;
     private String estado;
     private String sobre;
-
     private LocalDate data_inicial;
     private LocalDate data_final;
 
+    public ExperienciaDTOCreateRequest() {
+    }
 
     public ExperienciaDTOCreateRequest(
             String cargo,
