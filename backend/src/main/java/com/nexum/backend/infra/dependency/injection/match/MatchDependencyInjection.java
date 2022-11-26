@@ -1,9 +1,9 @@
 package com.nexum.backend.infra.dependency.injection.match;
 
-import com.nexum.backend.repositories.match.SpringMatchRepository;
+import com.nexum.backend.repositories.shared.match.SpringMatchRepository;
 
-import com.nexum.backend.services.match.MatchService;
-import com.nexum.backend.services.match.interfaces.MatchServicePort;
+import com.nexum.backend.services.shared.match.MatchService;
+import com.nexum.backend.services.shared.match.interfaces.MatchServicePort;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

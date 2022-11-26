@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Text from "../../Text/Text";
 import { DEGREES } from "./constants";
 import Title from "../../Title/Title";
 import Button from "../../Buttons/Button";
 import styles from "./styles.module.scss";
 import EditDegrees from "../../Modals/EditDegrees/EditDegrees";
+import { listCertificadoByFreelancerId } from "../../../services/Freelancer/certificacao";
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
+
+  async function cerficado() {
+    return await listCertificadoByFreelancerId(2);
+  }
+
+  useState(() => {
+    cerficado();
+  }, [cerficado]);
+
   return (
     <>
       <section className={styles.container}>
@@ -21,8 +31,8 @@ const Degrees = ({ canEdit = true }) => {
           </div>
         )}
         <Title text="Certificações" />
-        {DEGREES.map(({ name, icon, text, location }) => (
-          <div>
+        {DEGREES.map(({ name, icon, text, location }, i) => (
+          <div key={`${name} - ${i}`}>
             <div className={styles.wrapper}>
               <img src={`../../assets/icons/${icon}.svg`} />
               <div className={styles.contentContainer}>

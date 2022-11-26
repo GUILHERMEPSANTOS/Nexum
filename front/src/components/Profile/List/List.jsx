@@ -7,9 +7,9 @@ const List = ({ title = "", list }) => {
     <section className={styles.container}>
       <Title text={title} />
       <ul className={styles.listItemsContainer}>
-        {list.map(({ name, icon, date, number, rate, text }) => {
+        {list.map(({ name, icon, date, number, rate, text }, i) => {
           return(
-          <li className={styles.listItems}>
+          <li key={`${name} - ${i}`} className={styles.listItems}>
             {!!icon && <img src={`../../assets/icons/${icon}.svg`} />}
            <div>
             {!!name && <Text isSmall={true} text={name} />}

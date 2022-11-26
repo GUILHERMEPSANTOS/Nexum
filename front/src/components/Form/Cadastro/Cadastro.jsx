@@ -4,7 +4,7 @@ import Text from "../../Text/Text";
 
 import styles from "./styles.module.scss";
 import { useCallback, useState } from "react";
-import { APICadastro } from "../../../services";
+import { APICadastroContratante, APICadastroFreela } from "../../../services";
 import useCadastro from "./hooks";
 
 const Cadastro = () => {
@@ -15,10 +15,29 @@ const Cadastro = () => {
   const [confirmPassword, setConfirmPassword] = useState();
   const [passwordType, setPasswordType] = useState("password");
   const [type, setType] = useState("password");
+  const [contratante, setContratante] = useState();
 
-  const handleSubmit = useCallback(() => {
-    APICadastro({ email, senha: password, nome: user, celular: cellphone });
-  }, [email, password, user, cellphone]);
+  function handleSubmit() {
+    if (contratante) {
+      useCallback(() => {
+        APICadastroContratante({
+          email,
+          senha: password,
+          nome: user,
+          celular: cellphone,
+        });
+      }, [email, password, user, cellphone]);
+    } else {
+      useCallback(() => {
+        APICadastroFreela({
+          email,
+          senha: password,
+          nome: user,
+          celular: cellphone,
+        });
+      }, [email, password, user, cellphone]);
+    }
+  }
 
   const {
     errorEmail,
@@ -45,13 +64,28 @@ const Cadastro = () => {
       <Title text="Crie uma conta" />
       <Text text="Realize o cadastro para se conectar" />
       <div className={styles.content}>
-        <label className={styles.labels}>Usuário</label>
-        <input
-          onBlur={verifyUser}
-          value={user}
-          onChange={({ target }) => setUser(target.value)}
-        />
-        <p className={styles.error}>{errorUser}</p>
+        <div className={styles.users}>
+          <div>
+            <label className={styles.labels}>Usuário</label>
+            <input
+              onBlur={verifyUser}
+              value={user}
+              onChange={({ target }) => setUser(target.value)}
+            />
+            <p className={styles.error}>{errorUser}</p>
+          </div>
+          <div className={styles.contratante}>
+            <label className={styles.labels}>Sou contratante</label>
+            <label className={styles.switch}>
+              <input
+                onChange={({ target }) => setContratante(target.checked)}
+                value={contratante}
+                type="checkbox"
+              />
+              <span className={styles.slider}></span>
+            </label>
+          </div>
+        </div>
         <label className={styles.labels}>Celular</label>
         <input
           type="number"
@@ -64,7 +98,9 @@ const Cadastro = () => {
         <input
           onBlur={verifyEmail}
           value={email}
-          onChange={({ target }) => setEmail((target.value).trim().toLocaleLowerCase())}
+          onChange={({ target }) =>
+            setEmail(target.value.trim().toLocaleLowerCase())
+          }
         />
         <p className={styles.error}>{errorEmail}</p>
         <label className={styles.labels}>Senha</label>
@@ -81,8 +117,9 @@ const Cadastro = () => {
                 ? setPasswordType("password")
                 : setPasswordType("text")
             }
-            src={`../../../../assets/icons/${passwordType == "text" ? "unsee" : "see"
-              }.svg`}
+            src={`../../../../assets/icons/${
+              passwordType == "text" ? "unsee" : "see"
+            }.svg`}
             alt="ver senha"
           />
         </div>
@@ -99,21 +136,24 @@ const Cadastro = () => {
             onClick={() =>
               type == "text" ? setType("password") : setType("text")
             }
-            src={`../../../../assets/icons/${type == "text" ? "unsee" : "see"
-              }.svg`}
+            src={`../../../../assets/icons/${
+              type == "text" ? "unsee" : "see"
+            }.svg`}
             alt="ver senha"
           />
         </div>
         <p className={styles.error}>{errorConfirmPassword}</p>
       </div>
 
-
       <div className={styles.buttons}>
-        <Button disabled={disabled} link="/login" onClick={handleSubmit} text="Cadastrar" />
+        <Button
+          disabled={disabled}
+          link="/login"
+          onClick={handleSubmit}
+          text="Cadastrar"
+        />
         <Button link="/login" isEmpty={true} text="Já possui uma conta?" />
       </div>
-
-
     </section>
   );
 };

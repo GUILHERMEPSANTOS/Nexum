@@ -4,9 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nexum.backend.domain.endereco.EnderecoEntity;
-import com.nexum.backend.domain.habilidades.HabilidadeEntity;
+import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 import com.nexum.backend.domain.social.SocialUserEntity;
-import com.nexum.backend.dto.shared.UserDTO;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -67,16 +66,9 @@ public class UserEntity {
     )
     private EnderecoEntity endereco;
 
-    @ManyToMany
-    @JoinTable(name = "TB_USERS_HABILIDADES",
-            joinColumns = @JoinColumn(name = "id_usuario"),
-            inverseJoinColumns = @JoinColumn(name = "id_habilidade")
-    )
-    private Collection<HabilidadeEntity> habilidades = new ArrayList<>();
-
-
     public UserEntity() {
     }
+
 
     public UserEntity(Long id_usuario) {
         this.id_usuario = id_usuario;
@@ -93,12 +85,10 @@ public class UserEntity {
         this.senha = senha;
         this.celular = celular;
     }
-
-    public UserEntity(UserDTO userDTO) {
-        this.nome = userDTO.getNome();
-        this.email = userDTO.getEmail();
-        this.senha = userDTO.getSenha();
-        this.celular = userDTO.getCelular();
+    public UserEntity(String nome, String email, String celular) {
+        this.nome = nome;
+        this.email = email;
+        this.celular = celular;
     }
 
     public Long getId_usuario() {
@@ -183,14 +173,6 @@ public class UserEntity {
 
     public void setEndereco(EnderecoEntity endereco) {
         this.endereco = endereco;
-    }
-
-    public Collection<HabilidadeEntity> getHabilidades() {
-        return habilidades;
-    }
-
-    public void setHabilidades(HabilidadeEntity habilidade) {
-        this.habilidades.add(habilidade);
     }
 
 }

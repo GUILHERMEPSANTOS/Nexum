@@ -1,41 +1,53 @@
 .cardWrapper {
-overflow: hidden;
-overflow-x: scroll;
+  overflow: hidden;
+  overflow-x: scroll;
 }
-.cardContainer {
-    display: flex;
-    width: 180%;
-    margin-top: 120px;
-    position: relative;
-    > div {
-        border: 2px solid blue;
-        width: 360px;
-        margin: 0 20px;
-        &::after {
-            content: " TESTE ";
-            width: 200px;
-                 height: 200px;
-                 background-color: white;
-                 z-index: 9999;
-                 position: absolute;
-                 left: 0;
-                 border: 2px solid red;
-        }
-        &:hover {
-          
-            
-            // .tooltip {
-            //     display: block;
-            //     width: 200px;
-            //     height: 200px;
-            //     background-color: white;
-            //     z-index: 2;
-            //     position: absolute;
-            // }
-        }
-    }
 
-    .tooltip {
-        display: none;
+.cardContainer {
+  display: flex;
+  width: 180%;
+  margin-top: 120px;
+  position: relative;
+  > div {
+    width: 360px;
+    margin: 0 20px;
+    &::after {
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      z-index: 9999;
+      position: absolute;
+      left: 0;
     }
+  }
+}
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+.cardContainerInfo {
+  margin: 0;
+  @extend .cardContainer;
+  > div {
+    width: 360px;
+    margin: 0 20px;
+    &::after {
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      z-index: 9999;
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  .tooltip {
+    display: none;
+  }
 }

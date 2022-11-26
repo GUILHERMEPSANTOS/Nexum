@@ -68,6 +68,10 @@ const useCadastro = ({ email, password, user, cellphone, confirmPassword }) => {
     errorUser,
     errorCellphone,
     errorConfirmPassword,
+    email, cellphone, confirmPassword, 
+    confirmPassword,
+    password,
+    
   ]);
 
 

@@ -2,10 +2,9 @@ package com.nexum.backend.dto.contratante;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.nexum.backend.dto.endereco.EnderecoDTO;
-import com.nexum.backend.dto.habilidade.HabilidadeDTO;
-import com.nexum.backend.dto.match.MatchDTO;
-import com.nexum.backend.dto.social.SocialUserDTO;
+import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
+import com.nexum.backend.dto.shared.match.MatchDTO;
+import com.nexum.backend.dto.shared.social.SocialUserDTO;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,7 +18,6 @@ public class ContratanteDTO {
     private String celular;
     private Boolean isLogged;
     private EnderecoDTO endereco;
-    private Collection<HabilidadeDTO> habilidades = new ArrayList<>();
     private Collection<MatchDTO> matchs = new ArrayList<>();
     public Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
 
@@ -34,7 +32,6 @@ public class ContratanteDTO {
             String celular,
             Boolean isLogged,
             EnderecoDTO endereco,
-            Collection<HabilidadeDTO> habilidades,
             Collection<MatchDTO> matchs,
             Collection<SocialUserDTO> socialsUserDTO
     ) {
@@ -45,7 +42,6 @@ public class ContratanteDTO {
         this.celular = celular;
         this.isLogged = isLogged;
         this.endereco = endereco;
-        this.habilidades = habilidades;
         this.matchs = matchs;
         this.socialsUserDTO = socialsUserDTO;
     }
@@ -99,10 +95,6 @@ public class ContratanteDTO {
 
     public Collection<MatchDTO> getMatchs() {
         return matchs;
-    }
-
-    public void setHabilidades(HabilidadeDTO habilidade) {
-        this.habilidades.add(habilidade);
     }
 
     public Boolean getLogged() {

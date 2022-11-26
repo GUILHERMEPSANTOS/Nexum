@@ -22,7 +22,58 @@
   color: $white;
   font-size: $text;
 }
+.users {
+  display: flex;
+}
 
+.switch {
+  position: relative;
+  display: flex;
+  width: 50px;
+  height: 34px;
+  top: 15px;
+  width: 150px;
+  > input {
+    width: 5px;
+    outline: none;
+    border: none;
+  }
+}
+
+.contratante {
+  width: 200px;
+  margin-left: 100px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  border-radius: $border-buttons;
+  background-color: $black;
+  width: 70px;
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    left: 4px;
+    bottom: 4px;
+    background-color: $gray-profile;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: $purple;
+}
 .content {
   height: 70%;
   display: flex;

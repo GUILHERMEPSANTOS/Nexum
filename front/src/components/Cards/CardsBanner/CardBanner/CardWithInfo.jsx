@@ -4,13 +4,18 @@ import styles from "./styles.module.scss";
 const CardWithInfo = ({ data }) => {
   return (
     <>
-      {data.map(({ id, name, location, profession }) => (
-        <div className={styles.card}>
+      {data.map(({ id_user, nome, endereco, profession }, i) => (
+        <div key={`${id_user}-${nome}-${i}`} className={styles.card}>
           <img
-            src={`../../../../../assets/imgs/person-card-${id}.png`}
-            alt={name}
+            src={`../../../../../assets/imgs/person-card-${id_user}.png`}
+            alt={nome}
           />
-          <CardInfo name={name} location={location} profession={profession} />
+          <CardInfo
+            name={nome}
+            locationCity={endereco.cidade}
+            location={endereco.estado}
+            profession={profession}
+          />
         </div>
       ))}
     </>
