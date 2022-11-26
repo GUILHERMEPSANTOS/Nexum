@@ -1,15 +1,11 @@
 package com.nexum.backend.controller.shared.social;
 
 
-import com.nexum.backend.mappers.shared.social.request.GetlistSocialNetworksByUserQueryMapper;
-import com.nexum.backend.mappers.shared.social.shared.social.SocialDTO;
-import com.nexum.backend.mappers.shared.social.shared.social.request.GetlistSocialNetworksByUserQuery;
+import com.nexum.backend.dto.shared.social.request.SocialUserCreateRequest;
+import com.nexum.backend.dto.shared.social.response.GetlistSocialNetworksByUserQuery;
 import com.nexum.backend.services.shared.social.interfaces.SocialUserServicePort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -28,5 +24,15 @@ public class SocialUserController {
             @PathVariable Long id_user
     ) {
         return ResponseEntity.status(200).body(socialUserServicePort.listSocialNetworksByUser(id_user));
+    }
+
+    @PostMapping
+    public ResponseEntity addOrUpdateSocialToUser(
+            @PathVariable Long id_user,
+            @RequestBody Collection<SocialUserCreateRequest> request
+    ) {
+        socialUserServicePort.addOrUpdateSocialToUser(id_user, request);
+
+        return ResponseEntity.status(200).build();
     }
 }

@@ -1,4 +1,4 @@
-package com.nexum.backend.mappers.shared.social.shared.social.request;
+package com.nexum.backend.dto.shared.social.response;
 
 public class GetlistSocialNetworksByUserQuery {
     private Long id_social;

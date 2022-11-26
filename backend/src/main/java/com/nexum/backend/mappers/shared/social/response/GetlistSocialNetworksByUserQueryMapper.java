@@ -1,4 +1,4 @@
-package com.nexum.backend.mappers.shared.social.request;
+package com.nexum.backend.mappers.shared.social.response;
 
 import com.nexum.backend.domain.social.SocialUserEntity;
 import com.nexum.backend.dto.shared.social.response.GetlistSocialNetworksByUserQuery;

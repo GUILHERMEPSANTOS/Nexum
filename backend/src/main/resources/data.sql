@@ -5,9 +5,6 @@
 		INSERT INTO TB_SOCIAL (NOME) VALUES
         ('Facebook'),('Instagram'),('LinkedIn');
 
-		INSERT INTO TB_USERS_ROLES (ID_USUARIO, ID_ROLE) VALUES
-		(1,2),
-		(2,3);
 
 		INSERT INTO TB_HABILIDADE (NOME) VALUES
 		('FIGMA'),('Premier'),('Photoshop'),('Inkscape'),('Illustrator');

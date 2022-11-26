@@ -3,9 +3,9 @@ package com.nexum.backend.dto.contratante;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import com.nexum.backend.enums.RoleName;
-import com.nexum.backend.mappers.shared.social.shared.endereco.EnderecoDTO;
-import com.nexum.backend.mappers.shared.social.shared.match.MatchDTO;
-import com.nexum.backend.mappers.shared.social.shared.social.SocialUserDTO;
+import com.nexum.backend.dto.shared.endereco.EnderecoDTO;
+import com.nexum.backend.dto.shared.match.MatchDTO;
+import com.nexum.backend.dto.shared.social.SocialUserDTO;
 
 import java.util.ArrayList;
 import java.util.Collection;
