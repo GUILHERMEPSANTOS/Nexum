@@ -3,7 +3,7 @@ import Text from "../../Text/Text";
 import styles from "./styles.module.scss";
 import { EXPERIENCE } from "./constants";
 
-const Experience = ({ canEdit = true }, { canAdd = true }) => {
+const Experience = ({canEdit, canAdd}) => {
     return(
         <section className={styles.container}>
             <div className={styles.containerAdd}>

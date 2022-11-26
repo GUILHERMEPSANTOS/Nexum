@@ -3,7 +3,7 @@ import Text from "../../Text/Text";
 import styles from "./styles.module.scss";
 import { FORMATION } from "./constants";
 
-const Formation = ({ canEdit = true }, { canAdd = true }) => {
+const Formation = ({canEdit, canAdd}) => {
     return(
         <section className={styles.container}>
             <div className={styles.containerAdd}>
