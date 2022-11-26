@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Text from "../../Text/Text";
 import { DEGREES } from "./constants";
 import Title from "../../Title/Title";
@@ -10,7 +10,7 @@ import { listCertificadoByFreelancerId } from "../../../services/Freelancer/cert
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
   const perfil = localStorage.getItem("role");
-  const [certificacao, setCertificado] = useState;
+  const [certificacao, setCertificado] = useState();
 
   useEffect(() => {
     if (perfil == `"ROLE_FREELANCER"`)

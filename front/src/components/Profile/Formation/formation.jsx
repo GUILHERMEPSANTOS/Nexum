@@ -2,13 +2,14 @@ import Title from "../../Title/Title";
 import Text from "../../Text/Text";
 import styles from "./styles.module.scss";
 import { FORMATION } from "./constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EditGraduate from "../../Modals/EditGraduate/EditDegrees";
-import { listFormacaoByFreelancerId } from "src/services/Freelancer/formacao";
+import { listFormacaoByFreelancerId } from "../../../services/Freelancer/formacao";
 
 const Formation = ({ canEdit = true }) => {
   const [editGraduate, setEditGraduate] = useState(false);
-  const [formation, setFormation] = useState;
+  const [formation, setFormation] = useState();
+  const perfil = localStorage.getItem("role");
 
   useEffect(() => {
     if (perfil == `"ROLE_FREELANCER"`)
