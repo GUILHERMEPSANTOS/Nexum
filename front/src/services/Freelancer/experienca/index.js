@@ -26,4 +26,25 @@ const postExperiencia = async ({
   });
   return response;
 };
-export { listExperienciaByFreelancerId, postExperiencia };
+const putExperiencia = async ({
+  cargo,
+  empresa,
+  cidade,
+  estado,
+  sobre,
+  data_inicial,
+  data_final,
+  id,
+}) => {
+  const response = await api.post(`api/v1/experiencia/${id}`, {
+    cargo: cargo,
+    empresa: empresa,
+    cidade: cidade,
+    estado: estado,
+    sobre: sobre,
+    data_inicial: data_inicial,
+    data_final: data_final,
+  });
+  return response;
+};
+export { listExperienciaByFreelancerId, postExperiencia, putExperiencia };

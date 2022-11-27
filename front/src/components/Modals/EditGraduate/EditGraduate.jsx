@@ -3,8 +3,17 @@ import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
 import { useState } from "react";
-
-const EditGraduate = ({ actualState, setActualState, add, edit }) => {
+import {
+  postFormacao,
+  putFormacao,
+} from "../../../services/Freelancer/formacao";
+const EditGraduate = ({
+  actualState,
+  setActualState,
+  add,
+  edit,
+  refetch = () => {},
+}) => {
   const [curso, setCurso] = useState();
   const [ensino, setEnsino] = useState();
   const [estado, setEstado] = useState();
@@ -12,7 +21,85 @@ const EditGraduate = ({ actualState, setActualState, add, edit }) => {
   const [dataInicio, setDataInicio] = useState();
   const [dataFinal, setDataFinal] = useState();
   const [sobre, setSobre] = useState();
-
+  const userId = useMemo(() => localStorage.getItem("user_id"));
+  const { mutate: sendRequest } = useMutation(
+    ({
+      curso,
+      instituicao,
+      cidade,
+      estado,
+      sobre,
+      data_inicial,
+      data_final,
+      id,
+    }) =>
+      postFormacao({
+        curso,
+        instituicao,
+        cidade,
+        estado,
+        sobre,
+        data_inicial,
+        data_final,
+        id,
+      }),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+  const { mutate: updateRequest } = useMutation(
+    ({
+      curso,
+      instituicao,
+      cidade,
+      estado,
+      sobre,
+      data_inicial,
+      data_final,
+      id,
+    }) =>
+      putFormacao({
+        curso,
+        instituicao,
+        cidade,
+        estado,
+        sobre,
+        data_inicial,
+        data_final,
+        id,
+      }),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+  const handlePost = useCallback(() => {
+    sendRequest({
+      curso,
+      instituicao: ensino,
+      cidade,
+      estado,
+      sobre,
+      data_inicial: dataInicio,
+      data_final: dataFinal,
+      id: userId,
+    });
+  }, [curso, cidade, estado]);
+  const handlePut = useCallback(() => {
+    updateRequest({
+      curso,
+      instituicao: ensino,
+      cidade,
+      estado,
+      sobre,
+      data_inicial: dataInicio,
+      data_final: dataFinal,
+      id: userId,
+    });
+  }, [curso, cidade, estado]);
   return (
     <Modal
       text={"Formação"}
@@ -68,7 +155,11 @@ const EditGraduate = ({ actualState, setActualState, add, edit }) => {
       </div>
       <div className={styles.buttons}>
         <Button
-          onClick={() => setActualState(false)}
+          onClick={() => {
+            if (add) handlePost();
+            if (edit) handlePut();
+            setActualState(false);
+          }}
           isEmpty={true}
           text="Salvar"
         />

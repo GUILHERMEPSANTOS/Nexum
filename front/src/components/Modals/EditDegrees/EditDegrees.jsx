@@ -13,6 +13,7 @@ const EditDegrees = ({
   actualState,
   setActualState,
   add,
+  edit,
   refetch = () => {},
 }) => {
   const [curso, setCurso] = useState();

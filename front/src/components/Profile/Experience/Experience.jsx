@@ -17,7 +17,7 @@ const Experience = ({ canEdit = true }) => {
 
   const userId = useMemo(() => localStorage.getItem("user_id"));
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, refetch } = useQuery(
     ["consultar experiencia"],
     async () => await listExperienciaByFreelancerId(userId)
   );
@@ -36,6 +36,7 @@ const Experience = ({ canEdit = true }) => {
               <img
                 onClick={() => {
                   setAdd(true);
+                  setEdit(false);
                   setEditExperience(true);
                 }}
                 className={styles.editIcon}
@@ -68,7 +69,11 @@ const Experience = ({ canEdit = true }) => {
                 {canEdit && (
                   <div className={styles.edit}>
                     <img
-                      onClick={() => setEditExperience(true)}
+                      onClick={() => {
+                        setEdit(true);
+                        setAdd(false);
+                        setEditDegrees(true);
+                      }}
                       className={styles.editIcon}
                       src="../../assets/icons/edit.svg"
                     />
@@ -86,7 +91,9 @@ const Experience = ({ canEdit = true }) => {
       </section>
       {editExperience && (
         <EditExperience
+          edit={edit}
           add={add}
+          refetch={refetch}
           actualState={editExperience}
           setActualState={setEditExperience}
         />

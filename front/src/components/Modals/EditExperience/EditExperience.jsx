@@ -3,8 +3,17 @@ import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
 import { useState } from "react";
-
-const EditExperience = ({ actualState, setActualState }) => {
+import {
+  postExperiencia,
+  putExperiencia,
+} from "../../../services/Freelancer/experienca";
+const EditExperience = ({
+  actualState,
+  setActualState,
+  add,
+  edit,
+  refetch = () => {},
+}) => {
   const [cargo, setCargo] = useState();
   const [empresa, setEmpresa] = useState();
   const [estado, setEstado] = useState();
@@ -12,7 +21,69 @@ const EditExperience = ({ actualState, setActualState }) => {
   const [dataInicio, setDataInicio] = useState();
   const [dataFinal, setDataFinal] = useState();
   const [sobre, setSobre] = useState();
+  const userId = useMemo(() => localStorage.getItem("user_id"));
+  const { mutate: sendRequest } = useMutation(
+    ({ cargo, empresa, cidade, estado, sobre, data_inicial, data_final, id }) =>
+      postExperiencia({
+        cargo,
+        empresa,
+        cidade,
+        estado,
+        sobre,
+        data_inicial,
+        data_final,
+        id,
+      }),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+  const { mutate: updateRequest } = useMutation(
+    ({ cargo, empresa, cidade, estado, sobre, data_inicial, data_final, id }) =>
+      putExperiencia({
+        cargo,
+        empresa,
+        cidade,
+        estado,
+        sobre,
+        data_inicial,
+        data_final,
+        id,
+      }),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+  const handlePost = useCallback(() => {
+    sendRequest({
+      cargo,
+      empresa,
+      cidade,
+      estado,
+      sobre,
+      data_inicial: dataInicio,
+      data_final: dataFinal,
 
+      id: userId,
+    });
+  }, [curso, cidade, estado]);
+  const handlePut = useCallback(() => {
+    updateRequest({
+      cargo,
+      empresa,
+      cidade,
+      estado,
+      sobre,
+      data_inicial: dataInicio,
+      data_final: dataFinal,
+
+      id: userId,
+    });
+  }, [curso, cidade, estado]);
   return (
     <Modal
       text={"Experiência"}
@@ -68,7 +139,11 @@ const EditExperience = ({ actualState, setActualState }) => {
       </div>
       <div className={styles.buttons}>
         <Button
-          onClick={() => setActualState(false)}
+          onClick={() => {
+            if (add) handlePost();
+            if (edit) handlePut();
+            setActualState(false);
+          }}
           isEmpty={true}
           text="Salvar"
         />

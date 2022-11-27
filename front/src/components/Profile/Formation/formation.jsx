@@ -3,7 +3,7 @@ import Text from "../../Text/Text";
 import styles from "./styles.module.scss";
 import { FORMATION } from "./constants";
 import { useState } from "react";
-import EditGraduate from "../../Modals/EditGraduate/EditDegrees";
+import EditGraduate from "../../Modals/EditGraduate/EditGraduate";
 import { listFormacaoByFreelancerId } from "../../../services/Freelancer/formacao";
 import { useQuery } from "@tanstack/react-query";
 
@@ -11,8 +11,9 @@ const Formation = ({ canEdit = true }) => {
   const [editGraduate, setEditGraduate] = useState(false);
   const userId = localStorage.getItem("user_id");
   const [add, setAdd] = useState(false);
-  const { data, isLoading } = useQuery(["consultar certificados"], () =>
-    listFormacaoByFreelancerId(userId)
+  const { data, isLoading, refetch } = useQuery(
+    ["consultar certificados"],
+    () => listFormacaoByFreelancerId(userId)
   );
   console.log(data, "formacao");
   if (isLoading) {
@@ -28,6 +29,7 @@ const Formation = ({ canEdit = true }) => {
               <img
                 onClick={() => {
                   setAdd(true);
+                  setEdit(false);
                   setEditGraduate(true);
                 }}
                 className={styles.editIcon}
@@ -88,7 +90,9 @@ const Formation = ({ canEdit = true }) => {
       </section>
       {editGraduate && (
         <EditGraduate
+          edit={edit}
           add={add}
+          refetch={refetch}
           actualState={editGraduate}
           setActualState={setEditGraduate}
         />

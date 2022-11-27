@@ -26,5 +26,26 @@ const postFormacao = async ({
   });
   return response;
 };
+const putFormacao = async ({
+  curso,
+  instituicao,
+  cidade,
+  estado,
+  sobre,
+  data_inicial,
+  data_final,
+  id,
+}) => {
+  const response = await api.post(`api/v1/formacao/${id}`, {
+    curso: curso,
+    instituicao: instituicao,
+    cidade: cidade,
+    estado: estado,
+    sobre: sobre,
+    data_inicial: data_inicial,
+    data_final: data_final,
+  });
+  return response;
+};
 
-export { listFormacaoByFreelancerId, postFormacao };
+export { listFormacaoByFreelancerId, postFormacao, putFormacao };

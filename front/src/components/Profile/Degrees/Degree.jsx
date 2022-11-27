@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
   const [add, setAdd] = useState(false);
+  const [edit, setEdit] = useState(false);
   const userId = useMemo(() => localStorage.getItem("user_id"));
 
   const { data, isLoading, refetch } = useQuery(
@@ -30,6 +31,7 @@ const Degrees = ({ canEdit = true }) => {
             <img
               onClick={() => {
                 setAdd(true);
+                setEdit(false);
                 setEditDegrees(true);
               }}
               className={styles.editIcon}
@@ -42,7 +44,11 @@ const Degrees = ({ canEdit = true }) => {
             {canEdit && (
               <div className={styles.edit}>
                 <img
-                  onClick={() => setEditDegrees(true)}
+                  onClick={() => {
+                    setEdit(true);
+                    setAdd(false);
+                    setEditDegrees(true);
+                  }}
                   className={styles.editIcon}
                   src="../../assets/icons/edit.svg"
                 />
@@ -50,7 +56,7 @@ const Degrees = ({ canEdit = true }) => {
             )}
 
             <div className={styles.wrapper}>
-              <img src={`../../assets/icons/${instituicao}.svg`} />
+              <img src={`../../assets/imgs/${instituicao}.png`} />
               <div className={styles.contentContainer}>
                 <div>
                   <Text text={curso} />
@@ -66,6 +72,7 @@ const Degrees = ({ canEdit = true }) => {
       </section>
       {editDegrees && (
         <EditDegrees
+          edit={edit}
           add={add}
           refetch={refetch}
           actualState={editDegrees}
