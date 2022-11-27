@@ -14,11 +14,11 @@ const postCertificado = async ({
   id,
 }) => {
   const response = await api.post(`api/v1/experiencia/${id}`, {
-    curso,
-    instituicao,
-    cidade,
-    estado,
-    certificacao_url,
+    curso: curso,
+    instituicao: instituicao,
+    cidade: cidade,
+    estado: estado,
+    certificacao_url: certificacao_url,
   });
   return response;
 };

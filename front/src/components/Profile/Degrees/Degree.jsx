@@ -30,7 +30,7 @@ const Degrees = ({ canEdit = true }) => {
             <img
               onClick={() => {
                 setAdd(true);
-                setEditExperience(true);
+                setEditDegrees(true);
               }}
               className={styles.editIcon}
               src="../../assets/icons/add.svg"
