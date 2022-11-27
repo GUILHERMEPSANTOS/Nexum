@@ -12,6 +12,8 @@ import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 import com.nexum.backend.services.freelancer.*;
 
 import com.nexum.backend.services.freelancer.interfaces.*;
+import com.nexum.backend.services.shared.match.MatchService;
+import com.nexum.backend.services.shared.match.interfaces.MatchServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -77,8 +79,12 @@ public class FreelancerDependencyInjection {
 
     @Bean
     FreelancerMatchServicePort freelancerMatchService(
-            SpringFreelancerMatchRepository springFreelancerMatchRepository
+            SpringFreelancerMatchRepository springFreelancerMatchRepository,
+            MatchServicePort matchServicePort
     ) {
-        return new FreelancerMatchService(springFreelancerMatchRepository);
+        return new FreelancerMatchService(
+                springFreelancerMatchRepository,
+                matchServicePort
+        );
     }
 }

@@ -6,4 +6,6 @@ import java.util.Collection;
 
 public interface FreelancerMatchServicePort {
     Collection<GetMatchRequestsByFreelancerIdQuery> getMatchsRequestByFreelancerId(Long id_freelancer);
+
+    void acceptMatchRequest(Long id_freelancer, Long id_contratante);
 }

@@ -28,4 +28,15 @@ public class FreelancerMatchController {
 
         return ResponseEntity.status(200).body(contratanteDTOS);
     }
+
+    @PutMapping("accept-request/contratante/{id_contratante}")
+    public ResponseEntity acceptMatchRequest(
+            @PathVariable Long id_freelancer,
+            @PathVariable Long id_contratante
+    ) {
+        freelancerMatchServicePort.acceptMatchRequest(id_freelancer,id_contratante);
+
+        return ResponseEntity.status(200).build();
+    }
+
 }

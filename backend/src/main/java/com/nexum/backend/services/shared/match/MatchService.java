@@ -19,22 +19,21 @@ public class MatchService implements MatchServicePort {
 
     @Override
     public void enviarSolicitacaoMatch(MatchDTORequest matchDTORequest) {
-        validateMatchRequestAlreadyExists(
+        Boolean alreadyExistsMatch = validateMatchRequestAlreadyExists(
                 matchDTORequest.getId_freelancer(),
                 matchDTORequest.getId_contratante()
         );
+
+        if (alreadyExistsMatch) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Match já realizado!");
+        }
 
         this.springMatchRepository.save(
                 MatchDTORequestToMatchEntityMapper.toMatchEntityMapper(matchDTORequest)
         );
     }
 
-    private void validateMatchRequestAlreadyExists(Long id_freelancer, Long id_contratante) {
-        Boolean reaquestAlreadlyExists =
-                springMatchRepository.matchRequestAlreadyExists(id_freelancer, id_contratante);
-
-        if (reaquestAlreadlyExists) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Match já realizado!");
-        }
+    public Boolean validateMatchRequestAlreadyExists(Long id_freelancer, Long id_contratante) {
+        return  springMatchRepository.matchRequestAlreadyExists(id_freelancer, id_contratante);
     }
 }
