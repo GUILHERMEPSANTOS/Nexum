@@ -8,6 +8,31 @@ import { useState } from "react";
 import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
 import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
 
+
+[
+	{
+		"id_user": 1,
+		"nome": "Guilherme",
+		"email": "guilherme@hotmail.com",
+		"endereco": {
+			"cidade": "Ribeirão Pires",
+			"estado": "São Paulo"
+		},
+		"sobre": "O Homem mais lindo da terra!",
+		"socialsUserDTO": [
+			{
+				"id_social_user": 1,
+				"social": {
+					"id_social": 1,
+					"nome": "Facebook"
+				},
+				"user_url": "GUILHEMRE.FACEBOOK"
+			}
+		]
+	}
+]
+
+
 const About = ({
   isOtherView,
   isCompanyProfile,
