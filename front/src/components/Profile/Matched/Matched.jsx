@@ -1,11 +1,14 @@
 import Company from "../../../pages/Profile/Company/Company";
-
+import { Link } from "react-router-dom";
 const Matched = () => {
   return (
     <>
-      {list.map(() => (
+      oi
+      {/* {list.map(() => (
+        <Link to={'/propostas'}>
         <Company isFreela={true} />
-      ))}
+        </Link>
+      ))} */}
     </>
   );
 };
