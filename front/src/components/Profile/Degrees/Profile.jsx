@@ -11,14 +11,14 @@ const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
   const perfil = localStorage.getItem("role");
   const [certificacao, setCertificado] = useState();
-
+  const id = localStorage.getItem("user_id");
   useEffect(() => {
-    if (perfil == `"ROLE_FREELANCER"`)
-      setCertificado(localStorage.getItem("user_id"));
+    if (perfil == `"ROLE_FREELANCER"`) setCertificado(id);
   }, []);
   async function cerficado() {
     return await listCertificadoByFreelancerId(certificacao);
   }
+  console.log(cerficado());
 
   useState(() => {
     cerficado();

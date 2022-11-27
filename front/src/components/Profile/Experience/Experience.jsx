@@ -10,13 +10,17 @@ const Experience = ({ canEdit = true }) => {
   const [editExperience, setEditExperience] = useState(false);
   const [experience, setExperience] = useState();
   const perfil = localStorage.getItem("role");
+  const id = localStorage.getItem("user_id");
+
+  console.log(id, `id`, experience);
   useEffect(() => {
-    if (perfil == `"ROLE_FREELANCER"`)
-      setExperience(localStorage.getItem("user_id"));
+    if (perfil == `"ROLE_FREELANCER"`) setExperience(id);
   }, []);
   async function experiencia() {
     return await listExperienciaByFreelancerId(experience);
   }
+  const data = experiencia();
+  console.log(data);
   useState(() => {
     experiencia();
   }, [experiencia]);

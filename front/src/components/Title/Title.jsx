@@ -8,7 +8,7 @@ const Title = ({ text, isForm }) => {
     const setList = text.split(" ");
     setWords(setList);
   }, []);
-  const data = localStorage.getItem("name")  ? localStorage.getItem("name") : "";;
+  const data = localStorage.getItem("name") ? localStorage.getItem("name") : "";
   const dataFormatted = data.replace(/"/g, "");
   return (
     <h1 className={styles.title}>
@@ -23,7 +23,8 @@ const Title = ({ text, isForm }) => {
             item == "experiência" ||
             item == "Propostas" ||
             item == "Perfil" ||
-            item == "Contato"
+            item == "Contato" ||
+            item == "Match"
           ? "#7509BD"
           : "#fff";
         return <span style={{ color: `${color}` }}>{item + ` `}</span>;
