@@ -21,7 +21,7 @@ const EditDegrees = ({ actualState, setActualState, add }) => {
       certificacao_url: urlCertificado,
       id,
     });
-  }, [curso, instituicao, cidade, estado]);
+  }, [curso, instituicao, cidade, estado, certificacao_url]);
 
   return (
     <Modal

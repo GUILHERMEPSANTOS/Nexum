@@ -10,8 +10,8 @@ import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
 
 const About = ({
   isOtherView,
-  canEdit = !isCompanyProfile,
   isCompanyProfile,
+  canEdit = !isCompanyProfile,
 }) => {
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
