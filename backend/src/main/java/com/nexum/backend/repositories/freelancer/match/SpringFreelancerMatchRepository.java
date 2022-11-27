@@ -12,6 +12,14 @@ public interface SpringFreelancerMatchRepository extends JpaRepository<MatchEnti
 
     @Query("select mt " +
            "from MatchEntity mt " +
-           "where mt.freelancer.id_usuario = :id_freelancer")
+           "where mt.freelancer.id_usuario = :id_freelancer " +
+            "and mt.status = false")
     Collection<MatchEntity> getMatchsRequestByFreelancerId(@Param("id_freelancer") Long id_freelancer);
+
+    @Query("update " +
+                "MatchEntity mt " +
+           "set mt.status = true " +
+           "where mt.freelancer.id_usuario = :id_freelancer" +
+                "and mt.contratante.id_usuario = :id_contratante")
+    void acceptMatchRequest();
 }
