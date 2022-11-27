@@ -5,6 +5,7 @@ import { FORMATION } from "./constants";
 import { useState } from "react";
 import EditGraduate from "../../Modals/EditGraduate/EditDegrees";
 import { listFormacaoByFreelancerId } from "../../../services/Freelancer/formacao";
+import { useQuery } from "@tanstack/react-query";
 
 const Formation = ({ canEdit = true }) => {
   const [editGraduate, setEditGraduate] = useState(false);
