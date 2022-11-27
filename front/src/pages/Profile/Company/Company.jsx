@@ -1,12 +1,26 @@
 import About from "../../../components/Profile/About/About";
 import styles from "./styles.module.scss";
 
-const Company = ({ isCompany, isFreela, canEdit }) => {
+const Company = ({
+  isCompanyProfile,
+  nomeCompany,
+  emailCompany,
+  enderecoCompany,
+  sobreCompany,
+  socialCompany,
+  isOtherView,
+  canEdit,
+}) => {
   return (
     <About
+      nomeCompany={nomeCompany}
+      emailCompany={emailCompany}
+      enderecoCompany={enderecoCompany}
+      sobreCompany={sobreCompany}
+      socialCompany={socialCompany}
       canEdit={canEdit}
-      isOtherView={isFreela}
-      isCompanyProfile={isCompany}
+      isCompanyProfile={isCompanyProfile}
+      isOtherView={isOtherView}
     />
   );
 };

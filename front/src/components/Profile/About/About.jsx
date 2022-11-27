@@ -36,7 +36,12 @@ import { Link } from "react-router-dom";
 const About = ({
   isOtherView,
   isCompanyProfile,
-  canEdit = !isCompanyProfile,
+  canEdit,
+  nomeCompany,
+  emailCompany,
+  enderecoCompany,
+  sobreCompany,
+  socialCompany,
 }) => {
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
@@ -58,10 +63,22 @@ const About = ({
             src="../../assets/imgs/person-card-1.png"
           />
           <div>
-            <h1 className={styles.title}>{nomeFormatted} </h1>
+            {isOtherView ? (
+              <h1 className={styles.title}>{nomeCompany} </h1>
+            ) : (
+              <h1 className={styles.title}>{nomeFormatted} </h1>
+            )}
             <div className={styles.location}>
               <img src="../../assets/icons/location.png" />
-              <Text isSmall={true} text="Osasco, São Paulo" />
+              {isOtherView ? (
+                <>
+                  <Text isSmall={true} text={enderecoCompany?.cidade} />
+
+                  <Text isSmall={true} text={enderecoCompany?.estado} />
+                </>
+              ) : (
+                <Text isSmall={true} text="Osasco, São Paulo" />
+              )}
             </div>
             <Text text="Designer" />
             {canEdit && (
@@ -94,10 +111,14 @@ const About = ({
             />
           )}
           <Title text="Sobre" />
-          <Text
-            text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget urna egestas.
+          {isOtherView ? (
+            <Text text={sobreCompany} />
+          ) : (
+            <Text
+              text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget urna egestas.
 Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique. Sed molestie leo eget urna egestas tristique."
-          />
+            />
+          )}
           {canEdit && (
             <img
               onClick={() => setEditSocial(true)}
@@ -105,11 +126,18 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
               src="../../assets/icons/editAbout.svg"
             />
           )}
-          <List title="Redes sociais" list={SOCIAL_MEDIA} />
-
+          {isOtherView ? (
+            <List title="Redes sociais" list={socialCompany} />
+          ) : (
+            <List title="Redes sociais" list={SOCIAL_MEDIA} />
+          )}
           <Title text="Email" />
           <div className={styles.socialMedia}>
-            <Text isSmall={true} text={emailFormatted} />
+            {isOtherView ? (
+              <Text isSmall={true} text={emailCompany} />
+            ) : (
+              <Text isSmall={true} text={emailFormatted} />
+            )}
           </div>
           {isCompanyProfile && (
             <>
@@ -120,12 +148,12 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
                   src="../../assets/icons/editAbout.svg"
                 />
               )}
-              {isOtherView && (
+              {/* {isOtherView && (
                 <>
                   <List title="Informações do projeto" list={INFO} />
                   <Text text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget." />
                 </>
-              )}
+              )} */}
               {canEdit && (
                 <img
                   onClick={() => setEditSocial(true)}

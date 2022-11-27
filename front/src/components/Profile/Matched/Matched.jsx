@@ -18,12 +18,23 @@ const Matched = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log(data);
+
   return (
     <>
-      {data?.data.map(() => (
-        <Company canEdit={false} isFreela={true} />
-      ))}
+      {data?.data.map(({ email, endereco, nome, sobre, socialsUserDTO }) => {
+        return (
+          <Company
+            nomeCompany={nome}
+            emailCompany={email}
+            enderecoCompany={endereco}
+            sobreCompany={sobre}
+            socialCompany={socialsUserDTO}
+            canEdit={false}
+            isCompanyProfile={true}
+            isOtherView={true}
+          />
+        );
+      })}
     </>
   );
 };
