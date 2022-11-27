@@ -17,32 +17,12 @@ const Degrees = ({ canEdit = true }) => {
   const { data, isLoading } = useQuery(["consultar certificados"], () =>
     listCertificadoByFreelancerId(userId)
   );
-
-  // async function cerficado() {
-  //   return await listCertificadoByFreelancerId(certificacao);
-  // }
-
-  // useState(() => {
-  //   cerficado();
-  // }, [cerficado]);
-
-  /*
   
-  	{
-		"id_certificacao": 1,
-		"curso": ".Net",
-		"instituicao": "Fiap",
-		"estado": "São Paulo",
-		"cidade": "Fiap",
-		"certificacao_url": "fidhvihdwbgjmophfeauhjpob"
-	}
-  
-  
-  */
 
   if (isLoading) {
     return <div>Loding...</div>;
   }
+  console.log(cerficado());
 
   return (
     <>

@@ -10,10 +10,10 @@ const Formation = ({ canEdit = true }) => {
   const [editGraduate, setEditGraduate] = useState(false);
   const [formation, setFormation] = useState();
   const perfil = localStorage.getItem("role");
+  const id = localStorage.getItem("user_id");
 
   useEffect(() => {
-    if (perfil == `"ROLE_FREELANCER"`)
-      setFormation(localStorage.getItem("user_id"));
+    if (perfil == `"ROLE_FREELANCER"`) setFormation(id);
   }, []);
   async function formacao() {
     return await listFormacaoByFreelancerId(formation);
