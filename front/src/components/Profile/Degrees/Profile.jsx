@@ -9,10 +9,13 @@ import { useQuery } from "@tanstack/react-query";
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
-
+  const [add, setAdd] = useState(false);
   const userId = useMemo(() => localStorage.getItem("user_id"));
 
-  const { data, isLoading } = useQuery(["consultar certificados"], async () => await listCertificadoByFreelancerId(userId));
+  const { data, isLoading } = useQuery(
+    ["consultar certificados"],
+    async () => await listCertificadoByFreelancerId(userId)
+  );
 
   if (isLoading) {
     return <div>Loding...</div>;
@@ -25,7 +28,10 @@ const Degrees = ({ canEdit = true }) => {
         {canEdit && (
           <div className={styles.add}>
             <img
-              onClick={() => setEditExperience(true)}
+              onClick={() => {
+                setAdd(true);
+                setEditExperience(true);
+              }}
               className={styles.editIcon}
               src="../../assets/icons/add.svg"
             />
@@ -60,6 +66,7 @@ const Degrees = ({ canEdit = true }) => {
       </section>
       {editDegrees && (
         <EditDegrees
+          add={add}
           actualState={editDegrees}
           setActualState={setEditDegrees}
         />

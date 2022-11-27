@@ -8,6 +8,7 @@ import InicioMain from "../components/Profile/Inicio/tela_inicio";
 import CardMain from "../components/Profile/CardTelaInicio/card";
 import FreelancersOptions from "../pages/ProfilePages/FreelancersOptions/FreelancersOptions";
 import Propostas from "../components/Profile/Propostas/propostas";
+import Matched from "../components/Profile/Matched/Matched";
 
 export const router = createBrowserRouter([
   {
@@ -45,5 +46,9 @@ export const router = createBrowserRouter([
   {
     path: "/propostas",
     element: <Propostas />,
+  },
+  {
+    path: "/match",
+    element: <Matched />,
   },
 ]);
