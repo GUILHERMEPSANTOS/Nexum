@@ -11,6 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/habilidade")
+@CrossOrigin(origins = "*")
 public class HabilidadeController {
 
     private final HabilidadeServicePort habilidadeServicePort;

@@ -3,13 +3,11 @@ package com.nexum.backend.controller.shared.user;
 
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/user")
+@CrossOrigin(origins = "*")
 public class UserController {
     private final UserServicePort userServicePort;
 

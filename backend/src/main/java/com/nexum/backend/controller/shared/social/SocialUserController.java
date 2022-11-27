@@ -11,6 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/social-user/{id_user}")
+@CrossOrigin(origins = "*")
 public class SocialUserController {
 
     private final SocialUserServicePort socialUserServicePort;

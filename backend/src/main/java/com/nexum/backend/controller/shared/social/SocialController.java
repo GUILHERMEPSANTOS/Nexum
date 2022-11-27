@@ -3,6 +3,7 @@ package com.nexum.backend.controller.shared.social;
 import com.nexum.backend.dto.shared.social.SocialDTO;
 import com.nexum.backend.services.shared.social.interfaces.SocialServicePort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/social")
+@CrossOrigin(origins = "*")
 public class SocialController {
 
     private final SocialServicePort socialServicePort;
