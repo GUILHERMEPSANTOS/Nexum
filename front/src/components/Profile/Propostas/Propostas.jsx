@@ -10,7 +10,7 @@ const Propostas = () => {
   const dataFormatted = data.replace(/"/g, "");
 
   return (
-    <div>
+    <div className={styles.container}>
       <Header options={OPTIONS} buttonText="Sair" link="/" />
       <Banner>
         <div className={styles.mensagem}>

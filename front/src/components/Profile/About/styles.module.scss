@@ -29,6 +29,11 @@
   }
 
   .actions {
+    > a > button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
     > button {
       border: none;
       background-color: transparent;

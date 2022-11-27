@@ -8,6 +8,7 @@ import { useState } from "react";
 import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
 import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
 import EditData from "../../Modals/EditData/EditData";
+import { Link } from "react-router-dom";
 
 [
   {
@@ -73,12 +74,11 @@ const About = ({
           </div>
           {isOtherView && (
             <div className={styles.actions}>
-              <button>
-                <img src="../../assets/icons/back.svg" />
-              </button>
-              <button>
-                <img src="../../assets/icons/like.svg" />
-              </button>
+              <Link to="/propostas">
+                <button>
+                  <img src="../../assets/icons/like.svg" />
+                </button>
+              </Link>
               <button>
                 <img src="../../assets/icons/save.svg" />
               </button>

@@ -18,14 +18,12 @@ const Matched = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
+  console.log(data);
   return (
     <>
-      {/* {data?.data.map(() => (
-        <Link to={"/propostas"}>
-          <Company isFreela={true} />
-        </Link>
-      ))}  */}
+      {data?.data.map(() => (
+        <Company canEdit={false} isFreela={true} />
+      ))}
     </>
   );
 };
