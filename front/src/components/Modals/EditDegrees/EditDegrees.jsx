@@ -3,7 +3,10 @@ import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
 import { useCallback, useMemo, useState } from "react";
-import { postCertificado } from "../../../services/Freelancer/certificacao";
+import {
+  postCertificado,
+  putCertificado,
+} from "../../../services/Freelancer/certificacao";
 
 const EditDegrees = ({ actualState, setActualState, add }) => {
   const [curso, setCurso] = useState();
@@ -14,6 +17,16 @@ const EditDegrees = ({ actualState, setActualState, add }) => {
   const userId = useMemo(() => localStorage.getItem("user_id"));
   const handlePost = useCallback(() => {
     postCertificado({
+      curso,
+      instituicao: ensino,
+      cidade,
+      estado,
+      certificacao_url: urlCertificado,
+      id: userId,
+    });
+  }, [curso, cidade, estado]);
+  const handlePut = useCallback(() => {
+    putCertificado({
       curso,
       instituicao: ensino,
       cidade,
@@ -64,6 +77,7 @@ const EditDegrees = ({ actualState, setActualState, add }) => {
         <Button
           onClick={() => {
             if (add) handlePost();
+            if (edit) handlePut();
             setActualState(false);
           }}
           isEmpty={true}

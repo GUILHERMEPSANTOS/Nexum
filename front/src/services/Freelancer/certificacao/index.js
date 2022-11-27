@@ -22,4 +22,22 @@ const postCertificado = async ({
   });
   return response;
 };
-export { listCertificadoByFreelancerId, postCertificado };
+const putCertificado = async ({
+  curso,
+  instituicao,
+  cidade,
+  estado,
+  certificacao_url,
+
+  id,
+}) => {
+  const response = await api.put(`api/v1/certificacao/${id}`, {
+    curso: curso,
+    instituicao: instituicao,
+    cidade: cidade,
+    estado: estado,
+    certificacao_url: certificacao_url,
+  });
+  return response;
+};
+export { listCertificadoByFreelancerId, postCertificado, putCertificado };
