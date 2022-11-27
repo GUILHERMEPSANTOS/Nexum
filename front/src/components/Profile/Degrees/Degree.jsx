@@ -12,7 +12,7 @@ const Degrees = ({ canEdit = true }) => {
   const [add, setAdd] = useState(false);
   const userId = useMemo(() => localStorage.getItem("user_id"));
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, refetch } = useQuery(
     ["consultar certificados"],
     async () => await listCertificadoByFreelancerId(userId)
   );
@@ -67,6 +67,7 @@ const Degrees = ({ canEdit = true }) => {
       {editDegrees && (
         <EditDegrees
           add={add}
+          refetch={refetch}
           actualState={editDegrees}
           setActualState={setEditDegrees}
         />

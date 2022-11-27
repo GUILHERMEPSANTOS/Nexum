@@ -4,16 +4,40 @@ import Modal from "../Modal";
 import styles from "./styles.module.scss";
 import { useCallback, useMemo, useState } from "react";
 import { postCertificado } from "../../../services/Freelancer/certificacao";
+import { useMutation } from "@tanstack/react-query";
 
-const EditDegrees = ({ actualState, setActualState, add }) => {
+const EditDegrees = ({
+  actualState,
+  setActualState,
+  add,
+  refetch = () => {},
+}) => {
   const [curso, setCurso] = useState();
   const [ensino, setEnsino] = useState();
   const [estado, setEstado] = useState();
   const [cidade, setCidade] = useState();
   const [urlCertificado, setUrlCertificado] = useState();
   const userId = useMemo(() => localStorage.getItem("user_id"));
-  const handlePost = useCallback(() => {
-    postCertificado({
+
+  const { mutate } = useMutation(
+    ({ curso, instituicao, cidade, estado, certificacao_url, id }) =>
+      postCertificado({
+        curso,
+        instituicao,
+        cidade,
+        estado,
+        certificacao_url,
+        id,
+      }),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+
+  const handleSubmit = useCallback(() => {
+    mutate({
       curso,
       instituicao: ensino,
       cidade,
@@ -63,7 +87,7 @@ const EditDegrees = ({ actualState, setActualState, add }) => {
       <div className={styles.buttons}>
         <Button
           onClick={() => {
-            if (add) handlePost();
+            if (add) handleSubmit();
             setActualState(false);
           }}
           isEmpty={true}
