@@ -7,7 +7,7 @@ import HomePage from "../pages/Home/homepage";
 import InicioMain from "../components/Profile/Inicio/tela_inicio";
 import CardMain from "../components/Profile/CardTelaInicio/card";
 import FreelancersOptions from "../pages/ProfilePages/FreelancersOptions/FreelancersOptions";
-import Propostas from "../components/Profile/Propostas/propostas";
+import Propostas from "../components/Profile/Propostas/Propostas";
 
 export const router = createBrowserRouter([
   {
