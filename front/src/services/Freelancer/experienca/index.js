@@ -16,13 +16,13 @@ const postExperiencia = async ({
   id,
 }) => {
   const response = await api.post(`api/v1/experiencia/${id}`, {
-    cargo,
-    empresa,
-    cidade,
-    estado,
-    sobre,
-    data_inicial,
-    data_final,
+    cargo: cargo,
+    empresa: empresa,
+    cidade: cidade,
+    estado: estado,
+    sobre: sobre,
+    data_inicial: data_inicial,
+    data_final: data_final,
   });
   return response;
 };

@@ -6,8 +6,8 @@ const listFormacaoByFreelancerId = async (id) => {
 };
 
 const postFormacao = async ({
-  cargo,
-  empresa,
+  curso,
+  instituicao,
   cidade,
   estado,
   sobre,
@@ -15,14 +15,14 @@ const postFormacao = async ({
   data_final,
   id,
 }) => {
-  const response = await api.post(`api/v1/experiencia/${id}`, {
-    cargo,
-    empresa,
-    cidade,
-    estado,
-    sobre,
-    data_inicial,
-    data_final,
+  const response = await api.post(`api/v1/formacao/${id}`, {
+    curso: curso,
+    instituicao: instituicao,
+    cidade: cidade,
+    estado: estado,
+    sobre: sobre,
+    data_inicial: data_inicial,
+    data_final: data_final,
   });
   return response;
 };
