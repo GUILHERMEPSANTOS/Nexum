@@ -14,7 +14,7 @@ const Formation = ({ canEdit = true }) => {
   const { data, isLoading } = useQuery(["consultar certificados"], () =>
     listFormacaoByFreelancerId(userId)
   );
-  console.log(data);
+  console.log(data, "formacao");
   if (isLoading) {
     return <div>Loding...</div>;
   }
@@ -33,28 +33,17 @@ const Formation = ({ canEdit = true }) => {
             </div>
           )}
         </div>
-        {FORMATION.map(
-          ({ icon, institution, UniversityDegree, location, date, about }) => (
-            <div>
-              {canEdit && (
-                <div className={styles.edit}>
-                  <img
-                    onClick={() => setEditGraduate(true)}
-                    className={styles.editIcon}
-                    src="../../assets/icons/edit.svg"
-                  />
-                </div>
-              )}
-              <div className={styles.wrapperContainer}>
-                <div className={styles.wrapper}>
-                  <img src={`../../assets/icons/${icon}.png`} />
-                  <div className={styles.contantContainer}>
-                    <div>
-                      <Text text={institution} />
-                      <Text text={UniversityDegree} />
-                    </div>
-                  </div>
-                </div>
+        {data?.lenght > 0 &&
+          data?.map(
+            ({
+              icon,
+              institution,
+              UniversityDegree,
+              location,
+              date,
+              about,
+            }) => (
+              <div>
                 {canEdit && (
                   <div className={styles.edit}>
                     <img
@@ -64,14 +53,33 @@ const Formation = ({ canEdit = true }) => {
                     />
                   </div>
                 )}
-              </div>
+                <div className={styles.wrapperContainer}>
+                  <div className={styles.wrapper}>
+                    <img src={`../../assets/icons/${icon}.png`} />
+                    <div className={styles.contantContainer}>
+                      <div>
+                        <Text text={institution} />
+                        <Text text={UniversityDegree} />
+                      </div>
+                    </div>
+                  </div>
+                  {canEdit && (
+                    <div className={styles.edit}>
+                      <img
+                        onClick={() => setEditGraduate(true)}
+                        className={styles.editIcon}
+                        src="../../assets/icons/edit.svg"
+                      />
+                    </div>
+                  )}
+                </div>
 
-              <Text text={location} isSmall={true} />
-              <Text text={date} isSmall={true} />
-              <Text text={about} isSmall={true} />
-            </div>
-          )
-        )}
+                <Text text={location} isSmall={true} />
+                <Text text={date} isSmall={true} />
+                <Text text={about} isSmall={true} />
+              </div>
+            )
+          )}
       </section>
       {editGraduate && (
         <EditGraduate
