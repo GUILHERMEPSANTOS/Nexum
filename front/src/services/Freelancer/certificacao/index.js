@@ -6,4 +6,4 @@ const listCertificadoByFreelancerId = async (id) => {
   return response;
 };
 
-export { listCertificadoByFreelancerId }
+export { listCertificadoByFreelancerId };
