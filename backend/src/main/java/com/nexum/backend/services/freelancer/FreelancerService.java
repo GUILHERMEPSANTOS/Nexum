@@ -9,7 +9,7 @@ import com.nexum.backend.mappers.freelancer.FreelancerDTOMapper;
 import com.nexum.backend.enums.RoleName;
 
 import com.nexum.backend.repositories.shared.controle.acesso.SpringRoleRepository;
-import com.nexum.backend.domain.certificacao.freelancer.SpringFreelancerRepository;
+import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
 
