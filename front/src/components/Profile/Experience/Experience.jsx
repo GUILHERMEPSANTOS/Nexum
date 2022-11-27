@@ -7,13 +7,12 @@ import EditExperience from "../../Modals/EditExperience/EditExperience";
 import Title from "../../Title/Title";
 import Text from "../../Text/Text";
 
-import { EXPERIENCE } from "./constants";
-
 import styles from "./styles.module.scss";
 
 const Experience = ({ canEdit = true }) => {
   const [editExperience, setEditExperience] = useState(false);
   const [add, setAdd] = useState(false);
+  const [edit, setEdit] = useState(false);
 
   const userId = useMemo(() => localStorage.getItem("user_id"));
 

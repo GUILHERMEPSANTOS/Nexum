@@ -1,4 +1,4 @@
-import About from "../../../components/Profile/About/Profile";
+import About from "../../../components/Profile/About/About";
 import styles from "./styles.module.scss";
 
 const Company = ({ isCompany, isFreela }) => {

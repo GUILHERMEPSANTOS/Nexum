@@ -2,11 +2,12 @@ import Text from "../../Text/Text";
 import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import {
   postFormacao,
   putFormacao,
 } from "../../../services/Freelancer/formacao";
+import { useMutation } from "@tanstack/react-query";
 const EditGraduate = ({
   actualState,
   setActualState,

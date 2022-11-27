@@ -2,11 +2,12 @@ import Text from "../../Text/Text";
 import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import {
   postExperiencia,
   putExperiencia,
 } from "../../../services/Freelancer/experienca";
+import { useMutation } from "@tanstack/react-query";
 const EditExperience = ({
   actualState,
   setActualState,
@@ -70,7 +71,7 @@ const EditExperience = ({
 
       id: userId,
     });
-  }, [curso, cidade, estado]);
+  }, [cargo, empresa, cidade, estado]);
   const handlePut = useCallback(() => {
     updateRequest({
       cargo,
@@ -83,7 +84,7 @@ const EditExperience = ({
 
       id: userId,
     });
-  }, [curso, cidade, estado]);
+  }, [cargo, empresa, cidade, estado]);
   return (
     <Modal
       text={"Experiência"}

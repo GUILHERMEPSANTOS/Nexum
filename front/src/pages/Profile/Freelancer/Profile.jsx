@@ -1,5 +1,5 @@
 import Experience from "../../../components/Profile/Experience/Experience";
-import About from "../../../components/Profile/About/Profile";
+import About from "../../../components/Profile/About/About";
 import Degrees from "../../../components/Profile/Degrees/Degree";
 import Infos from "../../../components/Profile/Infos/Infos";
 import styles from "./styles.module.scss";

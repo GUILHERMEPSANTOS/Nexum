@@ -1,16 +1,17 @@
 import Title from "../../Title/Title";
 import Text from "../../Text/Text";
 import styles from "./styles.module.scss";
-import { FORMATION } from "./constants";
-import { useState } from "react";
+
+import { useMemo, useState } from "react";
 import EditGraduate from "../../Modals/EditGraduate/EditGraduate";
 import { listFormacaoByFreelancerId } from "../../../services/Freelancer/formacao";
 import { useQuery } from "@tanstack/react-query";
 
 const Formation = ({ canEdit = true }) => {
   const [editGraduate, setEditGraduate] = useState(false);
-  const userId = localStorage.getItem("user_id");
+  const userId = useMemo(() => localStorage.getItem("user_id"));
   const [add, setAdd] = useState(false);
+  const [edit, setEdit] = useState(false);
   const { data, isLoading, refetch } = useQuery(
     ["consultar certificados"],
     () => listFormacaoByFreelancerId(userId)
