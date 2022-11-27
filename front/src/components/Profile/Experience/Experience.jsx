@@ -1,18 +1,24 @@
+import { useMemo, useState } from "react";
+
+import { useQuery } from "@tanstack/react-query";
+import { listExperienciaByFreelancerId } from "../../../services/Freelancer/experienca";
+
+import EditExperience from "../../Modals/EditExperience/EditExperience";
 import Title from "../../Title/Title";
 import Text from "../../Text/Text";
-import styles from "./styles.module.scss";
+
 import { EXPERIENCE } from "./constants";
-import EditExperience from "../../Modals/EditExperience/EditExperience";
-import { useEffect, useState } from "react";
-import { listExperienciaByFreelancerId } from "../../../services/Freelancer/experienca";
-import { useQuery } from "@tanstack/react-query";
+
+import styles from "./styles.module.scss";
 
 const Experience = ({ canEdit = true }) => {
   const [editExperience, setEditExperience] = useState(false);
-  const userId = localStorage.getItem("user_id");
 
-  const { data, isLoading } = useQuery(["consultar experiencia"], () =>
-    listExperienciaByFreelancerId(userId)
+  const userId = useMemo(() => localStorage.getItem("user_id"));
+
+  const { data, isLoading } = useQuery(
+    ["consultar experiencia"],
+    async () => await listExperienciaByFreelancerId(userId)
   );
 
   if (isLoading) {
@@ -34,7 +40,7 @@ const Experience = ({ canEdit = true }) => {
             </div>
           )}
         </div>
-        {data?.map(({ icon, area, name, location, date, about }) => (
+        {data?.data.lenght && data.map(({ icon, area, name, location, date, about }) => (
           <div>
             <div className={styles.wrapperContainer}>
               <div className={styles.wrapper}>

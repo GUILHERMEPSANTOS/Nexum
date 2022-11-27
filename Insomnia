@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-11-13T18:31:38.128Z
+__export_date: 2022-11-27T01:03:01.025Z
 __export_source: insomnia.desktop.app:v2022.6.0
 resources:
   - _id: req_758ea3194e1b4b7ea616cd21887952e9
@@ -347,7 +347,7 @@ resources:
     _type: request
   - _id: req_a831145d8bb549c3a16e297553afce46
     parentId: fld_31805b678ce648239d8a18deef0a091a
-    modified: 1668290075573
+    modified: 1669509455721
     created: 1664497010414
     url: "{{ _.api }}api/v1/freelancer/create-account"
     name: CreateFreelancer
@@ -358,8 +358,8 @@ resources:
       text: |-
         {
         	"nome": "Carlos",
-        	"email": "alcantara@hotmail.com",
-        	"senha": "senha123",
+        	"email": "alcantara@hotmail.com.br",
+        	"senha": "123",
         	"celular": "11 997368699"
         }
     parameters: []
@@ -418,9 +418,9 @@ resources:
     _type: request
   - _id: req_d66540558d79407b9ab80b0103d91140
     parentId: fld_31805b678ce648239d8a18deef0a091a
-    modified: 1668264658113
+    modified: 1669505376251
     created: 1668264561709
-    url: "{{ _.api }}api/v1/freelancer/2"
+    url: "{{ _.api }}api/v1/freelancer/3"
     name: getFreelancerById
     description: ""
     method: GET
@@ -429,6 +429,34 @@ resources:
     headers: []
     authentication: {}
     metaSortKey: -1668264561709
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7c4ec711614740f39ced8af8703fd0ee
+    parentId: fld_31805b678ce648239d8a18deef0a091a
+    modified: 1669425724385
+    created: 1668835034253
+    url: "{{ _.api }}api/v1/freelancer/1"
+    name: AddHabilidade
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        	{
+        		"ids_habilidade": [1,2]
+        	}
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1668532686729.5
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
@@ -495,7 +523,7 @@ resources:
     _type: request
   - _id: req_6dda8bfe006c4ed2b7736b25edf479b1
     parentId: fld_820399f46119430eac7020b56aa7010e
-    modified: 1668290055071
+    modified: 1669487458351
     created: 1668269190110
     url: "{{ _.api }}api/v1/contratante/create-account"
     name: createAccount
@@ -514,6 +542,7 @@ resources:
     headers:
       - name: Content-Type
         value: application/json
+        id: pair_6846df0a461c41e8a6850d5b4415574d
     authentication: {}
     metaSortKey: -1668269190110
     isPrivate: false
@@ -557,7 +586,7 @@ resources:
     _type: request_group
   - _id: req_c3b14cdeade24bceaef670dd2eacfaa9
     parentId: fld_03f2cb694b544cdabda590839175c50e
-    modified: 1668363951560
+    modified: 1669506636801
     created: 1668360146612
     url: "{{ _.api }}api/v1/match"
     name: enviarSolicitacaoMatch
@@ -567,13 +596,14 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"id_contratante":1,
-          "id_freelancer":2
+        	"id_contratante":2,
+          "id_freelancer":1
         }
     parameters: []
     headers:
       - name: Content-Type
         value: application/json
+        id: pair_408734a6fcb14b40a7124c180bf8488e
     authentication: {}
     metaSortKey: -1668360146612
     isPrivate: false
@@ -596,7 +626,7 @@ resources:
     _type: request_group
   - _id: req_e1bf32487cb94f818cec3ff49493514c
     parentId: fld_3e5d8e5be5b5487f8cf4376db82d9e2b
-    modified: 1668360048317
+    modified: 1669509848629
     created: 1668289724833
     url: "{{ _.api }}api/v1/controle-acesso/sign-in"
     name: sign-in
@@ -643,6 +673,542 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1667699234830
     _type: request_group
+  - _id: req_9583d6b7b1f04228a766a480d1bbebf2
+    parentId: fld_fa0add5deeb148e58a8a0ebc77dd4a69
+    modified: 1669474499672
+    created: 1669474479298
+    url: "{{ _.api }}api/v1/social"
+    name: ListSocialNetworks
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1669474479298
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_fa0add5deeb148e58a8a0ebc77dd4a69
+    parentId: fld_9f391781972c4fba91fd8a64c5233bda
+    modified: 1669474478097
+    created: 1669474478097
+    name: Social
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1669474478097
+    _type: request_group
+  - _id: req_bbdf7fbbbcdd44ec82cbcb2bd00fcb44
+    parentId: fld_fa0add5deeb148e58a8a0ebc77dd4a69
+    modified: 1669504668970
+    created: 1669483061193
+    url: "{{ _.api }}api/v1/social-user/1"
+    name: listSocialNetworksByUserId
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1669483061193
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_5d1c4c5425e24702845fbde54fc3cbd3
+    parentId: fld_fa0add5deeb148e58a8a0ebc77dd4a69
+    modified: 1669504469574
+    created: 1669489566921
+    url: "{{ _.api }}api/v1/social-user/1"
+    name: AddOrUpdateSocialToUser
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |
+        
+        [ 
+        		{
+        			"id_social":1,
+        			"user_url": "Guilherme.1pp"
+        		},
+        		{
+        			"id_social":2,
+        			"user_url": "Guilherme.p"
+        		}
+        ]
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1669489566921
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_278aec05838b492fb7f6aabdc419bade
+    parentId: fld_170e8350391b40dda0a8b4eeaeb83bc8
+    modified: 1668821829121
+    created: 1668800815406
+    url: "{{ _.api }}api/v1/formacao/1"
+    name: Update
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"curso": "ADS",
+        	"instituicao": "BANDTECH",
+        	"cidade": "São Paulo",
+        	"estado": "SP",
+        	"sobre": "Estudava muito",
+        	"data_inicial": "2001-02-01",
+        	"data_final": "2005-04-02"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_6855b36fe9b44f44871860af55beddd8
+    authentication: {}
+    metaSortKey: -1668800815406
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_170e8350391b40dda0a8b4eeaeb83bc8
+    parentId: fld_31805b678ce648239d8a18deef0a091a
+    modified: 1668800811700
+    created: 1668800811700
+    name: Formacao
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668800811700
+    _type: request_group
+  - _id: req_1a721857e0d6490e857cd1151fbff56d
+    parentId: fld_170e8350391b40dda0a8b4eeaeb83bc8
+    modified: 1669420453821
+    created: 1668800858888
+    url: "{{ _.api }}api/v1/formacao/1"
+    name: Create
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"curso": "ADS",
+        	"instituicao": "SPTCH",
+        	"cidade": "São Paulo",
+        	"estado": "SP",
+        	"sobre": "Estudava muito",
+        	"data_inicial": "2001-02-01",
+        	"data_final": "2005-04-02"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_080762fe7d8244389a223c6e19d54030
+    authentication: {}
+    metaSortKey: -1668800815356
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f8983dce8e76428cb9d5565588f283d4
+    parentId: fld_170e8350391b40dda0a8b4eeaeb83bc8
+    modified: 1668813898608
+    created: 1668813764598
+    url: "{{ _.api }}api/v1/formacao/list/freelancer/1"
+    name: ListByFreelancerId
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668813764598
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f79442e51762410cacf535fd319d424c
+    parentId: fld_170e8350391b40dda0a8b4eeaeb83bc8
+    modified: 1669420475889
+    created: 1668815676207
+    url: "{{ _.api }}api/v1/formacao/1"
+    name: FindById
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668815676207
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_4416406f631f4f039051513c7459ab96
+    parentId: fld_59658c98d94b48d6acb63b6efb0abbd6
+    modified: 1669510537394
+    created: 1668806444966
+    url: "{{ _.api }}api/v1/experiencia/2"
+    name: Create
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	 "cargo": "DEV Junior",
+           "empresa": "Nexum",
+           "cidade": "Suzano",
+           "estado": "SP",
+           "sobre": "Olá mundo",
+        	 "data_inicial": "2001-02-01",
+        	 "data_final": "2005-04-02"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_8346a0082e6d428285605ba30a4f1b50
+    authentication: {}
+    metaSortKey: -1668806444966
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_59658c98d94b48d6acb63b6efb0abbd6
+    parentId: fld_31805b678ce648239d8a18deef0a091a
+    modified: 1669419838283
+    created: 1668806108064
+    name: Experiencia
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668813405611.25
+    _type: request_group
+  - _id: req_8c6e4026adaf4574ab85d053f87219da
+    parentId: fld_59658c98d94b48d6acb63b6efb0abbd6
+    modified: 1669419416447
+    created: 1668806503917
+    url: "{{ _.api }}api/v1/experiencia//1"
+    name: Update
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	 "cargo": "DEV Senior",
+           "empresa": "Face",
+           "cidade": "Suzano",
+           "estado": "RJ",
+           "sobre": "Olá mundo",
+        	 "data_inicial": "2001-02-01",
+        	 "data_final": "2001-02-01"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_100fef3fb67143df9a03316bba03ce12
+    authentication: {}
+    metaSortKey: -1668806503917
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e54ca8e6aa2a4bbf8ab496a9a4219264
+    parentId: fld_59658c98d94b48d6acb63b6efb0abbd6
+    modified: 1668814862878
+    created: 1668814801205
+    url: "{{ _.api }}api/v1/experiencia/list/freelancer/1"
+    name: ListByFreelancerId
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668814801205
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b2750278244846af845286d06e6b67fc
+    parentId: fld_59658c98d94b48d6acb63b6efb0abbd6
+    modified: 1668815666436
+    created: 1668815619064
+    url: "{{ _.api }}api/v1/experiencia/3"
+    name: FindById
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668815619064
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_b7250f82e871414b96d78a8c0b81f98a
+    parentId: fld_db90fd82dada48cc93329ca59a2c3f3a
+    modified: 1669509974471
+    created: 1668815840065
+    url: "{{ _.api }}api/v1/certificacao/2"
+    name: Create
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        		"curso": ".Net",
+            "instituicao": "Fiap",
+            "estado":"São Paulo",
+            "cidade": "Ribeirão Pires",
+            "certificacao_url": "fidhvihdwbgjmophfeauhjpob"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_bbc3d936994844baa9baf2d6e08a4531
+    authentication: {}
+    metaSortKey: -1668815840065
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_db90fd82dada48cc93329ca59a2c3f3a
+    parentId: fld_31805b678ce648239d8a18deef0a091a
+    modified: 1669419839889
+    created: 1668815838127
+    name: Certificações
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668812189353.375
+    _type: request_group
+  - _id: req_a032f1075757418faf4939e420359bc0
+    parentId: fld_db90fd82dada48cc93329ca59a2c3f3a
+    modified: 1669510057328
+    created: 1668821636180
+    url: "{{ _.api }}api/v1/certificacao/1"
+    name: Update
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        		"curso": ".ssJava",
+            "instituicao": "Fiap-sp",
+            "estado":"São Paulo",
+            "cidade": "Ribeirão Pires",
+            "certificacao_url": "fidhvihdwbgjmophfeauhjpob"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1668821636180
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_fdc59dff26dc491ab07ce42547a88123
+    parentId: fld_db90fd82dada48cc93329ca59a2c3f3a
+    modified: 1669510060323
+    created: 1668822220541
+    url: "{{ _.api }}api/v1/certificacao/list/freelancer/2"
+    name: ListByFreelancerId
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1668822220541
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1b0c702b04954a4fa7e0a52e281df038
+    parentId: fld_db90fd82dada48cc93329ca59a2c3f3a
+    modified: 1669418691085
+    created: 1668823474068
+    url: "{{ _.api }}api/v1/certificacao/1"
+    name: FindById
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668823474068
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_f4fe5d238474449db8fa7db96c03780d
+    parentId: fld_626f20f722f94043a2f03c2b60716578
+    modified: 1669420535769
+    created: 1668826840148
+    url: "{{ _.api }}api/v1/habilidade/habilidade"
+    name: ListAll
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1668826840148
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_626f20f722f94043a2f03c2b60716578
+    parentId: fld_31805b678ce648239d8a18deef0a091a
+    modified: 1669333520139
+    created: 1668826837365
+    name: Habilidade
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668810973095.5
+    _type: request_group
+  - _id: req_a4e42b505be6419688276d771c742424
+    parentId: fld_626f20f722f94043a2f03c2b60716578
+    modified: 1669413266823
+    created: 1669412180046
+    url: "{{ _.api }}api/v1/habilidade/list/habilidade-freelancer/1"
+    name: ListHabilidadeFreelancer
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1669412180046
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_11f86fbeb0ce45de93feee875d17b2ef
+    parentId: fld_9ce528408cf44ee0a30df7f5ddfa4d13
+    modified: 1669504584085
+    created: 1669425749105
+    url: "{{ _.api }}api/v1/freelancer/2/match/requests"
+    name: GetMatchsRequestByFreelancerId
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1669425749105
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_9ce528408cf44ee0a30df7f5ddfa4d13
+    parentId: fld_31805b678ce648239d8a18deef0a091a
+    modified: 1669425746712
+    created: 1669425746712
+    name: Match
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1669425746712
+    _type: request_group
   - _id: env_c8c187694807da1e43f571de78371652f067e9a5
     parentId: wrk_7c953201004542f992a58048bc0f88a6
     modified: 1662850731214
@@ -687,7 +1253,7 @@ resources:
     _type: cookie_jar
   - _id: spc_9d47bf2d61714b0b8f9ac15c71e886b1
     parentId: wrk_7c953201004542f992a58048bc0f88a6
-    modified: 1668360036584
+    modified: 1669503937672
     created: 1660426576527
     fileName: New Document
     contents: ""
