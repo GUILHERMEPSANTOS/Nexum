@@ -8,7 +8,11 @@ import { useState } from "react";
 import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
 import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
 
-const About = ({ isOtherView, canEdit = true, isCompanyProfile }) => {
+const About = ({
+  isOtherView,
+  canEdit = !!isCompanyProfile,
+  isCompanyProfile,
+}) => {
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
 
