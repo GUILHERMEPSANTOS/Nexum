@@ -14,7 +14,7 @@ const Experience = ({ canEdit = true }) => {
   const { data, isLoading } = useQuery(["consultar experiencia"], () =>
     listExperienciaByFreelancerId(userId)
   );
-  console.log(data);
+
   if (isLoading) {
     return <div>Loding...</div>;
   }
@@ -34,7 +34,7 @@ const Experience = ({ canEdit = true }) => {
             </div>
           )}
         </div>
-        {EXPERIENCE.map(({ icon, area, name, location, date, about }) => (
+        {data?.map(({ icon, area, name, location, date, about }) => (
           <div>
             <div className={styles.wrapperContainer}>
               <div className={styles.wrapper}>

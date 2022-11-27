@@ -1,6 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import Text from "../../Text/Text";
-import { DEGREES } from "./constants";
 import Title from "../../Title/Title";
 import Button from "../../Buttons/Button";
 import styles from "./styles.module.scss";
@@ -10,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
-  const userId = useState(localStorage.getItem("user_id"));
+  const userId = localStorage.getItem("user_id");
 
   const { data, isLoading } = useQuery(["consultar certificados"], () =>
     listCertificadoByFreelancerId(userId)
