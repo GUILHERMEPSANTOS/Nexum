@@ -15,29 +15,33 @@ const Cadastro = () => {
   const [confirmPassword, setConfirmPassword] = useState();
   const [passwordType, setPasswordType] = useState("password");
   const [type, setType] = useState("password");
-  const [contratante, setContratante] = useState();
+  const [contratante, setContratante] = useState(false);
 
-  function handleSubmit() {
+  const handleSubmit = useCallback(() => {
     if (contratante) {
-      useCallback(() => {
-        APICadastroContratante({
-          email,
-          senha: password,
-          nome: user,
-          celular: cellphone,
-        });
-      }, [email, password, user, cellphone]);
+      APICadastroContratante({
+        email,
+        senha: password,
+        nome: user,
+        celular: cellphone,
+      });
     } else {
-      useCallback(() => {
-        APICadastroFreela({
-          email,
-          senha: password,
-          nome: user,
-          celular: cellphone,
-        });
-      }, [email, password, user, cellphone]);
+      APICadastroFreela({
+        email,
+        senha: password,
+        nome: user,
+        celular: cellphone,
+      });
     }
-  }
+  }, [
+    email,
+    password,
+    user,
+    cellphone,
+    contratante,
+    APICadastroContratante,
+    APICadastroFreela,
+  ]);
 
   const {
     errorEmail,

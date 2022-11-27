@@ -6,23 +6,43 @@ import Button from "../../Buttons/Button";
 import styles from "./styles.module.scss";
 import EditDegrees from "../../Modals/EditDegrees/EditDegrees";
 import { listCertificadoByFreelancerId } from "../../../services/Freelancer/certificacao";
+import { useQuery } from "@tanstack/react-query";
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
   const perfil = localStorage.getItem("role");
-  const [certificacao, setCertificado] = useState();
+  const [userId, setUserId] = useState(localStorage.getItem("user_id"));
 
-  useEffect(() => {
-    if (perfil == `"ROLE_FREELANCER"`)
-      setCertificado(localStorage.getItem("user_id"));
-  }, []);
-  async function cerficado() {
-    return await listCertificadoByFreelancerId(certificacao);
+
+  const { data, isLoading } = useQuery(["consultar certificados"], () =>
+    listCertificadoByFreelancerId(userId)
+  );
+
+  // async function cerficado() {
+  //   return await listCertificadoByFreelancerId(certificacao);
+  // }
+
+  // useState(() => {
+  //   cerficado();
+  // }, [cerficado]);
+
+  /*
+  
+  	{
+		"id_certificacao": 1,
+		"curso": ".Net",
+		"instituicao": "Fiap",
+		"estado": "São Paulo",
+		"cidade": "Fiap",
+		"certificacao_url": "fidhvihdwbgjmophfeauhjpob"
+	}
+  
+  
+  */
+
+  if (isLoading) {
+    return <div>Loding...</div>;
   }
-
-  useState(() => {
-    cerficado();
-  }, [cerficado]);
 
   return (
     <>
@@ -37,31 +57,33 @@ const Degrees = ({ canEdit = true }) => {
             />
           </div>
         )}
-        {DEGREES.map(({ name, icon, text, location }, i) => (
-          <div key={`${name} - ${i}`}>
-            {canEdit && (
-              <div className={styles.edit}>
-                <img
-                  onClick={() => setEditDegrees(true)}
-                  className={styles.editIcon}
-                  src="../../assets/icons/edit.svg"
-                />
-              </div>
-            )}
-
-            <div className={styles.wrapper}>
-              <img src={`../../assets/icons/${icon}.svg`} />
-              <div className={styles.contentContainer}>
-                <div>
-                  <Text text={name} />
-                  <Text text={text} isSmall={true} />
+        {data?.map(
+          ({ curso, instituicao, cidade, estado, text, location }, i) => (
+            <div key={`${curso} - ${i}`}>
+              {canEdit && (
+                <div className={styles.edit}>
+                  <img
+                    onClick={() => setEditDegrees(true)}
+                    className={styles.editIcon}
+                    src="../../assets/icons/edit.svg"
+                  />
                 </div>
-                <Button text="ver credenciais" />
+              )}
+
+              <div className={styles.wrapper}>
+                <img src={`../../assets/icons/${instituicao}.svg`} />
+                <div className={styles.contentContainer}>
+                  <div>
+                    <Text text={curso} />
+                    <Text text={text} isSmall={true} />
+                  </div>
+                  <Button text="ver credenciais" />
+                </div>
               </div>
+              <Text text={location} isSmall={true} />
             </div>
-            <Text text={location} isSmall={true} />
-          </div>
-        ))}
+          )
+        )}
       </section>
       {editDegrees && (
         <EditDegrees
