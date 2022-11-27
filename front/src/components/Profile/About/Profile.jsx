@@ -8,12 +8,18 @@ import { useState } from "react";
 import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
 import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
 
-const About = ({ isOtherView, canEdit = true, isCompanyProfile }) => {
+const About = ({
+  isOtherView,
+  isCompanyProfile,
+  canEdit = !isCompanyProfile,
+}) => {
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
 
   const nome = localStorage.getItem("name") ? localStorage.getItem("name") : "";
-  const email = localStorage.getItem("email")  ? localStorage.getItem("email") : "";;
+  const email = localStorage.getItem("email")
+    ? localStorage.getItem("email")
+    : "";
   const nomeFormatted = nome.replace(/"/g, "");
   const emailFormatted = email.replace(/"/g, "");
 

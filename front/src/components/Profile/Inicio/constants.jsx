@@ -2,7 +2,7 @@ export const TEXTS_FREELANCER = [
   {
     title: "Clique aqui para visualizar ",
     text: "Propostas",
-    link: "/propostas",
+    link: "/match",
   },
   {
     title: "Clique aqui para visualizar",

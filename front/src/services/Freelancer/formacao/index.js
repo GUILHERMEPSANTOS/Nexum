@@ -5,4 +5,26 @@ const listFormacaoByFreelancerId = async (id) => {
   return response;
 };
 
-export { listFormacaoByFreelancerId };
+const postFormacao = async ({
+  cargo,
+  empresa,
+  cidade,
+  estado,
+  sobre,
+  data_inicial,
+  data_final,
+  id,
+}) => {
+  const response = await api.post(`api/v1/experiencia/${id}`, {
+    cargo,
+    empresa,
+    cidade,
+    estado,
+    sobre,
+    data_inicial,
+    data_final,
+  });
+  return response;
+};
+
+export { listFormacaoByFreelancerId, postFormacao };

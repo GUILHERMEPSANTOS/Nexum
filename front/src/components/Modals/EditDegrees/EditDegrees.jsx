@@ -2,14 +2,26 @@ import Text from "../../Text/Text";
 import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { postCertificado } from "../../../services/Freelancer/certificacao";
 
-const EditDegrees = ({ actualState, setActualState }) => {
+const EditDegrees = ({ actualState, setActualState, add }) => {
   const [curso, setCurso] = useState();
   const [ensino, setEnsino] = useState();
   const [estado, setEstado] = useState();
   const [cidade, setCidade] = useState();
   const [urlCertificado, setUrlCertificado] = useState();
+  const userId = useMemo(() => localStorage.getItem("user_id"));
+  const handlePost = useCallback(() => {
+    postCertificado({
+      curso,
+      instituicao: ensino,
+      cidade,
+      estado,
+      certificacao_url: urlCertificado,
+      id: userId,
+    });
+  }, [curso, cidade, estado]);
 
   return (
     <Modal
@@ -50,7 +62,10 @@ const EditDegrees = ({ actualState, setActualState }) => {
       </div>
       <div className={styles.buttons}>
         <Button
-          onClick={() => setActualState(false)}
+          onClick={() => {
+            if (add) handlePost();
+            setActualState(false);
+          }}
           isEmpty={true}
           text="Salvar"
         />

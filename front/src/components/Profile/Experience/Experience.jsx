@@ -13,6 +13,7 @@ import styles from "./styles.module.scss";
 
 const Experience = ({ canEdit = true }) => {
   const [editExperience, setEditExperience] = useState(false);
+  const [add, setAdd] = useState(false);
 
   const userId = useMemo(() => localStorage.getItem("user_id"));
 
@@ -33,43 +34,59 @@ const Experience = ({ canEdit = true }) => {
           {canEdit && (
             <div className={styles.add}>
               <img
-                onClick={() => setEditExperience(true)}
+                onClick={() => {
+                  setAdd(true);
+                  setEditExperience(true);
+                }}
                 className={styles.editIcon}
                 src="../../assets/icons/add.svg"
               />
             </div>
           )}
         </div>
-        {data?.data.lenght && data.map(({ icon, area, name, location, date, about }) => (
-          <div>
-            <div className={styles.wrapperContainer}>
-              <div className={styles.wrapper}>
-                <img src={`../../assets/icons/${icon}.jpg`} />
-                <div className={styles.contantContainer}>
-                  <div>
-                    <Text text={area} />
-                    <Text text={name} />
+        {data?.data.map(
+          ({
+            cargo,
+            empresa,
+            cidade,
+            estado,
+            data_final,
+            sobre,
+            data_inicial,
+          }) => (
+            <div>
+              <div className={styles.wrapperContainer}>
+                <div className={styles.wrapper}>
+                  <img src={`../../assets/icons/${empresa}.jpg`} />
+                  <div className={styles.contantContainer}>
+                    <div>
+                      <Text text={cargo} />
+                      <Text text={empresa} isSmall={true} />
+                    </div>
                   </div>
                 </div>
+                {canEdit && (
+                  <div className={styles.edit}>
+                    <img
+                      onClick={() => setEditExperience(true)}
+                      className={styles.editIcon}
+                      src="../../assets/icons/edit.svg"
+                    />
+                  </div>
+                )}
               </div>
-              {canEdit && (
-                <div className={styles.edit}>
-                  <img
-                    onClick={() => setEditExperience(true)}
-                    className={styles.editIcon}
-                    src="../../assets/icons/edit.svg"
-                  />
-                </div>
-              )}
+              <Text text={cidade} isSmall={true} />
+              <Text text={estado} isSmall={true} />
+              <Text text={data_inicial} isSmall={true} />
+              <Text text={data_final} isSmall={true} />
+              <Text text={sobre} isSmall={true} />
             </div>
-            <Text text={location} isSmall={true} />
-            <Text text={date} isSmall={true} />
-            <Text text={about} isSmall={true} />
-          </div>
-        ))}
+          )
+        )}
       </section>
       {editExperience && (
         <EditExperience
+          add={add}
           actualState={editExperience}
           setActualState={setEditExperience}
         />

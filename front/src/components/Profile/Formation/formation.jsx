@@ -10,7 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 const Formation = ({ canEdit = true }) => {
   const [editGraduate, setEditGraduate] = useState(false);
   const userId = localStorage.getItem("user_id");
-
+  const [add, setAdd] = useState(false);
   const { data, isLoading } = useQuery(["consultar certificados"], () =>
     listFormacaoByFreelancerId(userId)
   );
@@ -26,24 +26,46 @@ const Formation = ({ canEdit = true }) => {
           {canEdit && (
             <div className={styles.add}>
               <img
-                onClick={() => setEditGraduate(true)}
+                onClick={() => {
+                  setAdd(true);
+                  setEditGraduate(true);
+                }}
                 className={styles.editIcon}
                 src="../../assets/icons/add.svg"
               />
             </div>
           )}
         </div>
-        {data?.lenght > 0 &&
-          data?.map(
-            ({
-              icon,
-              institution,
-              UniversityDegree,
-              location,
-              date,
-              about,
-            }) => (
-              <div>
+        {data?.data.map(
+          ({
+            curso,
+            instituicao,
+            cidade,
+            estado,
+            data_final,
+            sobre,
+            data_inicial,
+          }) => (
+            <div>
+              {canEdit && (
+                <div className={styles.edit}>
+                  <img
+                    onClick={() => setEditGraduate(true)}
+                    className={styles.editIcon}
+                    src="../../assets/icons/edit.svg"
+                  />
+                </div>
+              )}
+              <div className={styles.wrapperContainer}>
+                <div className={styles.wrapper}>
+                  <img src={`../../assets/icons/${instituicao}.png`} />
+                  <div className={styles.contantContainer}>
+                    <div>
+                      <Text text={instituicao} />
+                      <Text text={curso} />
+                    </div>
+                  </div>
+                </div>
                 {canEdit && (
                   <div className={styles.edit}>
                     <img
@@ -53,36 +75,20 @@ const Formation = ({ canEdit = true }) => {
                     />
                   </div>
                 )}
-                <div className={styles.wrapperContainer}>
-                  <div className={styles.wrapper}>
-                    <img src={`../../assets/icons/${icon}.png`} />
-                    <div className={styles.contantContainer}>
-                      <div>
-                        <Text text={institution} />
-                        <Text text={UniversityDegree} />
-                      </div>
-                    </div>
-                  </div>
-                  {canEdit && (
-                    <div className={styles.edit}>
-                      <img
-                        onClick={() => setEditGraduate(true)}
-                        className={styles.editIcon}
-                        src="../../assets/icons/edit.svg"
-                      />
-                    </div>
-                  )}
-                </div>
-
-                <Text text={location} isSmall={true} />
-                <Text text={date} isSmall={true} />
-                <Text text={about} isSmall={true} />
               </div>
-            )
-          )}
+
+              <Text text={cidade} isSmall={true} />
+              <Text text={estado} isSmall={true} />
+              <Text text={data_inicial} isSmall={true} />
+              <Text text={data_final} isSmall={true} />
+              <Text text={sobre} isSmall={true} />
+            </div>
+          )
+        )}
       </section>
       {editGraduate && (
         <EditGraduate
+          add={add}
           actualState={editGraduate}
           setActualState={setEditGraduate}
         />
