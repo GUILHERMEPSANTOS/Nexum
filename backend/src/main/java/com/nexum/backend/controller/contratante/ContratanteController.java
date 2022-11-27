@@ -11,6 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/contratante")
+@CrossOrigin(origins = "*")
 public class ContratanteController {
     private final ContratanteServicePort contratanteServicePort;
 
