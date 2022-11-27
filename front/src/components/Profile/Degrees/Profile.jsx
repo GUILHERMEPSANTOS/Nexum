@@ -10,11 +10,10 @@ import { useQuery } from "@tanstack/react-query";
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
-  const userId = useState(localStorage.getItem("user_id"));
 
-  const { data, isLoading } = useQuery(["consultar certificados"], () =>
-    listCertificadoByFreelancerId(userId)
-  );
+  const [userId, setUserId] = useState(localStorage.getItem("user_id"));
+
+  const { data, isLoading } = useQuery(["consultar certificados"], async () => await listCertificadoByFreelancerId(userId));
 
   if (isLoading) {
     return <div>Loding...</div>;
@@ -33,7 +32,7 @@ const Degrees = ({ canEdit = true }) => {
             />
           </div>
         )}
-        {data?.map(({ curso, instituicao, cidade, estado }, i) => (
+        {data?.data.lenght > 0 ?? data.map(({ curso, instituicao, cidade, estado }, i) => (
           <div key={`${curso} - ${i}`}>
             {canEdit && (
               <div className={styles.edit}>

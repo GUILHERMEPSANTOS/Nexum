@@ -6,7 +6,7 @@
 		('ROLE_ADMIN'),('ROLE_CONTRATANTE'),('ROLE_FREELANCER');
 
 		INSERT INTO TB_USERS_ROLES (ID_ROLE, ID_USUARIO) VALUES
-		(1, 1),(2,2);
+		(2, 1),(3,2);
 
 		INSERT INTO TB_SOCIAL (NOME) VALUES
         ('Facebook'),('Instagram'),('LinkedIn');
