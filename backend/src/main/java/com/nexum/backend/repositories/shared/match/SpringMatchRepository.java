@@ -4,10 +4,13 @@ import com.nexum.backend.domain.match.MatchEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 
+@Transactional
 public interface SpringMatchRepository extends JpaRepository<MatchEntity, Long> {
+
     @Query("select case when (count(match) > 0) " +
                         "then true " +
                         "else false " +

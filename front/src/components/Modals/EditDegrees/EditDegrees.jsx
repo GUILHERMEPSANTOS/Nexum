@@ -7,16 +7,56 @@ import {
   postCertificado,
   putCertificado,
 } from "../../../services/Freelancer/certificacao";
+import { useMutation } from "@tanstack/react-query";
 
-const EditDegrees = ({ actualState, setActualState, add }) => {
+const EditDegrees = ({
+  actualState,
+  setActualState,
+  add,
+  refetch = () => {},
+}) => {
   const [curso, setCurso] = useState();
   const [ensino, setEnsino] = useState();
   const [estado, setEstado] = useState();
   const [cidade, setCidade] = useState();
   const [urlCertificado, setUrlCertificado] = useState();
   const userId = useMemo(() => localStorage.getItem("user_id"));
+
+  const { mutate: sendRequest } = useMutation(
+    ({ curso, instituicao, cidade, estado, certificacao_url, id }) =>
+      postCertificado({
+        curso,
+        instituicao,
+        cidade,
+        estado,
+        certificacao_url,
+        id,
+      }),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+  const { mutate: updateRequest } = useMutation(
+    ({ curso, instituicao, cidade, estado, certificacao_url, id }) =>
+      putCertificado({
+        curso,
+        instituicao,
+        cidade,
+        estado,
+        certificacao_url,
+        id,
+      }),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+
   const handlePost = useCallback(() => {
-    postCertificado({
+    sendRequest({
       curso,
       instituicao: ensino,
       cidade,
@@ -26,7 +66,7 @@ const EditDegrees = ({ actualState, setActualState, add }) => {
     });
   }, [curso, cidade, estado]);
   const handlePut = useCallback(() => {
-    putCertificado({
+    updateRequest({
       curso,
       instituicao: ensino,
       cidade,

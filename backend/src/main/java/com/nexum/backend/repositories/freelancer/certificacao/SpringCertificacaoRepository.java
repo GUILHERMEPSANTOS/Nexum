@@ -1,4 +1,4 @@
-package com.nexum.backend.domain.certificacao.freelancer.certificacao;
+package com.nexum.backend.repositories.freelancer.certificacao;
 
 import com.nexum.backend.domain.certificacao.CertificacaoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

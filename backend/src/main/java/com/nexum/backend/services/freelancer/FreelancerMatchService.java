@@ -4,7 +4,7 @@ import com.nexum.backend.domain.match.MatchEntity;
 import com.nexum.backend.dto.freelancer.match.queries.GetMatchRequestsByFreelancerIdQuery;
 import com.nexum.backend.mappers.freelancer.formacao.match.GetMatchRequestsByFreelancerIdQueryMapper;
 import com.nexum.backend.services.freelancer.interfaces.FreelancerMatchServicePort;
-import com.nexum.backend.domain.certificacao.freelancer.match.SpringFreelancerMatchRepository;
+import com.nexum.backend.repositories.freelancer.match.SpringFreelancerMatchRepository;
 
 import java.util.Collection;
 import java.util.stream.Collectors;

@@ -3,7 +3,7 @@ package com.nexum.backend.freelancer;
 import com.nexum.backend.controller.freelancer.FreelancerController;
 import com.nexum.backend.dto.contratante.ContratanteDTO;
 import com.nexum.backend.dto.freelancer.FreelancerDTO;
-import com.nexum.backend.domain.certificacao.freelancer.SpringFreelancerRepository;
+import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

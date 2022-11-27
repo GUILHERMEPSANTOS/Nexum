@@ -6,7 +6,7 @@ import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
 import com.nexum.backend.mappers.freelancer.habilidades.HabilidadeDTOMapper;
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;
 import com.nexum.backend.mappers.freelancer.habilidades.HabilidadeFreelancerDTOMapper;
-import com.nexum.backend.domain.certificacao.freelancer.habilidade.SpringHabilidadeFreelancerRepository;
+import com.nexum.backend.repositories.freelancer.habilidade.SpringHabilidadeFreelancerRepository;
 import com.nexum.backend.repositories.shared.SpringHabilidadeRepository;
 import com.nexum.backend.services.freelancer.interfaces.HabilidadeServicePort;
 import org.springframework.http.HttpStatus;

@@ -6,7 +6,7 @@ import com.nexum.backend.dto.freelancer.certificacao.CertificacaoDTO;
 import com.nexum.backend.dto.freelancer.certificacao.request.CertificacaoDTOCreateRequest;
 import com.nexum.backend.dto.freelancer.certificacao.request.CertificacaoDTOUpdateRequest;
 import com.nexum.backend.mappers.freelancer.certificacao.CertificacaoDTOMapper;
-import com.nexum.backend.domain.certificacao.freelancer.certificacao.SpringCertificacaoRepository;
+import com.nexum.backend.repositories.freelancer.certificacao.SpringCertificacaoRepository;
 import com.nexum.backend.services.freelancer.interfaces.CertificacaoServicePort;
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
