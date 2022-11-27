@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Text from "../../Text/Text";
 import Title from "../../Title/Title";
 import Button from "../../Buttons/Button";
@@ -10,7 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
 
-  const [userId, setUserId] = useState(localStorage.getItem("user_id"));
+  const userId = useMemo(() => localStorage.getItem("user_id"));
 
   const { data, isLoading } = useQuery(["consultar certificados"], async () => await listCertificadoByFreelancerId(userId));
 
@@ -31,7 +31,7 @@ const Degrees = ({ canEdit = true }) => {
             />
           </div>
         )}
-        {data?.data.lenght > 0 ?? data.map(({ curso, instituicao, cidade, estado }, i) => (
+        {data?.data.map(({ curso, instituicao, cidade, estado }, i) => (
           <div key={`${curso} - ${i}`}>
             {canEdit && (
               <div className={styles.edit}>
