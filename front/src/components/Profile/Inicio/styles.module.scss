@@ -1,11 +1,5 @@
 @import "../../../styles/variables.scss";
-
-.conteiner {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
+@import "../../../styles/mixins.scss";
 
 .mensagem {
   height: 21%;
@@ -19,4 +13,15 @@
   flex-direction: column;
   justify-content: space-between;
   margin-top: 80px;
+}
+@include mobile {
+  div:not(.mensagem, .containerCards > div) {
+    flex-direction: column;
+  }
+  .mensagem {
+    width: 100%;
+  }
+  .containerCards > div {
+    width: 85%;
+  }
 }

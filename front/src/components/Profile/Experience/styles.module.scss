@@ -1,4 +1,5 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .container {
   width: 80%;
@@ -40,11 +41,17 @@
     left: 20px;
     width: 30px;
     cursor: pointer;
+    @include mobile {
+      left: 38%;
+    }
   }
   .edit {
     position: relative;
     left: 20px;
     width: 30px;
     cursor: pointer;
+    @include mobile {
+      left: 38%;
+    }
   }
 }

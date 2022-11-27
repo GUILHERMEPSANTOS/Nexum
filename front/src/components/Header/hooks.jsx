@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./styles.module.scss";
 
 const useChange = () => {
-  const [position, setPosition] = useState();
+  const [position, setPosition] = useState(styles.containerFill);
 
   window.onscroll = () => {
     let top = window.scrollY;

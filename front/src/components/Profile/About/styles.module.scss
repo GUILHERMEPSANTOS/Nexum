@@ -1,5 +1,5 @@
 @import "../../../styles/variables.scss";
-// @import "../../styles/mixins.scss";
+@import "../../../styles/mixins.scss";
 
 .container {
   width: 80%;
@@ -11,6 +11,10 @@
   justify-content: space-between;
   position: relative;
   top: 2%;
+
+  @include mobile {
+    flex-direction: column;
+  }
   .imgProfile {
     border-radius: 50%;
     width: 320px;
@@ -40,6 +44,10 @@
     margin: 5px;
     border-radius: $border-cards;
     text-align: left;
+
+    @include mobile {
+      width: auto;
+    }
   }
   .location {
     display: flex;
@@ -55,7 +63,9 @@
     justify-content: space-around;
     min-height: 800px;
     width: 65%;
-
+    @include mobile {
+      width: 100%;
+    }
     > img {
       cursor: pointer;
     }
@@ -66,10 +76,31 @@
     position: absolute;
     right: 10px;
     top: 10px;
+
+    @include mobile {
+      width: 20%;
+      top: 0;
+    }
   }
 
   .editSocial {
     @extend .edit;
     top: 53%;
+  }
+
+  @include mobile {
+    .profile {
+      > div {
+        margin-top: 30px;
+      }
+      > img {
+        width: 200px;
+        height: 200px;
+        margin-right: 20px;
+      }
+      display: flex;
+      flex-direction: row;
+      height: 300px;
+    }
   }
 }

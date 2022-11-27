@@ -26,18 +26,19 @@ const About = ({
   return (
     <>
       <section className={styles.container}>
-        <div>
+        <div className={styles.profile}>
           <img
             className={styles.imgProfile}
             src="../../assets/imgs/person-card-1.png"
           />
-          <h1 className={styles.title}>{nomeFormatted} </h1>
-          <div className={styles.location}>
-            <img src="../../assets/icons/location.png" />
-            <Text isSmall={true} text="Osasco, São Paulo" />
+          <div>
+            <h1 className={styles.title}>{nomeFormatted} </h1>
+            <div className={styles.location}>
+              <img src="../../assets/icons/location.png" />
+              <Text isSmall={true} text="Osasco, São Paulo" />
+            </div>
+            <Text text="Designer" />
           </div>
-          <Text text="Designer" />
-
           {isOtherView && (
             <div className={styles.actions}>
               <button>

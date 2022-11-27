@@ -13,15 +13,13 @@ const Propostas = () => {
     <div>
       <Header options={OPTIONS} buttonText="Sair" link="/" />
       <Banner>
-        <div className={styles.conteiner}>
-          <div className={styles.mensagem}>
-            <Title text={` Olá ${dataFormatted} , você tem um Match`} />
-          </div>
-          <div className={styles.containerCards}>
-            {TEXTS_FREELANCER.map(({ title, text, link }) => (
-              <CardMain link={link} title={title} text={text} />
-            ))}
-          </div>
+        <div className={styles.mensagem}>
+          <Title text={` Parabens ${dataFormatted} , você tem um Match`} />
+        </div>
+        <div className={styles.containerCards}>
+          {TEXTS_FREELANCER.map(({ title, text, link }) => (
+            <CardMain link={link} title={title} text={text} />
+          ))}
         </div>
       </Banner>
     </div>
