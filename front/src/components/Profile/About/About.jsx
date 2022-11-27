@@ -7,31 +7,30 @@ import EditProfile from "../../Modals/EditProfile/EditProfile";
 import { useState } from "react";
 import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
 import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
-
+import EditData from "../../Modals/EditData/EditData";
 
 [
-	{
-		"id_user": 1,
-		"nome": "Guilherme",
-		"email": "guilherme@hotmail.com",
-		"endereco": {
-			"cidade": "Ribeirão Pires",
-			"estado": "São Paulo"
-		},
-		"sobre": "O Homem mais lindo da terra!",
-		"socialsUserDTO": [
-			{
-				"id_social_user": 1,
-				"social": {
-					"id_social": 1,
-					"nome": "Facebook"
-				},
-				"user_url": "GUILHEMRE.FACEBOOK"
-			}
-		]
-	}
-]
-
+  {
+    id_user: 1,
+    nome: "Guilherme",
+    email: "guilherme@hotmail.com",
+    endereco: {
+      cidade: "Ribeirão Pires",
+      estado: "São Paulo",
+    },
+    sobre: "O Homem mais lindo da terra!",
+    socialsUserDTO: [
+      {
+        id_social_user: 1,
+        social: {
+          id_social: 1,
+          nome: "Facebook",
+        },
+        user_url: "GUILHEMRE.FACEBOOK",
+      },
+    ],
+  },
+];
 
 const About = ({
   isOtherView,
@@ -40,6 +39,7 @@ const About = ({
 }) => {
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
+  const [editData, setEditData] = useState(false);
 
   const nome = localStorage.getItem("name") ? localStorage.getItem("name") : "";
   const email = localStorage.getItem("email")
@@ -63,6 +63,13 @@ const About = ({
               <Text isSmall={true} text="Osasco, São Paulo" />
             </div>
             <Text text="Designer" />
+            {canEdit && (
+              <img
+                onClick={() => setEditData(true)}
+                className={styles.editDatas}
+                src="../../assets/icons/editAbout.svg"
+              />
+            )}
           </div>
           {isOtherView && (
             <div className={styles.actions}>
@@ -132,6 +139,9 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
       </section>
       {editAbout && (
         <EditProfile actualState={editAbout} setActualState={setEditAbout} />
+      )}
+      {editData && (
+        <EditData actualState={editData} setActualState={setEditData} />
       )}
       {editSocial && (
         <EditSocialMedia
