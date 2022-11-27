@@ -10,19 +10,15 @@ import { useQuery } from "@tanstack/react-query";
 
 const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
-  const perfil = localStorage.getItem("role");
-  const [userId, setUserId] = useState(localStorage.getItem("user_id"));
-
+  const userId = useState(localStorage.getItem("user_id"));
 
   const { data, isLoading } = useQuery(["consultar certificados"], () =>
     listCertificadoByFreelancerId(userId)
   );
-  
 
   if (isLoading) {
     return <div>Loding...</div>;
   }
-  console.log(cerficado());
 
   return (
     <>
@@ -37,33 +33,32 @@ const Degrees = ({ canEdit = true }) => {
             />
           </div>
         )}
-        {data?.map(
-          ({ curso, instituicao, cidade, estado, text, location }, i) => (
-            <div key={`${curso} - ${i}`}>
-              {canEdit && (
-                <div className={styles.edit}>
-                  <img
-                    onClick={() => setEditDegrees(true)}
-                    className={styles.editIcon}
-                    src="../../assets/icons/edit.svg"
-                  />
-                </div>
-              )}
-
-              <div className={styles.wrapper}>
-                <img src={`../../assets/icons/${instituicao}.svg`} />
-                <div className={styles.contentContainer}>
-                  <div>
-                    <Text text={curso} />
-                    <Text text={text} isSmall={true} />
-                  </div>
-                  <Button text="ver credenciais" />
-                </div>
+        {data?.map(({ curso, instituicao, cidade, estado }, i) => (
+          <div key={`${curso} - ${i}`}>
+            {canEdit && (
+              <div className={styles.edit}>
+                <img
+                  onClick={() => setEditDegrees(true)}
+                  className={styles.editIcon}
+                  src="../../assets/icons/edit.svg"
+                />
               </div>
-              <Text text={location} isSmall={true} />
+            )}
+
+            <div className={styles.wrapper}>
+              <img src={`../../assets/icons/${instituicao}.svg`} />
+              <div className={styles.contentContainer}>
+                <div>
+                  <Text text={curso} />
+                  <Text text={instituicao} isSmall={true} />
+                </div>
+                <Button text="ver credenciais" />
+              </div>
             </div>
-          )
-        )}
+            <Text text={cidade} isSmall={true} />
+            <Text text={estado} isSmall={true} />
+          </div>
+        ))}
       </section>
       {editDegrees && (
         <EditDegrees

@@ -2,25 +2,21 @@ import Title from "../../Title/Title";
 import Text from "../../Text/Text";
 import styles from "./styles.module.scss";
 import { FORMATION } from "./constants";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import EditGraduate from "../../Modals/EditGraduate/EditDegrees";
 import { listFormacaoByFreelancerId } from "../../../services/Freelancer/formacao";
 
 const Formation = ({ canEdit = true }) => {
   const [editGraduate, setEditGraduate] = useState(false);
-  const [formation, setFormation] = useState();
-  const perfil = localStorage.getItem("role");
-  const id = localStorage.getItem("user_id");
+  const userId = localStorage.getItem("user_id");
 
-  useEffect(() => {
-    if (perfil == `"ROLE_FREELANCER"`) setFormation(id);
-  }, []);
-  async function formacao() {
-    return await listFormacaoByFreelancerId(formation);
+  const { data, isLoading } = useQuery(["consultar certificados"], () =>
+    listFormacaoByFreelancerId(userId)
+  );
+  console.log(data);
+  if (isLoading) {
+    return <div>Loding...</div>;
   }
-  useState(() => {
-    formacao();
-  }, [formacao]);
   return (
     <>
       <section className={styles.container}>
