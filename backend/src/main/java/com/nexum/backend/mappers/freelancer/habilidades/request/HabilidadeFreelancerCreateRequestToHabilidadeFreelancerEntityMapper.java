@@ -1,0 +1,2 @@
+package com.nexum.backend.mappers.freelancer.habilidades.request;public class HabilidadeFreelancerCreateRequestToHabilidadeFreelancerEntityMapper {
+}
