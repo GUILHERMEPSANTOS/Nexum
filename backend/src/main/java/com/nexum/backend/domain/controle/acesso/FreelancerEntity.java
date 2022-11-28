@@ -17,8 +17,10 @@ import java.util.Collection;
 @Table(name = "tb_freelancer")
 @PrimaryKeyJoinColumn(name = "id_usuario")
 public class FreelancerEntity extends UserEntity {
+
     @Column
     private String cargo;
+
     @OneToMany(
             mappedBy = "freelancer",
             fetch = FetchType.EAGER,
@@ -26,6 +28,7 @@ public class FreelancerEntity extends UserEntity {
     )
     @Fetch(FetchMode.SELECT)
     private Collection<MatchEntity> match = new ArrayList<>();
+
     @OneToMany(
             mappedBy = "freelancer",
             fetch = FetchType.EAGER,
@@ -33,10 +36,12 @@ public class FreelancerEntity extends UserEntity {
     )
     @Fetch(FetchMode.SELECT)
     private Collection<ExperienciaEntity> experienciaEntities;
+
     @OneToMany(
             mappedBy = "freelancer",
             fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
     @Fetch(FetchMode.SELECT)
     private Collection<FormacaoEntity> formacao;

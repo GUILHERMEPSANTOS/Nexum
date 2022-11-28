@@ -13,8 +13,8 @@ public class HabilidadeFreelancerDTOMapper {
     ) {
         return new HabilidadeFreelancerDTO(
                 habilidadeFreelancerEntity.getId_habilidade_freelancer(),
-                FreelancerDTOMapper.toFreelancerDTO(habilidadeFreelancerEntity.getFreelancer()),
-                HabilidadeDTOMapper.toHabilidadeDTO(habilidadeFreelancerEntity.getHabilidade()),
+                habilidadeFreelancerEntity.getFreelancer().getId_usuario(),
+                habilidadeFreelancerEntity.getHabilidade().getId_habilidade(),
                 habilidadeFreelancerEntity.getHasHabilidade()
         );
     }
@@ -24,7 +24,7 @@ public class HabilidadeFreelancerDTOMapper {
     ) {
         return habilidadeFreelancerEntities
                 .stream()
-                .map(habilidadeFreelancerEntity -> toHabilidadeFreelancerDTO(habilidadeFreelancerEntity))
+                .map(HabilidadeFreelancerDTOMapper::toHabilidadeFreelancerDTO)
                 .collect(Collectors.toList());
     }
 }

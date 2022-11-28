@@ -16,8 +16,10 @@ public class SocialEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_social;
+
     @Column
     private String nome;
+
     @OneToMany(mappedBy = "social", cascade = CascadeType.ALL)
     private Collection<SocialUserEntity> socialUsers = new ArrayList<>();
 

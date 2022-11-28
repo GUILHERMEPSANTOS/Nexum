@@ -1,5 +1,4 @@
 package com.nexum.backend.dto.freelancer.habilidade;
-import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 
 public class HabilidadeDTO {
     private Long id_habilidade;

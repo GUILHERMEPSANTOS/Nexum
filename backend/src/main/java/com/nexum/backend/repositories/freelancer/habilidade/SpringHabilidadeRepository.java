@@ -1,4 +1,4 @@
-package com.nexum.backend.repositories.shared;
+package com.nexum.backend.repositories.freelancer.habilidade;
 
 import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

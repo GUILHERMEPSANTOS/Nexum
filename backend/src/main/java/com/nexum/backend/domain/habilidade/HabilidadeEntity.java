@@ -1,4 +1,4 @@
-package com.nexum.backend.domain.controle.acesso.habilidade;
+package com.nexum.backend.domain.habilidade;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

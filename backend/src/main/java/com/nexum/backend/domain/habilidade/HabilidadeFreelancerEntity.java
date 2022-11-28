@@ -1,9 +1,11 @@
-package com.nexum.backend.domain.controle.acesso.habilidade;
+package com.nexum.backend.domain.habilidade;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 
