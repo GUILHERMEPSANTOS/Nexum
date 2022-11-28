@@ -13,7 +13,11 @@
     display: flex;
     margin: 20px 0;
   }
-
+  .wrapper > img {
+    width: 64px;
+    height: 68px;
+    padding-right: 16px;
+  }
   .contentContainer {
     display: flex;
     justify-content: space-between;
@@ -22,6 +26,9 @@
 
     > a {
       width: 20%;
+      @include mobile {
+        width: auto;
+      }
     }
   }
 
@@ -31,7 +38,7 @@
     width: 30px;
     cursor: pointer;
     @include mobile {
-      left: 85%;
+      left: 75%;
     }
   }
 
@@ -42,7 +49,7 @@
     cursor: pointer;
 
     @include mobile {
-      left: 85%;
+      left: 75%;
     }
   }
 }

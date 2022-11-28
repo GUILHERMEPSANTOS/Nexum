@@ -24,7 +24,7 @@ const Experience = ({ canEdit = true }) => {
   if (isLoading) {
     return <div>Loding...</div>;
   }
-
+  console.log(add, edit);
   return (
     <>
       <section className={styles.container}>
