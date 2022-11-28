@@ -20,7 +20,7 @@ public class HabilidadeFreelancerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_habilidade_freelancer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
     @JoinColumn(name = "id_usuario")
     private FreelancerEntity freelancer;
 
@@ -32,6 +32,16 @@ public class HabilidadeFreelancerEntity {
     private Boolean hasHabilidade;
 
     public HabilidadeFreelancerEntity() {
+    }
+
+    public HabilidadeFreelancerEntity(
+            FreelancerEntity freelancer,
+            HabilidadeEntity habilidade,
+            Boolean hasHabilidade
+    ) {
+        this.freelancer = freelancer;
+        this.habilidade = habilidade;
+        this.hasHabilidade = hasHabilidade;
     }
 
     public HabilidadeFreelancerEntity(

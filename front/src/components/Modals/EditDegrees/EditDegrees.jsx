@@ -66,6 +66,7 @@ const EditDegrees = ({
       id: userId,
     });
   }, [curso, cidade, estado]);
+  
   const handlePut = useCallback(() => {
     updateRequest({
       curso,
