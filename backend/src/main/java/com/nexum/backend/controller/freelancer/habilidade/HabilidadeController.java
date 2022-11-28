@@ -21,21 +21,10 @@ public class HabilidadeController {
     }
 
 
-    @GetMapping("habilidade")
+    @GetMapping
     public ResponseEntity<Collection<HabilidadeDTO>> list() {
         Collection<HabilidadeDTO> habilidades = habilidadeServicePort.listAllHabilidades();
 
         return ResponseEntity.status(200).body(habilidades);
     }
-
-    @GetMapping("list/habilidade-freelancer/{id_freelancer}")
-    public ResponseEntity<Collection<HabilidadeFreelancerDTO>> listHabilidadeFreelancer(
-            @PathVariable Long id_freelancer
-    ) {
-        Collection<HabilidadeFreelancerDTO> habilidadeFreelancer =
-                habilidadeServicePort.listHabilidadeFreelancer(id_freelancer);
-
-        return ResponseEntity.status(200).body(habilidadeFreelancer);
-    }
-
 }

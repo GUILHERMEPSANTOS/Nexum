@@ -12,7 +12,6 @@ import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 import com.nexum.backend.services.freelancer.*;
 
 import com.nexum.backend.services.freelancer.interfaces.*;
-import com.nexum.backend.services.shared.match.MatchService;
 import com.nexum.backend.services.shared.match.interfaces.MatchServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
 import org.springframework.context.annotation.Bean;
@@ -67,14 +66,17 @@ public class FreelancerDependencyInjection {
     }
 
     @Bean
-    HabilidadeServicePort habilidadeService(
-            SpringHabilidadeRepository springHabilidadeRepository,
+    HabilidadeFreelancerServicePort habilidadeFreelancerService(
             SpringHabilidadeFreelancerRepository springHabilidadeFreelancerRepository
     ) {
-        return new HabilidadeService(
-                springHabilidadeRepository,
+        return new HabilidadeFreelancerService(
                 springHabilidadeFreelancerRepository
         );
+    }
+
+    @Bean
+    HabilidadeServicePort habilidadeService(SpringHabilidadeRepository springHabilidadeRepository){
+        return new HabilidadeService(springHabilidadeRepository);
     }
 
     @Bean

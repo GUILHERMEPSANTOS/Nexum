@@ -1,56 +1,29 @@
 package com.nexum.backend.services.freelancer;
 
-import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 import com.nexum.backend.domain.habilidade.HabilidadeFreelancerEntity;
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
-import com.nexum.backend.mappers.freelancer.habilidades.HabilidadeDTOMapper;
-import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;
+import com.nexum.backend.dto.freelancer.habilidade.request.HabilidadeFreelancerCreateRequest;
 import com.nexum.backend.mappers.freelancer.habilidades.HabilidadeFreelancerDTOMapper;
+import com.nexum.backend.mappers.freelancer.habilidades.request.HabilidadeFreelancerCreateRequestToHabilidadeFreelancerEntityMapper;
 import com.nexum.backend.repositories.freelancer.habilidade.SpringHabilidadeFreelancerRepository;
-import com.nexum.backend.repositories.shared.SpringHabilidadeRepository;
-import com.nexum.backend.services.freelancer.interfaces.HabilidadeServicePort;
+import com.nexum.backend.services.freelancer.interfaces.HabilidadeFreelancerServicePort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collection;
 
 
-public class HabilidadeService implements HabilidadeServicePort {
-    private final SpringHabilidadeRepository springHabilidadeRepository;
+public class HabilidadeFreelancerService implements HabilidadeFreelancerServicePort {
     private final SpringHabilidadeFreelancerRepository springHabilidadeFreelancerRepository;
 
-    public HabilidadeService(
-            SpringHabilidadeRepository springHabilidadeRepository,
+    public HabilidadeFreelancerService(
             SpringHabilidadeFreelancerRepository springHabilidadeFreelancerRepository
     ) {
-        this.springHabilidadeRepository = springHabilidadeRepository;
         this.springHabilidadeFreelancerRepository = springHabilidadeFreelancerRepository;
     }
 
     @Override
-    public Boolean existsHabilidadeById(Long id_habilidade) {
-        Boolean isValidId = springHabilidadeRepository.existsById(id_habilidade);
-
-        if (!isValidId) {
-            throw new IllegalArgumentException("ID Habilidade inválido");
-        }
-
-        return isValidId;
-    }
-
-    @Override
-    public Collection<HabilidadeDTO> listAllHabilidades() {
-        Collection<HabilidadeEntity> habilidades = springHabilidadeRepository.findAll();
-
-        if (habilidades.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Nenhuma Habilidade encontrada");
-        }
-
-        return HabilidadeDTOMapper.toCollectionHabilidadeDTO(habilidades);
-    }
-
-    @Override
-    public Collection<HabilidadeFreelancerDTO> listHabilidadeFreelancerId(Long id_freelancer) {
+    public Collection<HabilidadeFreelancerDTO> listHabilidadeByFreelancerId(Long id_freelancer) {
         Collection<HabilidadeFreelancerEntity> habilidadesFreelancer =
                 springHabilidadeFreelancerRepository
                         .listByFreelancerID(id_freelancer);
@@ -60,6 +33,40 @@ public class HabilidadeService implements HabilidadeServicePort {
         }
 
         return HabilidadeFreelancerDTOMapper.toCollectionHabilidadeFreelancerDTO(habilidadesFreelancer);
+    }
+
+    @Override
+    public void handleHabilidadeFreelancer(
+            Collection<HabilidadeFreelancerCreateRequest> requests
+    ) {
+
+        Collection<HabilidadeFreelancerEntity> habilidadesFreelancer =
+                HabilidadeFreelancerCreateRequestToHabilidadeFreelancerEntityMapper
+                        .toCollectionHabilidadeFreelancerEntity(requests);
+
+        habilidadesFreelancer.forEach(request -> {
+            if (validateSkillAlreadyRegisteredToUser(
+                    request.getFreelancer().getId_usuario(),
+                    request.getHabilidade().getId_habilidade()
+            )
+            ) {
+                updateHabilidadeFreelancer(request);
+            } else {
+                addHabilidadeToFreelancer(request);
+            }
+        });
+    }
+
+
+    private void addHabilidadeToFreelancer(HabilidadeFreelancerEntity habilidadeFreelancerEntity) {
+        springHabilidadeFreelancerRepository.save(habilidadeFreelancerEntity);
+    }
+
+    private void updateHabilidadeFreelancer(HabilidadeFreelancerEntity habilidadeFreelancerEntity) {
+        springHabilidadeFreelancerRepository.updateHabilidadeFreelancer(
+                habilidadeFreelancerEntity.getFreelancer().getId_usuario(),
+                habilidadeFreelancerEntity.getHabilidade().getId_habilidade()
+        );
     }
 
     @Override

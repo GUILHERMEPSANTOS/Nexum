@@ -22,6 +22,7 @@ const postCertificado = async ({
   });
   return response;
 };
+
 const putCertificado = async ({
   curso,
   instituicao,
