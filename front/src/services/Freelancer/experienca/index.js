@@ -36,7 +36,7 @@ const putExperiencia = async ({
   data_final,
   id,
 }) => {
-  const response = await api.post(`api/v1/experiencia/${id}`, {
+  const response = await api.put(`api/v1/experiencia/${id}`, {
     cargo: cargo,
     empresa: empresa,
     cidade: cidade,
