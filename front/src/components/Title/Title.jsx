@@ -13,7 +13,7 @@ const Title = ({ text, isForm }) => {
 
   return (
     <h1 className={styles.title}>
-      {words.map((item) => {
+      {words.map((item, i) => {
         const color = isForm
           ? "#fff"
           : item == "Nexum" ||
@@ -28,7 +28,11 @@ const Title = ({ text, isForm }) => {
             item == "Match"
           ? "#7509BD"
           : "#fff";
-        return <span style={{ color: `${color}` }}>{item + ` `}</span>;
+        return (
+          <span key={i} style={{ color: `${color}` }}>
+            {item + ` `}
+          </span>
+        );
       })}
     </h1>
   );
