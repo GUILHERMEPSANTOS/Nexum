@@ -61,7 +61,10 @@ const Formation = ({ canEdit = true }) => {
               )}
               <div className={styles.wrapperContainer}>
                 <div className={styles.wrapper}>
-                  <img src={`../../assets/icons/${instituicao}.png`} />
+                  <img
+                    className={styles.logo}
+                    src={`../../assets/imgs/${instituicao}.png`}
+                  />
                   <div className={styles.contantContainer}>
                     <div>
                       <Text text={instituicao} />

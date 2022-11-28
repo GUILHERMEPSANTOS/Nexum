@@ -132,7 +132,7 @@ const EditGraduate = ({
             value={cidade}
           />
         </div>
-        <Text isSmall={true} text="Caminho para certificado" />
+        <Text isSmall={true} text="Data" />
         <div className={styles.location}>
           <input
             placeholder="Inicio"
@@ -147,7 +147,7 @@ const EditGraduate = ({
             type="date"
           />
         </div>
-        <Text isSmall={true} text="Instituição de ensino" />
+        <Text isSmall={true} text="Sobre" />
         <textarea
           onChange={({ target }) => setSobre(target.value)}
           value={sobre}

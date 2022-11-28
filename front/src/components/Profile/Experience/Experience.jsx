@@ -57,7 +57,10 @@ const Experience = ({ canEdit = true }) => {
             <div>
               <div className={styles.wrapperContainer}>
                 <div className={styles.wrapper}>
-                  <img src={`../../assets/icons/${empresa}.jpg`} />
+                  <img
+                    className={styles.logo}
+                    src={`../../assets/imgs/${empresa}.png`}
+                  />
                   <div className={styles.contantContainer}>
                     <div>
                       <Text text={cargo} />
@@ -71,7 +74,7 @@ const Experience = ({ canEdit = true }) => {
                       onClick={() => {
                         setEdit(true);
                         setAdd(false);
-                        setEditDegrees(true);
+                        setEditExperience(true);
                       }}
                       className={styles.editIcon}
                       src="../../assets/icons/edit.svg"

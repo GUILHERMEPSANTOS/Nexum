@@ -20,7 +20,13 @@
     margin: 20px 0;
   }
 
-  .wrapper img {
+  .wrapper > img {
+    width: 64px;
+    height: 68px;
+    padding-right: 16px;
+  }
+
+  .logo {
     width: 64px;
     height: 68px;
     padding-right: 16px;
