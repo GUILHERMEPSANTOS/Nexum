@@ -1,6 +1,4 @@
 import axios from "axios";
-import React, { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
 
 export async function APILogin({ email, senha }) {
   return await axios.post(

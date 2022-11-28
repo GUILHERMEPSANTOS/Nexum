@@ -4,39 +4,18 @@ import Text from "../../Text/Text";
 import { SOCIAL_MEDIA, INFO } from "./constants";
 import List from "../List/List";
 import EditProfile from "../../Modals/EditProfile/EditProfile";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
 import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
 import EditData from "../../Modals/EditData/EditData";
 import { Link } from "react-router-dom";
-
-[
-  {
-    id_user: 1,
-    nome: "Guilherme",
-    email: "guilherme@hotmail.com",
-    endereco: {
-      cidade: "Ribeirão Pires",
-      estado: "São Paulo",
-    },
-    sobre: "O Homem mais lindo da terra!",
-    socialsUserDTO: [
-      {
-        id_social_user: 1,
-        social: {
-          id_social: 1,
-          nome: "Facebook",
-        },
-        user_url: "GUILHEMRE.FACEBOOK",
-      },
-    ],
-  },
-];
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { listSocial } from "../../../services/Freelancer/social";
 
 const About = ({
   isOtherView,
   isCompanyProfile,
-  canEdit,
+  canEdit = true,
   nomeCompany,
   emailCompany,
   enderecoCompany,
@@ -53,7 +32,15 @@ const About = ({
     : "";
   const nomeFormatted = nome.replace(/"/g, "");
   const emailFormatted = email.replace(/"/g, "");
+  const userId = useMemo(() => localStorage.getItem("user_id"));
+  const { data, isLoading, refetch } = useQuery(
+    ["consultar redes"],
+    async () => await listSocial(userId)
+  );
 
+  if (isLoading) {
+    return <div>Loding...</div>;
+  }
   return (
     <>
       <section className={styles.container}>
@@ -129,7 +116,7 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
           {isOtherView ? (
             <List title="Redes sociais" list={socialCompany} />
           ) : (
-            <List title="Redes sociais" list={SOCIAL_MEDIA} />
+            <List title="Redes sociais" list={data?.data} />
           )}
           <Title text="Email" />
           <div className={styles.socialMedia}>
@@ -175,6 +162,7 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
         <EditSocialMedia
           actualState={editSocial}
           setActualState={setEditSocial}
+          refetch={refetch}
         />
       )}
     </>

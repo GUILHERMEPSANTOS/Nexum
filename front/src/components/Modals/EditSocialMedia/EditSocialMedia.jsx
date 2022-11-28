@@ -2,14 +2,58 @@ import Text from "../../Text/Text";
 import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { postSocial } from "../../../services/Freelancer/social";
 
-const EditSocialMedia = ({ actualState, setActualState }) => {
+const EditSocialMedia = ({
+  actualState,
+  setActualState,
+  refetch = () => {},
+}) => {
   const [linkedin, setLinkedin] = useState();
   const [facebook, setFacebook] = useState();
   const [instagram, setInstagram] = useState();
-  const [email, setEmail] = useState();
 
+  const userId = useMemo(() => localStorage.getItem("user_id"));
+
+  const { mutate: sendRequest } = useMutation(
+    ({ linkedin, facebook, instagram, idSocial, id }) =>
+      postSocial({
+        curso,
+        instituicao,
+        cidade,
+        estado,
+        certificacao_url,
+        id,
+      }),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+
+  const handlePost = useCallback(() => {
+    sendRequest({
+      curso,
+      instituicao: ensino,
+      cidade,
+      estado,
+      certificacao_url: urlCertificado,
+      id: userId,
+    });
+  }, [curso, cidade, estado]);
+  const handlePut = useCallback(() => {
+    updateRequest({
+      curso,
+      instituicao: ensino,
+      cidade,
+      estado,
+      certificacao_url: urlCertificado,
+      id: userId,
+    });
+  }, [curso, cidade, estado]);
   return (
     <Modal
       text={"Perfil"}
@@ -32,11 +76,6 @@ const EditSocialMedia = ({ actualState, setActualState }) => {
         <input
           onChange={({ target }) => setInstagram(target.value)}
           value={instagram}
-        />
-        <Text isSmall={true} text="Email" />
-        <input
-          onChange={({ target }) => setEmail(target.value)}
-          value={email}
         />
       </div>
       <div className={styles.buttons}>

@@ -16,7 +16,7 @@ const Formation = ({ canEdit = true }) => {
     ["consultar certificados"],
     () => listFormacaoByFreelancerId(userId)
   );
-  console.log(data, "formacao");
+
   if (isLoading) {
     return <div>Loding...</div>;
   }

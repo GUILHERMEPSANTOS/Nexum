@@ -9,12 +9,14 @@ const Propostas = () => {
   const data = localStorage.getItem("name") ? localStorage.getItem("name") : "";
   const dataFormatted = data.replace(/"/g, "");
 
+  const nameCompany = localStorage.getItem("nameCompany");
+  const nameCompanyFormatted = nameCompany?.replace(/"/g, "");
   return (
     <div className={styles.container}>
       <Header options={OPTIONS} buttonText="Sair" link="/" />
       <Banner>
         <div className={styles.mensagem}>
-          <Title text={` Parabens ${dataFormatted} , você tem um Match`} />
+          <Title text={` Parabens ${dataFormatted} , você fez um Match`} />
         </div>
         <div className={styles.containerCards}>
           {TEXTS_FREELANCER.map(({ title, text, link }) => (

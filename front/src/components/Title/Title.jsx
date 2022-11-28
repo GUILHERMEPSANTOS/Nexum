@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import styles from "./styles.module.scss";
 
 const Title = ({ text, isForm }) => {
@@ -10,6 +10,7 @@ const Title = ({ text, isForm }) => {
   }, []);
   const data = localStorage.getItem("name") ? localStorage.getItem("name") : "";
   const dataFormatted = data.replace(/"/g, "");
+
   return (
     <h1 className={styles.title}>
       {words.map((item) => {
