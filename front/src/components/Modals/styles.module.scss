@@ -9,6 +9,12 @@
   left: 0;
   top: 0;
   z-index: 20;
+  overflow: hidden;
+  @include mobile {
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .modal {
@@ -22,7 +28,11 @@
   left: 35%;
   top: 15%;
   border-radius: $border-cards;
-
+  @include mobile {
+    width: 90vw;
+    left: 0;
+    top: 5%;
+  }
   .close {
     position: relative;
     left: 90%;
@@ -30,6 +40,9 @@
     height: 40px;
     cursor: pointer;
     top: -50px;
+    @include mobile {
+      left: 80%;
+    }
 
     .xIcon {
       position: absolute;
