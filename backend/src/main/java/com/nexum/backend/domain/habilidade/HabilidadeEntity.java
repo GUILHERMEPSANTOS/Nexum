@@ -1,4 +1,4 @@
-package com.nexum.backend.domain.habilidade;
+package com.nexum.backend.domain.controle.acesso.habilidade;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,7 +22,7 @@ public class HabilidadeEntity {
     @Column(name = "nome")
     private String nome;
 
-    @OneToMany(mappedBy = "habilidade", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "habilidade", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<HabilidadeFreelancerEntity> habilidade_Freelancer = new ArrayList<>();
 
     public HabilidadeEntity() {

@@ -1,4 +1,4 @@
-package com.nexum.backend.domain.habilidade;
+package com.nexum.backend.domain.controle.acesso.habilidade;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -20,7 +20,7 @@ public class HabilidadeFreelancerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_habilidade_freelancer;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private FreelancerEntity freelancer;
 
