@@ -1,11 +1,11 @@
 _type: export
 __export_format: 4
-__export_date: 2022-11-27T15:59:38.411Z
+__export_date: 2022-11-28T01:31:02.738Z
 __export_source: insomnia.desktop.app:v2022.6.0
 resources:
   - _id: req_c3b14cdeade24bceaef670dd2eacfaa9
     parentId: fld_03f2cb694b544cdabda590839175c50e
-    modified: 1669506636801
+    modified: 1669584709707
     created: 1668360146612
     url: "{{ _.api }}api/v1/match"
     name: enviarSolicitacaoMatch
@@ -15,8 +15,8 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"id_contratante":2,
-          "id_freelancer":1
+        	"id_contratante":1,
+          "id_freelancer":3
         }
     parameters: []
     headers:
@@ -84,7 +84,7 @@ resources:
     _type: request_group
   - _id: req_6dda8bfe006c4ed2b7736b25edf479b1
     parentId: fld_820399f46119430eac7020b56aa7010e
-    modified: 1669487458351
+    modified: 1669584716035
     created: 1668269190110
     url: "{{ _.api }}api/v1/contratante/create-account"
     name: createAccount
@@ -213,9 +213,9 @@ resources:
     _type: request_group
   - _id: req_11f86fbeb0ce45de93feee875d17b2ef
     parentId: fld_9ce528408cf44ee0a30df7f5ddfa4d13
-    modified: 1669504584085
+    modified: 1669584747668
     created: 1669425749105
-    url: "{{ _.api }}api/v1/freelancer/2/match/requests"
+    url: "{{ _.api }}api/v1/freelancer/3/match/requests"
     name: GetMatchsRequestByFreelancerId
     description: ""
     method: GET
@@ -412,7 +412,7 @@ resources:
     _type: request
   - _id: req_a032f1075757418faf4939e420359bc0
     parentId: fld_db90fd82dada48cc93329ca59a2c3f3a
-    modified: 1669510057328
+    modified: 1669598182544
     created: 1668821636180
     url: "{{ _.api }}api/v1/certificacao/1"
     name: Update
@@ -444,9 +444,9 @@ resources:
     _type: request
   - _id: req_b7250f82e871414b96d78a8c0b81f98a
     parentId: fld_db90fd82dada48cc93329ca59a2c3f3a
-    modified: 1669509974471
+    modified: 1669598173416
     created: 1668815840065
-    url: "{{ _.api }}api/v1/certificacao/2"
+    url: "{{ _.api }}api/v1/certificacao/1"
     name: Create
     description: ""
     method: POST
@@ -475,19 +475,33 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: req_a4e42b505be6419688276d771c742424
+  - _id: req_1b82d3e5a41e4cb9b67fc1073c9c0737
     parentId: fld_626f20f722f94043a2f03c2b60716578
-    modified: 1669413266823
-    created: 1669412180046
-    url: "{{ _.api }}api/v1/habilidade/list/habilidade-freelancer/1"
-    name: ListHabilidadeFreelancer
+    modified: 1669598352431
+    created: 1669587444621
+    url: "{{ _.api }}api/v1/freelancer/2/habilidade"
+    name: HandleHabilidadeFreelancer
     description: ""
-    method: GET
-    body: {}
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        [
+        	{
+        		"id_freelancer": 2,
+        		"id_habilidade": 3
+        	},
+        	{
+        		"id_freelancer": 2,
+        		"id_habilidade": 2
+        	}
+        ]
     parameters: []
-    headers: []
+    headers:
+      - name: Content-Type
+        value: application/json
     authentication: {}
-    metaSortKey: -1669412180046
+    metaSortKey: -1669587444621
     isPrivate: false
     settingStoreCookies: true
     settingSendCookies: true
@@ -506,11 +520,32 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1668810973095.5
     _type: request_group
+  - _id: req_a4e42b505be6419688276d771c742424
+    parentId: fld_626f20f722f94043a2f03c2b60716578
+    modified: 1669598363964
+    created: 1669412180046
+    url: "{{ _.api }}api/v1/freelancer/2/habilidade/list"
+    name: ListHabilidadeFreelancer
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1669412180046
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_f4fe5d238474449db8fa7db96c03780d
     parentId: fld_626f20f722f94043a2f03c2b60716578
-    modified: 1669420535769
+    modified: 1669598327283
     created: 1668826840148
-    url: "{{ _.api }}api/v1/habilidade/habilidade"
+    url: "{{ _.api }}api/v1/habilidade"
     name: ListAll
     description: ""
     method: GET
@@ -679,7 +714,7 @@ resources:
     _type: request
   - _id: req_a831145d8bb549c3a16e297553afce46
     parentId: fld_31805b678ce648239d8a18deef0a091a
-    modified: 1669509455721
+    modified: 1669595270008
     created: 1664497010414
     url: "{{ _.api }}api/v1/freelancer/create-account"
     name: CreateFreelancer
@@ -753,7 +788,7 @@ resources:
     _type: request
   - _id: req_5d1c4c5425e24702845fbde54fc3cbd3
     parentId: fld_fa0add5deeb148e58a8a0ebc77dd4a69
-    modified: 1669504469574
+    modified: 1669595854896
     created: 1669489566921
     url: "{{ _.api }}api/v1/social-user/1"
     name: AddOrUpdateSocialToUser
@@ -762,7 +797,6 @@ resources:
     body:
       mimeType: application/json
       text: |
-        
         [ 
         		{
         			"id_social":1,
