@@ -26,10 +26,9 @@ public class SharedDependencyInjection {
 
     @Bean
     UserServicePort userService(
-            SpringUserRepository springUserRepository,
-            HabilidadeServicePort habilidadeServicePort
+            SpringUserRepository springUserRepository
     ) {
-        return new UserService(springUserRepository, habilidadeServicePort);
+        return new UserService(springUserRepository);
     }
 
     @Bean
