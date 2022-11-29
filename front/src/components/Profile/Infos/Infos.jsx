@@ -51,7 +51,7 @@ const Infos = ({ canEdit = true }) => {
         <br />
         <Text text="Habilidades" />
         <br />
-        <List list={dataFreelancerHabilidades?.data} />
+        {/* <List list={dataFreelancerHabilidades?.data} /> */}
         <br />
         <Text text="Consquistas" />
         <br />
