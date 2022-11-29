@@ -16,6 +16,9 @@ public interface SpringUserRepository extends JpaRepository<UserEntity, Long> {
 
     Optional<UserEntity> findByEmail(String email);
 
+    @Query("select u.sobre from UserEntity u where u.id_usuario = :id_user")
+    String getAboutUser(@Param("id_user") Long id_user);
+
     @Modifying
     @Transactional
     @Query("update UserEntity u set u.sobre = :sobre where u.id_usuario = :id_user")

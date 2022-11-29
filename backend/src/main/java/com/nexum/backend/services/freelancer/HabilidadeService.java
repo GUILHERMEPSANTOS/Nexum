@@ -35,7 +35,7 @@ public class HabilidadeService implements HabilidadeServicePort {
 
         Optional<HabilidadeEntity> habilidadeDTO = springHabilidadeRepository.findById(id_habilidade);
 
-        if (!habilidadeDTO.isPresent()) {
+        if(!habilidadeDTO.isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ID habilidade invalido");
         }
 

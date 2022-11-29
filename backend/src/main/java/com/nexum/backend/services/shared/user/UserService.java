@@ -26,6 +26,11 @@ public class UserService implements UserServicePort {
     }
 
     @Override
+    public String getAboutUser(Long id_user) {
+        return springUserRepository.getAboutUser(id_user);
+    }
+
+    @Override
     public void updateAboutUser(UserSobreUpdateRequest request) {
         this.existsById(request.getId_user());
 
