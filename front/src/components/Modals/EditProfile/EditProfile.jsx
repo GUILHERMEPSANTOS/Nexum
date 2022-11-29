@@ -12,7 +12,7 @@ const EditProfile = ({ actualState, setActualState }) => {
   const [about, setAbout] = useState("");
 
   const { data, isLoading } = useQuery(
-    ["consultar sobre"],
+    ["atualizar sobre"],
     () => getAboutUser(user_id),
     {
       onSuccess: (data) => {
