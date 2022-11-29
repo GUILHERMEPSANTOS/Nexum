@@ -20,7 +20,6 @@ const Propostas = () => {
           <div className={styles.containerCards}>
             {TEXTS_FREELANCER.map(({ title, text, link }) => (
               <a href={link} target="_blank">
-                {link}
                 <CardMain title={title} text={text} />
               </a>
             ))}

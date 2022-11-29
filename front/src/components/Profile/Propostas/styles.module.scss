@@ -6,7 +6,9 @@
   display: flex;
   align-items: center;
 }
-
+.containerCards > a {
+  text-decoration: none;
+}
 .mensagem {
   height: 21%;
   width: 35%;
