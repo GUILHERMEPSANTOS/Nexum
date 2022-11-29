@@ -22,4 +22,11 @@ public class UserController {
 
         return ResponseEntity.status(200).build();
     }
+
+    @GetMapping("{id_user}/sobre")
+    public ResponseEntity<String> getAboutUser(@PathVariable Long id_user) {
+
+        return ResponseEntity.status(200).body(userServicePort.getAboutUser(id_user));
+    }
+
 }

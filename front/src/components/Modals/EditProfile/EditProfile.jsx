@@ -1,10 +1,17 @@
 import { useState } from "react";
+
+import { useQuery } from "@tanstack/react-query";
+// import { } from '../../../services/Freelancer/user';
+
 import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
 
 const EditProfile = ({ actualState, setActualState }) => {
   const [about, setAbout] = useState();
+  const {} = useQuery();
+
+
   return (
     <Modal
       text={"Perfil"}

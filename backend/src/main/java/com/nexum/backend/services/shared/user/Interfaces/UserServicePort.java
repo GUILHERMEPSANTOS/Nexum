@@ -6,5 +6,7 @@ import com.nexum.backend.dto.shared.user.request.UserSobreUpdateRequest;
 public interface UserServicePort {
     Boolean existsById(Long id_user);
 
+    String getAboutUser(Long id_user);
+
     void updateAboutUser(UserSobreUpdateRequest request);
 }
