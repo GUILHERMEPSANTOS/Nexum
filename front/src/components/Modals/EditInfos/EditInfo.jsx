@@ -3,6 +3,10 @@ import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
 import { useState } from "react";
+import {
+  listHabilidades,
+  postHabilidades,
+} from "../../../services/Freelancer/habilidades";
 
 const EditInfo = ({ actualState, setActualState }) => {
   const [illustrator, setIllustrator] = useState(false);
@@ -10,6 +14,51 @@ const EditInfo = ({ actualState, setActualState }) => {
   const [photoshop, setPhotoshop] = useState(false);
   const [inkscape, setInkscape] = useState(false);
   const [figma, setFigma] = useState(false);
+
+  const [habilidades, setHabilidades] = useState([]);
+
+  const { data } = useQuery(
+    ["consultar habilidades"],
+    () => listHabilidades(),
+    {
+      onSuccess: (data) => {
+        setHabilidades(
+          data?.data?.map(({ id_habilidade }) => ({
+            id_habilidade,
+          }))
+        );
+      },
+    }
+  );
+
+  const { mutate } = useMutation(
+    ({ data, userId }) => postHabilidades(data, userId),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+
+  const handleChangeCurrentValueOption = useCallback(
+    (data) => {
+      const updateHabilidades = habilidades.map((habilidades) => {
+        if (habilidades.id_habilidade === data.id_habilidade) {
+          return { ...habilidades, ...data };
+        }
+
+        return habilidades;
+      });
+
+      setHabilidades(updateHabilidades);
+    },
+    [setHabilidades, habilidades]
+  );
+
+  const handleUpdateHabilidades = useCallback(() => {
+    mutate({ data: habilidades, userId });
+    setActualState(false);
+  }, [habilidades]);
 
   return (
     <Modal
@@ -77,7 +126,7 @@ const EditInfo = ({ actualState, setActualState }) => {
       </div>
       <div className={styles.buttons}>
         <Button
-          onClick={() => setActualState(false)}
+          onClick={handleUpdateHabilidades}
           isEmpty={true}
           text="Salvar"
         />

@@ -13,8 +13,8 @@ import Text from "../../Text/Text";
 import Title from "../../Title/Title";
 import List from "../List/List";
 
-import { SOCIAL_MEDIA, INFO } from "./constants";
 import styles from "./styles.module.scss";
+import { listHabilidadesByUserId } from "../../../services/Freelancer/habilidades";
 
 const About = ({
   isOtherView,
@@ -121,6 +121,7 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
           {isOtherView ? (
             <List title="Redes sociais" list={socialCompany} />
           ) : (
+            // <>oi</>
             <List title="Redes sociais" list={data?.data} />
           )}
           <Title text="Email" />
