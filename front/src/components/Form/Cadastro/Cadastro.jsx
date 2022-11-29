@@ -55,6 +55,7 @@ const Cadastro = () => {
     verifyEmail,
     verifyCellphone,
     verifyPassword,
+    verifyProfession,
     verifyConfirmPassword,
     disabled,
   } = useCadastro({

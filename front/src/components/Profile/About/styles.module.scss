@@ -43,7 +43,8 @@
 
   .socialMedia {
     display: flex;
-    width: 30%;
+    width: auto;
+    max-width: 50%;
     background-color: $gray-profile;
     padding: 2%;
     margin: 5px;
