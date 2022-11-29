@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.embargo;
+package com.nexum.backend.controller.shared.social.embargo;
 import com.nexum.backend.domain.embargo.Embargo;
 import com.nexum.backend.dto.responsedata.ResponseData;
 import com.nexum.backend.services.embargo.interfaces.EmbargoServicePort;

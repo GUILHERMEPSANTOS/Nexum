@@ -18,4 +18,14 @@ public class AdminService implements AdminServicePort {
         ByteArrayInputStream in = CSVhelper.userToCSV(springUserRepository.findAll());
         return new InputStreamResource(in);
     }
+
+    @Override
+    public Integer countNumberFreelancers() {
+        return null;
+    }
+
+    @Override
+    public Integer countNumberContratantes() {
+        return null;
+    }
 }

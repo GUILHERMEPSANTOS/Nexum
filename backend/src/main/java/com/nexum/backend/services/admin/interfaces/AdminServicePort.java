@@ -6,4 +6,8 @@ import java.io.ByteArrayInputStream;
 
 public interface AdminServicePort {
     InputStreamResource load();
+
+    Integer countNumberFreelancers();
+
+    Integer countNumberContratantes();
 }
