@@ -28,5 +28,4 @@ public class UserController {
 
         return ResponseEntity.status(200).body(userServicePort.getAboutUser(id_user));
     }
-
 }

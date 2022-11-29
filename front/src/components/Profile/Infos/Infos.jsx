@@ -24,7 +24,6 @@ const Infos = ({ canEdit = true }) => {
     listHabilidadesByUserId(userId)
   );
 
-  
   if (isLoadingFreelancerHabilidades) {
     return <div>Loading...</div>;
   }
@@ -51,7 +50,9 @@ const Infos = ({ canEdit = true }) => {
         <br />
         <Text text="Habilidades" />
         <br />
-        <List list={dataFreelancerHabilidades?.data} />
+        {dataFreelancerHabilidades?.data?.legth > 0 && (
+          <List list={dataFreelancerHabilidades?.data} />
+        )}
         <br />
         <Text text="Consquistas" />
         <br />
