@@ -94,6 +94,8 @@ const Cadastro = () => {
             </label>
           </div>
         </div>
+        <div className={styles.users}>
+          <div>
         <label className={styles.labels}>Celular</label>
         <input
           type="number"
@@ -103,13 +105,17 @@ const Cadastro = () => {
         />
 
         <p className={styles.error}>{errorCellphone}</p>
-        <label className={styles.labels}>Profissao</label>
+        </div>
+        <div className={styles.profession}>
+        <label className={styles.labels}>CEP</label>
         <input
           onBlur={verifyProfession}
           value={profession}
           onChange={({ target }) => setProfession(target.value)}
         />
         <p className={styles.error}>{errorUser}</p>
+        </div>
+        </div>
         <label className={styles.labels}>E-mail</label>
         <input
           onBlur={verifyEmail}

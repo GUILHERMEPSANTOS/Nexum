@@ -13,7 +13,7 @@ const useCadastro = ({ email, password, user, cellphone, confirmPassword, profes
     !!!user ? setErrorUser("Preencher usuario") : setErrorUser("");
   };
   const verifyProfession = () => {
-    !!!profession ? setErrorProfession("Preencher usuario") : setErrorProfession("");
+    !!!profession ? setErrorProfession("Preencher cep") : setErrorProfession("");
   };
   const verifyEmail = () => {
     const validEmail = new RegExp(
