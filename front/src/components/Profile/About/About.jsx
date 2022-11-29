@@ -49,6 +49,8 @@ const About = ({
     async () => await listSocialByUserId(userId)
   );
 
+
+
   const handleMatchConfirm = useCallback(async () => {
     await putMatchRequest({ id_freelancer: userId, id_contratante: idCompany });
   },[userId, idCompany])
@@ -61,7 +63,6 @@ const About = ({
     ["consultar about"],
     async () => await getAboutUser(userId)
   );
-  console.log(dataAbout)
 
   if (isLoadingSocial || isLoadingAbout) {
     return <div>Loding...</div>;

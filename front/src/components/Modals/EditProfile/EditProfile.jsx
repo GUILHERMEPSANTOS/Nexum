@@ -1,29 +1,34 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
-import { useQuery } from "@tanstack/react-query";
-import { getAboutUser } from "../../../services/Freelancer/user";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { getAboutUser, putAboutUser } from "../../../services/Freelancer/user";
 
 import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
 
-const EditProfile = ({ actualState, setActualState }) => {
-  const user_id = userMemo(() => Number(localStorage.getItem("user_id")));
+const EditProfile = ({ actualState, setActualState, refetch = () => {}}) => {
+  const user_id = useMemo(() => Number(localStorage.getItem("user_id")));
   const [about, setAbout] = useState("");
 
-  const { data, isLoading } = useQuery(
-    ["atualizar sobre"],
-    () => getAboutUser(user_id),
+  const { mutate } = useMutation(
+    ({ id_user, sobre }) =>
+    putAboutUser({
+      id_user,
+      sobre
+      }),
     {
-      onSuccess: (data) => {
-        setAbout(data.data);
+      onSuccess: () => {
+        refetch();
       },
     }
   );
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const handleSubmit = useCallback(() => {
+    mutate({
+      id_user: user_id,
+      sobre: about,
+    });
+  }, [user_id, about]);
 
   return (
     <Modal
@@ -39,7 +44,9 @@ const EditProfile = ({ actualState, setActualState }) => {
       />
       <div className={styles.buttons}>
         <Button
-          onClick={() => setActualState(false)}
+          onClick={() => {
+            handleSubmit()
+            setActualState(false)}}
           isEmpty={true}
           text="Salvar"
         />
