@@ -11,9 +11,11 @@ import ProfileContainer from "../profile";
 import Text from "../../../components/Text/Text";
 
 import styles from "./styles.module.scss";
+import { getAboutUser } from "../../../services/Freelancer/user";
 
 const FreelancerChoose = () => {
-  const [openModal, setOpenModal] = useState(true);
+  const [id, setId] = useState();
+  
 
   const idContratante = useMemo(() => localStorage.getItem("user_id"));
 
@@ -21,7 +23,9 @@ const FreelancerChoose = () => {
     getFreelancers()
   );
 
-  const { mutate } = useMutation(({ id_freelancer, id_contratante }) =>
+
+
+  const { mutate: sendMatch } = useMutation(({ id_freelancer, id_contratante }) =>
     sendMatchRequest({ id_freelancer, id_contratante }),
     {
       onSuccess: () => {
@@ -33,9 +37,10 @@ const FreelancerChoose = () => {
     }
   );
 
+
 const handleSubmit = useCallback(
   (id_freelancer) => {
-    mutate({
+    sendMatch({
       id_freelancer,
       id_contratante: Number(idContratante),
     });
@@ -43,7 +48,8 @@ const handleSubmit = useCallback(
   [idContratante, sendMatchRequest]
 );
 
-if (isLoading) {
+
+if (isLoading ) {
   return <div>Loading...</div>;
 }
 
@@ -55,7 +61,19 @@ return (
           <CardWithInfo data={data?.data ?? []} />
         </div>
         <div className={styles.cardContainerInfo}>
-          {data?.data?.map(({ nome, id_user }, i) => (
+          {data?.data?.map(({ nome, id_user }, i) => {
+          //  const { data: idData, isLoading: LoadingData, refetch } = useQuery(
+          //   ["consultar about freelas"],
+          //   async () => await getAboutUser(id_user)
+          // );
+          // const {
+          //   data: dataFreelancerHabilidades,
+          //   isLoading: isLoadingFreelancerHabilidades,
+          // } = useQuery(["consultar freelancer habilidades"], async () =>
+          //   await listHabilidadesByUserId(id_user)
+          // );
+          
+            return(
             <div key={i}>
               <div className={styles.actions}>
                 <button onClick={() => handleSubmit(id_user)}>
@@ -65,12 +83,13 @@ return (
                   <img src="../../assets/icons/save.svg" />
                 </button>
               </div>
-              <Text isSmall={true} text={nome} />
+              {/* <Text isSmall={true} text={idData?.data} /> */}
 
-              <Text isSmall={true} text={"Ver perfil"} />
-              {/* <List list={habilidades} /> */}
+              {/* {dataFreelancerHabilidades?.data?.legth > 0 && ( */}
+          {/* <List list={dataFreelancerHabilidades?.data} /> */}
+        {/* )} */}
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </ProfileContainer>
