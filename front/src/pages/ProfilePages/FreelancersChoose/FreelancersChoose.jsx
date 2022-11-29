@@ -62,10 +62,10 @@ return (
         </div>
         <div className={styles.cardContainerInfo}>
           {data?.data?.map(({ nome, id_user }, i) => {
-          //  const { data: idData, isLoading: LoadingData, refetch } = useQuery(
-          //   ["consultar about freelas"],
-          //   async () => await getAboutUser(id_user)
-          // );
+           const { data: idData, isLoading: LoadingData, refetch } = useQuery(
+            ["consultar about freelas"],
+            async () => await getAboutUser(id_user)
+          );
           // const {
           //   data: dataFreelancerHabilidades,
           //   isLoading: isLoadingFreelancerHabilidades,
@@ -83,11 +83,11 @@ return (
                   <img src="../../assets/icons/save.svg" />
                 </button>
               </div>
-              {/* <Text isSmall={true} text={idData?.data} /> */}
+              <Text isSmall={true} text={idData?.data} />
 
-              {/* {dataFreelancerHabilidades?.data?.legth > 0 && ( */}
-          {/* <List list={dataFreelancerHabilidades?.data} /> */}
-        {/* )} */}
+              {/* {dataFreelancerHabilidades?.data?.legth > 0 && (
+          <List list={dataFreelancerHabilidades?.data} />
+        )}  */}
             </div>
           )})}
         </div>
