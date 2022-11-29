@@ -38,12 +38,16 @@ const About = ({
   const emailFormatted = email.replace(/"/g, "");
   const userId = useMemo(() => localStorage.getItem("user_id"));
 
-  const { data, isLoading, refetch } = useQuery(
+  const {
+    data: dataSocialMedia,
+    isLoading: isLoadingSocial,
+    refetch,
+  } = useQuery(
     ["consultar redes"],
     async () => await listSocialByUserId(userId)
   );
 
-  if (isLoading) {
+  if (isLoadingSocial) {
     return <div>Loding...</div>;
   }
   return (
@@ -122,7 +126,7 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
             <List title="Redes sociais" list={socialCompany} />
           ) : (
             // <>oi</>
-            <List title="Redes sociais" list={data?.data} />
+            <List title="Redes sociais" list={dataSocialMedia?.data} />
           )}
           <Title text="Email" />
           <div className={styles.socialMedia}>
