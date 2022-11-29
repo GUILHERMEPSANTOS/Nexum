@@ -3,7 +3,8 @@ package com.nexum.backend.services.freelancer;
 import com.nexum.backend.domain.habilidade.HabilidadeEntity;
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;
 import com.nexum.backend.mappers.freelancer.habilidades.HabilidadeDTOMapper;
-import com.nexum.backend.repositories.shared.SpringHabilidadeRepository;
+import com.nexum.backend.repositories.freelancer.habilidade.SpringHabilidadeRepository;
+
 import com.nexum.backend.services.freelancer.interfaces.HabilidadeServicePort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

@@ -1,16 +1,20 @@
-import styles from "./styles.module.scss";
-import Title from "../../Title/Title";
-import Text from "../../Text/Text";
-import { SOCIAL_MEDIA, INFO } from "./constants";
-import List from "../List/List";
-import EditProfile from "../../Modals/EditProfile/EditProfile";
 import { useCallback, useMemo, useState } from "react";
-import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
+
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { listSocialByUserId } from "../../../services/Freelancer/social";
+
+import { Link } from "react-router-dom";
+
 import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
 import EditData from "../../Modals/EditData/EditData";
-import { Link } from "react-router-dom";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { listSocial } from "../../../services/Freelancer/social";
+import EditProfile from "../../Modals/EditProfile/EditProfile";
+import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
+import Text from "../../Text/Text";
+import Title from "../../Title/Title";
+import List from "../List/List";
+
+import { SOCIAL_MEDIA, INFO } from "./constants";
+import styles from "./styles.module.scss";
 
 const About = ({
   isOtherView,
@@ -33,9 +37,10 @@ const About = ({
   const nomeFormatted = nome.replace(/"/g, "");
   const emailFormatted = email.replace(/"/g, "");
   const userId = useMemo(() => localStorage.getItem("user_id"));
+
   const { data, isLoading, refetch } = useQuery(
     ["consultar redes"],
-    async () => await listSocial(userId)
+    async () => await listSocialByUserId(userId)
   );
 
   if (isLoading) {

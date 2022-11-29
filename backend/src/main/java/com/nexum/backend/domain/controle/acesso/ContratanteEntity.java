@@ -12,6 +12,7 @@ import java.util.Collection;
 @Table(name = "tb_contratante")
 @PrimaryKeyJoinColumn(name = "id_usuario")
 public class ContratanteEntity extends UserEntity {
+
     @OneToMany(mappedBy = "contratante", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(FetchMode.SELECT)
     private Collection<MatchEntity> match = new ArrayList<>();

@@ -1,5 +1,6 @@
 package com.nexum.backend.services.freelancer;
 
+
 import com.nexum.backend.domain.habilidade.HabilidadeFreelancerEntity;
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
 import com.nexum.backend.dto.freelancer.habilidade.request.HabilidadeFreelancerCreateRequest;
@@ -26,6 +27,7 @@ public class HabilidadeFreelancerService implements HabilidadeFreelancerServiceP
     public Collection<HabilidadeFreelancerDTO> listHabilidadeByFreelancerId(Long id_freelancer) {
         Collection<HabilidadeFreelancerEntity> habilidadesFreelancer =
                 springHabilidadeFreelancerRepository
+//                        .findAll();
                         .listByFreelancerID(id_freelancer);
 
         if (habilidadesFreelancer.isEmpty()) {

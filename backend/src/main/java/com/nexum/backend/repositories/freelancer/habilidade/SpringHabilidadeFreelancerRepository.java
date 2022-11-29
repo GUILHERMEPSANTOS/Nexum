@@ -6,16 +6,20 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import javax.transaction.TransactionScoped;
+
 import javax.transaction.Transactional;
 import java.util.Collection;
 
 @Transactional
 public interface SpringHabilidadeFreelancerRepository extends JpaRepository<HabilidadeFreelancerEntity, Long> {
 
-    @Query("select h " +
-           "from HabilidadeFreelancerEntity h " +
-           "where h.freelancer.id_usuario = :id_freelancer")
+    @Query("select hf " +
+                  ",hf.freelancer " +
+                  ",hf.habilidade " +
+           "from HabilidadeFreelancerEntity hf " +
+                "left join hf.freelancer as f " +
+                "left join hf.habilidade as h " +
+           "where hf.freelancer.id_usuario = :id_freelancer")
     Collection<HabilidadeFreelancerEntity> listByFreelancerID(@Param("id_freelancer") Long id_freelancer);
 
 

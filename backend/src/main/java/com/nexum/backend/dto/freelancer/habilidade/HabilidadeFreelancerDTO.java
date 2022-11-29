@@ -4,8 +4,8 @@ import com.nexum.backend.dto.freelancer.FreelancerDTO;
 
 public class HabilidadeFreelancerDTO {
     private Long id_habilidade_freelancer;
-    private FreelancerDTO freelancer;
-    private HabilidadeDTO habilidade;
+    private Long id_freelancer;
+    private Long id_habilidade;
     private Boolean hasHabilidade;
 
     public HabilidadeFreelancerDTO() {
@@ -13,13 +13,13 @@ public class HabilidadeFreelancerDTO {
 
     public HabilidadeFreelancerDTO(
             Long id_habilidade_freelancer,
-            FreelancerDTO freelancer,
-            HabilidadeDTO habilidade,
+            Long id_freelancer,
+            Long id_habilidade,
             Boolean hasHabilidade
     ) {
         this.id_habilidade_freelancer = id_habilidade_freelancer;
-        this.freelancer = freelancer;
-        this.habilidade = habilidade;
+        this.id_freelancer = id_freelancer;
+        this.id_habilidade = id_habilidade;
         this.hasHabilidade = hasHabilidade;
     }
 
@@ -31,20 +31,20 @@ public class HabilidadeFreelancerDTO {
         this.id_habilidade_freelancer = id_habilidade_freelancer;
     }
 
-    public FreelancerDTO getFreelancer() {
-        return freelancer;
+    public Long getId_freelancer() {
+        return id_freelancer;
     }
 
-    public void setFreelancer(FreelancerDTO freelancer) {
-        this.freelancer = freelancer;
+    public void setId_freelancer(Long id_freelancer) {
+        this.id_freelancer = id_freelancer;
     }
 
-    public HabilidadeDTO getHabilidade() {
-        return habilidade;
+    public Long getId_habilidade() {
+        return id_habilidade;
     }
 
-    public void setHabilidade(HabilidadeDTO habilidade) {
-        this.habilidade = habilidade;
+    public void setId_habilidade(Long id_habilidade) {
+        this.id_habilidade = id_habilidade;
     }
 
     public Boolean getHasHabilidade() {

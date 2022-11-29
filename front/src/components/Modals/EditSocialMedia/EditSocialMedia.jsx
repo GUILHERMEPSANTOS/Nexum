@@ -1,44 +1,36 @@
-import Text from "../../Text/Text";
+import { useCallback, useMemo, useState } from "react";
+
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { listSocial, postSocial } from "../../../services/Freelancer/social";
+
 import Button from "../../Buttons/Button";
 import Modal from "../Modal";
+import OptionSocialMedia from "./OptionSocialMedia/OptionSocialMedia";
+
 import styles from "./styles.module.scss";
-import { useCallback, useMemo, useState } from "react";
-import { useMutation } from "@tanstack/react-query";
-import { postSocial } from "../../../services/Freelancer/social";
-import { useEffect } from "react";
 
 const EditSocialMedia = ({
   actualState,
   setActualState,
   refetch = () => {},
 }) => {
-  const [linkedin, setLinkedin] = useState();
-  const [facebook, setFacebook] = useState();
-  const [instagram, setInstagram] = useState();
-  const [idSocial, setIdSocial] = useState();
+  const userId = useMemo(() => Number(localStorage.getItem("user_id")));
 
-  const userId = useMemo(() => localStorage.getItem("user_id"));
+  const [socialNetworks, setSocialNetworks] = useState([]);
 
-  // useEffect(() => {
-  //   if() {
-
-  //   } else if() {
-
-  //   } else {
-
-  //   }
-
-  // },[linkedin,facebook, instagram ])
+  const { data } = useQuery(["consultar redes sociais"], () => listSocial(), {
+    onSuccess: (data) => {
+      setSocialNetworks(
+        data?.data?.map(({ id_social }) => ({
+          id_social,
+          user_url: "",
+        }))
+      );
+    },
+  });
 
   const { mutate } = useMutation(
-    ({ linkedin, facebook, instagram, idSocial, id }) =>
-      postSocial({
-        linkedin,
-        facebook,
-        instagram,
-        idSocial,
-        id,
-      }),
+    ({ data, userId }) => postSocial(data, userId),
     {
       onSuccess: () => {
         refetch();
@@ -46,15 +38,25 @@ const EditSocialMedia = ({
     }
   );
 
-  const handlePost = useCallback(() => {
-    mutate({
-      linkedin,
-      facebook,
-      instagram,
-      idSocial,
-      id: userId,
-    });
-  }, [linkedin, facebook, instagram]);
+  const handleChangeCurrentValueOption = useCallback(
+    (data) => {
+      const updateSocialNetwork = socialNetworks.map((socialNetwork) => {
+        if (socialNetwork.id_social === data.id_social) {
+          return { ...socialNetwork, ...data };
+        }
+
+        return socialNetwork;
+      });
+
+      setSocialNetworks(updateSocialNetwork);
+    },
+    [setSocialNetworks, socialNetworks]
+  );
+
+  const handleUpdateSocialMedia = useCallback(() => {
+    mutate({ data: socialNetworks, userId });
+    setActualState(false);
+  }, [socialNetworks]);
 
   return (
     <Modal
@@ -64,25 +66,18 @@ const EditSocialMedia = ({
       setActualState={setActualState}
     >
       <div className={styles.container}>
-        <Text isSmall={true} text="Linkedin" />
-        <input
-          onChange={({ target }) => setLinkedin(target.value)}
-          value={linkedin}
-        />
-        <Text isSmall={true} text="Facebook" />
-        <input
-          onChange={({ target }) => setFacebook(target.value)}
-          value={facebook}
-        />
-        <Text isSmall={true} text="Instagram" />
-        <input
-          onChange={({ target }) => setInstagram(target.value)}
-          value={instagram}
-        />
+        {data?.data.map((dataSocialNetworks) => (
+          <OptionSocialMedia
+            key={dataSocialNetworks.id_social}
+            id_social={dataSocialNetworks.id_social}
+            nome={dataSocialNetworks.nome}
+            onChageOption={handleChangeCurrentValueOption}
+          />
+        ))}
       </div>
       <div className={styles.buttons}>
         <Button
-          onClick={() => setActualState(false)}
+          onClick={handleUpdateSocialMedia}
           isEmpty={true}
           text="Salvar"
         />

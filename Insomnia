@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2022-11-28T01:31:02.738Z
+__export_date: 2022-11-29T01:26:39.141Z
 __export_source: insomnia.desktop.app:v2022.6.0
 resources:
   - _id: req_c3b14cdeade24bceaef670dd2eacfaa9
@@ -265,9 +265,9 @@ resources:
     _type: request_group
   - _id: req_e54ca8e6aa2a4bbf8ab496a9a4219264
     parentId: fld_59658c98d94b48d6acb63b6efb0abbd6
-    modified: 1668814862878
+    modified: 1669681206490
     created: 1668814801205
-    url: "{{ _.api }}api/v1/experiencia/list/freelancer/1"
+    url: "{{ _.api }}api/v1/experiencia/list/freelancer/2"
     name: ListByFreelancerId
     description: ""
     method: GET
@@ -477,7 +477,7 @@ resources:
     _type: request
   - _id: req_1b82d3e5a41e4cb9b67fc1073c9c0737
     parentId: fld_626f20f722f94043a2f03c2b60716578
-    modified: 1669598352431
+    modified: 1669681749683
     created: 1669587444621
     url: "{{ _.api }}api/v1/freelancer/2/habilidade"
     name: HandleHabilidadeFreelancer
@@ -714,7 +714,7 @@ resources:
     _type: request
   - _id: req_a831145d8bb549c3a16e297553afce46
     parentId: fld_31805b678ce648239d8a18deef0a091a
-    modified: 1669595270008
+    modified: 1669599470244
     created: 1664497010414
     url: "{{ _.api }}api/v1/freelancer/create-account"
     name: CreateFreelancer
@@ -746,9 +746,9 @@ resources:
     _type: request
   - _id: req_d66540558d79407b9ab80b0103d91140
     parentId: fld_31805b678ce648239d8a18deef0a091a
-    modified: 1669505376251
+    modified: 1669682240700
     created: 1668264561709
-    url: "{{ _.api }}api/v1/freelancer/3"
+    url: "{{ _.api }}api/v1/freelancer/2"
     name: getFreelancerById
     description: ""
     method: GET
@@ -788,9 +788,9 @@ resources:
     _type: request
   - _id: req_5d1c4c5425e24702845fbde54fc3cbd3
     parentId: fld_fa0add5deeb148e58a8a0ebc77dd4a69
-    modified: 1669595854896
+    modified: 1669677818577
     created: 1669489566921
-    url: "{{ _.api }}api/v1/social-user/1"
+    url: "{{ _.api }}api/v1/social-user/2"
     name: AddOrUpdateSocialToUser
     description: ""
     method: POST
@@ -804,7 +804,7 @@ resources:
         		},
         		{
         			"id_social":2,
-        			"user_url": "Guilherme.p"
+        				"user_url": "Guilherme.p"
         		}
         ]
     parameters: []
@@ -883,9 +883,48 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
+  - _id: req_52e9179fde6543d29bdd3f2f5b47f4ae
+    parentId: fld_09a7e9a3c387496b8d52c198674824d6
+    modified: 1669685054692
+    created: 1669684538602
+    url: "{{ _.api }}api/v1/user/update-sobre"
+    name: updateAboutUser
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id_user": 2,
+        	"sobre": "Deu certo"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1669684538602
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_09a7e9a3c387496b8d52c198674824d6
+    parentId: fld_9f391781972c4fba91fd8a64c5233bda
+    modified: 1668835030826
+    created: 1668835030826
+    name: User
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668835030826
+    _type: request_group
   - _id: req_e1bf32487cb94f818cec3ff49493514c
     parentId: fld_3e5d8e5be5b5487f8cf4376db82d9e2b
-    modified: 1669509848629
+    modified: 1669680982721
     created: 1668289724833
     url: "{{ _.api }}api/v1/controle-acesso/sign-in"
     name: sign-in
@@ -895,7 +934,7 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"email": "guilherme@hotmail.com",
+        	"email": "vinicius@hotmail.com",
         	"senha": "123"
         }
     parameters: []

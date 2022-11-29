@@ -22,7 +22,7 @@ public class HabilidadeEntity {
     @Column(name = "nome")
     private String nome;
 
-    @OneToMany(mappedBy = "habilidade", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "habilidade", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<HabilidadeFreelancerEntity> habilidade_Freelancer = new ArrayList<>();
 
     public HabilidadeEntity() {

@@ -1,16 +1,17 @@
 package com.nexum.backend.infra.dependency.injection.freelancer;
 
+
+import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 import com.nexum.backend.repositories.freelancer.certificacao.SpringCertificacaoRepository;
-import com.nexum.backend.repositories.freelancer.habilidade.SpringHabilidadeFreelancerRepository;
-import com.nexum.backend.repositories.freelancer.match.SpringFreelancerMatchRepository;
-import com.nexum.backend.repositories.shared.SpringHabilidadeRepository;
-import com.nexum.backend.repositories.shared.controle.acesso.SpringRoleRepository;
 import com.nexum.backend.repositories.freelancer.experiencia.SpringExperienciaRepository;
 import com.nexum.backend.repositories.freelancer.formacao.SpringFormacaoRepository;
-import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
+import com.nexum.backend.repositories.freelancer.habilidade.SpringHabilidadeFreelancerRepository;
+import com.nexum.backend.repositories.freelancer.habilidade.SpringHabilidadeRepository;
+import com.nexum.backend.repositories.freelancer.match.SpringFreelancerMatchRepository;
+import com.nexum.backend.repositories.shared.controle.acesso.SpringRoleRepository;
+
 
 import com.nexum.backend.services.freelancer.*;
-
 import com.nexum.backend.services.freelancer.interfaces.*;
 import com.nexum.backend.services.shared.match.interfaces.MatchServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;

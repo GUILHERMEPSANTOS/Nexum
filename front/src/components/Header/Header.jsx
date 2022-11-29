@@ -11,8 +11,8 @@ const Header = ({ options, buttonText, buttonTextLogin, link }) => {
         <img src="../../../assets/imgs/company.png" alt="Nexum" />
         <ul>
           {options.map(({ name, path }, i) => (
-            <Link to={path}>
-              <li key={`${name} - ${i}= ${path} `}>
+            <Link key={`${name} - ${i}= ${path} `} to={path}>
+              <li>
                 {name}
                 <div></div>
               </li>

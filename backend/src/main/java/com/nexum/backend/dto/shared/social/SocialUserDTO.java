@@ -1,6 +1,6 @@
 package com.nexum.backend.dto.shared.social;
 
-import com.nexum.backend.dto.shared.UserDTO;
+import com.nexum.backend.dto.shared.user.UserDTO;
 
 public class SocialUserDTO {
     private Long id_social_user;

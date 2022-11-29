@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 
@@ -20,7 +22,7 @@ public class HabilidadeFreelancerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_habilidade_freelancer;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private FreelancerEntity freelancer;
 
