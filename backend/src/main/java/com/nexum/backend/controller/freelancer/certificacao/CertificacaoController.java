@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.freelancer.certificacao;
+package com.nexum.backend.domain.controle.acesso.controller.freelancer.certificacao;
 
 
 import com.nexum.backend.dto.freelancer.certificacao.CertificacaoDTO;

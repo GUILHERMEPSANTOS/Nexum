@@ -9,7 +9,7 @@
 		(2, 1),(3,2);
 
 		INSERT INTO TB_SOCIAL (NOME) VALUES
-        ('Facebook'),('Instagram'),('LinkedIn');
+        ('Facebook'),('Instagram'),('Linkedin');
 
 
 		INSERT INTO TB_HABILIDADE (NOME) VALUES

@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.freelancer.match;
+package com.nexum.backend.domain.controle.acesso.controller.freelancer.match;
 
 
 import com.nexum.backend.dto.freelancer.match.queries.GetMatchRequestsByFreelancerIdQuery;

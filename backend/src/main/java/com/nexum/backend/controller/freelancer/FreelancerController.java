@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.freelancer;
+package com.nexum.backend.domain.controle.acesso.controller.freelancer;
 
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
 import com.nexum.backend.dto.freelancer.FreelancerDTO;

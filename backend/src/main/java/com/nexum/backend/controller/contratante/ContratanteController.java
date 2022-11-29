@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.contratante;
+package com.nexum.backend.domain.controle.acesso.controller.contratante;
 
 import com.nexum.backend.dto.contratante.ContratanteDTO;
 import com.nexum.backend.services.contratante.interfaces.ContratanteServicePort;

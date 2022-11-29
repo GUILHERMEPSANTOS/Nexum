@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.freelancer.experiencia;
+package com.nexum.backend.domain.controle.acesso.controller.freelancer.experiencia;
 
 
 import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;

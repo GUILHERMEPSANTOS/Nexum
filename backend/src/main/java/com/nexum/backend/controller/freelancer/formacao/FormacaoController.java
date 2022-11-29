@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.freelancer.formacao;
+package com.nexum.backend.domain.controle.acesso.controller.freelancer.formacao;
 
 
 import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;

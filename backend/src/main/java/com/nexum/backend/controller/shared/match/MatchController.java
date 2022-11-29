@@ -1,4 +1,4 @@
-package com.nexum.backend.controller.shared.match;
+package com.nexum.backend.domain.controle.acesso.controller.shared.match;
 
 import com.nexum.backend.dto.shared.match.request.MatchDTORequest;
 import com.nexum.backend.services.shared.match.interfaces.MatchServicePort;
