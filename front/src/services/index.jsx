@@ -13,7 +13,7 @@ export async function APILogin({ email, senha }) {
 export function APICadastroFreela({ email, senha, nome, celular }) {
   axios
     .post(
-      "http://localhost:8080/api/v1/controle-acesso/create-account/freelancer",
+      "http://localhost:8080/api/v1/freelancer/create-account",
       {
         email: email,
         senha: senha,
