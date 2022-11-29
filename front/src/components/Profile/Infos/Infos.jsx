@@ -1,7 +1,10 @@
 import { useState, useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { listHabilidadesByUserId, } from "../../../services/Freelancer/habilidades";
+import {
+  listHabilidadesByUserId,
+  getHabilidadeById,
+} from "../../../services/Freelancer/habilidades";
 
 import EditInfo from "../../Modals/EditInfos/EditInfo";
 import Title from "../../Title/Title";
@@ -14,19 +17,14 @@ const Infos = ({ canEdit = true }) => {
   const userId = useMemo(() => Number(localStorage.getItem("user_id")));
   const [clickEditInfo, setClickEditInfo] = useState(false);
 
-  const { dataFreelancerHabilidades, isLoading: isLoadingFreelancerHabilidades } = useQuery(
-    ["consultar freelancer habilidades"],
-     () =>  listHabilidadesByUserId(userId)
+  const {
+    data: dataFreelancerHabilidades,
+    isLoading: isLoadingFreelancerHabilidades,
+  } = useQuery(["consultar freelancer habilidades"], () =>
+    listHabilidadesByUserId(userId)
   );
 
-  const { data: dataHabilidade, isLoading: isLoadingHabilidade } = useQuery(
-    ["consultar habilidade"],
-     () =>  (userId)
-  );
-
-  // const {data: datahabilidade}
-
-
+  
   if (isLoadingFreelancerHabilidades) {
     return <div>Loading...</div>;
   }
