@@ -1,4 +1,4 @@
-package com.nexum.backend.domain.controle.acesso.controller.shared.user;
+package com.nexum.backend.controller.shared.user;
 
 
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;

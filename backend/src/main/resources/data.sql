@@ -1,6 +1,6 @@
 		INSERT INTO TB_USERS (NOME, EMAIL, SENHA, CELULAR, SOBRE, IS_LOGGED) VALUES
 		('Guilherme','guilherme@hotmail.com', '123' ,'11 997368699', 'O Homem mais lindo da terra!', false),
-		('Vinicius','vinicius@hotmail.com', '123' ,'11 987368699', 'Homem fofo', false);
+            ('Vinicius','vinicius@hotmail.com', '123' ,'11 987368699', 'Homem fofo', false);
 
 		INSERT INTO TB_ROLE (ROLE_NAME) VALUES
 		('ROLE_ADMIN'),('ROLE_CONTRATANTE'),('ROLE_FREELANCER');

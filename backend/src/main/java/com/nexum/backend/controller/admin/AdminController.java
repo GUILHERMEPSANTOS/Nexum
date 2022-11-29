@@ -1,4 +1,4 @@
-package com.nexum.backend.domain.controle.acesso.controller.admin;
+package com.nexum.backend.controller.admin;
 
 import com.nexum.backend.services.admin.interfaces.AdminServicePort;
 

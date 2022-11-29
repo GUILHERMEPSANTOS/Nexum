@@ -1,4 +1,4 @@
-package com.nexum.backend.domain.controle.acesso.controller.shared;
+package com.nexum.backend.controller.shared;
 
 // TODO: 12/11/2022 essa classe não deve ficar na controller criar um pacote de infra e deixar os metodos staticos
 public class ListObj <T> {

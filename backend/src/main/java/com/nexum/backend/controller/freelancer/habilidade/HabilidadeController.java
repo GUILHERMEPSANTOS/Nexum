@@ -1,4 +1,4 @@
-package com.nexum.backend.domain.controle.acesso.controller.freelancer.habilidade;
+package com.nexum.backend.controller.freelancer.habilidade;
 
 
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeDTO;

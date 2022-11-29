@@ -1,4 +1,4 @@
-package com.nexum.backend.domain.controle.acesso.controller.shared.controle.acesso;
+package com.nexum.backend.controller.shared.controle.acesso;
 
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignOutDTO;

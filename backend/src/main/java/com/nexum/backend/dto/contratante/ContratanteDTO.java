@@ -18,6 +18,7 @@ public class ContratanteDTO {
     private String senha;
     private String celular;
     private Boolean isLogged;
+    private String sobre;
     private EnderecoDTO endereco;
     private Collection<MatchDTO> matchs = new ArrayList<>();
     public Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
@@ -33,6 +34,7 @@ public class ContratanteDTO {
             String senha,
             String celular,
             Boolean isLogged,
+            String sobre,
             EnderecoDTO endereco,
             Collection<MatchDTO> matchs,
             Collection<SocialUserDTO> socialsUserDTO
@@ -43,6 +45,7 @@ public class ContratanteDTO {
         this.senha = senha;
         this.celular = celular;
         this.isLogged = isLogged;
+        this.sobre = sobre;
         this.endereco = endereco;
         this.matchs = matchs;
         this.socialsUserDTO = socialsUserDTO;
@@ -125,5 +128,13 @@ public class ContratanteDTO {
 
     public String getRole() {
         return RoleName.ROLE_CONTRATANTE.toString();
+    }
+
+    public String getSobre() {
+        return sobre;
+    }
+
+    public void setSobre(String sobre) {
+        this.sobre = sobre;
     }
 }

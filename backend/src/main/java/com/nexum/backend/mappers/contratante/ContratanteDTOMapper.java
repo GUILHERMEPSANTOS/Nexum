@@ -20,6 +20,7 @@ public class ContratanteDTOMapper {
                 contratanteEntity.getSenha(),
                 contratanteEntity.getCelular(),
                 contratanteEntity.getLogged(),
+                contratanteEntity.getSobre(),
                 EnderecoDTOMapper.toEnderecoDTOMapper(contratanteEntity.getEndereco()),
                 MatchDTOMapper.toCollectionMatchDTO(contratanteEntity.getMatch()),
                 SocialUserDTOMapper.toCollectionSocialUserDTO(contratanteEntity.getSocialUsers())
