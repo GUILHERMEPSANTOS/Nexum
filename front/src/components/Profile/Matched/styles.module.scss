@@ -1,0 +1,25 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.container {
+margin: 0 auto;
+height: 80%;
+width: 80%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin-top: 10%;
+.sorry {
+color: $white;
+font-size: 10rem;
+margin: 20px;
+}
+.img {
+  background-color: $white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+}

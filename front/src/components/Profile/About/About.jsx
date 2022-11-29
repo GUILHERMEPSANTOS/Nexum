@@ -14,10 +14,11 @@ import Title from "../../Title/Title";
 import List from "../List/List";
 
 import styles from "./styles.module.scss";
-import { listHabilidadesByUserId } from "../../../services/Freelancer/habilidades";
+import { putMatchRequest } from "../../../services/Freelancer/match/freelancer";
 
 const About = ({
   isOtherView,
+  idCompany,
   isCompanyProfile,
   canEdit = true,
   nomeCompany,
@@ -47,9 +48,16 @@ const About = ({
     async () => await listSocialByUserId(userId)
   );
 
-  if (isLoadingSocial) {
+  const handleMatchConfirm = useCallback(async () => {
+    await putMatchRequest({ id_freelancer: userId, id_contratante: idCompany });
+  },[userId, idCompany])
+  if (isLoadingSocial ) {
     return <div>Loding...</div>;
   }
+
+
+
+
   return (
     <>
       <section className={styles.container}>
@@ -86,9 +94,9 @@ const About = ({
             )}
           </div>
           {isOtherView && (
-            <div className={styles.actions}>
-              <Link to="/propostas">
-                <button>
+            <div  className={styles.actions}>
+              <Link onClick={handleMatchConfirm} to="/propostas">
+                <button  >
                   <img src="../../assets/icons/like.svg" />
                 </button>
               </Link>
