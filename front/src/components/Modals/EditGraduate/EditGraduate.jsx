@@ -13,6 +13,7 @@ const EditGraduate = ({
   setActualState,
   add,
   edit,
+  idFormacao,
   refetch = () => {},
 }) => {
   const [curso, setCurso] = useState();
@@ -98,7 +99,7 @@ const EditGraduate = ({
       sobre,
       data_inicial: dataInicio,
       data_final: dataFinal,
-      id: userId,
+      id: idFormacao,
     });
   }, [curso, cidade, estado]);
   return (

@@ -13,7 +13,7 @@ const Experience = ({ canEdit = true }) => {
   const [editExperience, setEditExperience] = useState(false);
   const [add, setAdd] = useState(false);
   const [edit, setEdit] = useState(false);
-
+  const [idExperiencia, setIdExperiencia] = useState(false);
   const userId = useMemo(() => localStorage.getItem("user_id"));
 
   const { data, isLoading, refetch } = useQuery(
@@ -24,7 +24,7 @@ const Experience = ({ canEdit = true }) => {
   if (isLoading) {
     return <div>Loding...</div>;
   }
-  
+
   return (
     <>
       <section className={styles.container}>
@@ -53,6 +53,7 @@ const Experience = ({ canEdit = true }) => {
             data_final,
             sobre,
             data_inicial,
+            id_experiencia,
           }) => (
             <div>
               <div className={styles.wrapperContainer}>
@@ -75,6 +76,7 @@ const Experience = ({ canEdit = true }) => {
                         setEdit(true);
                         setAdd(false);
                         setEditExperience(true);
+                        setIdExperiencia(id_experiencia);
                       }}
                       className={styles.editIcon}
                       src="../../assets/icons/edit.svg"
@@ -93,6 +95,7 @@ const Experience = ({ canEdit = true }) => {
       </section>
       {editExperience && (
         <EditExperience
+          idExperiencia={idExperiencia}
           edit={edit}
           add={add}
           refetch={refetch}

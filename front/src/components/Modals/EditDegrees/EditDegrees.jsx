@@ -14,6 +14,7 @@ const EditDegrees = ({
   setActualState,
   add,
   edit,
+  idCertificado,
   refetch = () => {},
 }) => {
   const [curso, setCurso] = useState();
@@ -75,7 +76,7 @@ const EditDegrees = ({
       cidade,
       estado,
       certificacao_url: urlCertificado,
-      id: userId,
+      id: idCertificado,
     });
   }, [curso, cidade, estado]);
 
