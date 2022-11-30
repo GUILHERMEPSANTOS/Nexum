@@ -44,6 +44,11 @@ public class FreelancerService implements FreelancerServicePort {
     }
 
     @Override
+    public Integer countNumberFreelancers() {
+        return springFreelancerRepository.countNumberFreelancers();
+    }
+
+    @Override
     public FreelancerDTO getById(Long id) {
 
         Optional<FreelancerEntity> optionalFreelancer = springFreelancerRepository.findById(id);

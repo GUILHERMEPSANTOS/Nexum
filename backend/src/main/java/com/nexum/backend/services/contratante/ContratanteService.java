@@ -55,6 +55,11 @@ public class ContratanteService implements ContratanteServicePort {
     }
 
     @Override
+    public Integer countNumberContratantes() {
+        return springContratanteRepository.countNumberContratantes();
+    }
+
+    @Override
     public ContratanteDTO getById(Long id) {
         Optional<ContratanteEntity> contratanteEntity = springContratanteRepository.findById(id);
 

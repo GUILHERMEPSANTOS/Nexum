@@ -1,8 +1,68 @@
 _type: export
 __export_format: 4
-__export_date: 2022-11-29T22:57:19.326Z
+__export_date: 2022-11-29T23:58:46.940Z
 __export_source: insomnia.desktop.app:v2022.6.0
 resources:
+  - _id: req_0a4e3a39f0e94f78bb612a8a1806fb6f
+    parentId: fld_3785f8f17b55415f922274658bc43668
+    modified: 1669766262511
+    created: 1669766221913
+    url: "{{ _.api }}api/v1/dashboard/count-contratantes"
+    name: countNumberContratantes
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1669766221913
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_3785f8f17b55415f922274658bc43668
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1669766182305
+    created: 1669766182305
+    name: Shared
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1669766182306
+    _type: request_group
+  - _id: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    parentId: null
+    modified: 1664495971888
+    created: 1664495971888
+    name: Nexum
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_d453862ea76b438abb595c958215db67
+    parentId: fld_3785f8f17b55415f922274658bc43668
+    modified: 1669766244238
+    created: 1669766183588
+    url: "{{ _.api }}api/v1/dashboard/count-freelancers"
+    name: countNumberFreelancers
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1669766183588
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
   - _id: req_c3b14cdeade24bceaef670dd2eacfaa9
     parentId: fld_03f2cb694b544cdabda590839175c50e
     modified: 1669758543774
@@ -43,14 +103,37 @@ resources:
     environmentPropertyOrder: null
     metaSortKey: -1668360144645
     _type: request_group
-  - _id: wrk_4ef7a71d3c754d72a14d33e76be8b28f
-    parentId: null
-    modified: 1664495971888
-    created: 1664495971888
-    name: Nexum
+  - _id: req_858b83d9f8084a0b9566324869ef5235
+    parentId: fld_a6a239fd97714aaaa2b3f9007a703be1
+    modified: 1669765284859
+    created: 1669765260298
+    url: "{{ _.api }}api/v1/admin/"
+    name: CountNumberContratantes
     description: ""
-    scope: collection
-    _type: workspace
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1669765260298
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_a6a239fd97714aaaa2b3f9007a703be1
+    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
+    modified: 1668289178295
+    created: 1668289178295
+    name: Admin
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1668289178295
+    _type: request_group
   - _id: req_722f2eb0878e40f38f331314fa4c46dc
     parentId: fld_a6a239fd97714aaaa2b3f9007a703be1
     modified: 1668289216253
@@ -72,19 +155,9 @@ resources:
     settingRebuildPath: true
     settingFollowRedirects: global
     _type: request
-  - _id: fld_a6a239fd97714aaaa2b3f9007a703be1
-    parentId: wrk_4ef7a71d3c754d72a14d33e76be8b28f
-    modified: 1668289178295
-    created: 1668289178295
-    name: Admin
-    description: ""
-    environment: {}
-    environmentPropertyOrder: null
-    metaSortKey: -1668289178295
-    _type: request_group
   - _id: req_6dda8bfe006c4ed2b7736b25edf479b1
     parentId: fld_820399f46119430eac7020b56aa7010e
-    modified: 1669750302341
+    modified: 1669766271933
     created: 1668269190110
     url: "{{ _.api }}api/v1/contratante/create-account"
     name: createAccount
@@ -809,7 +882,7 @@ resources:
     _type: request
   - _id: req_5d1c4c5425e24702845fbde54fc3cbd3
     parentId: fld_fa0add5deeb148e58a8a0ebc77dd4a69
-    modified: 1669677818577
+    modified: 1669766267792
     created: 1669489566921
     url: "{{ _.api }}api/v1/social-user/2"
     name: AddOrUpdateSocialToUser
@@ -937,7 +1010,7 @@ resources:
     _type: request_group
   - _id: req_52e9179fde6543d29bdd3f2f5b47f4ae
     parentId: fld_09a7e9a3c387496b8d52c198674824d6
-    modified: 1669757188129
+    modified: 1669766266202
     created: 1669684538602
     url: "{{ _.api }}api/v1/user/update-sobre"
     name: updateAboutUser
@@ -948,7 +1021,7 @@ resources:
       text: |-
         {
         	"id_user": 2,
-        	"sobre": "Deu certo"
+        	"sobre": "s s"
         }
     parameters: []
     headers:

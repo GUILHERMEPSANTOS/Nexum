@@ -16,12 +16,6 @@ public interface SpringUserRepository extends JpaRepository<UserEntity, Long> {
 
     Optional<UserEntity> findByEmail(String email);
 
-//    @Query("select count(u.freelacer) from UserEntity u")
-//    Integer countNumberFreelancers();
-//
-//    @Query("select count(*) from UserEntity u where u.id_usuario = ")
-//    Integer countNumberContratantes();
-
     @Query("select u.sobre from UserEntity u where u.id_usuario = :id_user")
     String getAboutUser(@Param("id_user") Long id_user);
 

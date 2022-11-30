@@ -9,5 +9,6 @@ public interface ContratanteServicePort {
 
     Collection<ContratanteDTO> listAll();
 
+    Integer countNumberContratantes();
     ContratanteDTO getById(Long id);
 }
