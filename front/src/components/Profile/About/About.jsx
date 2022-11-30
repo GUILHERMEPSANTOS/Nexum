@@ -15,6 +15,7 @@ import List from "../List/List";
 
 import styles from "./styles.module.scss";
 import { putMatchRequest } from "../../../services/Freelancer/match/freelancer";
+import { getAboutUser } from "../../../services/Freelancer/user";
 
 const About = ({
   isOtherView,
@@ -42,21 +43,30 @@ const About = ({
   const {
     data: dataSocialMedia,
     isLoading: isLoadingSocial,
-    refetch,
+    refetch: refetchSocial,
   } = useQuery(
     ["consultar redes"],
     async () => await listSocialByUserId(userId)
   );
 
+
+
   const handleMatchConfirm = useCallback(async () => {
     await putMatchRequest({ id_freelancer: userId, id_contratante: idCompany });
   },[userId, idCompany])
-  if (isLoadingSocial ) {
+
+  const {
+    data: dataAbout,
+    isLoading: isLoadingAbout,
+    refetch: refetchAbout,
+  } = useQuery(
+    ["consultar about"],
+    async () => await getAboutUser(userId)
+  );
+
+  if (isLoadingSocial || isLoadingAbout) {
     return <div>Loding...</div>;
   }
-
-
-
 
   return (
     <>
@@ -119,8 +129,7 @@ const About = ({
             <Text text={sobreCompany} />
           ) : (
             <Text
-              text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget urna egestas.
-Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique. Sed molestie leo eget urna egestas tristique."
+              text={dataAbout?.data}
             />
           )}
           {canEdit && (
@@ -171,7 +180,7 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
         </div>
       </section>
       {editAbout && (
-        <EditProfile actualState={editAbout} setActualState={setEditAbout} />
+        <EditProfile refetch={refetchAbout} actualState={editAbout} setActualState={setEditAbout} />
       )}
       {editData && (
         <EditData actualState={editData} setActualState={setEditData} />
@@ -180,7 +189,7 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
         <EditSocialMedia
           actualState={editSocial}
           setActualState={setEditSocial}
-          refetch={refetch}
+          refetch={refetchSocial}
         />
       )}
     </>
