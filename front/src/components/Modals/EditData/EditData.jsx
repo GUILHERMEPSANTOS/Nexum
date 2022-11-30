@@ -6,8 +6,7 @@ import { useState } from "react";
 
 const EditData = ({ actualState, setActualState }) => {
   const [nome, setNome] = useState();
-  const [estado, setEstado] = useState();
-  const [cidade, setCidade] = useState();
+  const [cep, setCep] = useState();
   const [marketing, setMarketing] = useState();
   const [programador, setProgramador] = useState();
   const [designer, setDesigner] = useState();
@@ -31,16 +30,12 @@ console.log(page)
         <>
         <Text isSmall={true} text="Nome" />
         <input onChange={({ target }) => setNome(target.value)} value={nome} />
-        <Text isSmall={true} text="Cidade" />
+        <Text isSmall={true} text="CEP" />
         <input
-          onChange={({ target }) => setCidade(target.value)}
-          value={cidade}
+          onChange={({ target }) => setCep(target.value)}
+          value={cep}
         />
-        <Text isSmall={true} text="Estado" />
-        <input
-          onChange={({ target }) => setEstado(target.value)}
-          value={estado}
-        />
+      
         </>
         )}
         {page == 2 && (

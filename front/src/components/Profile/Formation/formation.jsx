@@ -14,7 +14,7 @@ const Formation = ({ canEdit = true }) => {
   const [edit, setEdit] = useState(false);
   const [idFormacao, setIdFormacao] = useState(false);
   const { data, isLoading, refetch } = useQuery(
-    ["consultar certificados"],
+    ["consultar formacao"],
     () => listFormacaoByFreelancerId(userId)
   );
 

@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 import EditDegrees from "../../Modals/EditDegrees/EditDegrees";
 import { listCertificadoByFreelancerId } from "../../../services/Freelancer/certificacao";
 import { useQuery } from "@tanstack/react-query";
+import { getDownload } from "../../../services/Importacao/freelancer";
 
 const Degrees = ({ canEdit = true }) => {
   const upload = localStorage.getItem("upload");
@@ -21,7 +22,7 @@ const Degrees = ({ canEdit = true }) => {
     async () => await listCertificadoByFreelancerId(userId)
   );
   const handleUpload = useCallback(async () => {
-    await getDonwload({ file: upload });
+    await getDownload({ file: upload });
   }, [upload]);
 
   if (isLoading) {

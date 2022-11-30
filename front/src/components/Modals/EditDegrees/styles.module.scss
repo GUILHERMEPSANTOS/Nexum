@@ -4,6 +4,8 @@
 .container {
   margin: 20px 0;
   padding-right: 5%;
+  max-height: 300px;
+  overflow-y: auto;
   > input {
     margin: 5px 0;
   }

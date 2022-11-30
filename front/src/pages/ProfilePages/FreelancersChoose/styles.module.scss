@@ -52,9 +52,12 @@
   .tooltip {
     display: none;
   }
-  .buttons {
-    display: flex;
-    width: 300px;
-    align-self: flex-end;
-  }
+}
+.buttons {
+  position: absolute;
+  right: 0;
+  display: flex;
+  width: auto;
+justify-content: space-between;
+margin: 0 60px 0 60px;
 }

@@ -8,6 +8,7 @@ import {
   putCertificado,
 } from "../../../services/Freelancer/certificacao";
 import { useMutation } from "@tanstack/react-query";
+import { postUpload } from "../../../services/Importacao/freelancer";
 
 const EditDegrees = ({
   actualState,
@@ -22,7 +23,7 @@ const EditDegrees = ({
   const [estado, setEstado] = useState();
   const [cidade, setCidade] = useState();
   const [urlCertificado, setUrlCertificado] = useState();
-  const [upload, setUpload] = useState();
+  const [file, setFile] = useState(null);
   const userId = useMemo(() => localStorage.getItem("user_id"));
 
   const { mutate: sendRequest } = useMutation(
@@ -81,9 +82,15 @@ const EditDegrees = ({
   }, [curso, cidade, estado]);
 
   const handleUpload = useCallback(async () => {
-    await setUpload({ file: upload });
-    localStorage.setItem("upload", JSON.stringify(upload));
-  }, [upload]);
+    console.log(file)
+    const formData = new FormData();
+    formData.append("file", file);
+
+    await postUpload( file);
+    
+    localStorage.setItem("upload", JSON.stringify(file));
+  }, [file]);
+
 
   return (
     <Modal
@@ -123,10 +130,10 @@ const EditDegrees = ({
         />
         <Text isSmall={true} text="Suba seu certificado" />
         <input
-          onChange={({ target }) => setUpload(target.value)}
-          value={upload}
+          onChange={({ target }) => setFile(target.files[0])}
+          // value={upload}
           type="file"
-          accept="image/png, image/jpeg"
+          // accept="image/png, image/jpeg"
         />
       </div>
       <div className={styles.buttons}>
@@ -134,7 +141,7 @@ const EditDegrees = ({
           onClick={() => {
             if (add) handlePost();
             if (edit) handlePut();
-            if (!!upload) handleUpload();
+            handleUpload();
             setActualState(false);
           }}
           isEmpty={true}

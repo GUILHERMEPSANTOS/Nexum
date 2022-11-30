@@ -15,10 +15,11 @@ import { getAboutUser } from "../../../services/Freelancer/user";
 import CardEscolha from "./Cards";
 import Button from "../../../components/Buttons/Button";
 import Modal from "../../../components/Modals/Modal";
+import { getTxt, sendTxt } from "../../../services/Importacao/freelancer";
 
 const FreelancerChoose = () => {
   const [modal, setModal] = useState(false);
-  const [upload, setUpload] = useState(false);
+  const [upload, setUpload] = useState("");
 
   const idContratante = useMemo(() => localStorage.getItem("user_id"));
 
