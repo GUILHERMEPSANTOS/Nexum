@@ -25,17 +25,12 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_usuario;
     @Column(length = 45)
-    @NotEmpty(message = "Name is required")
     private String nome;
     @Column(length = 80)
-    @NotEmpty(message = "Email is required")
-    @Email(message = "Email is invalid")
     private String email;
-    @Column(length = 100)
-    @NotEmpty(message = "Senha is required")
+    @Column(length = 20)
     private String senha;
     @Column
-    @NotEmpty(message = "celular is required")
     private String celular;
 
     @Column(length = 500)
@@ -84,10 +79,13 @@ public class UserEntity {
         this.senha = senha;
         this.celular = celular;
     }
-    public UserEntity(String nome, String email, String celular) {
-        this.nome = nome;
-        this.email = email;
+
+    public UserEntity(String celular, String email, String nome, String senha, String sobre) {
         this.celular = celular;
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+        this.sobre = sobre;
     }
 
     public Long getId_usuario() {
