@@ -3,6 +3,7 @@ package com.nexum.backend.infra.dependency.injection.shared;
 import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
 
 import com.nexum.backend.repositories.shared.social.SpringSocialRepository;
+import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
 import com.nexum.backend.services.shared.controle.acesso.ControleAcessoService;
 import com.nexum.backend.services.shared.controle.acesso.interfaces.ControleAcessoServicePort;
 
@@ -26,9 +27,13 @@ public class SharedDependencyInjection {
 
     @Bean
     UserServicePort userService(
-            SpringUserRepository springUserRepository
+            SpringUserRepository springUserRepository,
+            FreelancerServicePort freelancerServicePort
     ) {
-        return new UserService(springUserRepository);
+        return new UserService(
+                springUserRepository,
+                freelancerServicePort
+        );
     }
 
     @Bean
