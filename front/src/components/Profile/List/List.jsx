@@ -3,11 +3,12 @@ import Title from "../../Title/Title";
 import styles from "./styles.module.scss";
 
 const List = ({ title = "", list }) => {
+
   return (
     <section className={styles.container}>
       <Title text={title} />
       <ul className={styles.listItemsContainer}>
-        {list.map(
+        {list?.map(
           ({ name, icon, date, number, rate, text, social, nome }, i) => {
             return (
               <li key={`${name} - ${i}`} className={styles.listItems}>

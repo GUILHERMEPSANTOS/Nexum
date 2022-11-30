@@ -8,11 +8,13 @@ const Company = ({
   enderecoCompany,
   sobreCompany,
   socialCompany,
+  idCompany,
   isOtherView,
   canEdit,
 }) => {
   return (
     <About
+      idCompany={idCompany}
       nomeCompany={nomeCompany}
       emailCompany={emailCompany}
       enderecoCompany={enderecoCompany}

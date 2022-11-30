@@ -22,12 +22,13 @@ public class FreelancerDTO {
     private String celular;
     private Boolean isLogged;
     private EnderecoDTO endereco;
+    private RoleName role;
+    private String sobre;
     private Collection<ExperienciaDTO> experienciasDTO;
     private Collection<FormacaoDTO> formacoesDTO;
     private Collection<HabilidadeFreelancerDTO> habilidades_freelancer = new ArrayList<>();
     private Collection<MatchDTO> matchs = new ArrayList<>();
     private Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
-    private RoleName role;
 
     public FreelancerDTO() {
     }
@@ -38,6 +39,7 @@ public class FreelancerDTO {
             String senha,
             String celular,
             Boolean isLogged,
+            String sobre,
             EnderecoDTO endereco,
             Collection<HabilidadeFreelancerDTO> habilidades_freelancer,
             Collection<MatchDTO> matchs,
@@ -51,6 +53,7 @@ public class FreelancerDTO {
         this.senha = senha;
         this.celular = celular;
         this.isLogged = isLogged;
+        this.sobre = sobre;
         this.endereco = endereco;
         this.habilidades_freelancer = habilidades_freelancer;
         this.matchs = matchs;
@@ -161,5 +164,13 @@ public class FreelancerDTO {
 
     public String getRole() {
         return RoleName.ROLE_FREELANCER.toString();
+    }
+
+    public String getSobre() {
+        return sobre;
+    }
+
+    public void setSobre(String sobre) {
+        this.sobre = sobre;
     }
 }

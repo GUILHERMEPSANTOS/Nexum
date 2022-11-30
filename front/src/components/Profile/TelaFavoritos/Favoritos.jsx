@@ -11,18 +11,20 @@ const FavoritosMain = () => {
           alt="Foto de perfil user"
           className={styles.imgUser}
         />
-        <p className={styles.nickName}>Abel Medeiros</p>
-        <ul className={styles.fonte}>
-          <li>
-            <img
-              src="../../../../assets/icons/location.png"
-              alt="Icon de localização"
-              className={styles.iconLocalizacao}
-            />
-            Mauá, São Paulo
-          </li>
-          <li>Designer</li>
-        </ul>
+        <div>
+          <p className={styles.nickName}>Abel Medeiros</p>
+          <ul className={styles.fonte}>
+            <li>
+              <img
+                src="../../../../assets/icons/location.png"
+                alt="Icon de localização"
+                className={styles.iconLocalizacao}
+              />
+              Mauá, São Paulo
+            </li>
+            <li>Designer</li>
+          </ul>
+        </div>
       </div>
       <div className={styles.containerDecritivo}>
         <div className={styles.descricao}>

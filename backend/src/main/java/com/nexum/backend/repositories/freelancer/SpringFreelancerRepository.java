@@ -2,14 +2,11 @@ package com.nexum.backend.repositories.freelancer;
 
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
 
 public interface SpringFreelancerRepository extends JpaRepository<FreelancerEntity, Long> {
-//    @Transactional
+
+    //    @Transactional
 //    @Modifying
 //    @Query("update FreelancerEntity f " +
 //                "set f.endereco.cidade = :cidade, " +
@@ -21,4 +18,6 @@ public interface SpringFreelancerRepository extends JpaRepository<FreelancerEnti
 //            @Param("id_freelancer") Long id_freelancer
 //    );
 
+    @Query("select count(*) from FreelancerEntity")
+    Integer countNumberFreelancers();
 }

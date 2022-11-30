@@ -3,13 +3,9 @@ package com.nexum.backend.services.admin;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 import com.nexum.backend.domain.controle.acesso.UserEntity;
 import com.nexum.backend.domain.endereco.EnderecoEntity;
-import com.nexum.backend.dto.contratante.ContratanteDTO;
-import com.nexum.backend.dto.freelancer.FreelancerDTO;
-import com.nexum.backend.dto.shared.UserDTO;
+
 import com.nexum.backend.infra.files.helperFile.CSVhelper;
-import com.nexum.backend.mappers.contratante.ContratanteDTOMapper;
-import com.nexum.backend.mappers.freelancer.FreelancerDTOMapper;
-import com.nexum.backend.mappers.shared.UserDTOMapper;
+
 import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
 import com.nexum.backend.services.admin.interfaces.AdminServicePort;
 import org.springframework.core.io.InputStreamResource;
@@ -24,7 +20,6 @@ import java.util.stream.Collectors;
 
 public class AdminService implements AdminServicePort {
     private SpringUserRepository springUserRepository;
-
 
     public AdminService(SpringUserRepository springUserRepository) {
         this.springUserRepository = springUserRepository;
@@ -42,8 +37,7 @@ public class AdminService implements AdminServicePort {
         // try-catch para abrir o arquivo
         try {
             saida = new BufferedWriter(new FileWriter(nomeArq, true));
-        }
-        catch (IOException erro) {
+        } catch (IOException erro) {
             System.out.println("Erro ao abrir o arquivo");
             erro.printStackTrace();
         }
@@ -52,12 +46,12 @@ public class AdminService implements AdminServicePort {
         try {
             saida.append(registro + "\n");
             saida.close();
-        }
-        catch (IOException erro) {
+        } catch (IOException erro) {
             System.out.println("Erro ao gravar o arquivo");
             erro.printStackTrace();
         }
     }
+
     public void gravaArquivoTxt(Collection<UserEntity> lista, String nomeArq) {
         int contaRegDados = 0;
 
@@ -92,7 +86,7 @@ public class AdminService implements AdminServicePort {
     public void leArquivoTxt(String nomeArq) {
         BufferedReader entrada = null;
         String registro, tipoRegistro;
-        String nome, senha, email, celular, sobre,cidade, estado;
+        String nome, senha, email, celular, sobre, cidade, estado;
         Integer contaRegDadoLido = 0;
         Integer qtdRegDadoGravadoTrailer;
 
@@ -102,15 +96,14 @@ public class AdminService implements AdminServicePort {
         // try-catch para abrir o arquivo
         try {
             entrada = new BufferedReader(new FileReader(nomeArq));
-        }
-        catch (IOException erro) {
+        } catch (IOException erro) {
             System.out.println("Erro ao abrir o arquivo!");
             erro.printStackTrace();
         }
 
         // try-catch para ler e fechar o arquivo
         try {
-            registro = entrada.readLine();       // Lê o 1o registro
+            registro = entrada.readLine(); // Lê o 1o registro
 
             while (registro != null) {
                 // enquanto não chegou ao final do arquivo
@@ -119,28 +112,25 @@ public class AdminService implements AdminServicePort {
                 // 00NOTA20222
                 // substring - 1o argumento é o índice de onde quero obter
                 // substring - 2o argumento é o índice de até onde quero + 1
-                tipoRegistro = registro.substring(0,2);
+                tipoRegistro = registro.substring(0, 2);
                 if (tipoRegistro.equals("00")) {
                     System.out.println("Registro de header");
-                    System.out.println("Tipo de arquivo: " + registro.substring(2,6));
-                    System.out.println("Ano e semestre: " + registro.substring(6,11));
-                    System.out.println("Data e hora de gravação: " + registro.substring(11,30));
-                    System.out.println("Versão do documento: " + registro.substring(30,32));
+                    System.out.println("Tipo de arquivo: " + registro.substring(2, 6));
+                    System.out.println("Ano e semestre: " + registro.substring(6, 11));
+                    System.out.println("Data e hora de gravação: " + registro.substring(11, 30));
+                    System.out.println("Versão do documento: " + registro.substring(30, 32));
 
-                }
-                else if (tipoRegistro.equals("01")) {
+                } else if (tipoRegistro.equals("01")) {
                     System.out.println("Registro de trailer");
                     qtdRegDadoGravadoTrailer = Integer.valueOf(registro.substring(2, 12));
                     if (contaRegDadoLido == qtdRegDadoGravadoTrailer) {
                         System.out.println("Quantidade de registros lidos compatível com " +
                                 "quantidade de registros gravados");
-                    }
-                    else {
+                    } else {
                         System.out.println("Quantidade de registros lidos incompatível com " +
                                 "quantidade de registros gravados");
                     }
-                }
-                else if (tipoRegistro.equals("02")) {
+                } else if (tipoRegistro.equals("02")) {
                     System.out.println("Registro de corpo");
                     nome = registro.substring(2, 47).trim();
                     senha = registro.substring(47, 57).trim();
@@ -153,21 +143,18 @@ public class AdminService implements AdminServicePort {
                     // Incrementa o contador de registros lidos
                     contaRegDadoLido++;
 
-                    UserEntity userEntity = new UserEntity(celular,email,nome, senha, sobre);
+                    UserEntity userEntity = new UserEntity(celular, email, nome, senha, sobre);
                     userEntity = new UserEntity(new EnderecoEntity(cidade, estado).getId_endereco());
 
-
                     springUserRepository.save(userEntity);
-                }
-                else {
+                } else {
                     System.out.println("Tipo de registro inválido!");
                 }
                 // Lê o próximo registro
                 registro = entrada.readLine();
             }
             entrada.close();
-        }
-        catch (IOException erro) {
+        } catch (IOException erro) {
             System.out.println("Erro ao ler o arquivo");
             erro.printStackTrace();
         }
@@ -180,9 +167,17 @@ public class AdminService implements AdminServicePort {
     }
 
     public Collection<UserEntity> listAll() {
-            return springUserRepository.findAll();
-
+        return springUserRepository.findAll();
 
     }
 
+    @Override
+    public Integer countNumberFreelancers() {
+        return null;
+    }
+
+    @Override
+    public Integer countNumberContratantes() {
+        return null;
+    }
 }

@@ -7,4 +7,5 @@ import java.util.Collection;
 public  interface HabilidadeServicePort {
     Collection<HabilidadeDTO> listAllHabilidades();
     Boolean existsHabilidadeById(Long id_habilidade);
+    HabilidadeDTO getHabilidadeById(Long id_habilidade);
 }

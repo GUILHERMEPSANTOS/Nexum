@@ -12,5 +12,6 @@ public interface AdminServicePort {
     void gravaArquivoTxt(Collection<UserEntity> lista, String nomeArq);
     void leArquivoTxt(String nomeArq);
     Collection<UserEntity> listAll();
-
+    Integer countNumberFreelancers();
+    Integer countNumberContratantes();
 }

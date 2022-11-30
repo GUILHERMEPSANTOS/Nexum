@@ -2,10 +2,11 @@ import { useMemo } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import { getMatchsRequestByFreelancerId } from "../../../services/Freelancer/match/freelancer";
-
-import { Link } from "react-router-dom";
+import { OPTIONS } from "./constants";
+import styles from "./styles.module.scss";
 
 import Company from "../../../pages/Profile/Company/Company";
+import Header from "../../Header/Header";
 
 const Matched = () => {
   const userId = useMemo(() => localStorage.getItem("user_id"));
@@ -18,10 +19,14 @@ const Matched = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+  console.log(data?.data.length)
 
   return (
     <>
-      {data?.data.map(({ email, endereco, nome, sobre, socialsUserDTO }) => {
+      <Header options={OPTIONS} buttonText="Sair" link="/" />
+      {data?.data.length > 0 ? 
+  
+      data?.data.map(({ email, endereco, nome, sobre, socialsUserDTO, id_user }) => {
         return (
           <Company
             nomeCompany={nome}
@@ -32,9 +37,18 @@ const Matched = () => {
             canEdit={false}
             isCompanyProfile={true}
             isOtherView={true}
+            idCompany={id_user}
           />
         );
-      })}
+      })
+      :
+      <div className={styles.container}>
+      <h1 className={styles.sorry}>Ainda não há matchs</h1>
+      <div className={styles.img}>
+      <img src="https://media.tenor.com/XqKgFl1R4YcAAAAM/peach-sad.gif"/>
+      </div>
+      </div>
+    }
     </>
   );
 };

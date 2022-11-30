@@ -41,8 +41,5 @@ export const OPTIONS = [
     name: "Favoritos",
     path: "/favoritos",
   },
-  {
-    name: "Contato",
-    path: "/",
-  },
+
 ];

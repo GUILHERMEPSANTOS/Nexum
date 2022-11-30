@@ -13,6 +13,7 @@ const EditExperience = ({
   setActualState,
   add,
   edit,
+  idExperiencia,
   refetch = () => {},
 }) => {
   const [cargo, setCargo] = useState();
@@ -68,7 +69,6 @@ const EditExperience = ({
       sobre,
       data_inicial: dataInicio,
       data_final: dataFinal,
-
       id: userId,
     });
   }, [cargo, empresa, cidade, estado]);
@@ -82,7 +82,7 @@ const EditExperience = ({
       data_inicial: dataInicio,
       data_final: dataFinal,
 
-      id: userId,
+      id: idExperiencia,
     });
   }, [cargo, empresa, cidade, estado]);
   return (

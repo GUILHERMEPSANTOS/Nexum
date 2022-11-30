@@ -18,3 +18,14 @@ export async function getMatchsRequestByFreelancerId({
 
   return response;
 }
+
+export async function putMatchRequest({
+  id_freelancer,
+  id_contratante,
+}) {
+  const response = await api.put(
+    `api/v1/freelancer/${id_freelancer}/match/accept-request/contratante/${id_contratante}`
+  );
+
+  return response;
+}

@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collection;
+import java.util.Optional;
 
 public class HabilidadeService implements HabilidadeServicePort {
     private final SpringHabilidadeRepository springHabilidadeRepository;
@@ -27,6 +28,18 @@ public class HabilidadeService implements HabilidadeServicePort {
         }
 
         return isValidId;
+    }
+
+    @Override
+    public HabilidadeDTO getHabilidadeById(Long id_habilidade) {
+
+        Optional<HabilidadeEntity> habilidadeDTO = springHabilidadeRepository.findById(id_habilidade);
+
+        if(!habilidadeDTO.isPresent()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "ID habilidade invalido");
+        }
+
+        return HabilidadeDTOMapper.toHabilidadeDTO(habilidadeDTO.get());
     }
 
     @Override

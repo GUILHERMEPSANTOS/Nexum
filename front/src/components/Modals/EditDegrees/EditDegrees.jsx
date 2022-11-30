@@ -14,6 +14,7 @@ const EditDegrees = ({
   setActualState,
   add,
   edit,
+  idCertificado,
   refetch = () => {},
 }) => {
   const [curso, setCurso] = useState();
@@ -21,6 +22,7 @@ const EditDegrees = ({
   const [estado, setEstado] = useState();
   const [cidade, setCidade] = useState();
   const [urlCertificado, setUrlCertificado] = useState();
+  const [upload, setUpload] = useState();
   const userId = useMemo(() => localStorage.getItem("user_id"));
 
   const { mutate: sendRequest } = useMutation(
@@ -66,7 +68,7 @@ const EditDegrees = ({
       id: userId,
     });
   }, [curso, cidade, estado]);
-  
+
   const handlePut = useCallback(() => {
     updateRequest({
       curso,
@@ -74,9 +76,14 @@ const EditDegrees = ({
       cidade,
       estado,
       certificacao_url: urlCertificado,
-      id: userId,
+      id: idCertificado,
     });
   }, [curso, cidade, estado]);
+
+  const handleUpload = useCallback(async () => {
+    await setUpload({ file: upload });
+    localStorage.setItem("upload", JSON.stringify(upload));
+  }, [upload]);
 
   return (
     <Modal
@@ -109,10 +116,17 @@ const EditDegrees = ({
             value={cidade}
           />
         </div>
-        <Text isSmall={true} text="Caminho para certificado" />
+        <Text isSmall={true} text="URL do certificado" />
         <input
           onChange={({ target }) => setUrlCertificado(target.value)}
           value={urlCertificado}
+        />
+        <Text isSmall={true} text="Suba seu certificado" />
+        <input
+          onChange={({ target }) => setUpload(target.value)}
+          value={upload}
+          type="file"
+          accept="image/png, image/jpeg"
         />
       </div>
       <div className={styles.buttons}>
@@ -120,6 +134,7 @@ const EditDegrees = ({
           onClick={() => {
             if (add) handlePost();
             if (edit) handlePut();
+            if (!!upload) handleUpload();
             setActualState(false);
           }}
           isEmpty={true}

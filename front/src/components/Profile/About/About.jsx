@@ -1,19 +1,25 @@
-import styles from "./styles.module.scss";
-import Title from "../../Title/Title";
-import Text from "../../Text/Text";
-import { SOCIAL_MEDIA, INFO } from "./constants";
-import List from "../List/List";
-import EditProfile from "../../Modals/EditProfile/EditProfile";
 import { useCallback, useMemo, useState } from "react";
-import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
+
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { listSocialByUserId } from "../../../services/Freelancer/social";
+
+import { Link } from "react-router-dom";
+
 import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
 import EditData from "../../Modals/EditData/EditData";
-import { Link } from "react-router-dom";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { listSocial } from "../../../services/Freelancer/social";
+import EditProfile from "../../Modals/EditProfile/EditProfile";
+import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
+import Text from "../../Text/Text";
+import Title from "../../Title/Title";
+import List from "../List/List";
+
+import styles from "./styles.module.scss";
+import { putMatchRequest } from "../../../services/Freelancer/match/freelancer";
+import { getAboutUser } from "../../../services/Freelancer/user";
 
 const About = ({
   isOtherView,
+  idCompany,
   isCompanyProfile,
   canEdit = true,
   nomeCompany,
@@ -33,14 +39,35 @@ const About = ({
   const nomeFormatted = nome.replace(/"/g, "");
   const emailFormatted = email.replace(/"/g, "");
   const userId = useMemo(() => localStorage.getItem("user_id"));
-  const { data, isLoading, refetch } = useQuery(
+
+  const {
+    data: dataSocialMedia,
+    isLoading: isLoadingSocial,
+    refetch: refetchSocial,
+  } = useQuery(
     ["consultar redes"],
-    async () => await listSocial(userId)
+    async () => await listSocialByUserId(userId)
+  );
+console.log(socialCompany)
+
+
+  const handleMatchConfirm = useCallback(async () => {
+    await putMatchRequest({ id_freelancer: userId, id_contratante: idCompany });
+  },[userId, idCompany])
+
+  const {
+    data: dataAbout,
+    isLoading: isLoadingAbout,
+    refetch: refetchAbout,
+  } = useQuery(
+    ["consultar about"],
+    async () => await getAboutUser(userId)
   );
 
-  if (isLoading) {
+  if (isLoadingSocial || isLoadingAbout) {
     return <div>Loding...</div>;
   }
+
   return (
     <>
       <section className={styles.container}>
@@ -77,9 +104,9 @@ const About = ({
             )}
           </div>
           {isOtherView && (
-            <div className={styles.actions}>
-              <Link to="/propostas">
-                <button>
+            <div  className={styles.actions}>
+              <Link onClick={handleMatchConfirm} to="/propostas">
+                <button  >
                   <img src="../../assets/icons/like.svg" />
                 </button>
               </Link>
@@ -102,8 +129,7 @@ const About = ({
             <Text text={sobreCompany} />
           ) : (
             <Text
-              text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique ed molestie leo eget urna egestas tristique lacus in quam laoreet eget urna egestas tristique ed molestie leo eget urna egestas.
-Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique. Sed molestie leo eget urna egestas tristique."
+              text={dataAbout?.data}
             />
           )}
           {canEdit && (
@@ -116,7 +142,9 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
           {isOtherView ? (
             <List title="Redes sociais" list={socialCompany} />
           ) : (
-            <List title="Redes sociais" list={data?.data} />
+            dataSocialMedia?.data?.length > 0 && (
+            <List title="Redes sociais" list={dataSocialMedia?.data} />
+            )
           )}
           <Title text="Email" />
           <div className={styles.socialMedia}>
@@ -153,7 +181,7 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
         </div>
       </section>
       {editAbout && (
-        <EditProfile actualState={editAbout} setActualState={setEditAbout} />
+        <EditProfile refetch={refetchAbout} actualState={editAbout} setActualState={setEditAbout} />
       )}
       {editData && (
         <EditData actualState={editData} setActualState={setEditData} />
@@ -162,7 +190,7 @@ Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie
         <EditSocialMedia
           actualState={editSocial}
           setActualState={setEditSocial}
-          refetch={refetch}
+          refetch={refetchSocial}
         />
       )}
     </>

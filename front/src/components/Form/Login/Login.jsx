@@ -9,21 +9,27 @@ import { APILogin } from "../../../services";
 import useLogin from "./hooks";
 import { useNavigate } from "react-router-dom";
 import EditPassword from "../../Modals/ResetPassword/EditPassword";
+import Modal from "../../Modals/Modal";
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [type, setType] = useState("password");
   const [editSenha, setEditSenha] = useState(false);
+  const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = useCallback(async () => {
     const handlelogin = await APILogin({ email, senha: password });
-
-    handlelogin.status == 200
+    console.log(handlelogin.status);
+    console.log(showError);
+    handlelogin.status == 200 ||
+    handlelogin.status !== "" ||
+    handlelogin.status !== null ||
+    handlelogin.status !== undefined
       ? navigate("/inicio")
-      : window.alert("Usuário ou senha incorretos");
-    console.log(handlelogin.data);
+      : setShowError(true);
+
     localStorage.setItem("name", JSON.stringify(handlelogin.data.nome));
     localStorage.setItem("user_id", JSON.stringify(handlelogin.data.id_user));
     localStorage.setItem("email", JSON.stringify(handlelogin.data.email));
@@ -87,6 +93,13 @@ const Login = () => {
         </div>
       </section>
       <EditPassword actualState={editSenha} setActualState={setEditSenha} />
+      {showError && (
+        <Modal
+          label={"Ops, senha ou usuário incorretos"}
+          actualState={showError}
+          setActualState={setShowError}
+        ></Modal>
+      )}
     </>
   );
 };

@@ -2,7 +2,7 @@ package com.nexum.backend.controller.shared.controle.acesso;
 
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignOutDTO;
-import com.nexum.backend.dto.shared.UserDTO;
+import com.nexum.backend.dto.shared.user.UserDTO;
 import com.nexum.backend.services.shared.controle.acesso.interfaces.ControleAcessoServicePort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

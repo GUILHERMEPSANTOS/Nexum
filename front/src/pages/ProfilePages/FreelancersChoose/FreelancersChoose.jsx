@@ -11,9 +11,14 @@ import ProfileContainer from "../profile";
 import Text from "../../../components/Text/Text";
 
 import styles from "./styles.module.scss";
+import { getAboutUser } from "../../../services/Freelancer/user";
+import CardEscolha from "./Cards";
+import Button from "../../../components/Buttons/Button";
+import Modal from "../../../components/Modals/Modal";
 
 const FreelancerChoose = () => {
-  const [openModal, setOpenModal] = useState(true);
+  const [modal, setModal] = useState(false);
+  const [upload, setUpload] = useState(false);
 
   const idContratante = useMemo(() => localStorage.getItem("user_id"));
 
@@ -21,62 +26,77 @@ const FreelancerChoose = () => {
     getFreelancers()
   );
 
-  const { mutate } = useMutation(({ id_freelancer, id_contratante }) =>
-    sendMatchRequest({ id_freelancer, id_contratante }),
+  const { mutate: sendMatch } = useMutation(
+    ({ id_freelancer, id_contratante }) =>
+      sendMatchRequest({ id_freelancer, id_contratante }),
     {
       onSuccess: () => {
-        alert("Sucesso")
+        alert("Sucesso");
       },
       onError: () => {
         alert("Error");
-      }
+      },
     }
   );
 
-const handleSubmit = useCallback(
-  (id_freelancer) => {
-    mutate({
-      id_freelancer,
-      id_contratante: Number(idContratante),
-    });
-  },
-  [idContratante, sendMatchRequest]
-);
+  const importTxt = useCallback(async () => {
+    await sendTxt({ file: upload });
+  }, [upload]);
+  const exportTxt = useCallback(async () => {
+    await getTxt();
+  }, []);
 
-if (isLoading) {
-  return <div>Loading...</div>;
-}
+  const handleSubmit = useCallback(
+    (id_freelancer) => {
+      sendMatch({
+        id_freelancer,
+        id_contratante: Number(idContratante),
+      });
+    },
+    [idContratante, sendMatchRequest]
+  );
 
-return (
-  <>
-    <ProfileContainer>
-      <div className={styles.cardWrapper}>
-        <div className={styles.cardContainer}>
-          <CardWithInfo data={data?.data ?? []} />
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <>
+      <ProfileContainer>
+        <div className={styles.cardWrapper}>
+          <div className={styles.cardContainer}>
+            <CardWithInfo data={data?.data ?? []} />
+          </div>
+          <div className={styles.cardContainerInfo}>
+            {data?.data?.map(({ nome, id_user }, i) => (
+              <CardEscolha id_user={id_user} />
+            ))}
+          </div>
         </div>
-        <div className={styles.cardContainerInfo}>
-          {data?.data?.map(({ nome, id_user }, i) => (
-            <div key={i}>
-              <div className={styles.actions}>
-                <button onClick={() => handleSubmit(id_user)}>
-                  <img src="../../assets/icons/like.svg" />
-                </button>
-                <button>
-                  <img src="../../assets/icons/save.svg" />
-                </button>
-              </div>
-              <Text isSmall={true} text={nome} />
-
-              <Text isSmall={true} text={"Ver perfil"} />
-              {/* <List list={habilidades} /> */}
-            </div>
-          ))}
+        <div className={styles.buttons}>
+          <Button onClick={() => setModal(true)} text="Importar txt" />
+          <Modal actualState={modal} setActualState={setModal}>
+            <input
+              onChange={({ target }) => setUpload(target.value)}
+              value={upload}
+              type="file"
+              accept="text/plain, .csv"
+            />
+            <Button
+              onClick={() => {
+                setModal(false);
+                importTxt();
+              }}
+              isEmpty={true}
+              text="Salvar"
+            />
+          </Modal>
+          <Button onClick={exportTxt} text="Exportar txt" />
         </div>
-      </div>
-    </ProfileContainer>
-    {/* <CreateOffer actualState={openModal} setActualState={setOpenModal} /> */}
-  </>
-);
+      </ProfileContainer>
+      {/* <CreateOffer actualState={openModal} setActualState={setOpenModal} /> */}
+    </>
+  );
 };
 
 export default FreelancerChoose;

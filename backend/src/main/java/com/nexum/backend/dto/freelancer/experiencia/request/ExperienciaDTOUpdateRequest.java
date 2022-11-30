@@ -11,6 +11,9 @@ public class ExperienciaDTOUpdateRequest {
     private LocalDate data_inicial;
     private LocalDate data_final;
 
+    public ExperienciaDTOUpdateRequest() {
+    }
+
     public ExperienciaDTOUpdateRequest(
             String cargo,
             String empresa,

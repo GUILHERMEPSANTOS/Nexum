@@ -15,7 +15,8 @@ public class HabilidadeFreelancerDTOMapper {
                 habilidadeFreelancerEntity.getId_habilidade_freelancer(),
                 habilidadeFreelancerEntity.getFreelancer().getId_usuario(),
                 habilidadeFreelancerEntity.getHabilidade().getId_habilidade(),
-                habilidadeFreelancerEntity.getHasHabilidade()
+                habilidadeFreelancerEntity.getHasHabilidade(),
+                habilidadeFreelancerEntity.getHabilidade().getNome()
         );
     }
 

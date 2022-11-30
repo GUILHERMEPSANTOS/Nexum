@@ -12,6 +12,7 @@ const Formation = ({ canEdit = true }) => {
   const userId = useMemo(() => localStorage.getItem("user_id"));
   const [add, setAdd] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [idFormacao, setIdFormacao] = useState(false);
   const { data, isLoading, refetch } = useQuery(
     ["consultar certificados"],
     () => listFormacaoByFreelancerId(userId)
@@ -48,12 +49,18 @@ const Formation = ({ canEdit = true }) => {
             data_final,
             sobre,
             data_inicial,
+            id_formacao,
           }) => (
             <div>
               {canEdit && (
                 <div className={styles.edit}>
                   <img
-                    onClick={() => setEditGraduate(true)}
+                    onClick={() => {
+                      setEditGraduate(true);
+                      setAdd(false);
+                      setEdit(true);
+                      setIdFormacao(id_formacao);
+                    }}
                     className={styles.editIcon}
                     src="../../assets/icons/edit.svg"
                   />
@@ -75,7 +82,12 @@ const Formation = ({ canEdit = true }) => {
                 {canEdit && (
                   <div className={styles.edit}>
                     <img
-                      onClick={() => setEditGraduate(true)}
+                      onClick={() => {
+                        setEditGraduate(true);
+                        setAdd(false);
+                        setEdit(true);
+                        setIdFormacao(id_formacao);
+                      }}
                       className={styles.editIcon}
                       src="../../assets/icons/edit.svg"
                     />
@@ -94,6 +106,7 @@ const Formation = ({ canEdit = true }) => {
       </section>
       {editGraduate && (
         <EditGraduate
+          idFormacao={idFormacao}
           edit={edit}
           add={add}
           refetch={refetch}

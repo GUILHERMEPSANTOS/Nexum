@@ -16,7 +16,7 @@ const Propostas = () => {
       <Header options={OPTIONS} buttonText="Sair" link="/" />
       <Banner>
         <div className={styles.mensagem}>
-          <Title text={` Parabens ${dataFormatted} , você fez um Match`} />
+          <Title text={` Parabéns ${dataFormatted} , você fez um Match`} />
         </div>
         <div className={styles.containerCards}>
           {TEXTS_FREELANCER.map(({ title, text, link }) => (

@@ -12,6 +12,8 @@ public interface FreelancerServicePort {
 
     Collection<FreelancerDTO> listAll();
 
+    Integer countNumberFreelancers();
+
     FreelancerDTO getById(Long id);
     void updateAddress(String cep, Long id_freelancer)  throws IOException;
 }

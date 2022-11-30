@@ -6,6 +6,7 @@ public class HabilidadeFreelancerDTO {
     private Long id_habilidade_freelancer;
     private Long id_freelancer;
     private Long id_habilidade;
+    private String nome;
     private Boolean hasHabilidade;
 
     public HabilidadeFreelancerDTO() {
@@ -15,12 +16,14 @@ public class HabilidadeFreelancerDTO {
             Long id_habilidade_freelancer,
             Long id_freelancer,
             Long id_habilidade,
-            Boolean hasHabilidade
+            Boolean hasHabilidade,
+            String nome
     ) {
         this.id_habilidade_freelancer = id_habilidade_freelancer;
         this.id_freelancer = id_freelancer;
         this.id_habilidade = id_habilidade;
         this.hasHabilidade = hasHabilidade;
+        this.nome = nome;
     }
 
     public Long getId_habilidade_freelancer() {
@@ -53,5 +56,13 @@ public class HabilidadeFreelancerDTO {
 
     public void setHasHabilidade(Boolean hasHabilidade) {
         this.hasHabilidade = hasHabilidade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

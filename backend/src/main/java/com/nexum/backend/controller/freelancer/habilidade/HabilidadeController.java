@@ -20,11 +20,18 @@ public class HabilidadeController {
         this.habilidadeServicePort = habilidadeServicePort;
     }
 
-
     @GetMapping
     public ResponseEntity<Collection<HabilidadeDTO>> list() {
         Collection<HabilidadeDTO> habilidades = habilidadeServicePort.listAllHabilidades();
 
         return ResponseEntity.status(200).body(habilidades);
     }
+
+    @GetMapping("{id_habilidade}")
+    public ResponseEntity<HabilidadeDTO> getHabilidadeById(@PathVariable Long id_habilidade) {
+        HabilidadeDTO habilidade = habilidadeServicePort.getHabilidadeById(id_habilidade);
+
+        return ResponseEntity.status(200).body(habilidade);
+    }
+
 }

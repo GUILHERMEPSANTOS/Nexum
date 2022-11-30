@@ -11,8 +11,6 @@ import java.util.stream.Collectors;
 
 public class ContratanteDTOMapper {
     public static ContratanteDTO toContratanteDTO(ContratanteEntity contratanteEntity) {
-
-
         return new ContratanteDTO(
                 contratanteEntity.getId_usuario(),
                 contratanteEntity.getNome(),
@@ -20,6 +18,7 @@ public class ContratanteDTOMapper {
                 contratanteEntity.getSenha(),
                 contratanteEntity.getCelular(),
                 contratanteEntity.getLogged(),
+                contratanteEntity.getSobre(),
                 EnderecoDTOMapper.toEnderecoDTOMapper(contratanteEntity.getEndereco()),
                 MatchDTOMapper.toCollectionMatchDTO(contratanteEntity.getMatch()),
                 SocialUserDTOMapper.toCollectionSocialUserDTO(contratanteEntity.getSocialUsers())

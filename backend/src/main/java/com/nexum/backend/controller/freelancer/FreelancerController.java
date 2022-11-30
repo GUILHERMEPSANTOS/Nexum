@@ -21,7 +21,7 @@ public class FreelancerController {
     }
 
     @PostMapping("create-account")
-    public ResponseEntity createContratante(@RequestBody FreelancerDTO freelancerDTO) {
+    public ResponseEntity createFreelancer(@RequestBody FreelancerDTO freelancerDTO) {
         freelancerServicePort.create(freelancerDTO);
 
         return new ResponseEntity(HttpStatus.CREATED);
