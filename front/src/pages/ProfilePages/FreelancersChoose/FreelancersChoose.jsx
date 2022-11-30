@@ -12,6 +12,7 @@ import Text from "../../../components/Text/Text";
 
 import styles from "./styles.module.scss";
 import { getAboutUser } from "../../../services/Freelancer/user";
+import CardEscolha from "./Cards";
 
 const FreelancerChoose = () => {
   const [id, setId] = useState();
@@ -61,35 +62,9 @@ return (
           <CardWithInfo data={data?.data ?? []} />
         </div>
         <div className={styles.cardContainerInfo}>
-          {data?.data?.map(({ nome, id_user }, i) => {
-           const { data: idData, isLoading: LoadingData, refetch } = useQuery(
-            ["consultar about freelas"],
-            async () => await getAboutUser(id_user)
-          );
-          // const {
-          //   data: dataFreelancerHabilidades,
-          //   isLoading: isLoadingFreelancerHabilidades,
-          // } = useQuery(["consultar freelancer habilidades"], async () =>
-          //   await listHabilidadesByUserId(id_user)
-          // );
-          
-            return(
-            <div key={i}>
-              <div className={styles.actions}>
-                <button onClick={() => handleSubmit(id_user)}>
-                  <img src="../../assets/icons/like.svg" />
-                </button>
-                <button>
-                  <img src="../../assets/icons/save.svg" />
-                </button>
-              </div>
-              <Text isSmall={true} text={idData?.data} />
-
-              {/* {dataFreelancerHabilidades?.data?.legth > 0 && (
-          <List list={dataFreelancerHabilidades?.data} />
-        )}  */}
-            </div>
-          )})}
+          {data?.data?.map(({ nome, id_user }, i) => (
+<CardEscolha id_user={id_user}/>
+          ))}
         </div>
       </div>
     </ProfileContainer>

@@ -48,7 +48,7 @@ const About = ({
     ["consultar redes"],
     async () => await listSocialByUserId(userId)
   );
-
+console.log(socialCompany)
 
 
   const handleMatchConfirm = useCallback(async () => {
@@ -142,8 +142,9 @@ const About = ({
           {isOtherView ? (
             <List title="Redes sociais" list={socialCompany} />
           ) : (
-            // <>oi</>
+            dataSocialMedia?.data?.legth > 0 && (
             <List title="Redes sociais" list={dataSocialMedia?.data} />
+            )
           )}
           <Title text="Email" />
           <div className={styles.socialMedia}>

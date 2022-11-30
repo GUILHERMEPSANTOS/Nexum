@@ -52,6 +52,7 @@ const Infos = ({ canEdit = true }) => {
         <br />
         {dataFreelancerHabilidades?.data?.legth > 0 && (
           <List list={dataFreelancerHabilidades?.data} />
+      
         )}
         <br />
         <Text text="Consquistas" />
