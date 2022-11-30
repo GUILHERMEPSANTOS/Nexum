@@ -1,15 +1,9 @@
 import { api } from "../api";
 
-const postUpload = async ( file ) => {
-
-
+const postUpload = async (file) => {
   try {
-    const response = await api.post(`/upload`, {
-      data: file,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    api.defaults.
+    const response = await api.post(`/upload`, file)
 
     return response.data;
   } catch (error) {
@@ -23,13 +17,13 @@ const getDownload = async ({ file }) => {
   return response;
 };
 const sendTxt = async ({ file }) => {
-  const response = await api.post(`/api/v1/importacao-txt/`, { file: file });
+  const response = await api.post(`/api/v1/admin/importacao-txt/${file.name}`);
 
   return response.data;
 };
 
 const getTxt = async () => {
-  const response = await api.get(`/api/v1/exportacao-txt`);
+  const response = await api.get(`/api/v1/admin/exportacao-txt`);
 
   return response;
 };

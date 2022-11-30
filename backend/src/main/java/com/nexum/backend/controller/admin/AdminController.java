@@ -10,12 +10,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+
 
 @RestController
 @RequestMapping("api/v1/admin")
@@ -36,16 +34,19 @@ public class AdminController {
                 .contentType(MediaType.parseMediaType("application/csv"))
                 .body(adminServicePort.load());
     }
-
+    @CrossOrigin(origins = "*")
     @GetMapping("/exportacao-txt")
-    public void getFileTXT() {
+    public ResponseEntity importacao() {
         Collection<UserEntity> lista = adminServicePort.listAll();
         adminServicePort.gravaArquivoTxt(lista, "ListaUsuariosNexum.txt");
+        return ResponseEntity.status(200).build();
     }
-
-    @GetMapping("/importacao-txt/{nomeArq}")
-    public void getFileTXT2(String nomeArq) {
+    @CrossOrigin(origins = "*")
+    @PostMapping("/importacao-txt/{nomeArq}")
+    public ResponseEntity importacao(@PathVariable String nomeArq) {
      adminServicePort.leArquivoTxt(""+nomeArq);
+
+     return ResponseEntity.status(200).build();
     }
 
 }

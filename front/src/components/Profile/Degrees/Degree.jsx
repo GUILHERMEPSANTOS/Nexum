@@ -71,7 +71,7 @@ const Degrees = ({ canEdit = true }) => {
                     <Text text={curso} />
                     <Text text={instituicao} isSmall={true} />
                   </div>
-                  <Button onClick={handleUpload} text="Ver credenciais" />
+                  <Button download onClick={handleUpload} text="Ver credenciais" />
                 </div>
               </div>
               <Text text={cidade} isSmall={true} />

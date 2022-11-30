@@ -1,4 +1,5 @@
 package com.nexum.backend.controller.embargo;
+
 import com.nexum.backend.domain.embargo.Embargo;
 import com.nexum.backend.dto.responsedata.ResponseData;
 import com.nexum.backend.services.embargo.interfaces.EmbargoServicePort;
@@ -20,7 +21,7 @@ public class EmbargoController {
         this.embargoServicePort = embargoServicePort;
     }
 
-    @PostMapping("/upload")
+    @PostMapping(value = "/upload", consumes = "multipart/form-data")
     public ResponseData uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
         Embargo embargo = null;
         String downloadURl = "";
@@ -40,7 +41,7 @@ public class EmbargoController {
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) throws Exception {
         Embargo embargo = null;
         embargo = embargoServicePort.getEmbargo(fileName);
-        return  ResponseEntity.ok()
+        return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(embargo.getFileType()))
                 .header(HttpHeaders.CONTENT_DISPOSITION,
                         "attachment; filename=\"" + embargo.getFileName()

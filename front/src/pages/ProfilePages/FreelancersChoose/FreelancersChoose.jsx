@@ -43,6 +43,7 @@ const FreelancerChoose = () => {
   const importTxt = useCallback(async () => {
     await sendTxt({ file: upload });
   }, [upload]);
+
   const exportTxt = useCallback(async () => {
     await getTxt();
   }, []);
@@ -75,13 +76,13 @@ const FreelancerChoose = () => {
           </div>
         </div>
         <div className={styles.buttons}>
-          <Button onClick={() => setModal(true)} text="Importar txt" />
+          <Button onClick={() => setModal(true)} text="Importação txt" />
           <Modal actualState={modal} setActualState={setModal}>
             <input
-              onChange={({ target }) => setUpload(target.value)}
-              value={upload}
+              onChange={({ target }) => setUpload(target.files[0])}
+              // value={upload}
               type="file"
-              accept="text/plain, .csv"
+              accept=".txt"
             />
             <Button
               onClick={() => {
@@ -92,7 +93,7 @@ const FreelancerChoose = () => {
               text="Salvar"
             />
           </Modal>
-          <Button onClick={exportTxt} text="Exportar txt" />
+          <Button onClick={exportTxt} text="Exportação txt" />
         </div>
       </ProfileContainer>
       {/* <CreateOffer actualState={openModal} setActualState={setOpenModal} /> */}

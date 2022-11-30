@@ -9,6 +9,8 @@ import com.nexum.backend.infra.files.helperFile.CSVhelper;
 import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepository;
 import com.nexum.backend.services.admin.interfaces.AdminServicePort;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -83,10 +85,12 @@ public class AdminService implements AdminServicePort {
         gravaRegistro(trailer, nomeArq);
     }
 
+    @Modifying
+    @Transactional
     public void leArquivoTxt(String nomeArq) {
         BufferedReader entrada = null;
         String registro, tipoRegistro;
-        String nome, senha, email, celular, sobre, cidade, estado;
+        String nome, senha, email, celular, sobre;
         Integer contaRegDadoLido = 0;
         Integer qtdRegDadoGravadoTrailer;
 
@@ -137,14 +141,13 @@ public class AdminService implements AdminServicePort {
                     email = registro.substring(57, 79).trim();
                     celular = registro.substring(79, 91).trim();
                     sobre = registro.substring(91, 591).trim();
-                    cidade = registro.substring(591, 603).trim();
-                    estado = registro.substring(603, 617).trim();
 
                     // Incrementa o contador de registros lidos
                     contaRegDadoLido++;
 
                     UserEntity userEntity = new UserEntity(celular, email, nome, senha, sobre);
-                    userEntity = new UserEntity(new EnderecoEntity(cidade, estado).getId_endereco());
+//                  EnderecoEntity enderecoEntity = new EnderecoEntity(cidade, estado);
+
 
                     springUserRepository.save(userEntity);
                 } else {

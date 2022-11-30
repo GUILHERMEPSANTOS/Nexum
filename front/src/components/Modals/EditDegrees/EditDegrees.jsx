@@ -82,13 +82,14 @@ const EditDegrees = ({
   }, [curso, cidade, estado]);
 
   const handleUpload = useCallback(async () => {
-    console.log(file)
+    
     const formData = new FormData();
     formData.append("file", file);
-
-    await postUpload( file);
     
-    localStorage.setItem("upload", JSON.stringify(file));
+    console.log(file)
+    await postUpload(file);
+    
+    localStorage.setItem("upload", JSON.stringify(file.name));
   }, [file]);
 
 
