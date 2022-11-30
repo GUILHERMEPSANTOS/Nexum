@@ -15,6 +15,10 @@ import com.nexum.backend.repositories.shared.controle.acesso.SpringRoleRepositor
 import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,6 +52,8 @@ public class FreelancerService implements FreelancerServicePort {
         springFreelancerRepository.save(user);
     }
 
+    @Transactional
+    @Modifying
     public void updateAddress(String cep, Long id_freelancer) throws IOException {
         URL url = new URL("https://viacep.com.br/ws/"+cep+"/json/");
         URLConnection connection = url.openConnection();
@@ -65,8 +71,17 @@ public class FreelancerService implements FreelancerServicePort {
         EnderecoDTOUpdateRequest enderecoDTOUpdateRequest =
                 new Gson().fromJson(jsonCep.toString(), EnderecoDTOUpdateRequest.class);
 
+        Optional<FreelancerEntity> freelancerEntity = springFreelancerRepository.findById(id_freelancer);
 
-        System.out.println(enderecoDTOUpdateRequest.toString());
+        if(freelancerEntity.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Freelancer não encontrado");
+        }
+
+
+        freelancerEntity.get().getEndereco().setCidade(enderecoDTOUpdateRequest.getLocalidade());
+        freelancerEntity.get().getEndereco().setEstado(enderecoDTOUpdateRequest.getUf());
+
+        springFreelancerRepository.save(freelancerEntity.get());
     }
 
     @Override

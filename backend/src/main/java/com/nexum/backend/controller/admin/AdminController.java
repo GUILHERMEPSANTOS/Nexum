@@ -10,10 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -43,7 +40,7 @@ public class AdminController {
         adminServicePort.gravaArquivoTxt(lista, "ListaUsuariosNexum.txt");
     }
 
-    @GetMapping("/importacao-txt/{nomeArq}")
+    @PostMapping("/importacao-txt/{nomeArq}")
     public void getFileTXT2(String nomeArq) {
      adminServicePort.leArquivoTxt(""+nomeArq);
     }
