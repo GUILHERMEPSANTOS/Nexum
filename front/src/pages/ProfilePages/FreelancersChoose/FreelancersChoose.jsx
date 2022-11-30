@@ -14,7 +14,7 @@ import styles from "./styles.module.scss";
 import { getAboutUser } from "../../../services/Freelancer/user";
 import CardEscolha from "./Cards";
 import Button from "../../../components/Buttons/Button";
-import Modal from "src/components/Modals/Modal";
+import Modal from "../../../components/Modals/Modal";
 
 const FreelancerChoose = () => {
   const [modal, setModal] = useState(false);

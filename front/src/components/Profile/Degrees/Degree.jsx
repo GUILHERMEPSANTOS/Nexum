@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import Text from "../../Text/Text";
 import Title from "../../Title/Title";
 import Button from "../../Buttons/Button";
@@ -8,23 +8,25 @@ import { listCertificadoByFreelancerId } from "../../../services/Freelancer/cert
 import { useQuery } from "@tanstack/react-query";
 
 const Degrees = ({ canEdit = true }) => {
+  const upload = localStorage.getItem("upload");
+  const userId = useMemo(() => localStorage.getItem("user_id"));
+  
   const [editDegrees, setEditDegrees] = useState(false);
   const [add, setAdd] = useState(false);
   const [edit, setEdit] = useState(false);
-  const userId = useMemo(() => localStorage.getItem("user_id"));
 
   const { data, isLoading, refetch } = useQuery(
     ["consultar certificados"],
     async () => await listCertificadoByFreelancerId(userId)
   );
 
-  if (isLoading) {
-    return <div>Loding...</div>;
-  }
-  const upload = localStorage.getItem("upload");
   const handleUpload = useCallback(async () => {
     await getDonwload({ file: upload });
   }, [upload]);
+
+  if (isLoading) {
+    return <div>Loding...</div>;
+  }
 
   return (
     <>
