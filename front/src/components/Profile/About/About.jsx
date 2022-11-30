@@ -142,7 +142,7 @@ console.log(socialCompany)
           {isOtherView ? (
             <List title="Redes sociais" list={socialCompany} />
           ) : (
-            dataSocialMedia?.data?.legth > 0 && (
+            dataSocialMedia?.data?.length > 0 && (
             <List title="Redes sociais" list={dataSocialMedia?.data} />
             )
           )}
