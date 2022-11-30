@@ -88,6 +88,7 @@ public class UserEntity {
         this.sobre = sobre;
     }
 
+
     public Long getId_usuario() {
         return id_usuario;
     }

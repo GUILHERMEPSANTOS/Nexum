@@ -4,6 +4,7 @@ package com.nexum.backend.services.freelancer.interfaces;
 
 import com.nexum.backend.dto.freelancer.FreelancerDTO;
 
+import java.io.IOException;
 import java.util.Collection;
 
 public interface FreelancerServicePort {
@@ -12,4 +13,5 @@ public interface FreelancerServicePort {
     Collection<FreelancerDTO> listAll();
 
     FreelancerDTO getById(Long id);
+    void updateAddress(String cep, Long id_freelancer)  throws IOException;
 }

@@ -36,10 +36,10 @@ public class EmbargoController {
                 file.getSize());
     }
 
-    @GetMapping("/download/{fileId}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable String fileId) throws Exception {
+    @GetMapping("/download/{fileName}")
+    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) throws Exception {
         Embargo embargo = null;
-        embargo = embargoServicePort.getEmbargo(fileId);
+        embargo = embargoServicePort.getEmbargo(fileName);
         return  ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(embargo.getFileType()))
                 .header(HttpHeaders.CONTENT_DISPOSITION,

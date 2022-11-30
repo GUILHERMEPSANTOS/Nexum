@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Collection;
 
 @RestController
@@ -24,6 +25,16 @@ public class FreelancerController {
         freelancerServicePort.create(freelancerDTO);
 
         return new ResponseEntity(HttpStatus.CREATED);
+    }
+
+    @PutMapping("{id_freelancer}/update-endereco/{cep}")
+    public ResponseEntity updateAddressByFreelancerID(
+            @PathVariable String cep,
+            @PathVariable Long id_freelancer
+    ) throws IOException {
+        freelancerServicePort.updateAddress(cep,id_freelancer);
+
+        return ResponseEntity.status(200).build();
     }
 
     @GetMapping("list")
