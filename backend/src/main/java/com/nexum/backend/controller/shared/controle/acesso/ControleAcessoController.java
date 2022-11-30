@@ -1,5 +1,6 @@
 package com.nexum.backend.controller.shared.controle.acesso;
 
+import com.nexum.backend.controller.shared.PilhaObj;
 import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignOutDTO;
 import com.nexum.backend.dto.shared.user.UserDTO;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/controle-acesso")
 @CrossOrigin(origins = "*")
 public class ControleAcessoController {
+
+    private PilhaObj pilhaObj = new PilhaObj<>(100);
     private final ControleAcessoServicePort controleAcessoServicePort;
 
     public ControleAcessoController(ControleAcessoServicePort controleAcessoServicePort) {
@@ -24,6 +27,7 @@ public class ControleAcessoController {
         if (userDTO == null) {
             return ResponseEntity.status(400).build();
         } else {
+            pilhaObj.push(userSignInDTO);
             return ResponseEntity.status(200).body(userDTO);
         }
     }
@@ -35,10 +39,15 @@ public class ControleAcessoController {
         if (userDTO == null) {
             return ResponseEntity.status(400).build();
         }
-
+        pilhaObj.pop();
         return ResponseEntity.status(200).body(userDTO);
     }
 
+    @GetMapping("PilhaObj")
+    public ResponseEntity<PilhaObj> exibeObj() {
+        System.out.println(pilhaObj);
+        return ResponseEntity.status(200).body(pilhaObj);
+    }
 
 // TODO: 12/11/2022  analisar em qual contexto esse metodo se encaixa
 //    public ListObj<String> ordenarLista(ListObj<String> listaDesordenada) {

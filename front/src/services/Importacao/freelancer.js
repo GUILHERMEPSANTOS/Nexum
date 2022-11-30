@@ -2,7 +2,6 @@ import { api } from "../api";
 
 const postUpload = async (file) => {
   try {
-    api.defaults.
     const response = await api.post(`/upload`, file)
 
     return response.data;

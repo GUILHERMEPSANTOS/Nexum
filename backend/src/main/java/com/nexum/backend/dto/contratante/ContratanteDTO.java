@@ -137,4 +137,21 @@ public class ContratanteDTO {
     public void setSobre(String sobre) {
         this.sobre = sobre;
     }
+
+    @Override
+    public String toString() {
+        return "ContratanteDTO{" +
+                "id_user=" + id_user +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", celular='" + celular + '\'' +
+                ", isLogged=" + isLogged +
+                ", sobre='" + sobre + '\'' +
+                ", endereco=" + endereco +
+                ", matchs=" + matchs +
+                ", socialsUserDTO=" + socialsUserDTO +
+                ", role=" + role +
+                '}';
+    }
 }
