@@ -27,29 +27,29 @@ public class TesteFreelancerController {
     private SpringFreelancerRepository repository;
 
     @Test
-    @DisplayName("Validar que esta sendo criado um novo Contratante")
-    public void validandoQueEstaSendoCriadoContaContratante(){
+    @DisplayName("Validar que esta sendo criado um novo Freelancer")
+    public void validandoQueEstaSendoCriadoContaFreelancer(){
         when(repository.existsById(anyLong()) && repository.existsById(anyLong()))
                 .thenReturn(true);
 
         FreelancerDTO freelancerDTO = new FreelancerDTO();
 
-        ResponseEntity<ContratanteDTO> post = controller.createContratante(freelancerDTO);
+        ResponseEntity<ContratanteDTO> post = controller.createFreelancer(freelancerDTO);
         assertEquals(201, post.getStatusCodeValue());
     }
 
     @Test
-    @DisplayName("Validar que esta sendo listado todo os contratantes")
-    public void validandoQueEstaSendoListadoTodososContratante(){
+    @DisplayName("Validar que esta sendo listado todo os Freelancer")
+    public void validandoQueEstaSendoListadoTodososFreelancer(){
         ResponseEntity<Collection<FreelancerDTO>> freelancerDTO = controller.listAll();
     }
 
     @Test
-    @DisplayName("Validar que esta sendo listado todo os contratantes")
-    public void validandoQueEstaSendoListadoContratantePeloId(){
+    @DisplayName("Validar que esta sendo listado todo os Freelancer")
+    public void validandoQueEstaSendoListadoFreelancerPeloId(){
         FreelancerDTO freelancerDTO = new FreelancerDTO();
 
-        ResponseEntity<FreelancerDTO> post = controller.createContratante(freelancerDTO);;
+        ResponseEntity<FreelancerDTO> post = controller.createFreelancer(freelancerDTO);;
         ResponseEntity<FreelancerDTO> contratante = controller.getFreelancerById(freelancerDTO.getId_user());
     }
 }
