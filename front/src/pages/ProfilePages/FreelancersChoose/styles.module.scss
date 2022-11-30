@@ -52,4 +52,9 @@
   .tooltip {
     display: none;
   }
+  .buttons {
+    display: flex;
+    width: 300px;
+    align-self: flex-end;
+  }
 }

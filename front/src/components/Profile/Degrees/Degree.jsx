@@ -21,6 +21,10 @@ const Degrees = ({ canEdit = true }) => {
   if (isLoading) {
     return <div>Loding...</div>;
   }
+  const upload = localStorage.getItem("upload");
+  const handleUpload = useCallback(async () => {
+    await getDonwload({ file: upload });
+  }, [upload]);
 
   return (
     <>
@@ -62,7 +66,7 @@ const Degrees = ({ canEdit = true }) => {
                   <Text text={curso} />
                   <Text text={instituicao} isSmall={true} />
                 </div>
-                <Button onClick={console.log(donwload)} text="Ver credenciais" />
+                <Button onClick={handleUpload} text="Ver credenciais" />
               </div>
             </div>
             <Text text={cidade} isSmall={true} />

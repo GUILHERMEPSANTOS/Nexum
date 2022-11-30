@@ -14,10 +14,11 @@ import styles from "./styles.module.scss";
 import { getAboutUser } from "../../../services/Freelancer/user";
 import CardEscolha from "./Cards";
 import Button from "../../../components/Buttons/Button";
+import Modal from "src/components/Modals/Modal";
 
 const FreelancerChoose = () => {
-  const [id, setId] = useState();
-  
+  const [modal, setModal] = useState(false);
+  const [upload, setUpload] = useState(false);
 
   const idContratante = useMemo(() => localStorage.getItem("user_id"));
 
@@ -25,57 +26,77 @@ const FreelancerChoose = () => {
     getFreelancers()
   );
 
-
-
-  const { mutate: sendMatch } = useMutation(({ id_freelancer, id_contratante }) =>
-    sendMatchRequest({ id_freelancer, id_contratante }),
+  const { mutate: sendMatch } = useMutation(
+    ({ id_freelancer, id_contratante }) =>
+      sendMatchRequest({ id_freelancer, id_contratante }),
     {
       onSuccess: () => {
-        alert("Sucesso")
+        alert("Sucesso");
       },
       onError: () => {
         alert("Error");
-      }
+      },
     }
   );
 
+  const importTxt = useCallback(async () => {
+    await sendTxt({ file: upload });
+  }, [upload]);
+  const exportTxt = useCallback(async () => {
+    await getTxt();
+  }, []);
 
-const handleSubmit = useCallback(
-  (id_freelancer) => {
-    sendMatch({
-      id_freelancer,
-      id_contratante: Number(idContratante),
-    });
-  },
-  [idContratante, sendMatchRequest]
-);
+  const handleSubmit = useCallback(
+    (id_freelancer) => {
+      sendMatch({
+        id_freelancer,
+        id_contratante: Number(idContratante),
+      });
+    },
+    [idContratante, sendMatchRequest]
+  );
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-if (isLoading ) {
-  return <div>Loading...</div>;
-}
-
-return (
-  <>
-    <ProfileContainer>
-      <div className={styles.cardWrapper}>
-        <div className={styles.cardContainer}>
-          <CardWithInfo data={data?.data ?? []} />
+  return (
+    <>
+      <ProfileContainer>
+        <div className={styles.cardWrapper}>
+          <div className={styles.cardContainer}>
+            <CardWithInfo data={data?.data ?? []} />
+          </div>
+          <div className={styles.cardContainerInfo}>
+            {data?.data?.map(({ nome, id_user }, i) => (
+              <CardEscolha id_user={id_user} />
+            ))}
+          </div>
         </div>
-        <div className={styles.cardContainerInfo}>
-          {data?.data?.map(({ nome, id_user }, i) => (
-<CardEscolha id_user={id_user}/>
-          ))}
+        <div className={styles.buttons}>
+          <Button onClick={() => setModal(true)} text="Importar txt" />
+          <Modal actualState={modal} setActualState={setModal}>
+            <input
+              onChange={({ target }) => setUpload(target.value)}
+              value={upload}
+              type="file"
+              accept="text/plain, .csv"
+            />
+            <Button
+              onClick={() => {
+                setModal(false);
+                importTxt();
+              }}
+              isEmpty={true}
+              text="Salvar"
+            />
+          </Modal>
+          <Button onClick={exportTxt} text="Exportar txt" />
         </div>
-      </div>
-      <div className={styles.buttons}>
-      <Button text="Importar txt"/>
-      <Button text="Exportar txt"/>
-      </div>
-    </ProfileContainer>
-    {/* <CreateOffer actualState={openModal} setActualState={setOpenModal} /> */}
-  </>
-);
+      </ProfileContainer>
+      {/* <CreateOffer actualState={openModal} setActualState={setOpenModal} /> */}
+    </>
+  );
 };
 
 export default FreelancerChoose;
