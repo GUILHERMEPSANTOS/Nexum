@@ -109,11 +109,10 @@ const EditDegrees = ({
             value={cidade}
           />
         </div>
-        <Text isSmall={true} text="Caminho para certificado" />
-        <input
-          onChange={({ target }) => setUrlCertificado(target.value)}
-          value={urlCertificado}
-        />
+        <Text isSmall={true} text="Suba seu certificado" />
+        <input type="file" accept="image/png, image/jpeg"/>
+         
+        
       </div>
       <div className={styles.buttons}>
         <Button

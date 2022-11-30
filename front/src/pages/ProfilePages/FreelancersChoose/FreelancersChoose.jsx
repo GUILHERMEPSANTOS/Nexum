@@ -13,6 +13,7 @@ import Text from "../../../components/Text/Text";
 import styles from "./styles.module.scss";
 import { getAboutUser } from "../../../services/Freelancer/user";
 import CardEscolha from "./Cards";
+import Button from "../../../components/Buttons/Button";
 
 const FreelancerChoose = () => {
   const [id, setId] = useState();
@@ -66,6 +67,10 @@ return (
 <CardEscolha id_user={id_user}/>
           ))}
         </div>
+      </div>
+      <div className={styles.buttons}>
+      <Button text="Importar txt"/>
+      <Button text="Exportar txt"/>
       </div>
     </ProfileContainer>
     {/* <CreateOffer actualState={openModal} setActualState={setOpenModal} /> */}
