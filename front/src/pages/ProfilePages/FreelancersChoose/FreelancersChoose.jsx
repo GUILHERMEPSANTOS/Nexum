@@ -21,24 +21,13 @@ const FreelancerChoose = () => {
   const [modal, setModal] = useState(false);
   const [upload, setUpload] = useState("");
 
-  const idContratante = useMemo(() => localStorage.getItem("user_id"));
+
 
   const { data, isLoading } = useQuery(["consultar freelancers"], () =>
     getFreelancers()
   );
 
-  const { mutate: sendMatch } = useMutation(
-    ({ id_freelancer, id_contratante }) =>
-      sendMatchRequest({ id_freelancer, id_contratante }),
-    {
-      onSuccess: () => {
-        alert("Sucesso");
-      },
-      onError: () => {
-        alert("Error");
-      },
-    }
-  );
+  
 
   const importTxt = useCallback(async () => {
     await sendTxt({ file: upload });
@@ -48,15 +37,7 @@ const FreelancerChoose = () => {
     await getTxt();
   }, []);
 
-  const handleSubmit = useCallback(
-    (id_freelancer) => {
-      sendMatch({
-        id_freelancer,
-        id_contratante: Number(idContratante),
-      });
-    },
-    [idContratante, sendMatchRequest]
-  );
+
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -86,6 +67,7 @@ const FreelancerChoose = () => {
             />
             <Button
               onClick={() => {
+                
                 setModal(false);
                 importTxt();
               }}
