@@ -1,6 +1,6 @@
 		INSERT INTO TB_USERS (NOME, EMAIL, SENHA, CELULAR, SOBRE, IS_LOGGED) VALUES
-		('Guilherme','guilherme@hotmail.com', '123' ,'11997368699', 'O Homem mais lindo da terra!', false),
-            ('Vinicius','vinicius@hotmail.com', '123' ,'11987368699', 'Homem fofo', false);
+		('Guilherme','guilherme@hotmail.com', '123' ,'11 997368699', 'O Homem mais lindo da terra!', 0),
+            ('Vinicius','vinicius@hotmail.com', '123' ,'11 987368699', 'Homem fofo', 0);
 
 		INSERT INTO TB_ROLE (ROLE_NAME) VALUES
 		('ROLE_ADMIN'),('ROLE_CONTRATANTE'),('ROLE_FREELANCER');
@@ -30,7 +30,7 @@
 		('Suzano', 'São Paulo', 2);
 
 		INSERT INTO TB_MATCH  (STATUS , CONTRATANTE_ID_USUARIO , FREELANCER_ID_USUARIO ) VALUES
-        (false, 1, 2);
+        (0, 1, 2);
 
 
 
