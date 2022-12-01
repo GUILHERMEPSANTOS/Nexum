@@ -30,6 +30,8 @@ const Login = () => {
       ? navigate("/inicio")
       : setShowError(true);
 
+console.log(handlelogin.data)
+
     localStorage.setItem("name", JSON.stringify(handlelogin.data.nome));
     localStorage.setItem("user_id", JSON.stringify(handlelogin.data.id_user));
     localStorage.setItem("email", JSON.stringify(handlelogin.data.email));

@@ -16,6 +16,7 @@ import List from "../List/List";
 import styles from "./styles.module.scss";
 import { putMatchRequest } from "../../../services/Freelancer/match/freelancer";
 import { getAboutUser } from "../../../services/Freelancer/user";
+import { getFreelancerById } from "../../../services/Freelancer/freelancer";
 
 const About = ({
   isOtherView,
@@ -28,17 +29,32 @@ const About = ({
   sobreCompany,
   socialCompany,
 }) => {
-  const [editAbout, setEditAbout] = useState(false);
-  const [editSocial, setEditSocial] = useState(false);
-  const [editData, setEditData] = useState(false);
-
+  const userId = useMemo(() => localStorage.getItem("user_id"));
   const nome = localStorage.getItem("name") ? localStorage.getItem("name") : "";
   const email = localStorage.getItem("email")
     ? localStorage.getItem("email")
     : "";
   const nomeFormatted = nome.replace(/"/g, "");
   const emailFormatted = email.replace(/"/g, "");
-  const userId = useMemo(() => localStorage.getItem("user_id"));
+  const [editAbout, setEditAbout] = useState(false);
+  const [editSocial, setEditSocial] = useState(false);
+  const [editData, setEditData] = useState(false);
+  
+    const { data, isLoading } = useQuery(
+      ["consultar solicitações de freela"],
+      () => getFreelancerById(userId)
+    );
+
+
+
+    const {
+      data: dataAbout,
+      isLoading: isLoadingAbout,
+      refetch: refetchAbout,
+    } = useQuery(
+      ["consultar about"],
+      async () => await getAboutUser(userId)
+    );
 
   const {
     data: dataSocialMedia,
@@ -48,23 +64,13 @@ const About = ({
     ["consultar redes"],
     async () => await listSocialByUserId(userId)
   );
-console.log(socialCompany)
-
 
   const handleMatchConfirm = useCallback(async () => {
     await putMatchRequest({ id_freelancer: userId, id_contratante: idCompany });
   },[userId, idCompany])
 
-  const {
-    data: dataAbout,
-    isLoading: isLoadingAbout,
-    refetch: refetchAbout,
-  } = useQuery(
-    ["consultar about"],
-    async () => await getAboutUser(userId)
-  );
 
-  if (isLoadingSocial || isLoadingAbout) {
+  if (isLoadingSocial || isLoadingAbout, isLoading) {
     return <div>Loding...</div>;
   }
 
@@ -91,7 +97,11 @@ console.log(socialCompany)
                   <Text isSmall={true} text={enderecoCompany?.estado} />
                 </>
               ) : (
-                <Text isSmall={true} text="Osasco, São Paulo" />
+                   <>
+                  <Text isSmall={true} text={data?.endereco?.cidade} />
+<span>,</span>
+                  <Text isSmall={true} text={data?.endereco?.estado} />
+                </>
               )}
             </div>
             <Text text="Designer" />
