@@ -2,7 +2,13 @@ import { api } from "../api";
 
 const postUpload = async (file) => {
   try {
-    const response = await api.post(`/upload`, file)
+    console.log(file)
+    const response = await api.post(`/upload`, file, {
+      headers: {
+        "Content-Type":
+          "multipart/form-data; boundary=---011000010111000001101001",
+      },
+    });
 
     return response.data;
   } catch (error) {

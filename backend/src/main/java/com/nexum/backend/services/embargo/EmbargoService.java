@@ -1,6 +1,7 @@
 package com.nexum.backend.services.embargo;
 
 import com.nexum.backend.domain.embargo.Embargo;
+import com.nexum.backend.infra.files.ImageUtils;
 import com.nexum.backend.repositories.embargo.SpringEmbargoRepository;
 import com.nexum.backend.services.embargo.interfaces.EmbargoServicePort;
 import org.springframework.util.StringUtils;
@@ -14,30 +15,33 @@ public class EmbargoService implements EmbargoServicePort {
     }
 
     @Override
-    public Embargo saveEmbargo(MultipartFile file) throws Exception {
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-        try {
-            if(fileName.contains("..")) {
-                throw  new Exception("Filename contains invalid path sequence "
-                        + fileName);
-            }
+    public void saveEmbargo(MultipartFile file) throws Exception {
+//            String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+//        try {
+//            if(fileName.contains("..")) {
+//                throw  new Exception("Filename contains invalid path sequence "
+//                        + fileName);
+//            }
 
-            Embargo embargo
-                    = new Embargo(fileName,
-                    file.getContentType(),
-                    file.getBytes());
-            return springEmbargoRepository.save(embargo);
+        Embargo embargo
+                = new Embargo(
+                file.getOriginalFilename(),
+                file.getContentType(),
+                ImageUtils.compressImage(file.getBytes())
+        );
 
-        } catch (Exception e) {
-            throw new Exception("Could not save File: " + fileName);
-        }
+        springEmbargoRepository.save(embargo);
+
+
+//        } catch (Exception e) {
+//            throw new Exception("Could not save File: " + fileName);
+//        }
     }
 
     @Override
-    public Embargo getEmbargo(String fileId) throws Exception {
-        return springEmbargoRepository
-                .findById(fileId)
-                .orElseThrow(
-                        () -> new Exception("File not found with Id: " + fileId));
+    public byte[] getEmbargo(String fileName) throws Exception {
+        return ImageUtils.decompressImage(springEmbargoRepository
+                .findByFileName(fileName).get().getData());
+
     }
 }
