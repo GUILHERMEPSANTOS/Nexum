@@ -37,6 +37,7 @@ const Login = () => {
       "role",
       JSON.stringify(handlelogin.data.roles[0].roleName)
     );
+    localStorage.setItem("number", JSON.stringify(handlelogin.data.celular.trim()));
   }, [email, password]);
 
   const { errorEmail, errorPassword, verifyEmail, verifyPassword, disabled } =
