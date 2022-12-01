@@ -35,6 +35,6 @@ public class EmbargoController {
     public ResponseEntity<?> downloadFile(@PathVariable String fileName) throws Exception {
         byte[] file = embargoServicePort.getEmbargo(fileName);
 
-        return ResponseEntity.status(200).contentType(MediaType.valueOf(MediaType.ALL_VALUE)).body(file);
+        return ResponseEntity.status(200).contentType(MediaType.valueOf(MediaType.IMAGE_PNG_VALUE)).body(file);
     }
 }
