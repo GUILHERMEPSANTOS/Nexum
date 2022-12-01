@@ -2,16 +2,43 @@ import Text from "../../Text/Text";
 import Button from "../../Buttons/Button";
 import Modal from "../Modal";
 import styles from "./styles.module.scss";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { putCEP } from "../../../services/Freelancer/user/index";
+import { useMutation } from "@tanstack/react-query";
 
-const EditData = ({ actualState, setActualState }) => {
+const EditData = ({ actualState, setActualState, refetch=() => {}}) => {
+
+  const userId = useMemo(() => localStorage.getItem("user_id"));
+  const { mutate: updateRequest } = useMutation(
+    ({ id_freelancer,
+      cep }) =>
+      putCEP({
+        id_freelancer,
+        cep
+      }),
+    {
+      onSuccess: () => {
+        refetch();
+      },
+    }
+  );
+
   const [nome, setNome] = useState();
   const [cep, setCep] = useState();
   const [marketing, setMarketing] = useState();
   const [programador, setProgramador] = useState();
   const [designer, setDesigner] = useState();
   const [page, setPage] = useState(1);
-console.log(page)
+
+  const handlePut = useCallback(() => {
+    updateRequest({
+      id_freelancer: userId,
+      cep
+    });
+  }, [userId,
+    cep]);
+
+
   return (
     <Modal
       text={"Perfil"}
@@ -21,86 +48,30 @@ console.log(page)
         page == 1
           ? "Atualize seus dados"
           : page == 2
-          ? "Atualize sua profissão"
-          : ""
+            ? "Atualize sua profissão"
+            : ""
       }
     >
       <div className={styles.container}>
-      {page == 1 && (
-        <>
-        <Text isSmall={true} text="Nome" />
-        <input onChange={({ target }) => setNome(target.value)} value={nome} />
-        <Text isSmall={true} text="CEP" />
-        <input
-          onChange={({ target }) => setCep(target.value)}
-          value={cep}
-        />
-      
-        </>
-        )}
-        {page == 2 && (
-          <>
-       <div className={styles.containerLabel}>
-              <Text isSmall={true} text="Designer" />
-              <label className={styles.switch}>
-                <input
-                  onChange={({ target }) => setDesigner(target.checked)}
-                  value={designer}
-                  type="checkbox"
-                />
-                <span className={styles.slider}></span>
-              </label>
-            </div>
-            <div className={styles.containerLabel}>
-              <Text isSmall={true} text="Programador" />
-              <label className={styles.switch}>
-                <input
-                  onChange={({ target }) => setProgramador(target.checked)}
-                  value={programador}
-                  type="checkbox"
-                />
-                <span className={styles.slider}></span>
-              </label>
-            </div>
-            <div className={styles.containerLabel}>
-              <Text isSmall={true} text="Marketing" />
-              <label className={styles.switch}>
-                <input
-                  onChange={({ target }) => setMarketing(target.checked)}
-                  value={marketing}
-                  type="checkbox"
-                />
-                <span className={styles.slider}></span>
-              </label>
-            </div>
-        </>
-        )}
-      </div>
+            <Text isSmall={true} text="CEP" />
+            <input
+              onChange={({ target }) => setCep(target.value)}
+              value={cep}
+            />
+
+ </div>
       <div className={styles.buttons}>
-        {page == 2 && (
-          <>
-          <img
-            className={styles.back}
-            onClick={() => setPage(page - 1)}
-            src="../../assets/icons/back.svg"
-          />
-          <Button
-          onClick={() => setActualState(false)}
-          isEmpty={true}
-          text="Salvar"/>
-          </>
-        
-        )}
-       : (
-          <img
-            onClick={() =>
-                setPage(page + 1)
-            }
-            className={styles.icon}
-            src="../../assets/icons/back.svg"
-          />
-        )
-      </div>
+
+            <Button
+              onClick={() => {
+                setActualState(false)
+                handlePut()
+              }}
+              isEmpty={true}
+              text="Salvar" />
+          </div>
+
+       
     </Modal>
   );
 };
