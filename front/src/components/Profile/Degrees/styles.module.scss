@@ -23,13 +23,25 @@
     justify-content: space-between;
     margin: 0 20px;
     width: 90%;
-
+    > a:first-of-type {
+      z-index: 999;
+    }
     > a {
       width: 20%;
       @include mobile {
         width: auto;
       }
     }
+  }
+  .buttonEmptyBackground {
+    background-color: $purple;
+    border: 2px solid $purple;
+    width: 100%;
+    border-radius: $border-buttons;
+    padding: $padding-buttons;
+    color: $white;
+    font-size: $text;
+    cursor: pointer;
   }
 
   .edit {

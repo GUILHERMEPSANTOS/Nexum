@@ -9,6 +9,7 @@ import {
 } from "../../../services/Freelancer/certificacao";
 import { useMutation } from "@tanstack/react-query";
 import { postUpload } from "../../../services/Importacao/freelancer";
+import { useEffect } from "react";
 
 const EditDegrees = ({
   actualState,
@@ -25,6 +26,9 @@ const EditDegrees = ({
   const [urlCertificado, setUrlCertificado] = useState();
   const [file, setFile] = useState(null);
   const userId = useMemo(() => localStorage.getItem("user_id"));
+  useEffect(() => {
+    localStorage.setItem("url_certificado", urlCertificado);
+  }, [urlCertificado]);
 
   const { mutate: sendRequest } = useMutation(
     ({ curso, instituicao, cidade, estado, certificacao_url, id }) =>

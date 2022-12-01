@@ -7,6 +7,7 @@ import EditDegrees from "../../Modals/EditDegrees/EditDegrees";
 import { listCertificadoByFreelancerId } from "../../../services/Freelancer/certificacao";
 import { useQuery } from "@tanstack/react-query";
 import { getDownload } from "../../../services/Importacao/freelancer";
+import { Loading } from "../../Loading/Loading";
 
 const Degrees = ({ canEdit = true }) => {
   const upload = localStorage.getItem("upload");
@@ -16,7 +17,7 @@ const Degrees = ({ canEdit = true }) => {
   const [editDegrees, setEditDegrees] = useState(false);
   const [add, setAdd] = useState(false);
   const [edit, setEdit] = useState(false);
-
+  const url = localStorage.getItem("url_certificado");
   const { data, isLoading, refetch } = useQuery(
     ["consultar certificados"],
     async () => await listCertificadoByFreelancerId(userId)
@@ -26,7 +27,7 @@ const Degrees = ({ canEdit = true }) => {
   }, [upload]);
 
   if (isLoading) {
-    return <div>Loding...</div>;
+    return <Loading />;
   }
 
   return (
@@ -71,7 +72,11 @@ const Degrees = ({ canEdit = true }) => {
                     <Text text={curso} />
                     <Text text={instituicao} isSmall={true} />
                   </div>
-                  <Button download onClick={handleUpload} text="Ver credenciais" />
+                  <a href={url} target="_blank">
+                    <button className={styles.buttonEmptyBackground}>
+                      Ver credenciais
+                    </button>
+                  </a>
                 </div>
               </div>
               <Text text={cidade} isSmall={true} />

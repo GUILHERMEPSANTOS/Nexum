@@ -16,7 +16,11 @@ import List from "../List/List";
 import styles from "./styles.module.scss";
 import { putMatchRequest } from "../../../services/Freelancer/match/freelancer";
 import { getAboutUser } from "../../../services/Freelancer/user";
-import { getFreelancerById } from "../../../services/Freelancer/freelancer";
+import {
+  getFreelancerById,
+  getContratanteById,
+} from "../../../services/Freelancer/freelancer";
+import { Loading } from "../../Loading/Loading";
 
 const About = ({
   isOtherView,
@@ -39,13 +43,20 @@ const About = ({
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
   const [editData, setEditData] = useState(false);
-
+  const perfil = localStorage.getItem("role");
   const {
     data: dataEnd,
     isLoading: loadingEnd,
     refetch: refetchEnd,
   } = useQuery(["consultar solicitações de freela"], () =>
     getFreelancerById(userId)
+  );
+  const {
+    data: dataEndContratante,
+    isLoading: loadingEndContratante,
+    refetch: refetchEndContratante,
+  } = useQuery(["consultar solicitações de contratantee"], () =>
+    getContratanteById(userId)
   );
 
   const {
@@ -68,9 +79,9 @@ const About = ({
   }, [userId, idCompany]);
 
   if (isLoadingSocial || isLoadingAbout || loadingEnd) {
-    return <div>Loding...</div>;
+    return <Loading />;
   }
-
+  console.log(dataEndContratante?.endereco);
   return (
     <>
       <section className={styles.container}>
@@ -97,22 +108,21 @@ const About = ({
 
               {isOtherView ? (
                 <>
+                  <Text isSmall={true} text={`${enderecoCompany?.cidade},`} />
+
+                  <Text isSmall={true} text={enderecoCompany?.estadoBuis} />
+                </>
+              ) : perfil == `"ROLE_CONTRATANTE"` ? (
+                <>
+                  {console.log(dataEndContratante?.endereco)}
                   <Text
                     isSmall={true}
-                    text={`${
-                      enderecoCompany?.cidade == undefined
-                        ? "Não informado"
-                        : enderecoCompany?.cidade
-                    },`}
+                    text={`${dataEndContratante?.endereco?.cidade},`}
                   />
 
                   <Text
                     isSmall={true}
-                    text={
-                      enderecoCompany?.estado == undefined
-                        ? "Não informado"
-                        : enderecoCompany?.estadoBuis
-                    }
+                    text={dataEndContratante?.endereco?.estado}
                   />
                 </>
               ) : (
@@ -123,8 +133,12 @@ const About = ({
                 </>
               )}
             </div>
-            {isOtherView ? "" : <Text text="Programador" />}
 
+            {isOtherView || perfil == `"ROLE_CONTRATANTE"` ? (
+              ""
+            ) : (
+              <Text text="Programador" />
+            )}
             {canEdit && (
               <img
                 onClick={() => setEditData(true)}

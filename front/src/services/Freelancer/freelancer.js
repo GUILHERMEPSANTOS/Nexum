@@ -5,6 +5,11 @@ const getFreelancerById = async (id) => {
 
   return response.data;
 };
+const getContratanteById = async (id) => {
+  const response = await api.get(`/api/v1/contratante/${id}`);
+
+  return response.data;
+};
 
 const getFreelancers = async () => {
   const response = await api.get(`/api/v1/freelancer/list`);
@@ -12,4 +17,4 @@ const getFreelancers = async () => {
   return response;
 };
 
-export { getFreelancerById, getFreelancers };
+export { getFreelancerById, getFreelancers, getContratanteById };
