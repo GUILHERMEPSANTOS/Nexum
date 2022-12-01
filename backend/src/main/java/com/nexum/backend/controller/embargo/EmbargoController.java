@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
+@RequestMapping("api/v1/embargo")
 @CrossOrigin(origins = "*")
 public class EmbargoController {
     private EmbargoServicePort embargoServicePort;
@@ -21,31 +22,19 @@ public class EmbargoController {
         this.embargoServicePort = embargoServicePort;
     }
 
-    @PostMapping(value = "/upload", consumes = "multipart/form-data")
-    public ResponseData uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
-        Embargo embargo = null;
-        String downloadURl = "";
-        embargo = embargoServicePort.saveEmbargo(file);
-        downloadURl = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/download/")
-                .path(embargo.getId())
-                .toUriString();
+    @CrossOrigin(origins = "*")
+    @PostMapping(value = "/upload")
+    public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
 
-        return new ResponseData(embargo.getFileName(),
-                downloadURl,
-                file.getContentType(),
-                file.getSize());
+        embargoServicePort.saveEmbargo(file);
+
+        return ResponseEntity.status(200).build();
     }
-
+    @CrossOrigin(origins = "*")
     @GetMapping("/download/{fileName}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) throws Exception {
-        Embargo embargo = null;
-        embargo = embargoServicePort.getEmbargo(fileName);
-        return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(embargo.getFileType()))
-                .header(HttpHeaders.CONTENT_DISPOSITION,
-                        "attachment; filename=\"" + embargo.getFileName()
-                                + "\"")
-                .body(new ByteArrayResource(embargo.getData()));
+    public ResponseEntity<?> downloadFile(@PathVariable String fileName) throws Exception {
+        byte[] file = embargoServicePort.getEmbargo(fileName);
+
+        return ResponseEntity.status(200).contentType(MediaType.valueOf(MediaType.ALL_VALUE)).body(file);
     }
 }

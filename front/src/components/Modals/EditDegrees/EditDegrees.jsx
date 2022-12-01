@@ -84,9 +84,9 @@ const EditDegrees = ({
   const handleUpload = useCallback(async () => {
     
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("file", file)
     
-    console.log(file)
+    
     await postUpload(file);
     
     localStorage.setItem("upload", JSON.stringify(file.name));
