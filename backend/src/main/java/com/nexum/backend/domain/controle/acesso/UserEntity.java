@@ -170,6 +170,7 @@ public class UserEntity {
     }
 
     public void setEndereco(EnderecoEntity endereco) {
+        endereco.setUser(this);
         this.endereco = endereco;
     }
 

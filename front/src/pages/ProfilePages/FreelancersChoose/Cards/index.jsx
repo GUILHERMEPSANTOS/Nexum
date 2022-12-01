@@ -1,9 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { getAboutUser } from "../../../../services/Freelancer/user";
 import List from "../../../../components/Profile/List/List";
 import Text from "../../../../components/Text/Text";
 import styles from "./styles.module.scss";
 import { listHabilidadesByUserId } from "../../../../services/Freelancer/habilidades";
+import { useCallback, useMemo } from "react";
+import { sendMatchRequest } from "../../../../services/Freelancer/match/freelancer";
 
 const CardEscolha = ({id_user}) => {
     const { data: idData, isLoading: LoadingData, refetch } = useQuery(
@@ -16,7 +18,31 @@ const CardEscolha = ({id_user}) => {
       } = useQuery(["consultar freelancer habilidades"], async () =>
         await listHabilidadesByUserId(id_user)
       );
-      console.log(dataFreelancerHabilidades?.data?.length)
+
+      const { mutate: sendMatch } = useMutation(
+        ({ id_freelancer, id_contratante }) =>
+          sendMatchRequest({ id_freelancer, id_contratante }),
+        {
+          onSuccess: () => {
+            alert("Sucesso");
+          },
+          onError: () => {
+            alert("Error");
+          },
+        }
+      );
+
+      const idContratante = useMemo(() => localStorage.getItem("user_id"));
+    
+      const handleSubmit = useCallback(
+        (id_freelancer) => {
+          sendMatch({
+            id_freelancer,
+            id_contratante: Number(idContratante),
+          });
+        },
+        [idContratante, sendMatchRequest]
+      );
       
         return(
         <div key={id_user}>

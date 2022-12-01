@@ -1,19 +1,15 @@
 import { useEffect, useState } from "react";
 
-const useCadastro = ({ email, password, user, cellphone, confirmPassword, profession }) => {
+const useCadastro = ({ email, password, user, cellphone, confirmPassword }) => {
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
   const [errorUser, setErrorUser] = useState("");
   const [errorCellphone, setErrorCellphone] = useState("");
-  const [errorProfession, setErrorProfession] = useState("");
   const [errorConfirmPassword, setErrorConfirmPassword] = useState("");
   const [disabled, setDisbaled] = useState(true);
 
   const verifyUser = () => {
     !!!user ? setErrorUser("Preencher usuario") : setErrorUser("");
-  };
-  const verifyProfession = () => {
-    !!!profession ? setErrorProfession("Preencher cep") : setErrorProfession("");
   };
   const verifyEmail = () => {
     const validEmail = new RegExp(
@@ -53,16 +49,13 @@ const useCadastro = ({ email, password, user, cellphone, confirmPassword, profes
   };
 
   useEffect(() => {
-
     user != undefined &&
-    profession != undefined &&
     email != undefined &&
     cellphone != undefined &&
     confirmPassword != undefined &&
     password != undefined &&
     errorCellphone == "" &&
     errorUser == "" &&
-    errorProfession == "" &&
     errorPassword == "" &&
     errorEmail == "" &&
     errorConfirmPassword == ""
@@ -70,29 +63,24 @@ const useCadastro = ({ email, password, user, cellphone, confirmPassword, profes
       : setDisbaled(true);
   }, [
     errorEmail,
-    errorProfession,
     errorPassword,
     errorUser,
     errorCellphone,
     errorConfirmPassword,
-    email, cellphone, confirmPassword, 
+    email,
+    cellphone,
+    confirmPassword,
     confirmPassword,
     password,
-    profession,
-    
   ]);
-
-
 
   return {
     errorEmail,
-    errorProfession,
     errorPassword,
     errorUser,
     errorCellphone,
     errorConfirmPassword,
     verifyUser,
-    verifyProfession,
     verifyEmail,
     verifyPassword,
     verifyCellphone,

@@ -39,23 +39,20 @@ const About = ({
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
   const [editData, setEditData] = useState(false);
-  
-    const { data, isLoading, refetch} = useQuery(
-      ["consultar solicitações de freela"],
-      () => getFreelancerById(userId)
-    );
 
-
-    
-
-    const {
-      data: dataAbout,
-      isLoading: isLoadingAbout,
-      refetch: refetchAbout,
-    } = useQuery(
-      ["consultar about"],
-      async () => await getAboutUser(userId)
-    );
+  const {
+    data: dataEnd,
+    isLoading: loadingEnd,
+    refetch: refetchEnd,
+  } = useQuery(["consultar solicitações de freela"], () =>
+    getFreelancerById(userId)
+  );
+  console.log(dataEnd?.endereco);
+  const {
+    data: dataAbout,
+    isLoading: isLoadingAbout,
+    refetch: refetchAbout,
+  } = useQuery(["consultar about"], async () => await getAboutUser(userId));
 
   const {
     data: dataSocialMedia,
@@ -68,10 +65,9 @@ const About = ({
 
   const handleMatchConfirm = useCallback(async () => {
     await putMatchRequest({ id_freelancer: userId, id_contratante: idCompany });
-  },[userId, idCompany])
+  }, [userId, idCompany]);
 
-
-  if (isLoadingSocial || isLoadingAbout, isLoading) {
+  if (isLoadingSocial || isLoadingAbout || loadingEnd) {
     return <div>Loding...</div>;
   }
 
@@ -93,15 +89,15 @@ const About = ({
               <img src="../../assets/icons/location.png" />
               {isOtherView ? (
                 <>
-                  <Text isSmall={true} text={enderecoCompany?.cidade} />
+                  <Text isSmall={true} text={`${enderecoCompany?.cidade},`} />
 
                   <Text isSmall={true} text={enderecoCompany?.estado} />
                 </>
               ) : (
-                   <>
-                  <Text isSmall={true} text={data?.endereco?.cidade} />
-<span>,</span>
-                  <Text isSmall={true} text={data?.endereco?.estado} />
+                <>
+                  <Text isSmall={true} text={`${dataEnd?.endereco?.cidade},`} />
+                  <span>,</span>
+                  <Text isSmall={true} text={dataEnd?.endereco?.estado} />
                 </>
               )}
             </div>
@@ -115,9 +111,9 @@ const About = ({
             )}
           </div>
           {isOtherView && (
-            <div  className={styles.actions}>
+            <div className={styles.actions}>
               <Link onClick={handleMatchConfirm} to="/propostas">
-                <button  >
+                <button>
                   <img src="../../assets/icons/like.svg" />
                 </button>
               </Link>
@@ -139,9 +135,7 @@ const About = ({
           {isOtherView ? (
             <Text text={sobreCompany} />
           ) : (
-            <Text
-              text={dataAbout?.data}
-            />
+            <Text text={dataAbout?.data} />
           )}
           {canEdit && (
             <img
@@ -154,7 +148,7 @@ const About = ({
             <List title="Redes sociais" list={socialCompany} />
           ) : (
             dataSocialMedia?.data?.length > 0 && (
-            <List title="Redes sociais" list={dataSocialMedia?.data} />
+              <List title="Redes sociais" list={dataSocialMedia?.data} />
             )
           )}
           <Title text="Email" />
@@ -192,10 +186,18 @@ const About = ({
         </div>
       </section>
       {editAbout && (
-        <EditProfile refetch={refetchAbout} actualState={editAbout} setActualState={setEditAbout} />
+        <EditProfile
+          refetch={refetchAbout}
+          actualState={editAbout}
+          setActualState={setEditAbout}
+        />
       )}
       {editData && (
-        <EditData refetch={refetch} actualState={editData} setActualState={setEditData} />
+        <EditData
+          refetch={refetchEnd}
+          actualState={editData}
+          setActualState={setEditData}
+        />
       )}
       {editSocial && (
         <EditSocialMedia

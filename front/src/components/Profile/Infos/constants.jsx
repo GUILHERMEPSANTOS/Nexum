@@ -1,16 +1,21 @@
+const date = new Date();
+const today = ` 0${date.getDate()}/ ${
+  date.getMonth() + 1
+}/ ${date.getFullYear()}`;
+
 export const INFOS = [
   {
     text: "Projetos:",
-    number: 24,
+    number: "",
   },
   {
     text: "Avaliações:",
-    number: 4.8,
-    rate: "Positivas",
+    number: "",
+    rate: "",
   },
   {
     text: "Desde:",
-    date: "04/08/2004",
+    date: today,
   },
 ];
 
