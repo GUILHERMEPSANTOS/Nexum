@@ -18,6 +18,11 @@
   justify-content: space-between;
   margin-top: 80px;
 }
+
+a {
+  text-decoration: none;
+  color:#191a1d;
+}
 @include mobile {
   div:not(.mensagem, .containerCards > div) {
     flex-direction: column;
@@ -28,4 +33,6 @@
   .containerCards > div {
     width: 85%;
   }
+
+ 
 }

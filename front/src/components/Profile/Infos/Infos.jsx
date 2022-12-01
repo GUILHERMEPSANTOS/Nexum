@@ -52,12 +52,11 @@ const Infos = ({ canEdit = true }) => {
         <br />
         {dataFreelancerHabilidades?.data?.length > 0 && (
           <List list={dataFreelancerHabilidades?.data} />
-      
         )}
         <br />
         <Text text="Consquistas" />
         <br />
-        <List list={ACHIEVEMENT} />
+        {/* <List list={ACHIEVEMENT} /> */}
       </section>
       {clickEditInfo && (
         <EditInfo

@@ -16,6 +16,7 @@ import List from "../List/List";
 import styles from "./styles.module.scss";
 import { putMatchRequest } from "../../../services/Freelancer/match/freelancer";
 import { getAboutUser } from "../../../services/Freelancer/user";
+import { getFreelancerById } from "../../../services/Freelancer/freelancer";
 
 const About = ({
   isOtherView,
@@ -28,17 +29,30 @@ const About = ({
   sobreCompany,
   socialCompany,
 }) => {
-  const [editAbout, setEditAbout] = useState(false);
-  const [editSocial, setEditSocial] = useState(false);
-  const [editData, setEditData] = useState(false);
-
+  const userId = useMemo(() => localStorage.getItem("user_id"));
   const nome = localStorage.getItem("name") ? localStorage.getItem("name") : "";
   const email = localStorage.getItem("email")
     ? localStorage.getItem("email")
     : "";
   const nomeFormatted = nome.replace(/"/g, "");
   const emailFormatted = email.replace(/"/g, "");
-  const userId = useMemo(() => localStorage.getItem("user_id"));
+  const [editAbout, setEditAbout] = useState(false);
+  const [editSocial, setEditSocial] = useState(false);
+  const [editData, setEditData] = useState(false);
+
+  const {
+    data: dataEnd,
+    isLoading: loadingEnd,
+    refetch: refetchEnd,
+  } = useQuery(["consultar solicitações de freela"], () =>
+    getFreelancerById(userId)
+  );
+  console.log(dataEnd?.endereco);
+  const {
+    data: dataAbout,
+    isLoading: isLoadingAbout,
+    refetch: refetchAbout,
+  } = useQuery(["consultar about"], async () => await getAboutUser(userId));
 
   const {
     data: dataSocialMedia,
@@ -48,23 +62,12 @@ const About = ({
     ["consultar redes"],
     async () => await listSocialByUserId(userId)
   );
-console.log(socialCompany)
-
 
   const handleMatchConfirm = useCallback(async () => {
     await putMatchRequest({ id_freelancer: userId, id_contratante: idCompany });
-  },[userId, idCompany])
+  }, [userId, idCompany]);
 
-  const {
-    data: dataAbout,
-    isLoading: isLoadingAbout,
-    refetch: refetchAbout,
-  } = useQuery(
-    ["consultar about"],
-    async () => await getAboutUser(userId)
-  );
-
-  if (isLoadingSocial || isLoadingAbout) {
+  if (isLoadingSocial || isLoadingAbout || loadingEnd) {
     return <div>Loding...</div>;
   }
 
@@ -86,12 +89,16 @@ console.log(socialCompany)
               <img src="../../assets/icons/location.png" />
               {isOtherView ? (
                 <>
-                  <Text isSmall={true} text={enderecoCompany?.cidade} />
+                  <Text isSmall={true} text={`${enderecoCompany?.cidade},`} />
 
                   <Text isSmall={true} text={enderecoCompany?.estado} />
                 </>
               ) : (
-                <Text isSmall={true} text="Osasco, São Paulo" />
+                <>
+                  <Text isSmall={true} text={`${dataEnd?.endereco?.cidade},`} />
+                  <span>,</span>
+                  <Text isSmall={true} text={dataEnd?.endereco?.estado} />
+                </>
               )}
             </div>
             <Text text="Designer" />
@@ -104,9 +111,9 @@ console.log(socialCompany)
             )}
           </div>
           {isOtherView && (
-            <div  className={styles.actions}>
+            <div className={styles.actions}>
               <Link onClick={handleMatchConfirm} to="/propostas">
-                <button  >
+                <button>
                   <img src="../../assets/icons/like.svg" />
                 </button>
               </Link>
@@ -128,9 +135,7 @@ console.log(socialCompany)
           {isOtherView ? (
             <Text text={sobreCompany} />
           ) : (
-            <Text
-              text={dataAbout?.data}
-            />
+            <Text text={dataAbout?.data} />
           )}
           {canEdit && (
             <img
@@ -143,7 +148,7 @@ console.log(socialCompany)
             <List title="Redes sociais" list={socialCompany} />
           ) : (
             dataSocialMedia?.data?.length > 0 && (
-            <List title="Redes sociais" list={dataSocialMedia?.data} />
+              <List title="Redes sociais" list={dataSocialMedia?.data} />
             )
           )}
           <Title text="Email" />
@@ -181,10 +186,18 @@ console.log(socialCompany)
         </div>
       </section>
       {editAbout && (
-        <EditProfile refetch={refetchAbout} actualState={editAbout} setActualState={setEditAbout} />
+        <EditProfile
+          refetch={refetchAbout}
+          actualState={editAbout}
+          setActualState={setEditAbout}
+        />
       )}
       {editData && (
-        <EditData actualState={editData} setActualState={setEditData} />
+        <EditData
+          refetch={refetchEnd}
+          actualState={editData}
+          setActualState={setEditData}
+        />
       )}
       {editSocial && (
         <EditSocialMedia

@@ -7,6 +7,13 @@
     display: none;
   }
 }
+
+.title {
+  color: $white;
+  font-size: $title;
+  font-family: $title-font;
+}
+
 .background {
   background-color: $black;
   margin: 0 auto;

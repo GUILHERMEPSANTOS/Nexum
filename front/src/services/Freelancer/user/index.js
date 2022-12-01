@@ -19,4 +19,9 @@ console.log(response)
   return response;
 }
 
-export { getAboutUser };
+const putCEP = async ({id_freelancer, cep}) => {
+  const response = await api.put(`api/v1/freelancer/${id_freelancer}/update-endereco/${cep}`);
+  return response
+}
+
+export { getAboutUser, putCEP };
