@@ -40,12 +40,13 @@ const About = ({
   const [editSocial, setEditSocial] = useState(false);
   const [editData, setEditData] = useState(false);
   
-    const { data, isLoading } = useQuery(
+    const { data, isLoading, refetch} = useQuery(
       ["consultar solicitações de freela"],
       () => getFreelancerById(userId)
     );
 
 
+    
 
     const {
       data: dataAbout,
@@ -194,7 +195,7 @@ const About = ({
         <EditProfile refetch={refetchAbout} actualState={editAbout} setActualState={setEditAbout} />
       )}
       {editData && (
-        <EditData actualState={editData} setActualState={setEditData} />
+        <EditData refetch={refetch} actualState={editData} setActualState={setEditData} />
       )}
       {editSocial && (
         <EditSocialMedia

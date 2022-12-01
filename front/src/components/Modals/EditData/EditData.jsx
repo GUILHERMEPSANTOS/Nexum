@@ -6,7 +6,7 @@ import { useCallback, useMemo, useState } from "react";
 import { putCEP } from "../../../services/Freelancer/user/index";
 import { useMutation } from "@tanstack/react-query";
 
-const EditData = ({ actualState, setActualState }) => {
+const EditData = ({ actualState, setActualState, refetch=() => {}}) => {
 
   const userId = useMemo(() => localStorage.getItem("user_id"));
   const { mutate: updateRequest } = useMutation(
@@ -53,64 +53,15 @@ const EditData = ({ actualState, setActualState }) => {
       }
     >
       <div className={styles.container}>
-        {page == 1 && (
-          <>
-            <Text isSmall={true} text="Nome" />
-            <input onChange={({ target }) => setNome(target.value)} value={nome} />
             <Text isSmall={true} text="CEP" />
             <input
               onChange={({ target }) => setCep(target.value)}
               value={cep}
             />
 
-          </>
-        )}
-        {page == 2 && (
-          <>
-            <div className={styles.containerLabel}>
-              <Text isSmall={true} text="Designer" />
-              <label className={styles.switch}>
-                <input
-                  onChange={({ target }) => setDesigner(target.checked)}
-                  value={designer}
-                  type="checkbox"
-                />
-                <span className={styles.slider}></span>
-              </label>
-            </div>
-            <div className={styles.containerLabel}>
-              <Text isSmall={true} text="Programador" />
-              <label className={styles.switch}>
-                <input
-                  onChange={({ target }) => setProgramador(target.checked)}
-                  value={programador}
-                  type="checkbox"
-                />
-                <span className={styles.slider}></span>
-              </label>
-            </div>
-            <div className={styles.containerLabel}>
-              <Text isSmall={true} text="Marketing" />
-              <label className={styles.switch}>
-                <input
-                  onChange={({ target }) => setMarketing(target.checked)}
-                  value={marketing}
-                  type="checkbox"
-                />
-                <span className={styles.slider}></span>
-              </label>
-            </div>
-          </>
-        )}
-      </div>
+ </div>
       <div className={styles.buttons}>
-        {page == 2 && (
-          <>
-            <img
-              className={styles.back}
-              onClick={() => setPage(page - 1)}
-              src="../../assets/icons/back.svg"
-            />
+
             <Button
               onClick={() => {
                 setActualState(false)
@@ -118,19 +69,9 @@ const EditData = ({ actualState, setActualState }) => {
               }}
               isEmpty={true}
               text="Salvar" />
-          </>
+          </div>
 
-        )}
-        : (
-        <img
-          onClick={() =>
-            setPage(page + 1)
-          }
-          className={styles.icon}
-          src="../../assets/icons/back.svg"
-        />
-        )
-      </div>
+       
     </Modal>
   );
 };
