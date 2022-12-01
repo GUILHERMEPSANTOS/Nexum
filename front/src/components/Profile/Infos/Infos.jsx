@@ -12,6 +12,7 @@ import Text from "../../Text/Text";
 import List from "../List/List";
 import { INFOS, ACHIEVEMENT, HABILITIES } from "./constants";
 import styles from "./styles.module.scss";
+import { Loading } from "../../Loading/Loading";
 
 const Infos = ({ canEdit = true }) => {
   const userId = useMemo(() => Number(localStorage.getItem("user_id")));
@@ -25,7 +26,7 @@ const Infos = ({ canEdit = true }) => {
   );
 
   if (isLoadingFreelancerHabilidades) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

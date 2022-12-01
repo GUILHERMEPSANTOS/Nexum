@@ -47,7 +47,7 @@ const About = ({
   } = useQuery(["consultar solicitações de freela"], () =>
     getFreelancerById(userId)
   );
-  console.log(dataEnd?.endereco);
+
   const {
     data: dataAbout,
     isLoading: isLoadingAbout,
@@ -75,10 +75,17 @@ const About = ({
     <>
       <section className={styles.container}>
         <div className={styles.profile}>
-          <img
-            className={styles.imgProfile}
-            src="../../assets/imgs/person-card-1.png"
-          />
+          {isOtherView ? (
+            <img
+              className={styles.imgProfile}
+              src="../../assets/imgs/empresa.png"
+            />
+          ) : (
+            <img
+              className={styles.imgProfile}
+              src="../../assets/imgs/person-card-2.png"
+            />
+          )}
           <div>
             {isOtherView ? (
               <h1 className={styles.title}>{nomeCompany} </h1>
@@ -87,11 +94,26 @@ const About = ({
             )}
             <div className={styles.location}>
               <img src="../../assets/icons/location.png" />
+
               {isOtherView ? (
                 <>
-                  <Text isSmall={true} text={`${enderecoCompany?.cidade},`} />
+                  <Text
+                    isSmall={true}
+                    text={`${
+                      enderecoCompany?.cidade == undefined
+                        ? "Não informado"
+                        : enderecoCompany?.cidade
+                    },`}
+                  />
 
-                  <Text isSmall={true} text={enderecoCompany?.estado} />
+                  <Text
+                    isSmall={true}
+                    text={
+                      enderecoCompany?.estado == undefined
+                        ? "Não informado"
+                        : enderecoCompany?.estadoBuis
+                    }
+                  />
                 </>
               ) : (
                 <>
@@ -101,7 +123,8 @@ const About = ({
                 </>
               )}
             </div>
-            <Text text="Designer" />
+            {isOtherView ? "" : <Text text="Programador" />}
+
             {canEdit && (
               <img
                 onClick={() => setEditData(true)}

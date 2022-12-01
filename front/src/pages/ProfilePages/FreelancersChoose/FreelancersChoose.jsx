@@ -16,18 +16,15 @@ import CardEscolha from "./Cards";
 import Button from "../../../components/Buttons/Button";
 import Modal from "../../../components/Modals/Modal";
 import { getTxt, sendTxt } from "../../../services/Importacao/freelancer";
+import { Loading } from "../../../components/Loading/Loading";
 
 const FreelancerChoose = () => {
   const [modal, setModal] = useState(false);
   const [upload, setUpload] = useState("");
 
-
-
   const { data, isLoading } = useQuery(["consultar freelancers"], () =>
     getFreelancers()
   );
-
-  
 
   const importTxt = useCallback(async () => {
     await sendTxt({ file: upload });
@@ -37,10 +34,8 @@ const FreelancerChoose = () => {
     await getTxt();
   }, []);
 
-
-
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
@@ -67,7 +62,6 @@ const FreelancerChoose = () => {
             />
             <Button
               onClick={() => {
-                
                 setModal(false);
                 importTxt();
               }}

@@ -7,6 +7,7 @@ import styles from "./styles.module.scss";
 
 import Company from "../../../pages/Profile/Company/Company";
 import Header from "../../Header/Header";
+import { Loading } from "../../Loading/Loading";
 
 const Matched = () => {
   const userId = useMemo(() => localStorage.getItem("user_id"));
@@ -17,38 +18,39 @@ const Matched = () => {
   );
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
-  console.log(data?.data.length)
+  console.log(data?.data.length);
 
   return (
     <>
       <Header options={OPTIONS} buttonText="Sair" link="/" />
-      {data?.data.length > 0 ? 
-  
-      data?.data.map(({ email, endereco, nome, sobre, socialsUserDTO, id_user }) => {
-        return (
-          <Company
-            nomeCompany={nome}
-            emailCompany={email}
-            enderecoCompany={endereco}
-            sobreCompany={sobre}
-            socialCompany={socialsUserDTO}
-            canEdit={false}
-            isCompanyProfile={true}
-            isOtherView={true}
-            idCompany={id_user}
-          />
-        );
-      })
-      :
-      <div className={styles.container}>
-      <h1 className={styles.sorry}>Ainda não há matchs</h1>
-      <div className={styles.img}>
-      <img src="https://media.tenor.com/XqKgFl1R4YcAAAAM/peach-sad.gif"/>
-      </div>
-      </div>
-    }
+      {data?.data.length > 0 ? (
+        data?.data.map(
+          ({ email, endereco, nome, sobre, socialsUserDTO, id_user }) => {
+            return (
+              <Company
+                nomeCompany={nome}
+                emailCompany={email}
+                enderecoCompany={endereco}
+                sobreCompany={sobre}
+                socialCompany={socialsUserDTO}
+                canEdit={false}
+                isCompanyProfile={true}
+                isOtherView={true}
+                idCompany={id_user}
+              />
+            );
+          }
+        )
+      ) : (
+        <div className={styles.container}>
+          <h1 className={styles.sorry}>Ainda não há matchs</h1>
+          <div className={styles.img}>
+            <img src="https://media.tenor.com/XqKgFl1R4YcAAAAM/peach-sad.gif" />
+          </div>
+        </div>
+      )}
     </>
   );
 };

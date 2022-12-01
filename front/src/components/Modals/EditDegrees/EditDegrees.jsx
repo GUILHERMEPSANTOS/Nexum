@@ -82,16 +82,14 @@ const EditDegrees = ({
   }, [curso, cidade, estado]);
 
   const handleUpload = useCallback(async () => {
-    
     const formData = new FormData();
     formData.append("file", file);
-    
-    console.log(file)
+
+    console.log(file);
     await postUpload(file);
-    
+
     localStorage.setItem("upload", JSON.stringify(file.name));
   }, [file]);
-
 
   return (
     <Modal
@@ -129,20 +127,13 @@ const EditDegrees = ({
           onChange={({ target }) => setUrlCertificado(target.value)}
           value={urlCertificado}
         />
-        <Text isSmall={true} text="Suba seu certificado" />
-        <input
-          onChange={({ target }) => setFile(target.files[0])}
-          // value={upload}
-          type="file"
-          // accept="image/png, image/jpeg"
-        />
       </div>
       <div className={styles.buttons}>
         <Button
           onClick={() => {
             if (add) handlePost();
             if (edit) handlePut();
-            handleUpload();
+
             setActualState(false);
           }}
           isEmpty={true}

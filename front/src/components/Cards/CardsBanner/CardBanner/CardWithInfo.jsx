@@ -7,6 +7,7 @@ const CardWithInfo = ({ data }) => {
       {data.map(({ id_user, nome, endereco, profession }, i) => (
         <div key={`${id_user}-${nome}-${i}`} className={styles.card}>
           <img
+            className={styles.foto}
             src={`../../../../../assets/imgs/person-card-${id_user}.png`}
             alt={nome}
           />
