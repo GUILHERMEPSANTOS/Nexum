@@ -13,7 +13,6 @@ const Cadastro = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
-  const [profession, setProfession] = useState();
   const [passwordType, setPasswordType] = useState("password");
   const [type, setType] = useState("password");
   const [contratante, setContratante] = useState(false);
@@ -55,7 +54,6 @@ const Cadastro = () => {
     verifyEmail,
     verifyCellphone,
     verifyPassword,
-    verifyProfession,
     verifyConfirmPassword,
     disabled,
   } = useCadastro({
@@ -64,7 +62,6 @@ const Cadastro = () => {
     user,
     cellphone,
     confirmPassword,
-    profession,
   });
 
   return (
@@ -94,27 +91,17 @@ const Cadastro = () => {
             </label>
           </div>
         </div>
-        <div className={styles.users}>
-          <div>
-        <label className={styles.labels}>Celular</label>
-        <input
-          type="number"
-          onBlur={verifyCellphone}
-          value={cellphone}
-          onChange={({ target }) => setCellphone(target.value)}
-        />
 
-        <p className={styles.error}>{errorCellphone}</p>
-        </div>
-        <div className={styles.profession}>
-        <label className={styles.labels}>CEP</label>
-        <input
-          onBlur={verifyProfession}
-          value={profession}
-          onChange={({ target }) => setProfession(target.value)}
-        />
-        <p className={styles.error}>{errorUser}</p>
-        </div>
+        <div>
+          <label className={styles.labels}>Celular</label>
+          <input
+            type="number"
+            onBlur={verifyCellphone}
+            value={cellphone}
+            onChange={({ target }) => setCellphone(target.value)}
+          />
+
+          <p className={styles.error}>{errorCellphone}</p>
         </div>
         <label className={styles.labels}>E-mail</label>
         <input
