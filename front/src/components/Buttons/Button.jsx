@@ -1,21 +1,31 @@
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
-const Button = ({ text, isEmpty, link, type, onClick, disabled }) => {
-  return (
-    <Link to={link}>
+const Button = ({ text, isEmpty, link, onClick, disabled, ...props }) => {
+  const renderButton = () => {
+    const className = [
+      styles.buttonFillBackground,
+      isEmpty ? styles.buttonEmptyBackground : "",
+      props.className,
+    ]
+      .filter(Boolean)
+      .join(" ");
+      
+    const disabledProp = disabled ? true : undefined;
+
+    return (
       <button
-        disabled={disabled ? true : ""}
-        type={type}
+        {...props}
+        className={className}
+        disabled={disabledProp}
         onClick={onClick}
-        className={
-          isEmpty ? styles.buttonEmptyBackground : styles.buttonFillBackground
-        }
       >
         {text}
       </button>
-    </Link>
-  );
+    );
+  };
+
+  return link ? <Link to={link}>{renderButton()}</Link> : renderButton();
 };
 
 export default Button;

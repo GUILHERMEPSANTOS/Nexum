@@ -6,6 +6,7 @@ import { listSocialByUserId } from "../../../services/Freelancer/social";
 import { Link } from "react-router-dom";
 
 import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
+import EditPhoto from "../../Modals/EditoPhoto/EditPhoto";
 import EditData from "../../Modals/EditData/EditData";
 import EditProfile from "../../Modals/EditProfile/EditProfile";
 import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
@@ -13,14 +14,18 @@ import Text from "../../Text/Text";
 import Title from "../../Title/Title";
 import List from "../List/List";
 
-import styles from "./styles.module.scss";
 import { putMatchRequest } from "../../../services/Freelancer/match/freelancer";
-import { getAboutUser } from "../../../services/Freelancer/user";
+import {
+  getAboutUser,
+  getImageProfile,
+} from "../../../services/Freelancer/user";
 import {
   getFreelancerById,
   getContratanteById,
 } from "../../../services/Freelancer/freelancer";
 import { Loading } from "../../Loading/Loading";
+import styles from "./styles.module.scss";
+import PhotoProfile from "./PhotoProfile/PhotoProfile";
 
 const About = ({
   isOtherView,
@@ -40,10 +45,18 @@ const About = ({
     : "";
   const nomeFormatted = nome.replace(/"/g, "");
   const emailFormatted = email.replace(/"/g, "");
+
+  const [editPhoto, setEditPhoto] = useState(false);
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
   const [editData, setEditData] = useState(false);
   const perfil = localStorage.getItem("role");
+
+  const { data: dataImage } = useQuery(
+    ["consultar imagem Perfil", userId],
+    () => getImageProfile({ userId })
+  );
+
   const {
     data: dataEnd,
     isLoading: loadingEnd,
@@ -51,6 +64,7 @@ const About = ({
   } = useQuery(["consultar solicitações de freela"], () =>
     getFreelancerById(userId)
   );
+
   const {
     data: dataEndContratante,
     isLoading: loadingEndContratante,
@@ -78,10 +92,13 @@ const About = ({
     await putMatchRequest({ id_freelancer: userId, id_contratante: idCompany });
   }, [userId, idCompany]);
 
+ 
+
+
   if (isLoadingSocial || isLoadingAbout || loadingEnd) {
     return <Loading />;
   }
-  console.log(dataEndContratante?.endereco);
+
   return (
     <>
       <section className={styles.container}>
@@ -92,11 +109,9 @@ const About = ({
               src="../../assets/imgs/empresa.png"
             />
           ) : (
-            <img
-              className={styles.imgProfile}
-              src="../../assets/imgs/person-card-2.png"
-            />
+            <PhotoProfile setEditPhoto={setEditPhoto} />
           )}
+
           <div>
             {isOtherView ? (
               <h1 className={styles.title}>{nomeCompany} </h1>
@@ -242,6 +257,9 @@ const About = ({
           setActualState={setEditSocial}
           refetch={refetchSocial}
         />
+      )}
+      {editPhoto && (
+        <EditPhoto actualState={editPhoto} setActualState={setEditPhoto} />
       )}
     </>
   );

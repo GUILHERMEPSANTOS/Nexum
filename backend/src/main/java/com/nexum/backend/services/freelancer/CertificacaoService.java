@@ -103,6 +103,4 @@ public class CertificacaoService implements CertificacaoServicePort {
 
         return isValidCertificaoId;
     }
-
-
 }

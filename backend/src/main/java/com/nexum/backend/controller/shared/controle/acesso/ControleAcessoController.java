@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 public class ControleAcessoController {
 
-    private PilhaObj pilhaObj = new PilhaObj<>(100);
+        private PilhaObj pilhaObj = new PilhaObj<>(100);
     private final ControleAcessoServicePort controleAcessoServicePort;
 
     public ControleAcessoController(ControleAcessoServicePort controleAcessoServicePort) {

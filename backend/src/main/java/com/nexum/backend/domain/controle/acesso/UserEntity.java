@@ -63,7 +63,6 @@ public class UserEntity {
     public UserEntity() {
     }
 
-
     public UserEntity(Long id_usuario) {
         this.id_usuario = id_usuario;
     }
@@ -87,6 +86,7 @@ public class UserEntity {
         this.senha = senha;
         this.sobre = sobre;
     }
+
 
 
     public Long getId_usuario() {

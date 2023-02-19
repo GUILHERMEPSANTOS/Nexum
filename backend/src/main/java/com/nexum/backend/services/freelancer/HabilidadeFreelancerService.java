@@ -38,10 +38,7 @@ public class HabilidadeFreelancerService implements HabilidadeFreelancerServiceP
     }
 
     @Override
-    public void handleHabilidadeFreelancer(
-            Collection<HabilidadeFreelancerCreateRequest> requests
-    ) {
-
+    public void handleHabilidadeFreelancer(Collection<HabilidadeFreelancerCreateRequest> requests) {
         Collection<HabilidadeFreelancerEntity> habilidadesFreelancer =
                 HabilidadeFreelancerCreateRequestToHabilidadeFreelancerEntityMapper
                         .toCollectionHabilidadeFreelancerEntity(requests);
@@ -58,7 +55,6 @@ public class HabilidadeFreelancerService implements HabilidadeFreelancerServiceP
             }
         });
     }
-
 
     private void addHabilidadeToFreelancer(HabilidadeFreelancerEntity habilidadeFreelancerEntity) {
         springHabilidadeFreelancerRepository.save(habilidadeFreelancerEntity);

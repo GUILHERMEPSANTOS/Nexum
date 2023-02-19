@@ -7,61 +7,65 @@ import { listHabilidadesByUserId } from "../../../../services/Freelancer/habilid
 import { useCallback, useMemo } from "react";
 import { sendMatchRequest } from "../../../../services/Freelancer/match/freelancer";
 
-const CardEscolha = ({id_user}) => {
-    const { data: idData, isLoading: LoadingData, refetch } = useQuery(
-        ["consultar about freelas"],
-        async () => await getAboutUser(id_user)
-      );
-      const {
-        data: dataFreelancerHabilidades,
-        isLoading: isLoadingFreelancerHabilidades,
-      } = useQuery(["consultar freelancer habilidades"], async () =>
-        await listHabilidadesByUserId(id_user)
-      );
+const CardEscolha = ({ id_user }) => {
+  const {
+    data: idData,
+    isLoading: LoadingData,
+    refetch,
+  } = useQuery(
+    ["consultar about freelas"],
+    async () => await getAboutUser(id_user)
+  );
+  const {
+    data: dataFreelancerHabilidades,
+    isLoading: isLoadingFreelancerHabilidades,
+  } = useQuery(
+    ["consultar freelancer habilidades"],
+    async () => await listHabilidadesByUserId(id_user)
+  );
 
-      const { mutate: sendMatch } = useMutation(
-        ({ id_freelancer, id_contratante }) =>
-          sendMatchRequest({ id_freelancer, id_contratante }),
-        {
-          onSuccess: () => {
-            alert("Sucesso");
-          },
-          onError: () => {
-            alert("Error");
-          },
-        }
-      );
+  const { mutate: sendMatch } = useMutation(
+    ({ id_freelancer, id_contratante }) =>
+      sendMatchRequest({ id_freelancer, id_contratante }),
+    {
+      onSuccess: () => {
+        alert("Sucesso");
+      },
+      onError: () => {
+        alert("Error");
+      },
+    }
+  );
 
-      const idContratante = useMemo(() => localStorage.getItem("user_id"));
-    
-      const handleSubmit = useCallback(
-        (id_freelancer) => {
-          sendMatch({
-            id_freelancer,
-            id_contratante: Number(idContratante),
-          });
-        },
-        [idContratante, sendMatchRequest]
-      );
-      
-        return(
-        <div key={id_user}>
-          <div className={styles.actions}>
-            <button onClick={() => handleSubmit(id_user)}>
-              <img src="../../assets/icons/like.svg" />
-            </button>
-            <button>
-              <img src="../../assets/icons/save.svg" />
-            </button>
-          </div>
-          <Text isSmall={true} text={idData?.data} />
+  const idContratante = useMemo(() => localStorage.getItem("user_id"));
 
-          {dataFreelancerHabilidades?.data?.length > 0 && (
-      <List list={dataFreelancerHabilidades?.data} />
- 
-    )} 
-        </div>
-        )
-}
+  const handleSubmit = useCallback(
+    (id_freelancer) => {
+      sendMatch({
+        id_freelancer,
+        id_contratante: Number(idContratante),
+      });
+    },
+    [idContratante, sendMatchRequest]
+  );
 
-export default CardEscolha
+  return (
+    <div key={id_user}>
+      <div className={styles.actions}>
+        <button onClick={() => handleSubmit(id_user)}>
+          <img src="../../assets/icons/like.svg" />
+        </button>
+        <button>
+          <img src="../../assets/icons/save.svg" />
+        </button>
+      </div>
+      <Text isSmall={true} text={idData?.data} />
+
+      {dataFreelancerHabilidades?.data?.length > 0 && (
+        <List list={dataFreelancerHabilidades?.data} />
+      )}
+    </div>
+  );
+};
+
+export default CardEscolha;

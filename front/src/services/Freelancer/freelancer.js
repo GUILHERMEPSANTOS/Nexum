@@ -17,4 +17,19 @@ const getFreelancers = async () => {
   return response;
 };
 
-export { getFreelancerById, getFreelancers, getContratanteById };
+const postProfilePhoto = async ({ base64Image, file, userId }) => {
+  const response = await api.post(`/api/v1/profile-photo/upload`, {
+    userId,
+    data: base64Image,
+    fileName: file.name,
+  });
+
+  return response;
+};
+
+export {
+  getFreelancerById,
+  getFreelancers,
+  getContratanteById,
+  postProfilePhoto,
+};

@@ -21,13 +21,16 @@
   width: 500px;
   height: 500px;
   background-color: $black-profile;
-  padding: 3% 2%;
+  padding: 3% 3%;
   z-index: 999;
   position: fixed;
   margin: 0 auto;
   left: 35%;
   top: 15%;
   border-radius: $border-cards;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
   @include mobile {
     width: 90vw;
     left: 0;

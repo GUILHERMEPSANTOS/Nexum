@@ -12,6 +12,9 @@ import java.util.Optional;
 
 @Repository
 public interface SpringUserRepository extends JpaRepository<UserEntity, Long> {
+    @Query("SELECT CASE WHEN COUNT(u) > 0 THEN true ELSE false END FROM UserEntity u WHERE u.id_usuario = :id")
+    boolean existsById(@Param("id") Long id);
+
     Optional<UserEntity> findByEmailAndSenha(String email, String senha);
 
     Optional<UserEntity> findByEmail(String email);
