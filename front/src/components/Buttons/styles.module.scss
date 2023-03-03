@@ -14,10 +14,11 @@
 .buttonFillBackground {
   @extend .buttonEmptyBackground;
   background-color: $purple;
+  margin-top: 5px;
 }
-
 button:disabled {
   background-color: #505050;
   border-color: #505050;
   cursor: default;
+  margin-bottom: 5px;
 }
