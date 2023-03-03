@@ -19,28 +19,33 @@ const Login = () => {
   const [showError, setShowError] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = useCallback(async () => {
-    const handlelogin = await APILogin({ email, senha: password });
-    console.log(handlelogin.status);
-    console.log(showError);
-    handlelogin.status == 200 ||
-    handlelogin.status !== "" ||
-    handlelogin.status !== null ||
-    handlelogin.status !== undefined
-      ? navigate("/inicio")
-      : setShowError(true);
+  const handleSubmit = () => {
+    // useCallback(async
+    //  () => {
+    //   const handlelogin = await APILogin({ email, senha: password });
+    //   console.log(handlelogin.status);
+    //   console.log(showError);
+    //   handlelogin.status == 200 ||
+    //   handlelogin.status !== "" ||
+    //   handlelogin.status !== null ||
+    //   handlelogin.status !== undefined
+    //     ?
+    navigate("/inicio");
+    // : setShowError(true);
 
-console.log(handlelogin.data)
+    // console.log(handlelogin.data)
 
-    localStorage.setItem("name", JSON.stringify(handlelogin.data.nome));
-    localStorage.setItem("user_id", JSON.stringify(handlelogin.data.id_user));
-    localStorage.setItem("email", JSON.stringify(handlelogin.data.email));
-    localStorage.setItem(
-      "role",
-      JSON.stringify(handlelogin.data.roles[0].roleName)
-    );
-    localStorage.setItem("number", JSON.stringify(handlelogin.data.celular.trim()));
-  }, [email, password]);
+    // localStorage.setItem("name", JSON.stringify(handlelogin.data.nome));
+    // localStorage.setItem("user_id", JSON.stringify(handlelogin.data.id_user));
+    // localStorage.setItem("email", JSON.stringify(handlelogin.data.email));
+    // localStorage.setItem(
+    //   "role",
+    //   JSON.stringify(handlelogin.data.roles[0].roleName)
+    // );
+    // localStorage.setItem("number", JSON.stringify(handlelogin.data.celular.trim()));
+  };
+  // , [];
+  // email, password
 
   const { errorEmail, errorPassword, verifyEmail, verifyPassword, disabled } =
     useLogin({
