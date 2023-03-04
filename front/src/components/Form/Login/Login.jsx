@@ -30,7 +30,7 @@ const Login = () => {
       ? navigate("/inicio")
       : setShowError(true);
 
-console.log(handlelogin.data)
+    console.log(handlelogin.data);
 
     localStorage.setItem("name", JSON.stringify(handlelogin.data.nome));
     localStorage.setItem("user_id", JSON.stringify(handlelogin.data.id_user));
@@ -39,7 +39,10 @@ console.log(handlelogin.data)
       "role",
       JSON.stringify(handlelogin.data.roles[0].roleName)
     );
-    localStorage.setItem("number", JSON.stringify(handlelogin.data.celular.trim()));
+    localStorage.setItem(
+      "number",
+      JSON.stringify(handlelogin.data.celular.trim())
+    );
   }, [email, password]);
 
   const { errorEmail, errorPassword, verifyEmail, verifyPassword, disabled } =
