@@ -103,55 +103,61 @@ const Cadastro = () => {
 
           <p className={styles.error}>{errorCellphone}</p>
         </div>
-        <label className={styles.labels}>E-mail</label>
-        <input
-          onBlur={verifyEmail}
-          value={email}
-          onChange={({ target }) =>
-            setEmail(target.value.trim().toLocaleLowerCase())
-          }
-        />
-        <p className={styles.error}>{errorEmail}</p>
-        <label className={styles.labels}>Senha</label>
-        <div className={styles.password}>
+        <div>
+          <label className={styles.labels}>E-mail</label>
           <input
-            onBlur={verifyPassword}
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-            type={passwordType}
-          />
-          <img
-            onClick={() =>
-              passwordType == "text"
-                ? setPasswordType("password")
-                : setPasswordType("text")
+            onBlur={verifyEmail}
+            value={email}
+            onChange={({ target }) =>
+              setEmail(target.value.trim().toLocaleLowerCase())
             }
-            src={`../../../../assets/icons/${
-              passwordType == "text" ? "unsee" : "see"
-            }.svg`}
-            alt="ver senha"
           />
+          <p className={styles.error}>{errorEmail}</p>
         </div>
-        <p className={styles.error}>{errorPassword}</p>
-        <label className={styles.labels}>Confirmar senha</label>
-        <div className={styles.password}>
-          <input
-            onBlur={verifyConfirmPassword}
-            value={confirmPassword}
-            onChange={({ target }) => setConfirmPassword(target.value)}
-            type={type}
-          />
-          <img
-            onClick={() =>
-              type == "text" ? setType("password") : setType("text")
-            }
-            src={`../../../../assets/icons/${
-              type == "text" ? "unsee" : "see"
-            }.svg`}
-            alt="ver senha"
-          />
+        <div>
+          <label className={styles.labels}>Senha</label>
+          <div className={styles.password}>
+            <input
+              onBlur={verifyPassword}
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
+              type={passwordType}
+            />
+            <img
+              onClick={() =>
+                passwordType == "text"
+                  ? setPasswordType("password")
+                  : setPasswordType("text")
+              }
+              src={`../../../../assets/icons/${
+                passwordType == "text" ? "unsee" : "see"
+              }.svg`}
+              alt="ver senha"
+            />
+          </div>
+          <p className={styles.error}>{errorPassword}</p>
         </div>
-        <p className={styles.error}>{errorConfirmPassword}</p>
+        <div>
+          <label className={styles.labels}>Confirmar senha</label>
+          <div className={styles.password}>
+            <input
+              onBlur={verifyConfirmPassword}
+              value={confirmPassword}
+              onChange={({ target }) => setConfirmPassword(target.value)}
+              type={type}
+            />
+            <img
+              onClick={() =>
+                type == "text" ? setType("password") : setType("text")
+              }
+              src={`../../../../assets/icons/${
+                type == "text" ? "unsee" : "see"
+              }.svg`}
+              alt="ver senha"
+            />
+          </div>
+          <p className={styles.error}>{errorConfirmPassword}</p>
+        </div>
       </div>
 
       <div className={styles.buttons}>
