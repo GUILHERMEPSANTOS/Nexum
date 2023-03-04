@@ -8,24 +8,20 @@ import { getImageProfile } from "../../../../services/Freelancer/user";
 
 import styles from "./styles.module.scss";
 
-const PhotoProfile = ({ setEditPhoto }) => {
+const PhotoProfile = ({ setEditPhoto, refetch = () => {} }) => {
   const userId = useMemo(() => localStorage.getItem("user_id"));
   const [imageUrl, setImageUrl] = useState(null);
 
-  const {
-    data: dataImage,
-    isLoading,
-    refetch,
-  } = useQuery(
+  const { data: dataImage, isLoading } = useQuery(
     ["consultar imagem Perfil", userId],
     () => getImageProfile({ userId }),
     {
       onSuccess: (data) => {
         setImageUrl(URL.createObjectURL(data.data));
+        refetch();
       },
     }
   );
-
 
   if (isLoading) {
     return <Loading />;

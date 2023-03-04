@@ -52,7 +52,7 @@ const About = ({
   const [editData, setEditData] = useState(false);
   const perfil = localStorage.getItem("role");
 
-  const { data: dataImage } = useQuery(
+  const { data: dataImage, refetch: refetchImage } = useQuery(
     ["consultar imagem Perfil", userId],
     () => getImageProfile({ userId })
   );
@@ -92,9 +92,6 @@ const About = ({
     await putMatchRequest({ id_freelancer: userId, id_contratante: idCompany });
   }, [userId, idCompany]);
 
- 
-
-
   if (isLoadingSocial || isLoadingAbout || loadingEnd) {
     return <Loading />;
   }
@@ -109,7 +106,7 @@ const About = ({
               src="../../assets/imgs/empresa.png"
             />
           ) : (
-            <PhotoProfile setEditPhoto={setEditPhoto} />
+            <PhotoProfile refetch={refetchImage} setEditPhoto={setEditPhoto} />
           )}
 
           <div>
