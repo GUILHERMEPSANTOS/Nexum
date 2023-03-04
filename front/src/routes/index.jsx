@@ -1,14 +1,14 @@
 import React from "react";
-import { createBrowserRouter } from "react-router-dom";
-import Profile from "../pages/Profile/Profile";
-import FreelancerChoose from "../pages/ProfilePages/FreelancersChoose/FreelancersChoose";
 import Form from "../components/Form/Form";
 import HomePage from "../pages/Home/homepage";
-import InicioMain from "../components/Profile/Inicio/tela_inicio";
-import CardMain from "../components/Profile/CardTelaInicio/card";
-import FreelancersOptions from "../pages/ProfilePages/FreelancersOptions/FreelancersOptions";
-import Propostas from "../components/Profile/Propostas/propostas";
+import Profile from "../pages/Profile/Profile";
+import { createBrowserRouter } from "react-router-dom";
 import Matched from "../components/Profile/Matched/Matched";
+import CardMain from "../components/Profile/CardTelaInicio/card";
+import Propostas from "../components/Profile/Propostas/propostas";
+import InicioMain from "../components/Profile/Inicio/tela_inicio";
+import FreelancerChoose from "../pages/ProfilePages/FreelancersChoose/FreelancersChoose";
+import FreelancersOptions from "../pages/ProfilePages/FreelancersOptions/FreelancersOptions";
 
 export const router = createBrowserRouter([
   {
