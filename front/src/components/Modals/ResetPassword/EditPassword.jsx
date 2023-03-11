@@ -1,8 +1,8 @@
-import Modal from "../Modal";
+import Modal from "../modal";
 import styles from "./styles.module.scss";
 import { useState } from "react";
-import useCadastro from "../../Form/Cadastro/hooks";
-import Button from "../../Buttons/Button";
+import useCadastro from "../../form/cadastro/hooks";
+import Button from "../../buttons/button";
 
 const EditPassword = ({ actualState, setActualState }) => {
   const [password, setPassword] = useState();

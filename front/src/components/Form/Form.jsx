@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import Banner from "../Banner/Banner";
-import Text from "../Text/Text";
-import Cadastro from "./Cadastro/Cadastro";
-import Login from "./Login/Login";
+import Banner from "../banner/banner";
+import Text from "../text/text";
+import Cadastro from "./cadastro/cadastro";
+import Login from "./login/login";
 import styles from "./styles.module.scss";
 
 const Form = () => {

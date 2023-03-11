@@ -1,10 +1,10 @@
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import AboutMain from "../../components/About/About";
-import BannerMain from "../../components/Banner/BannerMain/BannerMain";
-import BannerRanking from "../../components/Banner/BannerRanking/BannerRanking";
-import Info from "../../components/Info/Info";
-import UserMain from "../../components/TypeUser/TypeUser";
+import Footer from "../../components/footer/footer";
+import Header from "../../components/header/header";
+import AboutMain from "../../components/about/about";
+import BannerMain from "../../components/banner/bannerMain/bannerMain";
+import BannerRanking from "../../components/banner/bannerRanking/bannerRanking";
+import Info from "../../components/info/Info";
+import UserMain from "../../components/typeUser/typeUser";
 import { OPTIONS } from "./constants";
 
 const HomePage = () => {

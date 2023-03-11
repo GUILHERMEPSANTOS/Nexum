@@ -1,15 +1,15 @@
 import { useCallback } from "react";
 
-import Title from "../../Title/Title";
-import Text from "../../Text/Text";
+import Title from "../../title/title";
+import Text from "../../text/text";
 import styles from "./styles.module.scss";
-import Button from "../../Buttons/Button";
+import Button from "../../buttons/button";
 import { useState } from "react";
 import { APILogin } from "../../../services";
 import useLogin from "./hooks";
 import { useNavigate } from "react-router-dom";
-import EditPassword from "../../Modals/ResetPassword/EditPassword";
-import Modal from "../../Modals/Modal";
+import EditPassword from "../../modals/resetPassword/editPassword";
+import Modal from "../../modals/modal";
 
 const Login = () => {
   const [email, setEmail] = useState();

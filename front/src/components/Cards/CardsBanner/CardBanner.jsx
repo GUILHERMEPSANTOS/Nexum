@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
-import { DATA } from "./Constants";
-import CardWithInfo from "./CardBanner/CardWithInfo";
+import { DATA } from "./constants";
+import CardWithInfo from "./cardBanner/cardWithInfo";
 
 const CardBanner = () => {
   return (

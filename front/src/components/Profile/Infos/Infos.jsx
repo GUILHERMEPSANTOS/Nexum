@@ -4,15 +4,15 @@ import { useQuery } from "@tanstack/react-query";
 import {
   listHabilidadesByUserId,
   getHabilidadeById,
-} from "../../../services/Freelancer/habilidades";
+} from "../../../services/freelancer/habilidades";
 
-import EditInfo from "../../Modals/EditInfos/EditInfo";
-import Title from "../../Title/Title";
-import Text from "../../Text/Text";
-import List from "../List/List";
+import EditInfo from "../../modals/editInfos/editInfo";
+import Title from "../../title/title";
+import Text from "../../text/text";
+import List from "../list/list";
 import { INFOS, ACHIEVEMENT, HABILITIES } from "./constants";
 import styles from "./styles.module.scss";
-import { Loading } from "../../Loading/Loading";
+import { Loading } from "../../loading/loading";
 
 const Infos = ({ canEdit = true }) => {
   const userId = useMemo(() => Number(localStorage.getItem("user_id")));

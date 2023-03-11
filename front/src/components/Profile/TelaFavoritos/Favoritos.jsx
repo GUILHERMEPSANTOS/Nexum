@@ -1,4 +1,4 @@
-import List from "../List/List";
+import List from "../list/list";
 import { HABILITIES } from "./constants";
 import styles from "./styles.module.scss";
 

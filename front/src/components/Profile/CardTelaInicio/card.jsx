@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Text from "../../Text/Text";
+import Text from "../../text/text";
 import styles from "./styles.module.scss";
 
 const CardMain = ({ title, text, link }) => {

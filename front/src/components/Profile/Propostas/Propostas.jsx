@@ -1,9 +1,9 @@
-import Banner from "../../Banner/Banner";
+import Banner from "../../banner/banner";
 import { TEXTS_FREELANCER, OPTIONS } from "./constants";
-import Title from "../../Title/Title";
-import CardMain from "../CardTelaInicio/card";
+import Title from "../../title/title";
+import CardMain from "../cardTelaInicio/card";
 import styles from "./styles.module.scss";
-import Header from "../../Header/Header";
+import Header from "../../header/header";
 
 const Propostas = () => {
   const data = localStorage.getItem("name") ? localStorage.getItem("name") : "";

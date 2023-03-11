@@ -1,31 +1,31 @@
 import { useCallback, useMemo, useState } from "react";
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { listSocialByUserId } from "../../../services/Freelancer/social";
+import { listSocialByUserId } from "../../../services/freelancer/social";
 
 import { Link } from "react-router-dom";
 
-import CreateOffer from "../../Modals/CreateOffer/CreateOffer";
-import EditPhoto from "../../Modals/EditoPhoto/EditPhoto";
-import EditData from "../../Modals/EditData/EditData";
-import EditProfile from "../../Modals/EditProfile/EditProfile";
-import EditSocialMedia from "../../Modals/EditSocialMedia/EditSocialMedia";
-import Text from "../../Text/Text";
-import Title from "../../Title/Title";
-import List from "../List/List";
+import CreateOffer from "../../modals/createOffer/createOffer";
+import EditPhoto from "../../modals/editoPhoto/editPhoto";
+import EditData from "../../modals/editData/editData";
+import EditProfile from "../../modals/editProfile/editProfile";
+import EditSocialMedia from "../../modals/editSocialMedia/editSocialMedia";
+import Text from "../../text/text";
+import Title from "../../title/title";
+import List from "../list/list";
 
-import { putMatchRequest } from "../../../services/Freelancer/match/freelancer";
+import { putMatchRequest } from "../../../services/freelancer/match/freelancer";
 import {
   getAboutUser,
   getImageProfile,
-} from "../../../services/Freelancer/user";
+} from "../../../services/freelancer/user";
 import {
   getFreelancerById,
   getContratanteById,
-} from "../../../services/Freelancer/freelancer";
-import { Loading } from "../../Loading/Loading";
+} from "../../../services/freelancer/freelancer";
+import { Loading } from "../../loading/loading";
 import styles from "./styles.module.scss";
-import PhotoProfile from "./PhotoProfile/PhotoProfile";
+import PhotoProfile from "./photoProfile/photoProfile";
 
 const About = ({
   isOtherView,

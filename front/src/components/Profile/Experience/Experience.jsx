@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
-import { listExperienciaByFreelancerId } from "../../../services/Freelancer/experienca";
+import { listExperienciaByFreelancerId } from "../../../services/freelancer/experienca";
 
-import EditExperience from "../../Modals/EditExperience/EditExperience";
-import Title from "../../Title/Title";
-import Text from "../../Text/Text";
+import EditExperience from "../../modals/editExperience/editExperience";
+import Title from "../../title/title";
+import Text from "../../text/text";
 
 import styles from "./styles.module.scss";
 

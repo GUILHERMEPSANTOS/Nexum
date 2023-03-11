@@ -1,12 +1,12 @@
 import styles from "./styles.module.scss";
-import { ITEMS } from "./Constants";
-import Title from "../Title/Title";
-import Text from "../Text/Text";
+import { ITEMS } from "./constants";
+import Title from "../title/title";
+import Text from "../text/text";
 import { useQuery } from "@tanstack/react-query";
 import {
   countFreelancers,
   countContratantes,
-} from "../../services/Dashboard/dashboard";
+} from "../../services/dashboard/dashboard";
 const Info = () => {
   const {
     data: dataFreela,

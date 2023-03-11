@@ -1,10 +1,10 @@
-import Title from "../../Title/Title";
-import Text from "../../Text/Text";
+import Title from "../../title/title";
+import Text from "../../text/text";
 import styles from "./styles.module.scss";
 
 import { useMemo, useState } from "react";
-import EditGraduate from "../../Modals/EditGraduate/EditGraduate";
-import { listFormacaoByFreelancerId } from "../../../services/Freelancer/formacao";
+import EditGraduate from "../../modals/editGraduate/editGraduate";
+import { listFormacaoByFreelancerId } from "../../../services/freelancer/formacao";
 import { useQuery } from "@tanstack/react-query";
 
 const Formation = ({ canEdit = true }) => {

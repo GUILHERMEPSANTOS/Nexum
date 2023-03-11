@@ -1,13 +1,13 @@
 import { useMemo } from "react";
 
 import { useQuery } from "@tanstack/react-query";
-import { getMatchsRequestByFreelancerId } from "../../../services/Freelancer/match/freelancer";
+import { getMatchsRequestByFreelancerId } from "../../../services/freelancer/match/freelancer";
 import { OPTIONS } from "./constants";
 import styles from "./styles.module.scss";
 
-import Company from "../../../pages/Profile/Company/Company";
-import Header from "../../Header/Header";
-import { Loading } from "../../Loading/Loading";
+import Company from "../../../pages/profile/company/company";
+import Header from "../../header/header";
+import { Loading } from "../../loading/loading";
 
 const Matched = () => {
   const userId = useMemo(() => localStorage.getItem("user_id"));

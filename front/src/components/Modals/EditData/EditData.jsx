@@ -1,9 +1,9 @@
-import Text from "../../Text/Text";
-import Button from "../../Buttons/Button";
-import Modal from "../Modal";
+import Text from "../../text/text";
+import Button from "../../buttons/button";
+import Modal from "../modal";
 import styles from "./styles.module.scss";
 import { useCallback, useMemo, useState } from "react";
-import { putCEP } from "../../../services/Freelancer/user/index";
+import { putCEP } from "../../../services/freelancer/user/index";
 import { useMutation } from "@tanstack/react-query";
 
 const EditData = ({ actualState, setActualState, refetch=() => {}}) => {

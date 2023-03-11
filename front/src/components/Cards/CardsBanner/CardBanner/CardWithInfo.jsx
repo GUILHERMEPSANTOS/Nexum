@@ -1,4 +1,4 @@
-import CardInfo from "../CardInfo/CardInfo";
+import CardInfo from "../cardInfo/cardInfo";
 import styles from "./styles.module.scss";
 
 const CardWithInfo = ({ data }) => {

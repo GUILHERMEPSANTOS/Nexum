@@ -1,12 +1,12 @@
 import { useState, useMemo } from "react";
 import { useMutation } from "@tanstack/react-query";
 
-import { postProfilePhoto } from "../../../services/Freelancer/freelancer";
+import { postProfilePhoto } from "../../../services/freelancer/freelancer";
 
-import Button from "../../Buttons/Button";
-import Modal from "../Modal";
+import Button from "../../buttons/button";
+import Modal from "../modal";
 
-import { appendFile, clearFormData, convertFileToBase64 } from "./FileHandler";
+import { appendFile, clearFormData, convertFileToBase64 } from "./fileHandler";
 
 import styles from "./styles.module.scss";
 

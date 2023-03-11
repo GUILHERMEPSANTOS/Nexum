@@ -1,4 +1,4 @@
-import About from "../../../components/Profile/About/About";
+import About from "../../../components/profile/about/about";
 import styles from "./styles.module.scss";
 
 const Company = ({

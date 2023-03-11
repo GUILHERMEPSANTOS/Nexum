@@ -1,11 +1,11 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getAboutUser } from "../../../../services/Freelancer/user";
-import List from "../../../../components/Profile/List/List";
-import Text from "../../../../components/Text/Text";
+import { getAboutUser } from "../../../../services/freelancer/user";
+import List from "../../../../components/profile/list/list";
+import Text from "../../../../components/text/text";
 import styles from "./styles.module.scss";
-import { listHabilidadesByUserId } from "../../../../services/Freelancer/habilidades";
+import { listHabilidadesByUserId } from "../../../../services/freelancer/habilidades";
 import { useCallback, useMemo } from "react";
-import { sendMatchRequest } from "../../../../services/Freelancer/match/freelancer";
+import { sendMatchRequest } from "../../../../services/freelancer/match/freelancer";
 
 const CardEscolha = ({ id_user }) => {
   const {

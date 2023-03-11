@@ -1,6 +1,6 @@
-import Text from "../../Text/Text";
-import Button from "../../Buttons/Button";
-import Modal from "../Modal";
+import Text from "../../text/text";
+import Button from "../../buttons/button";
+import Modal from "../modal";
 import styles from "./styles.module.scss";
 import { useState } from "react";
 

@@ -1,10 +1,10 @@
 import { useCallback, useMemo, useState } from "react";
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getAboutUser, putAboutUser } from "../../../services/Freelancer/user";
+import { getAboutUser, putAboutUser } from "../../../services/freelancer/user";
 
-import Button from "../../Buttons/Button";
-import Modal from "../Modal";
+import Button from "../../buttons/button";
+import Modal from "../modal";
 import styles from "./styles.module.scss";
 
 const EditProfile = ({ actualState, setActualState, refetch = () => {}}) => {

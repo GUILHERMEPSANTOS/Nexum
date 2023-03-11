@@ -1,5 +1,5 @@
-import Text from "../../Text/Text";
-import Title from "../../Title/Title";
+import Text from "../../text/text";
+import Title from "../../title/title";
 import styles from "./styles.module.scss";
 
 const List = ({ title = "", list }) => {

@@ -1,8 +1,8 @@
-import Button from "../../Buttons/Button";
-import Cards from "../../Cards/Cards";
-import Text from "../../Text/Text";
-import Title from "../../Title/Title";
-import Banner from "../Banner";
+import Button from "../../buttons/button";
+import Cards from "../../cards/cards";
+import Text from "../../text/text";
+import Title from "../../title/title";
+import Banner from "../banner";
 import styles from "./styles.module.scss";
 
 const BannerRanking = () => {

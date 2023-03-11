@@ -2,9 +2,9 @@ import { useMemo, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 
-import { Loading } from "../../../Loading/Loading";
+import { Loading } from "../../../loading/loading";
 
-import { getImageProfile } from "../../../../services/Freelancer/user";
+import { getImageProfile } from "../../../../services/freelancer/user";
 
 import styles from "./styles.module.scss";
 

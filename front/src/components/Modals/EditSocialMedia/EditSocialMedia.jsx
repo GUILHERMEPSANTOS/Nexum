@@ -1,11 +1,11 @@
 import { useCallback, useMemo, useState } from "react";
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { listSocial, postSocial } from "../../../services/Freelancer/social";
+import { listSocial, postSocial } from "../../../services/freelancer/social";
 
-import Button from "../../Buttons/Button";
-import Modal from "../Modal";
-import OptionSocialMedia from "./OptionSocialMedia/OptionSocialMedia";
+import Button from "../../buttons/button";
+import Modal from "../modal";
+import OptionSocialMedia from "./optionSocialMedia/optionSocialMedia";
 
 import styles from "./styles.module.scss";
 

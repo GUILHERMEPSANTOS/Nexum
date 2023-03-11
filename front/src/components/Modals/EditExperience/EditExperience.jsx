@@ -1,12 +1,12 @@
-import Text from "../../Text/Text";
-import Button from "../../Buttons/Button";
-import Modal from "../Modal";
+import Text from "../../text/text";
+import Button from "../../buttons/button";
+import Modal from "../modal";
 import styles from "./styles.module.scss";
 import { useCallback, useMemo, useState } from "react";
 import {
   postExperiencia,
   putExperiencia,
-} from "../../../services/Freelancer/experienca";
+} from "../../../services/freelancer/experienca";
 import { useMutation } from "@tanstack/react-query";
 const EditExperience = ({
   actualState,

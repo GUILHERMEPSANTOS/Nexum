@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
-import { ITEMS } from "./Constants";
-import Title from "../Title/Title";
-import Text from "../Text/Text";
+import { ITEMS } from "./constants";
+import Title from "../title/title";
+import Text from "../text/text";
 
 const Cards = () => {
   return (

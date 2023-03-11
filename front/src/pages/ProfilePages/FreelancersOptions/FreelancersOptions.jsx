@@ -1,4 +1,4 @@
-import FavoritosMain from "../../../components/Profile/TelaFavoritos/Favoritos";
+import FavoritosMain from "../../../components/profile/telaFavoritos/favoritos";
 import Profile from "../profile";
 import { FAVORITES } from "./constanst";
 

@@ -1,6 +1,6 @@
-import Button from "../../Buttons/Button";
-import Title from "../../Title/Title";
-import Text from "../../Text/Text";
+import Button from "../../buttons/button";
+import Title from "../../title/title";
+import Text from "../../text/text";
 
 import styles from "./styles.module.scss";
 import { useCallback, useState } from "react";

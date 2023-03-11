@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import Text from "../Text/Text";
+import Text from "../text/text";
 import { redirect } from "react-router-dom";
 
 const Modal = ({

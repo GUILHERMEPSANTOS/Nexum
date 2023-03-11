@@ -1,22 +1,22 @@
 import { useCallback, useState, useMemo } from "react";
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getFreelancers } from "../../../services/Freelancer/freelancer";
-import { sendMatchRequest } from "../../../services/Freelancer/match/freelancer";
+import { getFreelancers } from "../../../services/freelancer/freelancer";
+import { sendMatchRequest } from "../../../services/freelancer/match/freelancer";
 
-import CreateOffer from "../../../components/Modals/CreateOffer/CreateOffer";
-import CardWithInfo from "../../../components/Cards/CardsBanner/CardBanner/CardWithInfo";
+import CreateOffer from "../../../components/modals/createOffer/createOffer";
+import CardWithInfo from "../../../components/cards/cardsBanner/cardBanner/cardWithInfo";
 
 import ProfileContainer from "../profile";
-import Text from "../../../components/Text/Text";
+import Text from "../../../components/text/text";
 
 import styles from "./styles.module.scss";
-import { getAboutUser } from "../../../services/Freelancer/user";
-import CardEscolha from "./Cards";
-import Button from "../../../components/Buttons/Button";
-import Modal from "../../../components/Modals/Modal";
-import { getTxt, sendTxt } from "../../../services/Importacao/freelancer";
-import { Loading } from "../../../components/Loading/Loading";
+import { getAboutUser } from "../../../services/freelancer/user";
+import CardEscolha from "./cards";
+import Button from "../../../components/buttons/button";
+import Modal from "../../../components/modals/modal";
+import { getTxt, sendTxt } from "../../../services/importacao/freelancer";
+import { Loading } from "../../../components/loading/loading";
 
 const FreelancerChoose = () => {
   const [modal, setModal] = useState(false);

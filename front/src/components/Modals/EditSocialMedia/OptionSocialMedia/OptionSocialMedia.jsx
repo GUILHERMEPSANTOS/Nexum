@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-import Text from "../../../Text/Text";
+import Text from "../../../text/text";
 
 const OptionSocialMedia = ({ id_social, nome, onChageOption }) => {
   const handleOptionValue = useCallback(

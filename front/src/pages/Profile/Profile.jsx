@@ -1,6 +1,6 @@
-import Company from "./Company/Company";
-import Freelancer from "./Freelancer/Profile";
-import ProfileContainer from "../ProfilePages/profile";
+import Company from "./company/company";
+import Freelancer from "./freelancer/profile";
+import ProfileContainer from "../profilePages/profile";
 import { useState } from "react";
 import { useEffect } from "react";
 

@@ -1,5 +1,5 @@
 import useChange from "./hooks";
-import Button from "../Buttons/Button";
+import Button from "../buttons/button";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 

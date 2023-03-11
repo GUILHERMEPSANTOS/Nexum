@@ -1,7 +1,7 @@
-import Title from "../Title/Title";
-import Text from "../Text/Text";
-import Banner from "../Banner/Banner";
-import Button from "../Buttons/Button";
+import Title from "../title/title";
+import Text from "../text/text";
+import Banner from "../banner/banner";
+import Button from "../buttons/button";
 import styles from "./styles.module.scss";
 
 const UserMain = () => {

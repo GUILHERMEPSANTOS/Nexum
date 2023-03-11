@@ -1,13 +1,13 @@
 import { useMemo, useState, useCallback } from "react";
-import Text from "../../Text/Text";
-import Title from "../../Title/Title";
-import Button from "../../Buttons/Button";
+import Text from "../../text/text";
+import Title from "../../title/title";
+import Button from "../../buttons/button";
 import styles from "./styles.module.scss";
-import EditDegrees from "../../Modals/EditDegrees/EditDegrees";
-import { listCertificadoByFreelancerId } from "../../../services/Freelancer/certificacao";
+import EditDegrees from "../../modals/editDegrees/editDegrees";
+import { listCertificadoByFreelancerId } from "../../../services/freelancer/certificacao";
 import { useQuery } from "@tanstack/react-query";
-import { getDownload } from "../../../services/Importacao/freelancer";
-import { Loading } from "../../Loading/Loading";
+import { getDownload } from "../../../services/importacao/freelancer";
+import { Loading } from "../../loading/loading";
 
 const Degrees = ({ canEdit = true }) => {
   const upload = localStorage.getItem("upload");

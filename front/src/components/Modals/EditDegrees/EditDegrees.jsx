@@ -1,14 +1,14 @@
-import Text from "../../Text/Text";
-import Button from "../../Buttons/Button";
-import Modal from "../Modal";
+import Text from "../../text/text";
+import Button from "../../buttons/button";
+import Modal from "../modal";
 import styles from "./styles.module.scss";
 import { useCallback, useMemo, useState } from "react";
 import {
   postCertificado,
   putCertificado,
-} from "../../../services/Freelancer/certificacao";
+} from "../../../services/freelancer/certificacao";
 import { useMutation } from "@tanstack/react-query";
-import { postUpload } from "../../../services/Importacao/freelancer";
+import { postUpload } from "../../../services/importacao/freelancer";
 import { useEffect } from "react";
 
 const EditDegrees = ({
