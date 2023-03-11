@@ -2,7 +2,6 @@ import { api } from "../api";
 
 const postUpload = async (file) => {
   try {
-    console.log(file)
     const response = await api.post(`/upload`, file, {
       headers: {
         "Content-Type":
@@ -12,7 +11,7 @@ const postUpload = async (file) => {
 
     return response.data;
   } catch (error) {
-    console.log(error);
+      throw new Error("Erro ao subir o arquivo")
   }
 };
 
