@@ -1,0 +1,123 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.container {
+  width: 80%;
+  background-color: $black-profile;
+  margin: 100px auto;
+  border-radius: $border-cards;
+  padding: 5%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 2%;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  .editIcon {
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;    
+  }
+
+  .title {
+    color: $white;
+    font-size: $title;
+    font-family: $title-font;
+  }
+
+  .actions {
+    >a>button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    >button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  .socialMedia {
+    display: flex;
+    width: auto;
+    max-width: 50%;
+    background-color: $gray-profile;
+    padding: 2%;
+    margin: 5px;
+    border-radius: $border-cards;
+    text-align: left;
+
+    @include mobile {
+      width: auto;
+    }
+  }
+
+  .location {
+    display: flex;
+
+    >img {
+      width: 7%;
+      margin-right: 10px;
+    }
+  }
+
+  .aboutContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 800px;
+    width: 65%;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    >img {
+      cursor: pointer;
+    }
+  }
+
+  .editDatas {
+    cursor: pointer;
+  }
+
+  .edit {
+    width: 5%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    @include mobile {
+      width: 20%;
+      top: 0;
+    }
+  }
+
+  .editSocial {
+    @extend .edit;
+    top: 53%;
+  }
+
+  @include mobile {
+    .profile {
+      >div {
+        margin-top: 30px;
+      }
+
+      >img {
+        width: 200px;
+        height: 200px;
+        margin-right: 20px;
+      }
+
+      display: flex;
+      flex-direction: row;
+      height: 300px;
+    }
+  }
+}

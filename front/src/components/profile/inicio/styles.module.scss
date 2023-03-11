@@ -1,0 +1,27 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.mensagem {
+  height: 21%;
+  width: 35%;
+  margin-left: 15%;
+  float: left;
+}
+
+.containerCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+@include mobile {
+  div:not(.mensagem, .containerCards > div) {
+    flex-direction: column;
+  }
+  .mensagem {
+    width: 100%;
+  }
+  .containerCards > div {
+    width: 85%;
+  }
+}

@@ -1,0 +1,37 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.wrapper {
+  display: block;
+}
+
+.container {
+  height: 110vh;
+  overflow: hidden;
+  @include tablet {
+    width: 250px;
+  }
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  border-radius: $border-images;
+
+  img {
+    border-radius: $border-images;
+    @include tablet {
+      width: 250px;
+    }
+  }
+}
+
+.card__animation {
+  animation: animate 120s linear infinite;
+
+  @keyframes animate {
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.container {
+  width: 80%;
+  background-color: $black-profile;
+  margin: 20px auto;
+  border-radius: $border-cards;
+  padding: 5%;
+  position: relative;
+
+  .wrapper {
+    display: flex;
+    margin: 20px 0;
+  }
+  .wrapper > img {
+    width: 64px;
+    height: 68px;
+    padding-right: 16px;
+  }
+  .contentContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    width: 90%;
+    > a:first-of-type {
+      z-index: 999;
+    }
+    > a {
+      width: 20%;
+      @include mobile {
+        width: auto;
+      }
+    }
+  }
+  .buttonEmptyBackground {
+    background-color: $purple;
+    border: 2px solid $purple;
+    width: 100%;
+    border-radius: $border-buttons;
+    padding: $padding-buttons;
+    color: $white;
+    font-size: $text;
+    cursor: pointer;
+  }
+
+  .edit {
+    position: relative;
+    left: 100%;
+    width: 30px;
+    cursor: pointer;
+    @include mobile {
+      left: 75%;
+    }
+  }
+
+  .add {
+    position: relative;
+    left: 100%;
+    width: 30px;
+    cursor: pointer;
+
+    @include mobile {
+      left: 75%;
+    }
+  }
+}

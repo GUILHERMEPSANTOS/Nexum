@@ -1,0 +1,29 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins.scss";
+
+.wrapper {
+  display: block;
+}
+
+.container {
+  height: 110vh;
+  overflow: hidden;
+  @include tablet {
+    width: 250px;
+  }
+}
+.foto {
+  min-height: 608px;
+}
+.card {
+  overflow: hidden;
+  position: relative;
+  border-radius: $border-images;
+
+  img {
+    border-radius: $border-images;
+    @include tablet {
+      width: 250px;
+    }
+  }
+}

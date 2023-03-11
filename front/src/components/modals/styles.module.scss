@@ -1,0 +1,56 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 0;
+  z-index: 20;
+  overflow: hidden;
+  @include mobile {
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.modal {
+  width: 500px;
+  height: 500px;
+  background-color: $black-profile;
+  padding: 3% 3%;
+  z-index: 999;
+  position: fixed;
+  margin: 0 auto;
+  left: 35%;
+  top: 15%;
+  border-radius: $border-cards;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  @include mobile {
+    width: 90vw;
+    left: 0;
+    top: 5%;
+  }
+  .close {
+    position: relative;
+    left: 90%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    top: -50px;
+    @include mobile {
+      left: 80%;
+    }
+
+    .xIcon {
+      position: absolute;
+      top: 3px;
+      left: 7px;
+    }
+  }
+}

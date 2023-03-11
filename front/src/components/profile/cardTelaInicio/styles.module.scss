@@ -1,0 +1,19 @@
+@import "../../../styles/variables.scss";
+
+.containerCard {
+  width: 520px;
+  height: 120px;
+  background-color: #191a1d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 44px;
+  padding: 20px;
+  a {
+    text-decoration: none;
+    > p:not(:first-of-type) {
+      color: $purple;
+    }
+  }
+}

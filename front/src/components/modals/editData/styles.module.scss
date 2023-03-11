@@ -1,0 +1,95 @@
+@import "../../../styles/variables.scss";
+// @import "../../styles/mixins.scss";
+
+.container {
+  margin-top: 20px;
+
+  > input {
+    margin: 5px 0;
+  }
+}
+
+.buttons {
+  width: 150px;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+}
+.containerLabel {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.textArea {
+  background-color: $gray-profile;
+  border: none;
+  border-radius: $border-images;
+  padding: 20px;
+  font-size: $text;
+  height: 200px;
+  width: 93%;
+  color: $white;
+}
+.icon {
+  transform: rotate(180deg);
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.choisesContainer {
+  height: 250px;
+  overflow-y: auto;
+}
+
+.back {
+  position: absolute;
+  cursor: pointer;
+  bottom: -5px;
+  left: -300px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $dark-gray;
+  border-color: $dark-gray;
+  transition: 0.4s;
+  border-radius: $border-buttons;
+
+  &:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    left: 4px;
+    bottom: 4px;
+    background-color: $gray-profile;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: $purple;
+}
+.buttons {
+  width: 150px;
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+}

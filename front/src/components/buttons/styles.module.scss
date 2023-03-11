@@ -1,0 +1,24 @@
+@import "../../styles/variables.scss";
+
+.buttonEmptyBackground {
+  background-color: transparent;
+  border: 2px solid $purple;
+  width: 100%;
+  border-radius: $border-buttons;
+  padding: $padding-buttons;
+  color: $white;
+  font-size: $text;
+  cursor: pointer;
+}
+
+.buttonFillBackground {
+  @extend .buttonEmptyBackground;
+  background-color: $purple;
+  margin-top: 5px;
+}
+button:disabled {
+  background-color: #505050;
+  border-color: #505050;
+  cursor: default;
+  margin-bottom: 5px;
+}
