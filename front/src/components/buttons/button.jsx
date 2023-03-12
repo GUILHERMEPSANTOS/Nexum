@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
-const Button = ({ text, isEmpty, link, onClick, disabled, ...props }) => {
+const Button = ({ text, isEmpty, link, disabled, ...props }) => {
   const renderButton = () => {
     const className = [
       styles.buttonFillBackground,
@@ -10,15 +10,15 @@ const Button = ({ text, isEmpty, link, onClick, disabled, ...props }) => {
     ]
       .filter(Boolean)
       .join(" ");
-      
+
     const disabledProp = disabled ? true : undefined;
 
     return (
       <button
         {...props}
+        onClick={props.onClick}
         className={className}
         disabled={disabledProp}
-        onClick={onClick}
       >
         {text}
       </button>

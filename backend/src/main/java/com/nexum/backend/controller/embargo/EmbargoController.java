@@ -14,7 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("api/v1/embargo")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://nexum.zapto.org")
 public class EmbargoController {
     private EmbargoServicePort embargoServicePort;
 
@@ -22,7 +22,7 @@ public class EmbargoController {
         this.embargoServicePort = embargoServicePort;
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "http://nexum.zapto.org")
     @PostMapping(value = "/upload")
     public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
 
@@ -30,7 +30,7 @@ public class EmbargoController {
 
         return ResponseEntity.status(200).build();
     }
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "http://nexum.zapto.org")
     @GetMapping("/download/{fileName}")
     public ResponseEntity<?> downloadFile(@PathVariable String fileName) throws Exception {
         byte[] file = embargoServicePort.getEmbargo(fileName);

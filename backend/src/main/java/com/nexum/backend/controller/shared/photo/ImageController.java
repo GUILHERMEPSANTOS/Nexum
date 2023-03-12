@@ -16,7 +16,7 @@ import java.util.Base64;
 
 @RestController
 @RequestMapping("api/v1/profile-photo")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://nexum.zapto.org")
 public class ImageController {
     private final ImageServicePort imageServicePort;
 

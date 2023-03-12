@@ -21,16 +21,13 @@ const Login = () => {
 
   const handleSubmit = useCallback(async () => {
     const handlelogin = await APILogin({ email, senha: password });
-    console.log(handlelogin.status);
-    console.log(showError);
+   
     handlelogin.status == 200 ||
     handlelogin.status !== "" ||
     handlelogin.status !== null ||
     handlelogin.status !== undefined
       ? navigate("/inicio")
       : setShowError(true);
-
-    
 
     localStorage.setItem("name", JSON.stringify(handlelogin.data.nome));
     localStorage.setItem("user_id", JSON.stringify(handlelogin.data.id_user));
