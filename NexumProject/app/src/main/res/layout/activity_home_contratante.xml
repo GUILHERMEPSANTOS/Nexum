@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:gravity="fill"
+    android:background="#262528"
+    android:layout_height="match_parent"
+    tools:context=".HomeContratante">
+
+    <ImageView
+        android:id="@+id/LogoFooter"
+        android:layout_width="120dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_footer"
+        android:layout_alignParentRight="true"
+        />
+
+    <TextView
+        android:id="@+id/tvSubTitlePage"
+        android:layout_below="@+id/LogoFooter"
+        style="@style/Text_View_Sub_Title_Page"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:text="Olá, Ana Carolina, te desejamos uma ótima expêriencia"
+        />
+
+    <TextView
+        android:id="@+id/tvProspostas"
+        android:layout_below="@+id/tvSubTitlePage"
+        style="@style/Text_View_Funcionalidades"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:drawableRight="@drawable/iconcard"
+        android:text="Clique aqui para visualizar Propostas"
+        />
+
+    <TextView
+        android:id="@+id/tvContato"
+        style="@style/Text_View_Funcionalidades"
+        android:layout_below="@+id/tvProspostas"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:drawableRight="@drawable/iconcard"
+        android:gravity="center"
+        android:text="Clique aqui para entrar em Contato" />
+
+    <TextView
+        android:id="@+id/tvFavorito"
+        android:layout_below="@+id/tvContato"
+        style="@style/Text_View_Funcionalidades"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:drawableRight="@drawable/iconcard"
+        android:text="Clique aqui para entrar em Favoritos"
+        />
+
+    <TextView
+        android:id="@+id/tvPerfil"
+        android:layout_below="@+id/tvFavorito"
+        style="@style/Text_View_Funcionalidades"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        android:drawableRight="@drawable/iconcard"
+        android:text="Clique aqui para visualizar Perfil"
+        android:layout_marginBottom="20dp"
+        />
+
+
+</RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
