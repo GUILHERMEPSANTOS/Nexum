@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:gravity="fill"
+    android:background="#262528"
+    android:layout_height="match_parent"
+    tools:context=".Match">
+
+    <ImageView
+        android:id="@+id/ivfrellancer"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginHorizontal="10dp"
+        android:src="@drawable/person_card_1" />
+
+    <ImageView
+        android:id="@+id/Salvar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:layout_marginLeft="80dp"
+        android:src="@drawable/screenshot_111_removebg_preview"
+        />
+
+    <ImageView
+        android:id="@+id/Curtir"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/Salvar"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:src="@drawable/screenshot_110_removebg_preview__1_"
+    />
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/Curtir"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:src="@drawable/iconcard"
+        />
+
+    <ImageView
+        android:id="@+id/ivMais"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="27dp"
+        />
+
+    <LinearLayout
+        android:layout_below="@+id/Curtir"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvSobre"
+            style="@style/Text_View_Sub_Title_Page"
+
+            android:layout_marginHorizontal="50dp"
+            android:text="Sobre" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tvSobre"
+            android:layout_marginHorizontal="50dp"
+            android:text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique."
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

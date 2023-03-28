@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="fill"
+    android:background="#262528"
+    tools:context=".FormCadastro">
+
+    <TextView
+        style="@style/Text_View_Title_Page"
+        android:id="@+id/tvTitlePage"
+        android:text="Crie uma conta"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="70dp"
+        />
+    <TextView
+        android:id="@+id/tvSubTitlePage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitlePage"
+        android:text="Realize o cadastro para se conectar"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        />
+
+    <TextView
+        android:id="@+id/tvCampUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvSubTitlePage"
+        android:text="Usuário"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etCampUsuario"
+        style="@style/Edit_Text"
+        android:layout_below="@+id/tvCampUsuario"
+        android:layout_marginHorizontal="20dp"
+        android:inputType="textEmailAddress"
+        />
+    <TextView
+        android:id="@+id/tvCampCelular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCampUsuario"
+        android:text="Celular"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etCampCelular"
+        style="@style/Edit_Text"
+        android:layout_below="@+id/tvCampCelular"
+        android:layout_marginHorizontal="20dp"
+        android:inputType="phone"
+        />
+
+    <TextView
+        android:id="@+id/tvCampEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCampCelular"
+        android:text="Email"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etCampEmail"
+        style="@style/Edit_Text"
+        android:layout_below="@+id/tvCampEmail"
+        android:layout_marginHorizontal="20dp"
+        android:inputType="textEmailAddress"
+        />
+
+    <TextView
+        android:id="@+id/tvCampSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCampEmail"
+        android:text="Senha"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etCampSenha"
+        style="@style/Edit_Text"
+        android:drawableRight="@drawable/ic_eye"
+        android:paddingRight="8dp"
+        android:layout_below="@+id/tvCampSenha"
+        android:layout_marginHorizontal="20dp"
+        android:inputType="textPassword"
+        />
+    <TextView
+        android:id="@+id/tvCampConfgSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etCampSenha"
+        android:text="Senha"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/etCampConfigSenha"
+        style="@style/Edit_Text"
+        android:drawableRight="@drawable/ic_eye"
+        android:paddingRight="8dp"
+        android:layout_below="@+id/tvCampConfgSenha"
+        android:layout_marginHorizontal="20dp"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:id="@+id/btnSobreNos"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@+id/etCampConfigSenha"
+        android:layout_marginTop="20dp"
+        style="@style/Button_Light"
+        android:text="Descubra mais sobre nós"
+        />
+    <Button
+        android:id="@+id/btnContaContratante"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@+id/btnSobreNos"
+        android:layout_marginTop="20dp"
+        style="@style/Button_Dark"
+        android:text="Conta Contratante"
+        />
+
+    <TextView
+        android:id="@+id/pergunta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Ja possui uma conta?"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/btnContaContratante"
+        />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pergunta"
+            android:src="@drawable/logo_footer"
+            />
+
+
+
+
+</RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>
