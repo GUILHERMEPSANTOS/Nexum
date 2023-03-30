@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="fill"
     android:background="#262528"
-    tools:context=".HomeContratante">
+    tools:context=".HomeFreelancer">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -32,7 +31,7 @@
         style="@style/Text_View_Greetings_Home_Page"
         android:id="@+id/tvSubTitlePage"
         android:layout_below="@+id/LogoFooter"
-        android:text="Olá, Ana Carolina, te desejamos uma ótima expêriencia"
+        android:text="Olá, Vinícius Pieroni, te desejamos uma ótima expêriencia"
         />
 
     <ScrollView
@@ -54,17 +53,11 @@
                 android:layout_below="@+id/tvProspostas"
                 android:text="@string/text_click_here_to_enter_contact_contractor" />
 
-            <TextView
-                style="@style/Text_View_Functionalities"
-                android:id="@+id/tvFavorito"
-                android:layout_below="@+id/tvContato"
-                android:text="@string/text_click_here_to_enter_favorites_contractor"
-                />
 
             <TextView
                 style="@style/Text_View_Functionalities"
                 android:id="@+id/tvPerfil"
-                android:layout_below="@+id/tvFavorito"
+                android:layout_below="@+id/tvContato"
                 android:text="@string/text_click_here_to_view_profile_contractor"
                 android:layout_marginBottom="30dp"
                 />
