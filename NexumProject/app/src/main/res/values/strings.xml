@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Nexum Project</string>
+    <string name="text_title_page_register">Crie uma conta</string>
+    <string name="text_title_page_login">Seja bem-vindo</string>
+    <string name="text_sub_title_page_register">Realize o cadastro para se conectar</string>
+    <string name="text_sub_title_page_login">Preencha os campos para continuar</string>
+    <string name="title_input_user">Usuário</string>
+    <string name="title_input_cell_phone">Celular</string>
+    <string name="title_input_email">Email</string>
+    <string name="title_input_password">Senha</string>
+    <string name="title_input_confirm_password">Confirmar senha</string>
+    <string name="radio_button_contractor">Contratante</string>
+    <string name="radio_button_freelancer">Freelancer</string>
+    <string name="text_question_leading_to_login">Já possui uma conta ?</string>
+    <string name="button_create_an_account">Criar conta</string>
+    <string name="check_box_checkk_box_remember_account">Lembrar conta</string>
+    <string name="text_forgot_password">Esqueci a conta</string>
+    <string name="text_enter">Entrar</string>
+    <string name="text_click_here_to_view_proposals_contractor">Clique aqui para visualizar Propostas</string>
+    <string name="text_click_here_to_enter_contact_contractor">Clique aqui para entrar em Contato</string>
+    <string name="text_click_here_to_enter_favorites_contractor">Clique aqui para entrar em Favoritos</string>
+    <string name="text_click_here_to_view_profile_contractor">Clique aqui para visualizar Perfil</string>
+
 </resources>

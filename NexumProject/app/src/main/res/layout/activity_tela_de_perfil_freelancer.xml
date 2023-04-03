@@ -8,9 +8,110 @@
     android:background="#262528"
     tools:context=".TelaDePerfilFreelancer">
 
+    <RelativeLayout
+        android:layout_marginTop="60dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-    <ImageView
-        style="@style/ImgPerfil"
-        android:src="@drawable/person_card_1"/>
+        android:background="#353338">
+
+
+        <ImageView
+            android:id="@+id/ivFotoPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_mood_24"/>
+
+        <TextView
+            android:textSize="23dp"
+            android:id="@+id/tvNomePerfil"
+            android:textColor="@color/white"
+            android:layout_marginTop="35dp"
+            android:layout_toEndOf="@+id/ivFotoPerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vinícius Pieroni"
+            />
+
+        <ImageView
+            android:id="@+id/ivIconiLocalizacao"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/ivFotoPerfil"
+            android:layout_below="@+id/tvNomePerfil"
+            android:src="@drawable/ic_baseline_room_24"/>
+
+
+        <TextView
+            android:textSize="15dp"
+            android:id="@+id/tvCidadePerfil"
+            android:textColor="@color/white"
+            android:layout_toEndOf="@+id/ivIconiLocalizacao"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tvNomePerfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="São Caetano do Sul, SP"
+            />
+
+        <TextView
+            android:textSize="20dp"
+            android:id="@+id/tvAtuacaoPerfil"
+            android:textColor="@color/white"
+            android:layout_toEndOf="@+id/ivFotoPerfil"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/ivIconiLocalizacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Analista de testes jr"
+            />
+
+        <TextView
+            android:textSize="30dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white"
+            android:id="@+id/tvSobrePerfil"
+            android:text="Sobre"
+            android:layout_below="@+id/ivFotoPerfil"
+            />
+
+        <TextView
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:id="@+id/tvTextoSobrePerfil"
+            android:text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
+            android:layout_below="@+id/tvSobrePerfil"
+            />
+
+        <TextView
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white"
+            android:id="@+id/tvRedeSocialPerfil"
+            android:text="Rede Social"
+            android:layout_below="@+id/tvTextoSobrePerfil"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>
