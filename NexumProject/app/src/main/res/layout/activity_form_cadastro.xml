@@ -89,10 +89,6 @@
         style="@style/Text_View_Input_Denomination"
         android:id="@+id/tvCampConfgSenha"
         android:layout_below="@+id/etCampSenha"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
         android:text="@string/title_input_confirm_password"
         />
 
@@ -123,16 +119,10 @@
 
     <Button
         style="@style/Button_Light"
-        android:text="Descubra mais sobre nós"
-        />
-    <Button
-        android:id="@+id/btnContaContratante"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:onClick="cadastrar"
-        style="@style/Button_Dark"
+        android:id="@+id/btnCriarConta"
         android:layout_below="@+id/rgContainer"
         android:text="@string/button_create_an_account"
+        android:onClick="creatAccount"
         />
 
 
