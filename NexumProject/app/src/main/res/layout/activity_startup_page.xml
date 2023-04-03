@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="#262528"
+    tools:context=".StartupPage">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_marginTop="150dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo_nexum"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_footer"
+        />
+
+    <Button
+        style="@style/Button_Light"
+        android:layout_marginTop="100dp"
+        android:text="@string/button_create_an_account"
+        />
+
+    <Button
+        style="@style/Button_Dark"
+        android:text="@string/text_enter"
+        />
+
+</LinearLayout>

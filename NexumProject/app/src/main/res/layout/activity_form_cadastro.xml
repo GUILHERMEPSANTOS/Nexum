@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v4.widget.NestedScrollView
+<android.support.v4.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="fill"
@@ -19,161 +18,132 @@
     <TextView
         style="@style/Text_View_Title_Page"
         android:id="@+id/tvTitlePage"
-        android:text="Crie uma conta"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="70dp"
+        android:text="@string/text_title_page_register"
         />
+
     <TextView
+        style="@style/Text_View_Sub_Title_Page"
         android:id="@+id/tvSubTitlePage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitlePage"
-        android:text="Realize o cadastro para se conectar"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="5dp"
+        android:text="@string/text_sub_title_page_register"
         />
 
     <TextView
+        style="@style/Text_View_Input_Denomination"
         android:id="@+id/tvCampUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/tvSubTitlePage"
-        android:text="Usuário"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
+        android:text="@string/title_input_user"
+        android:layout_marginTop="30dp"
         />
 
     <EditText
+        style="@style/Edit_Text_label"
         android:id="@+id/etCampUsuario"
-        style="@style/Edit_Text"
         android:layout_below="@+id/tvCampUsuario"
-        android:layout_marginHorizontal="20dp"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         />
+
     <TextView
+        style="@style/Text_View_Input_Denomination"
         android:id="@+id/tvCampCelular"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/etCampUsuario"
-        android:text="Celular"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
+        android:text="@string/title_input_cell_phone"
         />
 
     <EditText
+        style="@style/Edit_Text_label"
         android:id="@+id/etCampCelular"
-        style="@style/Edit_Text"
         android:layout_below="@+id/tvCampCelular"
-        android:layout_marginHorizontal="20dp"
         android:inputType="phone"
         />
 
     <TextView
+        style="@style/Text_View_Input_Denomination"
         android:id="@+id/tvCampEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/etCampCelular"
-        android:text="Email"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
+        android:text="@string/title_input_email"
         />
 
     <EditText
+        style="@style/Edit_Text_label"
         android:id="@+id/etCampEmail"
-        style="@style/Edit_Text"
         android:layout_below="@+id/tvCampEmail"
-        android:layout_marginHorizontal="20dp"
         android:inputType="textEmailAddress"
         />
 
     <TextView
+        style="@style/Text_View_Input_Denomination"
         android:id="@+id/tvCampSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/etCampEmail"
-        android:text="Senha"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
+        android:text="@string/title_input_password"
         />
 
     <EditText
+        style="@style/Edit_Text_label"
         android:id="@+id/etCampSenha"
-        style="@style/Edit_Text"
         android:drawableRight="@drawable/ic_eye"
-        android:paddingRight="8dp"
         android:layout_below="@+id/tvCampSenha"
-        android:layout_marginHorizontal="20dp"
         android:inputType="textPassword"
         />
     <TextView
+        style="@style/Text_View_Input_Denomination"
         android:id="@+id/tvCampConfgSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_below="@+id/etCampSenha"
-        android:text="Confirmar senha"
         android:textColor="@color/white"
         android:textSize="18dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
+        android:text="@string/title_input_confirm_password"
         />
 
     <EditText
+        style="@style/Edit_Text_label"
         android:id="@+id/etCampConfigSenha"
-        style="@style/Edit_Text"
         android:drawableRight="@drawable/ic_eye"
-        android:paddingRight="8dp"
         android:layout_below="@+id/tvCampConfgSenha"
-        android:layout_marginHorizontal="20dp"
         android:inputType="textPassword"
         />
 
+    <RadioGroup
+        style="@style/Radio_Grup_Cotainer"
+        android:id="@+id/rgContainer"
+        android:checkedButton="@id/rbContratante"
+        android:layout_below="@+id/etCampConfigSenha">
+
+        <RadioButton
+            style="@style/Radio_Button"
+            android:id="@+id/rbContratante"
+            android:text="@string/radio_button_contractor"/>
+
+        <RadioButton
+            style="@style/Radio_Button"
+            android:id="@+id/rbFreelancer"
+            android:text="@string/radio_button_freelancer"/>
+    </RadioGroup>
+
     <Button
-        android:id="@+id/btnSobreNos"
-        android:layout_marginHorizontal="20dp"
-        android:layout_below="@+id/etCampConfigSenha"
-        android:layout_marginTop="20dp"
         style="@style/Button_Light"
         android:text="Descubra mais sobre nós"
         />
     <Button
         android:id="@+id/btnContaContratante"
         android:layout_marginHorizontal="20dp"
-        android:layout_below="@+id/btnSobreNos"
         android:layout_marginTop="20dp"
         android:onClick="cadastrar"
         style="@style/Button_Dark"
-        android:text="Conta Contratante"
+        android:layout_below="@+id/rgContainer"
+        android:text="@string/button_create_an_account"
         />
+
 
     <TextView
+        style="@style/Text_View_Input_Denomination"
         android:id="@+id/pergunta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="Ja possui uma conta?"
+        android:text="@string/text_question_leading_to_login"
         android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/btnContaContratante"
+        android:layout_below="@id/btnCriarConta"
+        android:onClick="goTologin"
         />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/pergunta"
-            android:src="@drawable/logo_footer"
-            />
-
-
 
 
 </RelativeLayout>
