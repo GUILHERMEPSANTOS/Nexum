@@ -1,6 +1,6 @@
 import { api } from "../api";
 
-const countFreelancers = async (id) => {
+const countFreelancers = async () => {
   const response = await api.get(`/api/v1/dashboard/count-freelancers`);
 
   return response.data;
