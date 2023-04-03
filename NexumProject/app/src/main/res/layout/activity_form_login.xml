@@ -73,17 +73,6 @@
         style="@style/Button_Light"
         android:id="@+id/btnSobreNos"
         android:layout_below="@+id/checkBox"
-        android:layout_marginTop="20dp"
-        style="@style/Button_Light"
-        android:text="Descubra mais sobre nós"
-        />
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_marginHorizontal="20dp"
-        android:layout_below="@+id/btnSobreNos"
-        android:layout_marginTop="20dp"
-        style="@style/Button_Dark"
-        android:onClick="cadastrar"
         android:text="@string/text_enter"
         />
 
