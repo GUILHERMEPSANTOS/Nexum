@@ -13,7 +13,7 @@ const postCertificado = async ({
   certificacao_url,
   id,
 }) => {
-  const response = await api.post(`api/v1/certificacao/${id}`, {
+  const response = await api.post(`/api/v1/certificacao/${id}`, {
     curso: curso,
     instituicao: instituicao,
     cidade: cidade,
@@ -32,7 +32,7 @@ const putCertificado = async ({
 
   id,
 }) => {
-  const response = await api.put(`api/v1/certificacao/${id}`, {
+  const response = await api.put(`/api/v1/certificacao/${id}`, {
     curso: curso,
     instituicao: instituicao,
     cidade: cidade,

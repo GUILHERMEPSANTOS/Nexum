@@ -15,7 +15,7 @@ const postFormacao = async ({
   data_final,
   id,
 }) => {
-  const response = await api.post(`api/v1/formacao/${id}`, {
+  const response = await api.post(`/api/v1/formacao/${id}`, {
     curso: curso,
     instituicao: instituicao,
     cidade: cidade,
@@ -36,7 +36,7 @@ const putFormacao = async ({
   data_final,
   id,
 }) => {
-  const response = await api.put(`api/v1/formacao/${id}`, {
+  const response = await api.put(`/api/v1/formacao/${id}`, {
     curso: curso,
     instituicao: instituicao,
     cidade: cidade,
