@@ -42,13 +42,13 @@ class FormLogin : AppCompatActivity() {
     }
 
     fun cadastrar(v: View) {
-        val response = apiService.postUser(requestBody)
+//        val response = apiService.APILogin(requestBody)
         //val requestBody = JSONObject().apply {
-//    name?.let { put("name", it) }
-//    age?.let { put("age", it) }
-//    emai
+//    etCampUsuario?.let { put("email", it) }
+//    etCampSenha?.let { put("senha", it) }
+
         if (camposValidos()) {
-            response(requestBody)
+//            response(requestBody)
             irParaHome()
         }
     }
