@@ -1,0 +1,14 @@
+version: "3.4"
+services:
+  nexum_docker:
+    image: node:alpine
+    container_name: nexum-front
+    entrypoint: /bin/sh
+    ports:
+      - 8080:8080
+    working_dir: /app
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    tty: true
