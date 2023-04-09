@@ -10,27 +10,20 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_marginTop="150dp"
-        android:layout_height="200dp"
-        android:src="@drawable/logo_nexum"
-        />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo_footer"
-        />
+        android:layout_height="509dp"
+        android:src="@drawable/first_page_image" />
 
     <Button
         style="@style/Button_Light"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:text="@string/button_create_an_account"
+        android:id="@+id/btnCriarConta"
         />
 
     <Button
         style="@style/Button_Dark"
         android:text="@string/text_enter"
+        android:id="@+id/btnLogin"
         />
 
 </LinearLayout>

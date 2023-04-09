@@ -52,37 +52,39 @@
         />
 
 
-    <CheckBox
-        style="@style/Check_Box"
-        android:id="@+id/checkBox"
-        android:layout_below="@+id/etCampSenha"
-        android:text="@string/check_box_checkk_box_remember_account"
-        />
+<!--    <CheckBox-->
+<!--        style="@style/Check_Box"-->
+<!--        android:id="@+id/checkBox"-->
+<!--        android:layout_below="@+id/etCampSenha"-->
+<!--        android:text="@string/check_box_checkk_box_remember_account"-->
+<!--        />-->
 
-    <TextView
-        style="@style/Text_View_Sub_Title_Page"
-        android:id="@+id/tvEsqueSenha"
-        android:layout_width="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/etCampSenha"
-        android:layout_marginTop="14dp"
-        android:text="@string/text_forgot_password"
-        />
+<!--    <TextView-->
+<!--        style="@style/Text_View_Sub_Title_Page"-->
+<!--        android:id="@+id/tvEsqueSenha"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_below="@+id/etCampSenha"-->
+<!--        android:layout_marginTop="14dp"-->
+<!--        android:text="@string/text_forgot_password"-->
+<!--        />-->
 
     <Button
         style="@style/Button_Light"
-        android:id="@+id/btnSobreNos"
-        android:layout_below="@+id/checkBox"
+        android:id="@+id/btnLogin"
+        android:layout_below="@+id/tvCampSenha"
         android:text="@string/text_enter"
+        android:onClick="logar"
+        android:layout_marginTop="80dp"
         />
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnCriarConta"
         android:layout_marginHorizontal="20dp"
-        android:layout_below="@+id/btnSobreNos"
+        android:layout_below="@+id/btnLogin"
         android:layout_marginTop="20dp"
         style="@style/Button_Dark"
-        android:text="Conta Contratante"
-        android:onClick="cadastrar"
+        android:text="Criar conta"
+        android:onClick="irParaCadastro"
         />
 
     <LinearLayout
