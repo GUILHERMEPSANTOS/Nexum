@@ -4,6 +4,7 @@ services:
     image: node:alpine
     container_name: nexum-front
     entrypoint: /bin/sh
+    command: npm run dev -- --host &
     ports:
       - 8080:8080
     working_dir: /app
