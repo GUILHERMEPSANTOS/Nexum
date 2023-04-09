@@ -1,4 +1,4 @@
- <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,11 +17,13 @@
         style="@style/Button_Light"
         android:layout_marginTop="40dp"
         android:text="@string/button_create_an_account"
+        android:id="@+id/btnCriarConta"
         />
 
     <Button
         style="@style/Button_Dark"
         android:text="@string/text_enter"
+        android:id="@+id/btnLogin"
         />
 
 </LinearLayout>

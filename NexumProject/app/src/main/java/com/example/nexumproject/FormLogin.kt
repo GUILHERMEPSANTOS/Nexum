@@ -14,13 +14,17 @@ class FormLogin : AppCompatActivity() {
     private lateinit var etCampUsuario: EditText
     private lateinit var etCampSenha: EditText
     private lateinit var btnLogin: Button
+    private lateinit var btnCriarConta: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_login)
         etCampUsuario = findViewById(R.id.etCampUsuario)
         etCampSenha = findViewById(R.id.etCampSenha)
         btnLogin = findViewById(R.id.btnLogin)
+        btnCriarConta = findViewById(R.id.btnCriarConta)
     }
+
     private fun camposValidos(): Boolean {
         return when {
             this.etCampUsuario.text.isNullOrEmpty() -> {
@@ -35,23 +39,40 @@ class FormLogin : AppCompatActivity() {
         }
     }
 
-    fun irParaHome() {
+    fun irParaHomeFreelancer() {
+        this.btnLogin.setOnClickListener {
+            val intent = Intent(this, HomeFreelancer::class.java)
+            startActivity(intent)
+        }
+    }
+    fun irParaHomeContratante() {
         this.btnLogin.setOnClickListener {
             val intent = Intent(this, HomeContratante::class.java)
             startActivity(intent)
         }
     }
 
-    fun cadastrar(v: View) {
+    fun irParaCadastro() {
+        this.btnCriarConta.setOnClickListener {
+            val intent = Intent(this, FormCadastro::class.java)
+            startActivity(intent)
+        }
+    }
+
+    fun logar(v: View) {
+        val freelancer = false
 //        val response = apiService.APILogin(requestBody)
         //val requestBody = JSONObject().apply {
 //    etCampUsuario?.let { put("email", it) }
 //    etCampSenha?.let { put("senha", it) }
 
         if (camposValidos()) {
+            if(freelancer) {
+                irParaHomeFreelancer()
+            }
 //            response(requestBody)
-            irParaHome()
+            irParaHomeContratante()
         }
     }
-
 }
+

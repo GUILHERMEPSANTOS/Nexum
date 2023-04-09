@@ -38,9 +38,11 @@
     />
     <ImageView
         android:layout_alignParentBottom="true"
+        android:id="@+id/curtir"
         android:layout_toEndOf="@+id/Curtir"
         android:layout_width="wrap_content"
         android:layout_height="130dp"
+        android:onClick="curtir"
         android:src="@drawable/iconcard"
         />
 

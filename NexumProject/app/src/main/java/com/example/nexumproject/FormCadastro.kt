@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.TextView
 import org.json.JSONObject
 //import com.example.nexumproject.Endpoints.ApiService
 
@@ -16,7 +18,9 @@ class FormCadastro : AppCompatActivity() {
     private lateinit var etCampEmail: EditText
     private lateinit var etCampSenha: EditText
     private lateinit var etCampConfigSenha: EditText
-    private lateinit var btnContaContratante: Button
+    private lateinit var btnCriarConta: Button
+    private lateinit var rbFreelancer: RadioButton
+    private lateinit var pergunta: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +31,17 @@ class FormCadastro : AppCompatActivity() {
         etCampEmail = findViewById(R.id.etCampEmail)
         etCampSenha = findViewById(R.id.etCampSenha)
         etCampConfigSenha = findViewById(R.id.etCampConfigSenha)
-        btnContaContratante = findViewById(R.id.btnContaContratante)
+        btnCriarConta = findViewById(R.id.btnCriarConta)
+        rbFreelancer = findViewById(R.id.rbFreelancer)
+        pergunta = findViewById(R.id.pergunta)
+
+        this.btnCriarConta.setOnClickListener {
+            irParaLogin()
+        }
+        this.pergunta.setOnClickListener {
+            irParaLogin()
+        }
+
     }
 
     private fun camposValidos(): Boolean {
@@ -66,23 +80,29 @@ class FormCadastro : AppCompatActivity() {
         }
     }
 
+
+
     fun irParaLogin() {
-        this.btnContaContratante.setOnClickListener {
             val intent = Intent(this, FormLogin::class.java)
             startActivity(intent)
-        }
     }
 
     fun cadastrar(v: View) {
-//        val response = apiService.APICadastroContratante()
-        val requestBody = JSONObject().apply {
+//        val responseContratante = apiService.APICadastroContratante()
+//        val responseFreelancer = apiService.APICadastroFreela()
+        val requestBody= JSONObject().apply {
             etCampEmail?.let { put("email", it) }
             etCampSenha?.let { put("senha", it) }
             etCampUsuario?.let { put("nome", it) }
             etCampCelular?.let { put("celular", it) }
 }
+
         if (camposValidos()) {
-//            response(requestBody)
+            if(rbFreelancer.isChecked){
+//                responseContratante(requestBody)
+                irParaLogin()
+            }
+//            responseContratante(requestBody)
             irParaLogin()
             }
         }
