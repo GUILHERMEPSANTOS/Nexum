@@ -141,7 +141,7 @@
         android:id="@+id/pergunta"
         android:text="@string/text_question_leading_to_login"
         android:gravity="center"
-        android:layout_below="@id/btnCriarConta"
+        android:layout_below="@id/btnContaContratante"
         android:onClick="goTologin"
         />
 
