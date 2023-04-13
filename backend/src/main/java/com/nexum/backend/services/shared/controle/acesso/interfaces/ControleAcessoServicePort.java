@@ -5,7 +5,7 @@ import com.nexum.backend.dto.controle.acesso.UserSignInDTO;
 import com.nexum.backend.dto.controle.acesso.UserSignOutDTO;
 import com.nexum.backend.dto.shared.user.UserDTO;
 
-public interface ControleAcessoServicePort {
-    UserDTO signIn(UserSignInDTO userSignInDTO);
-    UserDTO signOut(UserSignOutDTO userSignOutDTO);
-}
+    public interface ControleAcessoServicePort {
+        UserDTO signIn(UserSignInDTO userSignInDTO);
+        UserDTO signOut(UserSignOutDTO userSignOutDTO);
+    }

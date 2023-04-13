@@ -28,6 +28,7 @@ class FormCadastro : AppCompatActivity() {
 
         etCampUsuario = findViewById(R.id.etCampUsuario)
         etCampCelular = findViewById(R.id.etCampCelular)
+
         etCampEmail = findViewById(R.id.etCampEmail)
         etCampSenha = findViewById(R.id.etCampSenha)
         etCampConfigSenha = findViewById(R.id.etCampConfigSenha)
