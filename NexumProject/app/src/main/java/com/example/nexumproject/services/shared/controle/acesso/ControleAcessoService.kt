@@ -14,7 +14,11 @@ import java.net.HttpURLConnection.HTTP_OK
 
 class ControleAcessoService {
     val user = MutableLiveData<User>()
+    val valRegisterFreelancer = MutableLiveData<User>()
+    val valRegisterContratante = MutableLiveData<User>()
     val errorMessage = MutableLiveData<String>()
+    val errorMessageFreelancer = MutableLiveData<String>()
+    val errorMessageContratante = MutableLiveData<String>()
     private val controleAcessoRepository: ControleAcessoRepositoryPort =
         ControleAcessoRepository(RetrofitClient);
 
@@ -25,6 +29,7 @@ class ControleAcessoService {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.code() == HTTP_OK) {
                     user.postValue(response.body())
+
                 } else {
                     errorMessage.postValue("Erro ao logar . ${response.code()}")
                 }
@@ -41,14 +46,14 @@ class ControleAcessoService {
         httpResponse.enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.code() == HTTP_OK) {
-                    user.postValue(response.body())
+                    valRegisterContratante.postValue(response.body())
                 } else {
-                    errorMessage.postValue("Erro ao cadastrar. ${response.code()}")
+                    errorMessageContratante.postValue("Erro ao cadastrar. ${response.code()}")
                 }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                errorMessage.postValue(t.message)
+                errorMessageContratante.postValue(t.message)
             }
         });
     }
@@ -58,14 +63,14 @@ class ControleAcessoService {
         httpResponse.enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.code() == HTTP_OK) {
-                    user.postValue(response.body())
+                    valRegisterFreelancer.postValue(response.body())
                 } else {
-                    errorMessage.postValue("Erro ao cadastrar. ${response.code()}")
+                    errorMessageFreelancer.postValue("Erro ao cadastrar. ${response.code()}")
                 }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                errorMessage.postValue(t.message)
+                errorMessageFreelancer.postValue(t.message)
             }
         });
     }

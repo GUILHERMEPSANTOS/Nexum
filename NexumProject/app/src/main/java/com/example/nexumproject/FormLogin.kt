@@ -78,6 +78,12 @@ class FormLogin : AppCompatActivity() {
         controleAcessoService.signIn(userSignIn);
 
         Toast.makeText(this, controleAcessoService.user.toString(), Toast.LENGTH_SHORT).show()
+
+        if(controleAcessoService.user.value?.roles?.equals("ROLE_FREELANCER") == true) {
+            irParaHomeFreelancer()
+        } else {
+            irParaHomeContratante()
+        }
     }
 
     fun gerarUserSignIn(): UserSignIn {

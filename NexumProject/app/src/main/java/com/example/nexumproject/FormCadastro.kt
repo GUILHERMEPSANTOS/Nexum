@@ -39,10 +39,11 @@ class FormCadastro : AppCompatActivity() {
         rbFreelancer = findViewById(R.id.rbFreelancer)
         pergunta = findViewById(R.id.pergunta)
 
-        this.btnCriarConta.setOnClickListener {
+
+        this.pergunta.setOnClickListener {
             irParaLogin()
         }
-        this.pergunta.setOnClickListener {
+        this.btnCriarConta.setOnClickListener {
             irParaLogin()
         }
         setUpCadastro()
@@ -97,14 +98,16 @@ class FormCadastro : AppCompatActivity() {
         var userRegister = gerarUserCadastro();
         if(rbFreelancer.isChecked){
             controleAcessoService.registerFreelancer(userRegister);
+            Toast.makeText(this, controleAcessoService.valRegisterFreelancer.toString(), Toast.LENGTH_SHORT).show()
             return
         }
         controleAcessoService.registerContratante(userRegister);
 
-        Toast.makeText(this, controleAcessoService.user.toString(), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, controleAcessoService.valRegisterContratante.toString(), Toast.LENGTH_SHORT).show()
+
     }
     fun gerarUserCadastro(): UserRegister {
-        var email = etCampUsuario.text.toString();
+        var email = etCampEmail.text.toString();
         var senha = etCampSenha.text.toString();
         var nome = etCampUsuario?.text.toString();
         var celular =  etCampCelular?.text.toString();
