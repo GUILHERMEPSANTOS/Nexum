@@ -32,7 +32,7 @@
         style="@style/Text_View_Greetings_Home_Page"
         android:id="@+id/tvSubTitlePage"
         android:layout_below="@+id/LogoFooter"
-        android:text="Olá, Ana Carolina, te desejamos uma ótima expêriencia"
+
         />
 
     <ScrollView

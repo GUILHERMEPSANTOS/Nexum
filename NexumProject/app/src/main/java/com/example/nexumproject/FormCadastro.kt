@@ -43,9 +43,7 @@ class FormCadastro : AppCompatActivity() {
         this.pergunta.setOnClickListener {
             irParaLogin()
         }
-        this.btnCriarConta.setOnClickListener {
-            irParaLogin()
-        }
+
         setUpCadastro()
     }
 
@@ -104,6 +102,7 @@ class FormCadastro : AppCompatActivity() {
         controleAcessoService.registerContratante(userRegister);
 
         Toast.makeText(this, controleAcessoService.valRegisterContratante.toString(), Toast.LENGTH_SHORT).show()
+        irParaLogin()
 
     }
     fun gerarUserCadastro(): UserRegister {
