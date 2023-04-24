@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/freelancer/{id_freelancer}/habilidade")
-@CrossOrigin(origins = "http://nexum.zapto.org")
+@CrossOrigin(origins = "https://nexum.hopto.org")
 public class HabilidadeFreelancerController {
 
     private final HabilidadeFreelancerServicePort habilidadeFreelancerServicePort;

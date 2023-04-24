@@ -1,0 +1,3 @@
+[submodule "digital-certificate-nexum"]
+	path = digital-certificate-nexum
+	url = https://github.com/GUILHERMEPSANTOS/digital-certificate-nexum
