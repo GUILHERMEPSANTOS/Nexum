@@ -14,8 +14,8 @@ class HomeContratante : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_contratante)
-
-        val nome = controleAcessoService.user.value?.nome
+            tvSubTitlePage = findViewById(R.id.tvSubTitlePage)
+        val nome = controleAcessoService?.user?.value?.nome ?: "--"
        tvSubTitlePage.setText("Olá $nome, te desejamos uma ótima expêriencia ");
     }
 }
