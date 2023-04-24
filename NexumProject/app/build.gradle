@@ -7,6 +7,10 @@ android {
     namespace 'com.example.nexumproject'
     compileSdk 32
 
+    viewBinding {
+        enabled = true;
+    }
+
     defaultConfig {
         applicationId "com.example.nexumproject"
         minSdk 23
