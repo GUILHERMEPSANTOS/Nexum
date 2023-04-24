@@ -5,11 +5,6 @@ import android.support.v7.app.AppCompatActivity
 
 class TelaDePerfilFreelancer : AppCompatActivity() {
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 261b9ee2e9b113e1a9e91a859c5b8b64f94be19d
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
