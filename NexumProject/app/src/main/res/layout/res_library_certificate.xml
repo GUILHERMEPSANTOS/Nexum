@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="#353338"
+    android:orientation="vertical"
+    android:gravity="fill"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="30dp"
+                android:id="@+id/ivIconeUdemy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icone_udemy"/>
+            <TextView
+                android:id="@+id/tvNomeCurso"
+                android:layout_toEndOf="@+id/ivIconeUdemy"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:text="Curso Designer Gráfico"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvNomeInstituicao"
+                android:layout_toEndOf="@+id/ivIconeUdemy"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_height="wrap_content"
+                android:text="Udemy"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/tvLocalInstituicão"
+                android:layout_below="@+id/ivIconeUdemy"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:text=" São Francisco - Califórnia "
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:layout_below="@+id/tvLocalInstituicão"
+                android:layout_toEndOf="@+id/tvNomeInstituicao"
+                style="@style/Button_Light"
+                android:text="Ver Credenciais"
+                />
+
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

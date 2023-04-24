@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="#353338"
+    android:orientation="vertical"
+    android:gravity="fill"
+    android:layout_height="wrap_content">
+
+       <RelativeLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+              <ImageView
+                  android:layout_marginHorizontal="10dp"
+                  android:layout_marginTop="30dp"
+                  android:id="@+id/ivIconeTwist"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:src="@drawable/icone_twist"/>
+              <TextView
+                  android:id="@+id/tvNomeFuncao"
+                  android:layout_toEndOf="@+id/ivIconeTwist"
+                  android:layout_width="wrap_content"
+                  android:layout_marginTop="30dp"
+                  android:layout_height="wrap_content"
+                  android:text="Designer gráfica"
+                  android:textColor="@color/white"
+                  android:textSize="20dp"
+                  android:textStyle="bold"/>
+
+              <TextView
+                  android:id="@+id/tvNomeAgencia"
+                  android:layout_toEndOf="@+id/ivIconeTwist"
+                  android:layout_width="wrap_content"
+                  android:layout_marginTop="60dp"
+                  android:layout_height="wrap_content"
+                  android:text="Twist Agência Digital"
+                  android:textColor="@color/white"
+                  android:textSize="20dp"
+                  android:textStyle="bold"/>
+
+              <TextView
+                  android:layout_marginHorizontal="10dp"
+                  android:id="@+id/tvLocal"
+                  android:layout_below="@+id/ivIconeTwist"
+                  android:layout_width="wrap_content"
+                  android:layout_marginTop="15dp"
+                  android:layout_height="wrap_content"
+                  android:text="São Paulo - São Paulo"
+                  android:textColor="@color/white"
+                  android:textSize="20dp"
+                  android:textStyle="bold"/>
+              <TextView
+                  android:layout_marginHorizontal="10dp"
+                  android:id="@+id/tvData"
+                  android:layout_below="@+id/tvLocal"
+                  android:layout_width="wrap_content"
+                  android:layout_marginTop="15dp"
+                  android:layout_height="wrap_content"
+                  android:text="15 de Maio - 2019 "
+                  android:textColor="@color/white"
+                  android:textSize="20dp"
+                  android:textStyle="bold"/>
+
+              <TextView
+                  android:layout_marginHorizontal="10dp"
+                  android:id="@+id/tvDescriçãoExperiencia"
+                  android:layout_below="@+id/tvData"
+                  android:layout_width="wrap_content"
+                  android:layout_marginTop="15dp"
+                  android:layout_height="wrap_content"
+                  android:text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique. Sed molestie leo eget urna egestas tristique. "
+                  android:textColor="@color/white"
+                  android:textSize="20dp"/>
+
+
+       </RelativeLayout>
+
+</LinearLayout>

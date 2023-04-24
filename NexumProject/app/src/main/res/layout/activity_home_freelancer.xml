@@ -5,26 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="fill"
-    android:background="#262528"
+    android:background="@color/fundo_nexum"
     tools:context=".HomeFreelancer">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:rotation="180"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="24dp"
-        android:onClick="Sair"
-        android:layout_alignParentLeft="true"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_exit_to_app_24"/>
+        style="@style/MyImageViewStyleBottonSair"/>
 
     <ImageView
         android:id="@+id/LogoFooter"
-        android:layout_width="120dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo_footer"
-        android:layout_alignParentRight="true"
+        style="@style/MyImageViewStyleLogoFooter"
         />
 
     <TextView

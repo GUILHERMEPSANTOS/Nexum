@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="content_container_color">#353338</color>
+    <color name="campo_fundo_elementos">#454545</color>
+    <color name="container_match_information_person">#9ED6D6D6</color>
+    <color name="edit_text">#384145</color>
+    <color name="primary_color_nexum">#7509BD</color>
+    <color name="label_analise_info">#454545</color>
+    <color name="border_image_person_profile">#237509BD</color>
+    <color name="text_view_function">#353338</color>
+    <color name="text_view_information">#33D6D6D6</color>
+    <color name="fundo_nexum">#262528</color>
 </resources>

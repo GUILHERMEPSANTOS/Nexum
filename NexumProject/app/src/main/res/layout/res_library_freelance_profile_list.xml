@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="#262528"
+    android:paddingHorizontal="20dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="40dp"
+    android:gravity="fill"
+    android:layout_height="wrap_content">
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/rlCardPerfilUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/ivFotoListaDeFrelancer"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:src="@drawable/person_card_1"/>
+
+        <RelativeLayout
+            style="@style/MyCustomRelativeLayoutContainerMatchInformationPerson"
+            android:layout_below="@id/ivFotoListaDeFrelancer">
+
+            <TextView
+                android:textSize="24dp"
+                android:id="@+id/tvNomePerfil"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vinícius Pieroni"
+                />
+
+            <ImageView
+                android:layout_marginStart="70dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/available"
+                android:layout_toEndOf="@+id/tvNomePerfil"/>
+
+            <ImageView
+                android:id="@+id/ivIconiLocalizacao"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:textSize="15dp"
+                android:layout_below="@+id/tvNomePerfil"
+                android:src="@drawable/ic_baseline_room_24"/>
+
+
+            <TextView
+                android:textSize="15dp"
+                android:id="@+id/tvCidadePerfil"
+                android:layout_toEndOf="@+id/ivIconiLocalizacao"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tvNomePerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="São Caetano do Sul, SP"
+                />
+
+            <TextView
+                android:textSize="20dp"
+                android:id="@+id/tvAtuacaoPerfil"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_below="@+id/ivIconiLocalizacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Analista de testes jr"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llOpcoes"
+        android:layout_marginTop="-20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlCardPerfilUsuario"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/ivIconSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/iconsave" />
+
+        <ImageView
+            android:id="@+id/ivIconHeard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_heart" />
+
+        <ImageView
+            android:id="@+id/ivIconClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icon_close_btn" />
+
+    </LinearLayout>
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="27dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:id="@+id/tvSobrePerfil"
+        android:text="Sobre"
+        android:layout_below="@+id/llOpcoes"
+        />
+
+    <TextView
+        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:id="@+id/tvTextoSobrePerfil"
+        android:text="Contrary to popular belief, Lorem Ipsum is not simply random text. "
+        android:layout_below="@+id/tvSobrePerfil"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="27dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:id="@+id/tvHabilidades"
+        android:text="Habilidades"
+        android:layout_below="@+id/tvTextoSobrePerfil"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:id="@+id/tvCardFigma"
+        android:layout_below="@+id/tvHabilidades"
+        style="@style/Icone_Social_Network">
+
+        <ImageView
+            android:layout_marginStart="10dp"
+            android:paddingTop="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/icone_figma"/>
+
+        <TextView
+            android:paddingEnd="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginVertical="10dp"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Figma"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tvCardFigma"
+        android:layout_centerInParent="true"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            style="@style/Button_Light"
+            android:text="Ver mais"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
