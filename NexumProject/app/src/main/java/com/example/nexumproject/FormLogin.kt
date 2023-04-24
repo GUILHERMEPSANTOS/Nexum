@@ -34,7 +34,7 @@ class FormLogin : AppCompatActivity() {
             logar();
         }
 
-        setUpLogin()
+//        setUpLogin()
     }
 
     private fun camposValidos(): Boolean {
