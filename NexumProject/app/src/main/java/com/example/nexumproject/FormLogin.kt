@@ -89,6 +89,7 @@ class FormLogin : AppCompatActivity() {
             val editor = prefs.edit()
             editor.putString("USER_ROLE", user?.roles.toString())
             editor.putString("USER_NAME",  user?.nome.toString())
+            editor.putString("USER_ID",  user?.id_user.toString())
             editor.apply()
             if (user?.roles?.equals("ROLE_FREELANCE") == true) {
                 irParaHomeFreelancer()
