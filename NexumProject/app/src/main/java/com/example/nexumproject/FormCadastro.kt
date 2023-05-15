@@ -44,6 +44,7 @@ class FormCadastro : AppCompatActivity() {
             irParaLogin()
         }
 
+
         setUpCadastro()
     }
 

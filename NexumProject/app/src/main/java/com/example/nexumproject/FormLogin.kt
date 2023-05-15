@@ -33,7 +33,9 @@ class FormLogin : AppCompatActivity() {
         btnLogin.setOnClickListener {
             logar();
         }
-
+        btnCriarConta.setOnClickListener {
+            irParaCadastro();
+        }
         setUpLogin()
     }
 
@@ -83,9 +85,10 @@ class FormLogin : AppCompatActivity() {
         Toast.makeText(this, controleAcessoService.user.toString(), Toast.LENGTH_SHORT).show()
 
         controleAcessoService.user.observe(this) { user ->
-            val prefs = getSharedPreferences("ROLE", MODE_PRIVATE)
+            val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
             val editor = prefs.edit()
             editor.putString("USER_ROLE", user?.roles.toString())
+            editor.putString("USER_NAME",  user?.nome.toString())
             editor.apply()
             if (user?.roles?.equals("ROLE_FREELANCE") == true) {
                 irParaHomeFreelancer()
@@ -93,11 +96,6 @@ class FormLogin : AppCompatActivity() {
                 irParaHomeContratante()
             }
         }
-
-        // PARA RECUPER A ROLE NA TELA ZYX
-        // val prefs = getSharedPrefences("ROLE", MODE_PRIVATE)
-        // val roles = prefs.getString("USER_ROLE", null)
-
     }
 
     fun gerarUserSignIn(): UserSignIn {

@@ -17,9 +17,12 @@ class HomeFreelancer : AppCompatActivity() {
         setContentView(R.layout.activity_home_freelancer)
         tvSubTitlePage = findViewById(R.id.tvSubTitlePage)
 
-        val nome = controleAcessoService.user.value?.nome ?: "--"
-        tvSubTitlePage.setText( "Olá $nome, te desejamos uma ótima expêriencia ");
+        getData()
     }
 
-
+    fun getData() {
+        val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
+        val nome = prefs.getString("USER_NAME", null)
+        tvSubTitlePage.setText("Olá $nome, te desejamos uma ótima expêriencia ");
+    }
 }
