@@ -7,8 +7,10 @@ android {
     namespace 'com.example.nexumproject'
     compileSdk 32
 
-    viewBinding {
-        enabled = true;
+
+    viewBinding{
+        enabled = true
+
     }
 
     defaultConfig {

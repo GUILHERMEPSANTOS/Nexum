@@ -9,11 +9,11 @@ import org.json.JSONObject
 
 
 class Match : AppCompatActivity() {
-    private lateinit var curtir: ImageView
+//    private lateinit var curtir: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match)
-        curtir = findViewById(R.id.curtir)
+//        curtir = findViewById(R.id.curtir)
     }
 
     fun curtir() {

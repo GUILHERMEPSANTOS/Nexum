@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:gravity="fill"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:background="#353338"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            style="@style/Image_Perfil"
+            android:id="@+id/ivFotoProposta"
+            android:src="@drawable/profile_picture_removebg_preview" />
+
+        <TextView
+            android:textSize="23dp"
+            android:id="@+id/tvNomeProposta"
+            android:textColor="@color/white"
+            android:layout_marginTop="35dp"
+            android:layout_toEndOf="@+id/ivFotoProposta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vinícius Pieroni"
+            />
+
+        <ImageView
+            android:id="@+id/ivIconiLocalizacao"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/ivFotoProposta"
+            android:layout_below="@+id/tvNomeProposta"
+            android:src="@drawable/ic_baseline_room_24"/>
+
+
+        <TextView
+            android:textSize="15dp"
+            android:id="@+id/tvCidadeProposta"
+            android:textColor="@color/white"
+            android:layout_toEndOf="@+id/ivIconiLocalizacao"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tvNomeProposta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="São Caetano do Sul, SP"
+            />
+        <TextView
+            android:textStyle="bold"
+            android:textSize="27dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white"
+            android:id="@+id/tvSobreProposta"
+            android:text="Sobre"
+            android:layout_below="@+id/ivFotoProposta"
+            />
+
+        <ImageView
+            android:id="@+id/ivEditarSobreProposta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/ivFotoProposta"
+            android:layout_marginEnd="10dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/editarlight" />
+
+        <TextView
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:id="@+id/tvTextoSobrePerfil"
+            android:text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
+            android:layout_below="@+id/tvSobreProposta"
+            />
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_below="@+id/tvTextoSobrePerfil"
+            android:textStyle="bold"
+            android:textSize="27dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/white"
+            android:text="Email"/>
+
+        <EditText
+            style="@style/Icone_Social_Network"
+            android:id="@+id/etEmail"
+            android:layout_below="@+id/tvEmail"
+            android:textSize="20dp"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:text="vinizanetini@gmail.com"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etEmail"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/ivIconJump"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:rotation="180"
+                android:src="@drawable/iconcard" />
+
+            <ImageView
+                android:id="@+id/ivIconHeard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_heart" />
+
+            <ImageView
+                android:id="@+id/ivIconClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-5dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/icon_close_btn" />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

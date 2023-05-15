@@ -5,113 +5,365 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="fill"
-    android:background="#262528"
+    android:background="@color/fundo_nexum"
     tools:context=".TelaDePerfilFreelancer">
 
-    <RelativeLayout
-        android:layout_marginTop="60dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <ImageView
+        style="@style/MyImageViewStyleButtonVoltar"/>
 
-        android:background="#353338">
+    <ImageView
+        android:id="@+id/LogoFooter"
+        style="@style/MyImageViewStyleLogoFooter"
+        />
 
+    <ScrollView
+        android:layout_marginTop="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivFotoPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_mood_24"/>
-
-        <TextView
-            android:textSize="23dp"
-            android:id="@+id/tvNomePerfil"
-            android:textColor="@color/white"
-            android:layout_marginTop="35dp"
-            android:layout_toEndOf="@+id/ivFotoPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vinícius Pieroni"
-            />
-
-        <ImageView
-            android:id="@+id/ivIconiLocalizacao"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/ivFotoPerfil"
-            android:layout_below="@+id/tvNomePerfil"
-            android:src="@drawable/ic_baseline_room_24"/>
-
-
-        <TextView
-            android:textSize="15dp"
-            android:id="@+id/tvCidadePerfil"
-            android:textColor="@color/white"
-            android:layout_toEndOf="@+id/ivIconiLocalizacao"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/tvNomePerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="São Caetano do Sul, SP"
-            />
-
-        <TextView
-            android:textSize="20dp"
-            android:id="@+id/tvAtuacaoPerfil"
-            android:textColor="@color/white"
-            android:layout_toEndOf="@+id/ivFotoPerfil"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/ivIconiLocalizacao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="Analista de testes jr"
-            />
-
-        <TextView
-            android:textSize="30dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/white"
-            android:id="@+id/tvSobrePerfil"
-            android:text="Sobre"
-            android:layout_below="@+id/ivFotoPerfil"
-            />
-
-        <TextView
-            android:textSize="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/white"
-            android:id="@+id/tvTextoSobrePerfil"
-            android:text="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source."
-            android:layout_below="@+id/tvSobrePerfil"
-            />
-
-        <TextView
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/white"
-            android:id="@+id/tvRedeSocialPerfil"
-            android:text="Rede Social"
-            android:layout_below="@+id/tvTextoSobrePerfil"
-            />
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            
-        </LinearLayout>
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rlInformacaoPerfil1"
+                style="@style/RelativeLayoutContentContainer">
+
+
+                <ImageView
+                    style="@style/Image_Perfil"
+                    android:id="@+id/ivFotoPerfil"
+                    android:src="@drawable/profile_picture_removebg_preview" />
+
+                <TextView
+                    style="@style/TextViewStyleNameProfile"
+                    android:id="@+id/tvNomePerfil"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivIconiLocalizacao"
+                    style="@style/ImageViewStyleLocation"/>
+
+
+                <TextView
+                    style="@style/TextViewStyleLocation"
+                    android:id="@+id/tvCidadePerfil"
+                    />
+
+                <TextView
+                    style="@style/TextViewStyleActing"
+                    android:id="@+id/tvAtuacaoPerfil"
+                    />
+
+                <TextView
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    android:id="@+id/tvSobrePerfil"
+                    android:layout_below="@+id/ivFotoPerfil"
+                    android:text="@string/text_view_title_sobre"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivEditarSobre"
+                    style="@style/ImageViewEditarLight"
+                    />
+
+                <TextView
+                    style="@style/MeuTextViewSobre"
+                    android:id="@+id/tvTextoSobrePerfil"
+                    />
+
+                <TextView
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    android:id="@+id/tvRedeSocialPerfil"
+                    android:text="@string/text_view_title_social_network"
+                    android:layout_below="@+id/tvTextoSobrePerfil"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/llContainerRedesSociais"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/tvRedeSocialPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp">
+
+                    <LinearLayout
+                        android:id="@+id/tvCardFacebook"
+                        style="@style/Icone_Social_Network">
+
+                        <ImageView
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginVertical="5dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/facebook"/>
+
+                        <TextView
+                            android:paddingEnd="15dp"
+                            android:layout_marginVertical="7dp"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Facebook"/>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/tvCardInstagram"
+                        style="@style/Icone_Social_Network">
+
+                        <ImageView
+                            android:layout_marginHorizontal="8dp"
+                            android:layout_marginVertical="5dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/instagram"/>
+
+                        <TextView
+                            android:paddingEnd="15dp"
+                            android:layout_marginVertical="7dp"
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Instagram"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tvCardTwitter"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_below="@+id/llContainerRedesSociais"
+                    style="@style/Icone_Social_Network">
+
+                    <ImageView
+                        android:layout_marginHorizontal="7dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/twitter"/>
+
+                    <TextView
+                        android:paddingEnd="15dp"
+                        android:layout_marginVertical="7dp"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Twitter   "/>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_below="@+id/tvCardTwitter"
+                    android:text="@string/text_view_title_email"
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    />
+
+                <EditText
+                    style="@style/EmailEditTextCampProfile"
+                    android:id="@+id/etEmail"
+                    android:layout_below="@+id/tvEmail"
+                    android:text="@string/text_view_inside_email"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="30dp"
+                android:id="@+id/rlInformacaoPerfil2"
+                android:layout_below="@+id/rlInformacaoPerfil1"
+                style="@style/RelativeLayoutContentContainer">
+
+                <TextView
+                    android:textSize="30dp"
+                    android:id="@+id/tvAnalise"
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    android:text="@string/text_view_title_Analyzation"/>
+
+                <ImageView
+                    android:id="@+id/ivAdicionarAnalise"
+                    style="@style/ImageViewAdicionarLight" />
+
+                <ImageView
+                    style="@style/ImageViewEditarDark"
+                    android:id="@+id/ivEditarAnalise"
+                    android:layout_toStartOf="@+id/ivAdicionarAnalise" />
+
+                <TextView
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    android:id="@+id/tvInformacoes"
+                    android:text="@string/text_view_title_information"
+                    android:layout_below="@+id/tvAnalise"
+                    />
+
+                <TextView
+                    style="@style/Label_Analyze_Information"
+                    android:id="@+id/tvQuantidadeMatch"
+                    android:layout_below="@+id/tvInformacoes"
+                    android:text="@string/text_view_inside_match"
+                    />
+                <TextView
+                    style="@style/Label_Analyze_Information"
+                    android:id="@+id/tvDataDeIngresso"
+                    android:layout_below="@+id/tvQuantidadeMatch"
+                    android:text="@string/text_view_inside_Date"
+                    />
+
+                <TextView
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    android:id="@+id/tvHabilidades"
+                    android:text="@string/text_view_title_habilites"
+                    android:layout_below="@+id/tvDataDeIngresso"
+                    />
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/tvCardFigma"
+                    android:layout_below="@+id/tvHabilidades"
+                    style="@style/Icone_Social_Network">
+
+                    <ImageView
+                        android:layout_marginStart="10dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginVertical="5dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/icone_figma"/>
+
+                    <TextView
+                        android:paddingEnd="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginVertical="10dp"
+                        android:textSize="20dp"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Figma"/>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlInformacaoPerfil3"
+                android:layout_below="@+id/rlInformacaoPerfil2"
+                android:layout_marginTop="30dp"
+                android:padding="20dp"
+                style="@style/RelativeLayoutContentContainer">
+                <TextView
+                    android:id="@+id/tvExperiencia"
+                    android:textSize="30dp"
+                    android:layout_marginStart="10dp"
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    android:text="@string/text_view_title_Exp"/>
+
+                <ImageView
+                    android:id="@+id/ivAdicionarExperiencia"
+                    style="@style/ImageViewAdicionarLight" />
+
+                <ImageView
+                    style="@style/ImageViewEditarDark"
+                    android:id="@+id/ivEditarExperiencia"
+                    android:layout_toStartOf="@+id/ivAdicionarExperiencia" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/tvExperiencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                    app:spanCount="1"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/res_library_experience"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlInformacaoPerfil4"
+                android:layout_below="@+id/rlInformacaoPerfil3"
+                android:layout_marginTop="30dp"
+                android:padding="20dp"
+                style="@style/RelativeLayoutContentContainer">
+                <TextView
+                    android:textSize="30dp"
+                    android:id="@+id/tvFormacao"
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    android:text="@string/text_view_title_formation"/>
+
+                <ImageView
+                    android:id="@+id/ivAdicionarFormacao"
+                    style="@style/ImageViewAdicionarLight"
+                    android:layout_alignParentEnd="true"
+                     />
+
+                <ImageView
+                    android:id="@+id/ivEditarFormacao"
+                    style="@style/ImageViewEditarDark"
+                    android:layout_toStartOf="@+id/ivAdicionarFormacao"
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/tvFormacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                    app:spanCount="1"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/res_library_training"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlInformacaoPerfil5"
+                android:layout_below="@+id/rlInformacaoPerfil4"
+                android:layout_marginTop="30dp"
+                android:padding="20dp"
+                style="@style/RelativeLayoutContentContainer">
+
+                <TextView
+                    android:id="@+id/tvCertificado"
+                    android:textSize="30dp"
+                    android:layout_marginEnd="30dp"
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    android:text="@string/text_view_title_certification"/>
+
+                <ImageView
+                    android:id="@+id/ivAdicionarCertificado"
+                    style="@style/ImageViewAdicionarLight"
+                    android:layout_alignParentEnd="true"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivEditarCertificado"
+                    style="@style/ImageViewEditarDark"
+                    android:layout_toStartOf="@+id/ivAdicionarCertificado"
+                    />
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/tvCertificado"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="android.support.v7.widget.GridLayoutManager"
+                    app:spanCount="1"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/res_library_certificate"/>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
 
 </RelativeLayout>

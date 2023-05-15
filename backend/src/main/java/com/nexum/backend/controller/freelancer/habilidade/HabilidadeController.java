@@ -11,7 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/habilidade")
-@CrossOrigin(origins = "http://nexum.zapto.org")
+@CrossOrigin(origins = "https://nexum.hopto.org")
 public class HabilidadeController {
 
     private final HabilidadeServicePort habilidadeServicePort;

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="#353338"
+    android:orientation="vertical"
+    android:gravity="fill"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/ivIconeEBAC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iconeebac"/>
+        <TextView
+            android:id="@+id/tvNomeLocalFormacao"
+            android:layout_toEndOf="@+id/ivIconeEBAC"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"
+            android:text="EBAC - Escola Britânica de Artes Criativas e Tecnologia"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvNomeLocalizacao"
+            android:layout_below="@+id/ivIconeEBAC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="Universidade particular em São Paulo"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginHorizontal="10dp"
+            android:id="@+id/tvLocal"
+            android:layout_below="@+id/tvNomeLocalizacao"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            android:text="São Paulo - São Paulo"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_marginHorizontal="10dp"
+            android:id="@+id/tvData"
+            android:layout_below="@+id/tvLocal"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            android:text="23 de Outubro - 2010  |  13 de Dezembro - 2012 "
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_marginHorizontal="10dp"
+            android:id="@+id/tvDescriçãoExperiencia"
+            android:layout_below="@+id/tvData"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            android:text="Curabitur tempus lacus in quam laoreet, eget finibus orci pharetra. Sed molestie leo eget urna egestas tristique. Sed molestie leo eget urna egestas tristique. "
+            android:textColor="@color/white"
+            android:textSize="20dp"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

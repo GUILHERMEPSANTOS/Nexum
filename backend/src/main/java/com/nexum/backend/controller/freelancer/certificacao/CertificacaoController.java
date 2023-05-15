@@ -13,7 +13,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/certificacao")
-@CrossOrigin(origins = "http://nexum.zapto.org")
+@CrossOrigin(origins = "https://nexum.hopto.org")
 public class CertificacaoController {
     private final CertificacaoServicePort certificacaoServicePort;
 
