@@ -44,9 +44,9 @@ abrirContato()
         }
     }
        fun abrirContato() {
-        this.btnLogin.setOnClickListener {
-            val intent = Intent(this, HomeFreelancer::class.java)
-            startActivity(intent)
+        this.tvContato.setOnClickListener {
+        //   link: `mailto:{dataEmailFormatted}`,
+        //`https://wa.me/55{dataFormatted}`,
         }
     }
        fun irParaFavoritos() {

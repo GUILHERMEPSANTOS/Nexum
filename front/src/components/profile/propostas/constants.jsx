@@ -4,9 +4,6 @@
 
   const dataEmail = localStorage.getItem("email") ? localStorage.getItem("email") : "";
   const dataEmailFormatted = dataEmail.replace(/"/g, "");
-
-  console.log(dataFormatted);
-  console.log(dataEmailFormatted);
   // link: `https://wa.me/551193856799`,
 
 
