@@ -33,8 +33,8 @@
             android:layout_height="match_parent">
             <TextView
                 style="@style/Text_View_Functionalities"
-                android:id="@+id/tvProspostas"
-                android:text="@string/text_click_here_to_view_proposals_contractor"
+                android:id="@+id/tvListaFreelancer"
+                android:text="@string/text_click_here_to_view_freelancers_contractor"
                 />
 
             <TextView
