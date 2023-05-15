@@ -43,10 +43,12 @@ class FormLogin : AppCompatActivity() {
                 this.etCampUsuario.error = "Por favor, preencha o usuário"
                 return false
             }
+
             this.etCampSenha.text.isNullOrEmpty() -> {
                 this.etCampSenha.error = "Por favor, preencha a senha"
                 return false
             }
+
             else -> true
         }
     }
@@ -57,6 +59,7 @@ class FormLogin : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
     fun irParaHomeContratante() {
         this.btnLogin.setOnClickListener {
             val intent = Intent(this, HomeContratante::class.java)
@@ -79,11 +82,22 @@ class FormLogin : AppCompatActivity() {
 
         Toast.makeText(this, controleAcessoService.user.toString(), Toast.LENGTH_SHORT).show()
 
-        if(controleAcessoService.user.value?.roles?.equals("ROLE_FREELANCER") == true) {
-            irParaHomeFreelancer()
-        } else {
-            irParaHomeContratante()
+        controleAcessoService.user.observe(this) { user ->
+            val prefs = getSharedPreferences("ROLE", MODE_PRIVATE)
+            val editor = prefs.edit()
+            editor.putString("USER_ROLE", user?.roles.toString())
+            editor.apply()
+            if (user?.roles?.equals("ROLE_FREELANCE") == true) {
+                irParaHomeFreelancer()
+            } else {
+                irParaHomeContratante()
+            }
         }
+
+        // PARA RECUPER A ROLE NA TELA ZYX
+        // val prefs = getSharedPrefences("ROLE", MODE_PRIVATE)
+        // val roles = prefs.getString("USER_ROLE", null)
+
     }
 
     fun gerarUserSignIn(): UserSignIn {
@@ -94,12 +108,12 @@ class FormLogin : AppCompatActivity() {
     }
 
 
-   fun setUpLogin() {
-       controleAcessoService.user.observe(this, Observer<User> { user ->
-           if (user != null) {
-               etCampUsuario.text = Editable.Factory.getInstance().newEditable(user.nome)
-           }
-       })
-   }
+    fun setUpLogin() {
+        controleAcessoService.user.observe(this, Observer<User> { user ->
+            if (user != null) {
+                etCampUsuario.text = Editable.Factory.getInstance().newEditable(user.nome)
+            }
+        })
+    }
 }
 

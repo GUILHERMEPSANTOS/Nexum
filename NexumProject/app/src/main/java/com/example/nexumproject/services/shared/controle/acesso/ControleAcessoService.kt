@@ -29,7 +29,6 @@ class ControleAcessoService {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.code() == HTTP_OK) {
                     user.postValue(response.body())
-
                 } else {
                     errorMessage.postValue("Erro ao logar . ${response.code()}")
                 }
