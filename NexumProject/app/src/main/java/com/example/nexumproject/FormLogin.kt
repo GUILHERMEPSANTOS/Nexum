@@ -33,8 +33,9 @@ class FormLogin : AppCompatActivity() {
         btnLogin.setOnClickListener {
             logar();
         }
-
-//        setUpLogin()
+        btnCriarConta.setOnClickListener {
+            irParaCadastro();
+        }
     }
 
     private fun camposValidos(): Boolean {
@@ -43,10 +44,12 @@ class FormLogin : AppCompatActivity() {
                 this.etCampUsuario.error = "Por favor, preencha o usuário"
                 return false
             }
+
             this.etCampSenha.text.isNullOrEmpty() -> {
                 this.etCampSenha.error = "Por favor, preencha a senha"
                 return false
             }
+
             else -> true
         }
     }
@@ -57,6 +60,7 @@ class FormLogin : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
     fun irParaHomeContratante() {
         this.btnLogin.setOnClickListener {
             val intent = Intent(this, HomeContratante::class.java)
@@ -79,10 +83,19 @@ class FormLogin : AppCompatActivity() {
 
         Toast.makeText(this, controleAcessoService.user.toString(), Toast.LENGTH_SHORT).show()
 
-        if(controleAcessoService.user.value?.roles?.equals("ROLE_FREELANCER") == true) {
-            irParaHomeFreelancer()
-        } else {
-            irParaHomeContratante()
+        controleAcessoService.user.observe(this) { user ->
+            val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
+            val editor = prefs.edit()
+            val roleNames = user?.roles?.map { it.roleName }?.joinToString(", ") ?: ""
+            editor.putString("USER_ROLE", roleNames)
+            editor.putString("USER_NAME",  user?.nome.toString())
+            editor.putString("USER_ID",  user?.id_user.toString())
+            editor.apply()
+            if (roleNames.equals("ROLE_FREELANCER")) {
+                irParaHomeFreelancer()
+            } else {
+                irParaHomeContratante()
+            }
         }
     }
 
@@ -93,13 +106,5 @@ class FormLogin : AppCompatActivity() {
         return UserSignIn(email, senha);
     }
 
-
-   fun setUpLogin() {
-       controleAcessoService.user.observe(this, Observer<User> { user ->
-           if (user != null) {
-               etCampUsuario.text = Editable.Factory.getInstance().newEditable(user.nome)
-           }
-       })
-   }
 }
 

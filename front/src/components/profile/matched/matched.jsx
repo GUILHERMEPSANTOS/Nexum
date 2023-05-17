@@ -20,7 +20,6 @@ const Matched = () => {
   if (isLoading) {
     return <Loading />;
   }
-  console.log(data?.data.length);
 
   return (
     <>
