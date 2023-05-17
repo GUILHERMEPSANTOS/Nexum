@@ -1,9 +1,9 @@
 package com.example.nexumproject
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
-import com.example.nexumproject.databinding.ActivityMainBinding
 import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoService
 
 
@@ -22,7 +22,6 @@ private lateinit var tvPerfil: TextView
         setContentView(R.layout.activity_home_freelancer)
         tvSubTitlePage = findViewById(R.id.tvSubTitlePage)
   tvContato = findViewById(R.id.tvContato)
-             tvFavorito = findViewById(R.id.tvFavorito)
               tvPropostas = findViewById(R.id.tvPropostas)
                tvPerfil = findViewById(R.id.tvPerfil)
         getData()
@@ -45,12 +44,8 @@ private lateinit var tvPerfil: TextView
         //`https://wa.me/55{dataFormatted}`,
         }
     }
-       fun irParaFavoritos() {
-        this.tvFavorito.setOnClickListener {
-            val intent = Intent(this, Saved::class.java)
-            startActivity(intent)
-        }
-    }
+
+
       // fun irParaPerfil() {
       //  this.btnLogin.setOnClickListener {
        //     val intent = Intent(this, TelaDePerfilContratante::class.java)

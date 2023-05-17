@@ -69,7 +69,7 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
         Toast.makeText(this, perfilService.perfilVar.toString(), Toast.LENGTH_SHORT).show()
 
         perfilService.perfilVar.observe(this) { perfil ->
-            tvTextoSobrePerfil.setText(perfil.sobre)
+            tvTextoSobrePerfil.setText(perfil?.sobre)
         }
 
     }
@@ -81,7 +81,7 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
 
         val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
         val id = prefs.getString("USER_NAME", null)
-        var texto = etCampSenha.text.toString();
+        var texto = ""
 
         return Perfil( id!!.toLong(), texto);
     }

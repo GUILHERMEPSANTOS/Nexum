@@ -36,7 +36,6 @@ class FormLogin : AppCompatActivity() {
         btnCriarConta.setOnClickListener {
             irParaCadastro();
         }
-        setUpLogin()
     }
 
     private fun camposValidos(): Boolean {
@@ -87,11 +86,12 @@ class FormLogin : AppCompatActivity() {
         controleAcessoService.user.observe(this) { user ->
             val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
             val editor = prefs.edit()
-            editor.putString("USER_ROLE", user?.roles.toString())
+            val roleNames = user?.roles?.map { it.roleName }?.joinToString(", ") ?: ""
+            editor.putString("USER_ROLE", roleNames)
             editor.putString("USER_NAME",  user?.nome.toString())
             editor.putString("USER_ID",  user?.id_user.toString())
             editor.apply()
-            if (user?.roles?.equals("ROLE_FREELANCE") == true) {
+            if (roleNames.equals("ROLE_FREELANCER")) {
                 irParaHomeFreelancer()
             } else {
                 irParaHomeContratante()
@@ -106,13 +106,5 @@ class FormLogin : AppCompatActivity() {
         return UserSignIn(email, senha);
     }
 
-
-    fun setUpLogin() {
-        controleAcessoService.user.observe(this, Observer<User> { user ->
-            if (user != null) {
-                etCampUsuario.text = Editable.Factory.getInstance().newEditable(user.nome)
-            }
-        })
-    }
 }
 
