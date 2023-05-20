@@ -2,12 +2,18 @@
 pipeline {
     agent any
     stages {
+        stage('Install Dependencies') {
+            steps {
+                dir('front') {
+                  sh 'npm install' 
+                }
+            }
+        }
         stage('Build') { 
             steps {
-              dir('front') { 
-                sh 'npm install' 
-                sh 'npm run build' 
-              }
+                dir('front') {                 
+                  sh 'npm run build' 
+                }
            }
         stage('Deploy') { 
             steps {
