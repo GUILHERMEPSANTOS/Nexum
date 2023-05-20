@@ -3,9 +3,9 @@ pipeline {
     agent any
     stages {
         stage('Build') { 
-            steps {
-                sh 'cd front'
-                sh 'ls'
+            stedir('front') { 
+              sh 'npm install' 
+              sh 'npm run build' 
             }
         }
     }
