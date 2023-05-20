@@ -3,10 +3,12 @@ pipeline {
     agent any
     stages {
         stage('Build') { 
-            stedir('front') { 
-              sh 'npm install' 
-              sh 'npm run build' 
-            }
-        }
-    }
+            steps {
+              dir('front') { 
+                sh 'npm install' 
+                sh 'npm run build' 
+              }
+           }
+       }
+   }
 }
