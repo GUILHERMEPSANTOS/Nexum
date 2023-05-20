@@ -9,6 +9,12 @@ pipeline {
                 sh 'npm run build' 
               }
            }
+        stage('Deploy') { 
+            steps {
+              dir('front') { 
+                sh 'npm run dev' 
+              }
+           }
        }
    }
 }
