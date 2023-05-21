@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy') { 
             steps {
               dir('front') { 
-                sh 'npm run dev' 
+                sh 'docker-compose up -d' 
               }
            }
        }
