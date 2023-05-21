@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     hmr: { overlay: false },
-    port: 8000,
+    port: 80,
   },
   preview: {
     https: false,
@@ -13,3 +13,4 @@ export default defineConfig({
     port: 3030,
   },
 });
+
