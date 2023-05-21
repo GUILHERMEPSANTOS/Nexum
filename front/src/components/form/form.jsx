@@ -28,7 +28,7 @@ const Form = () => {
         </Link>
         <section className={styles.content}>
           <img src="../../../assets/imgs/company.png" alt="Nexum" />
-          <Text text="Nexum criado para você encontrar a conexão perfeita" />
+          <Text text="Nexum webhook teste criado para você encontrar a conexão perfeita" />
         </section>
         <section className={styles.children}>
           <Page />
