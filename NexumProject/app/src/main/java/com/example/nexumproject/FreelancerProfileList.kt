@@ -14,18 +14,15 @@ class FreelancerProfileList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_freelancer_profile_list)
-
         recyclerView = findViewById(R.id.list_recyclerView)
-
-
-
         recyclerView.adapter = adapter
     }
 
     fun renderList() {
         freelancersService.usersList.observe(this) { freelancer ->
-            
-            adapter.setData(freelancer)
+            if (freelancer != null) {
+                adapter.setData(freelancer)
+            }
         }
     }
 }

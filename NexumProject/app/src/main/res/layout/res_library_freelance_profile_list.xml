@@ -65,8 +65,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="São Caetano do Sul, SP"
+                android:text="São Caetano do Sul,"
                 />
+
+            <TextView
+                android:id="@+id/tvEstadoPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvCidadePerfil"
+                android:layout_marginTop="-20dp"
+                android:layout_toEndOf="@+id/tvCidadePerfil"
+                android:text="SP"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:textSize="20dp"

@@ -41,7 +41,7 @@ class UsersService {
         });
     }
     fun freelancerById(freelancerById: User,getFreelancersListInDTO: User) {
-        val httpResponse = usersRepository.getFreelancerById(freelancerById);
+        val httpResponse = usersRepository.getFreelancerById(freelancerById,getFreelancersListInDTO);
 
         httpResponse.enqueue(object : Callback<Users> {
             override fun onResponse(call: Call<Users>, response: Response<Users>) {
