@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.nexumproject.models.response.shared.role.Users
 
-class Adapter(private val dataSet: List<String>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(private var dataSet: List<Users>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 //        val textView: TextView = view.findViewById(R.id.textView)
@@ -25,4 +26,9 @@ class Adapter(private val dataSet: List<String>) : RecyclerView.Adapter<Adapter.
     override fun getItemCount(): Int {
         return dataSet.size
     }
+    fun setData(newData: List<Users>) {
+        dataSet = newData
+        notifyDataSetChanged()
+    }
+
 }
