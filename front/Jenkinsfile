@@ -13,7 +13,9 @@ pipeline {
         }
         stage('Build') { 
             steps {
-                dir('front') {                 
+                dir('front') {  
+                  sh 'npm -v' 
+                  sh 'node -v' 
                   sh 'npm run build' 
                 }
            }
