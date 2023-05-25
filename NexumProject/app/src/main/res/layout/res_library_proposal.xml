@@ -46,8 +46,21 @@
             android:layout_below="@+id/tvNomeProposta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="São Caetano do Sul, SP"
+            android:text="São Caetano do Sul,"
             />
+
+        <TextView
+            android:id="@+id/tvEstadoProposta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvNomeProposta"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/tvCidadeProposta"
+            android:text="SP"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
         <TextView
             android:textStyle="bold"
             android:textSize="27dp"

@@ -13,8 +13,8 @@ class UsersRepository constructor(private val retrofitService: RetrofitClient)
     : UsersRepositoryPort {
     private val apiService: UsersApiService = retrofitService.createService(UsersApiService::class.java)
 
-    override fun getFreelancersList(list: User): Call<List<Users>>{
-        return apiService.getFreelancersList(list)
+    override fun getFreelancersList(): Call<List<Users>>{
+        return apiService.getFreelancersList()
     }
 
     override fun getFreelancerById(freelancer: User, getFreelancersListInDTO: User): Call<Users> {

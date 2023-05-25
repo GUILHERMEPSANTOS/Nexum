@@ -22,8 +22,8 @@ class UsersService {
     private val usersRepository: UsersRepositoryPort =
         UsersRepository(RetrofitClient);
 
-    fun freelancersList(list: User) {
-        val httpResponse = usersRepository.getFreelancersList(list);
+    fun freelancersList() {
+        val httpResponse = usersRepository.getFreelancersList();
 
         httpResponse.enqueue(object : Callback<List<Users>>{
             override fun onResponse(call: Call<List<Users>>, response: Response<List<Users>>) {

@@ -25,6 +25,7 @@ class HomeFreelancer : AppCompatActivity() {
         tvPropostas = findViewById(R.id.tvPropostas)
         tvPerfil = findViewById(R.id.tvPerfil)
         getData()
+        irParaPropostas()
     }
 
     fun getData() {

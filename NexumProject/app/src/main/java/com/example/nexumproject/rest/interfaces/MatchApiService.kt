@@ -3,6 +3,7 @@ package com.example.nexumproject.rest.interfaces
 
 import com.example.nexumproject.models.request.shared.controle.acesso.Matches
 import com.example.nexumproject.models.response.shared.role.Match
+import com.example.nexumproject.models.response.shared.role.Users
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -16,13 +17,12 @@ interface MatchApiService {
     fun sendMatchRequest(@Body sendMatchRequestInDTO: Matches): Call<Match>
 
     @GET("freelancer/{id_freelancer}/match/requests")
-    fun getMatchsRequestByFreelancerId(@Path("id_freelancer") idFreelancer: Matches): Call<List<Match>>
+    fun getMatchsRequestByFreelancerId(@Path("id_freelancer") id_freelancer: Long): Call<List<Users>>
 
     @PUT("freelancer/{id_freelancer}/match/accept-request/contratante/{id_contratante}")
     fun putMatchRequest(
-        @Path("id_freelancer") idFreelancer: Matches,
-        @Path("id_contratante") idContratante: Matches,
-        @Body putMatchRequestIdInDTO: Matches
+        @Path("id_freelancer") id_freelancer: Long,
+        @Path("id_contratante") id_contratante: Long
     ): Call<Match>
 
 }

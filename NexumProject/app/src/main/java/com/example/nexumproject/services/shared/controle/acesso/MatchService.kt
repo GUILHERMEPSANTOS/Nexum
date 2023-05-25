@@ -4,6 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import com.example.nexumproject.models.request.shared.controle.acesso.Matches
 
 import com.example.nexumproject.models.response.shared.role.Match
+import com.example.nexumproject.models.response.shared.role.Users
 import com.example.nexumproject.repositories.shared.controle.acesso.MatchRepository
 import com.example.nexumproject.repositories.shared.controle.acesso.interfaces.MatchRepositoryPort
 import com.example.nexumproject.rest.RetrofitClient
@@ -14,7 +15,7 @@ import java.net.HttpURLConnection.HTTP_OK
 
 class MatchService {
     val usersList = MutableLiveData<Match>()
-    val freelancerByIdList = MutableLiveData<List<Match>>()
+    val freelancerByIdList = MutableLiveData<List<Users>>()
     val contratanteByIdList = MutableLiveData<Match>()
     val errorMessage = MutableLiveData<String>()
 
@@ -39,11 +40,11 @@ class MatchService {
             }
         });
     }
-    fun getMatchsRequestByFreelancerId(idFreelancer: Matches) {
-        val httpResponse = matchRepository.getMatchsRequestByFreelancerId(idFreelancer);
+    fun getMatchsRequestByFreelancerId(id_freelancer: Long) {
+        val httpResponse = matchRepository.getMatchsRequestByFreelancerId(id_freelancer);
 
-        httpResponse.enqueue(object : Callback<List<Match>> {
-            override fun onResponse(call: Call<List<Match>>, response: Response<List<Match>>) {
+        httpResponse.enqueue(object : Callback<List<Users>> {
+            override fun onResponse(call: Call<List<Users>>, response: Response<List<Users>>) {
                 if (response.code() == HTTP_OK) {
                     freelancerByIdList.postValue(response.body())
                 } else {
@@ -52,13 +53,13 @@ class MatchService {
             }
 
 
-            override fun onFailure(call: Call<List<Match>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Users>>, t: Throwable) {
                 errorMessage.postValue(t.message)
             }
         });
     }
-    fun putMatchRequest(idFreelancer: Matches, idContratante: Matches, putMatchRequestIdInDTO: Matches) {
-        val httpResponse = matchRepository.putMatchRequest(idFreelancer,idContratante,putMatchRequestIdInDTO);
+    fun putMatchRequest(id_freelancer: Long, id_contratante: Long) {
+        val httpResponse = matchRepository.putMatchRequest(id_freelancer,id_contratante);
 
         httpResponse.enqueue(object : Callback<Match> {
             override fun onResponse(call: Call<Match>, response: Response<Match>) {

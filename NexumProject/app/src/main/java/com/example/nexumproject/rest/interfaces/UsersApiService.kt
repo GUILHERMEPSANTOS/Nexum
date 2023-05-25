@@ -11,7 +11,7 @@ import retrofit2.http.Path
 
 interface UsersApiService {
     @GET("freelancer/list")
-    fun getFreelancersList(@Body getFreelancersListInDTO: User): Call<List<Users>>
+    fun getFreelancersList(): Call<List<Users>>
 
     @GET("freelancer/{id}")
     fun getFreelancerById(  @Path("id") idContratante: User,

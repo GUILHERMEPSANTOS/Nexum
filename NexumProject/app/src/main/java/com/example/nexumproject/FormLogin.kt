@@ -91,7 +91,7 @@ class FormLogin : AppCompatActivity() {
             editor.putString("USER_NAME",  user?.nome.toString())
             editor.putString("USER_ID",  user?.id_user.toString())
             editor.apply()
-            if (roleNames.equals("ROLE_FREELANCER")) {
+            if (roleNames == "ROLE_FREELANCER") {
                 irParaHomeFreelancer()
             } else {
                 irParaHomeContratante()
