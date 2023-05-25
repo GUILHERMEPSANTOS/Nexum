@@ -1,0 +1,32 @@
+#!/usr/bin/env groovy
+properties([pipelineTriggers([githubPush()])])
+
+pipeline {
+    agent any
+    stages {
+        stage('Build') { 
+            steps {
+                dir('backend') {                 
+                  sh 'mvn clean package' 
+                }
+           }
+        }
+        stage('Start SQL') { 
+            steps {
+              sh 'docker start nexum-db'
+           }
+       }
+        stage('Deploy') { 
+            environment {            
+                APP_JAVA  = 'backend-0.0.1-SNAPSHOT.jar'
+            }        
+            steps {
+              dir('backend') { 
+                 sh "pkill -f $APP_JAVA || true"
+
+                 sh "java -jar /target/$APP_JAVA > /dev/null 2>&1 &"
+              }            
+           }
+       }
+   }
+}
