@@ -10,7 +10,6 @@ import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoSe
 class HomeContratante : AppCompatActivity() {
 
     private lateinit var tvSubTitlePage: TextView
-    private val controleAcessoService: ControleAcessoService = ControleAcessoService();
 private lateinit var tvFavorito: TextView
 private lateinit var tvContato: TextView
 private lateinit var tvListaFreelancer: TextView

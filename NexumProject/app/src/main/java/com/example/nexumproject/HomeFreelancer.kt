@@ -12,19 +12,20 @@ class HomeFreelancer : AppCompatActivity() {
 
     private lateinit var tvSubTitlePage: TextView
     private lateinit var tvFavorito: TextView
-private lateinit var tvContato: TextView
-private lateinit var tvPropostas: TextView
-private lateinit var tvPerfil: TextView
+    private lateinit var tvContato: TextView
+    private lateinit var tvPropostas: TextView
+    private lateinit var tvPerfil: TextView
 
     private val controleAcessoService: ControleAcessoService = ControleAcessoService();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_freelancer)
         tvSubTitlePage = findViewById(R.id.tvSubTitlePage)
-  tvContato = findViewById(R.id.tvContato)
-              tvPropostas = findViewById(R.id.tvPropostas)
-               tvPerfil = findViewById(R.id.tvPerfil)
+        tvContato = findViewById(R.id.tvContato)
+        tvPropostas = findViewById(R.id.tvPropostas)
+        tvPerfil = findViewById(R.id.tvPerfil)
         getData()
+        irParaPropostas()
     }
 
     fun getData() {
@@ -32,24 +33,26 @@ private lateinit var tvPerfil: TextView
         val nome = prefs.getString("USER_NAME", null)
         tvSubTitlePage.setText("Olá $nome, te desejamos uma ótima expêriencia ");
     }
-          fun irParaPropostas() {
+
+    fun irParaPropostas() {
         this.tvPropostas.setOnClickListener {
             val intent = Intent(this, Proposal::class.java)
             startActivity(intent)
         }
     }
-       fun abrirContato() {
+
+    fun abrirContato() {
         this.tvContato.setOnClickListener {
-        //   link: `mailto:{dataEmailFormatted}`,
-        //`https://wa.me/55{dataFormatted}`,
+            //   link: `mailto:{dataEmailFormatted}`,
+            //`https://wa.me/55{dataFormatted}`,
         }
     }
 
 
-      // fun irParaPerfil() {
-      //  this.btnLogin.setOnClickListener {
-       //     val intent = Intent(this, TelaDePerfilContratante::class.java)
-       //     startActivity(intent)
-      //  }
-  //}
+    fun irParaPerfil() {
+        this.tvPerfil.setOnClickListener {
+            val intent = Intent(this, TelaDePerfilFreelancer::class.java)
+            startActivity(intent)
+        }
+    }
 }

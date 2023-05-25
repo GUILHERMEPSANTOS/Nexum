@@ -8,49 +8,50 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import com.example.nexumproject.domainobjects.Endereco
 import com.example.nexumproject.models.request.shared.controle.acesso.Matches
 import com.example.nexumproject.models.response.shared.role.Users
-import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoService
 import com.example.nexumproject.services.shared.controle.acesso.MatchService
 
-class Adapter(private val context: Context,private var dataSet: List<Users>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class AdapterProposta(private val context: Context,private var dataSet: List<Users>) : RecyclerView.Adapter<AdapterProposta.ViewHolder>() {
     private val matchService: MatchService = MatchService();
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val tvCidadePerfil: TextView = view.findViewById(R.id.tvCidadePerfil)
-        val tvNomePerfil: TextView = view.findViewById(R.id.tvNomePerfil)
-        val tvEstadoPerfil: TextView = view.findViewById(R.id.tvEstadoPerfil)
-        val tvAtuacaoPerfil: TextView = view.findViewById(R.id.tvAtuacaoPerfil)
+        val tvNomeProposta: TextView = view.findViewById(R.id.tvNomeProposta)
+        val tvEstadoProposta: TextView = view.findViewById(R.id.tvEstadoProposta)
+        val tvCidadeProposta: TextView = view.findViewById(R.id.tvCidadeProposta)
+        val tvTextoSobrePerfil: TextView = view.findViewById(R.id.tvTextoSobrePerfil)
+        val etEmail: EditText = view.findViewById(R.id.etEmail)
         val ivIconHeard: ImageView = view.findViewById(R.id.ivIconHeard)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.res_library_freelance_profile_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.res_library_proposal, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-
         val item = dataSet[position]
         val endereco = item.endereco
         val prefs = context.getSharedPreferences("USER_INFO", AppCompatActivity.MODE_PRIVATE)
         val id = prefs.getString("USER_ID", null)
-        var idContratante = id?.toLongOrNull()
-        var idFreelancer = item.id_user
+        var idFreelancer = id?.toLongOrNull() ?: 0
+        var idContratante = idFreelancer
 
+        Log.d("Tagg", item.toString())
 
-        holder.tvNomePerfil.text = item?.nome
-        holder.tvCidadePerfil.text = endereco?.cidade
-        holder.tvEstadoPerfil.text = endereco?.estado
-        holder.tvAtuacaoPerfil.text = item?.profession
+        holder.tvNomeProposta.text = item?.nome
+        holder.tvCidadeProposta.text = endereco?.cidade
+        holder.tvEstadoProposta.text = endereco?.estado
+        holder.tvTextoSobrePerfil.text = item?.sobre
+        holder.etEmail.text = item?.email
         holder.ivIconHeard.setOnClickListener{
-            val match = Matches(idContratante ?: 0, idFreelancer)
-            matchService.sendMatchRequest(match)
+            matchService.putMatchRequest(idFreelancer, idContratante)
             Toast.makeText(context, matchService.usersList.toString(), Toast.LENGTH_SHORT).show()
         }
 
