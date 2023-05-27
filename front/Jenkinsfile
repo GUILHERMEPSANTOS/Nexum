@@ -1,0 +1,29 @@
+#!/usr/bin/env groovy
+properties([pipelineTriggers([githubPush()])])
+
+pipeline {
+    agent any
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                dir('front') {
+                  sh 'npm install' 
+                }
+            }
+        }
+        stage('Build') { 
+            steps {
+                dir('front') {  
+                  sh 'npm run build' 
+                }
+           }
+        }
+        stage('Deploy') { 
+            steps {
+              dir('front') { 
+                sh 'docker-compose up -d' 
+              }
+           }
+       }
+   }
+}

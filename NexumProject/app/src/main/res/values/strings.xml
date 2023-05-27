@@ -17,6 +17,7 @@
     <string name="text_forgot_password">Esqueci a conta</string>
     <string name="text_enter">Entrar</string>
     <string name="text_click_here_to_view_proposals_contractor">Clique aqui para visualizar Propostas</string>
+     <string name="text_click_here_to_view_freelancers_contractor">Clique aqui para visualizar Freelancers</string>
     <string name="text_click_here_to_enter_contact_contractor">Clique aqui para entrar em Contato</string>
     <string name="text_click_here_to_enter_favorites_contractor">Clique aqui para entrar em Favoritos</string>
     <string name="text_click_here_to_view_profile_contractor">Clique aqui para visualizar Perfil</string>
