@@ -40,8 +40,8 @@ class AdapterProposta(private val context: Context,private var dataSet: List<Use
         val endereco = item.endereco
         val prefs = context.getSharedPreferences("USER_INFO", AppCompatActivity.MODE_PRIVATE)
         val id = prefs.getString("USER_ID", null)
-        var idFreelancer = id?.toLongOrNull() ?: 0
-        var idContratante = idFreelancer
+        var id_freelancer = id?.toLongOrNull() ?: 0
+        var id_contratante =  item?.id_user ?: 0
 
         Log.d("Tagg", item.toString())
 
@@ -51,7 +51,7 @@ class AdapterProposta(private val context: Context,private var dataSet: List<Use
         holder.tvTextoSobrePerfil.text = item?.sobre
         holder.etEmail.text = item?.email
         holder.ivIconHeard.setOnClickListener{
-            matchService.putMatchRequest(idFreelancer, idContratante)
+            matchService.putMatchRequest(id_freelancer, id_contratante)
             Toast.makeText(context, matchService.usersList.toString(), Toast.LENGTH_SHORT).show()
         }
 
