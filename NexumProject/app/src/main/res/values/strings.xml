@@ -24,6 +24,7 @@
     <string name="text_view_location">São Caetano do Sul, SP</string>
     <string name="text_view_Acting">Analista de testes jr</string>
     <string name="text_view_title_sobre">Sobre</string>
+    <string name="text_view_title_edit_profile">Perfil</string>
     <string name="text_view_title_social_network">Rede Social</string>
     <string name="text_view_title_information">Informações</string>
     <string name="text_view_title_habilites">Habilidades</string>
@@ -36,6 +37,6 @@
     <string name="text_view_inside_match">Matchs: 24</string>
     <string name="text_view_inside_Date">Ingressou em 04/08/2004</string>
     <string name="text_view_my_text_sobre">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</string>
-
+    <string name="text_view_edit_my_text_sobre">Fale sobre você</string>
 
 </resources>
