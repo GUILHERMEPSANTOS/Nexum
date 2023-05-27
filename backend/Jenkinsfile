@@ -27,7 +27,7 @@ pipeline {
             
                  sh "cp -f target/$APP_JAVA $APP_PATH"
 
-                 sh "java -jar $APP_PATH$APP_JAVA /dev/null 2>&1 &"
+                 sh "java -jar $APP_PATH$APP_JAVA &"
               }            
            }
        }
