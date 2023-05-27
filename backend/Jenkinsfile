@@ -28,8 +28,7 @@ pipeline {
                  sh "cp -f target/$APP_JAVA $APP_PATH"
               }            
 
-              sh "nohup java -jar $APP_PATH$APP_JAVA > /dev/null 2>&1 &
-"
+              sh "nohup java -jar $APP_PATH$APP_JAVA > /dev/null 2>&1 &"
            }
        }
    }
