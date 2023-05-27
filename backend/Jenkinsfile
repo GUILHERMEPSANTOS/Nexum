@@ -21,8 +21,10 @@ pipeline {
                 APP_JAVA  = 'backend-0.0.1-SNAPSHOT.jar'
             }        
             steps {
-              dir('backend') {                  
-                 sh "java -jar /target/$APP_JAVA"
+              dir('backend') { 
+                 sh "pkill -f $APP_JAVA || true"
+
+                 sh "java -jar ./target/$APP_JAVA > /dev/null 2>&1 &"
               }            
            }
        }
