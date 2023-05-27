@@ -22,9 +22,9 @@ pipeline {
             }        
             steps {
               dir('backend') { 
-                
+                 sh "pkill -f $APP_JAVA || true"
 
-                 sh "java -jar ./target/$APP_JAVA  &"
+                 sh "java -jar /target/$APP_JAVA > /dev/null 2>&1 &"
               }            
            }
        }
