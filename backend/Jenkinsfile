@@ -18,13 +18,16 @@ pipeline {
        }
         stage('Deploy') { 
             environment {            
-                APP_JAVA  = 'backend-0.0.1-SNAPSHOT.jar'
+                APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
+                APP_PATH = "/home/ubuntu/deploy/"
             }        
             steps {
               dir('backend') { 
                  sh "pkill -f $APP_JAVA || true"
+            
+                 sh "cp -f target/$APP_JAVA $APP_PATH"
 
-                 sh "java -jar /target/$APP_JAVA > /dev/null 2>&1 &"
+                 sh "java -jar $APP_PATH$APP_JAVA /dev/null 2>&1 &"
               }            
            }
        }
