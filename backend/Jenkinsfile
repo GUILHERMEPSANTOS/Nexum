@@ -27,5 +27,10 @@ pipeline {
               }            
            }
        }
+        stage('Deploy') {                
+            steps {
+                sh 'docker start nexum-back'                      
+           }
+       }
    }
 }
