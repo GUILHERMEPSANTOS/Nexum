@@ -20,15 +20,14 @@ pipeline {
             environment {            
                 APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
                 APP_PATH = "/home/ubuntu/deploy/"
+                SCRIPT_START = "deploy-java.sh"
             }        
             steps {
               dir('backend') { 
-                 sh "pkill -f $APP_JAVA || true"
-            
                  sh "cp -f target/$APP_JAVA $APP_PATH"
               }            
 
-              sh "nohup java -jar target/$APP_JAVA > /dev/null 2>&1 &"
+              sh "$APP_PATH$SCRIPT_START"
            }
        }
    }
