@@ -16,20 +16,15 @@ pipeline {
               sh 'docker start nexum-db'
            }
        }
-        stage('Deploy') { 
+        stage('Transfer Jar to Deploy Folder') { 
             environment {            
                 APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
                 APP_PATH = "/home/ubuntu/deploy/"
-                SCRIPT_START = "deploy-java.sh"
             }        
             steps {
-             sh 'java -version'
-
-              dir('backend') { 
+              dir('backend') {             
                  sh "cp -f target/$APP_JAVA $APP_PATH"
               }            
-
-              sh "$APP_PATH$SCRIPT_START"
            }
        }
    }
