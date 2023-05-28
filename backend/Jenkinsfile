@@ -23,6 +23,8 @@ pipeline {
                 SCRIPT_START = "deploy-java.sh"
             }        
             steps {
+             sh 'java -version'
+
               dir('backend') { 
                  sh "cp -f target/$APP_JAVA $APP_PATH"
               }            
