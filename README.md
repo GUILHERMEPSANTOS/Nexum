@@ -1,5 +1,4 @@
-# Nexum
-
+# Nexum 3.0.00
 
  > Front                
  - [x] **JavaScript** 	:heart::heart:
