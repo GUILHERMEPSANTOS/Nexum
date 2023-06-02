@@ -3,7 +3,7 @@
  > Front                
  - [x] **JavaScript** 	:heart::heart:
  - [x] **React js** :smiling_face_with_three_hearts:
-
+ - [x] **Sass** 🦄
 
 > Back
   - [x] **Java** :muscle: 
