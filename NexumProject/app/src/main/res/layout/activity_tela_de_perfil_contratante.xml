@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="fill"
+    android:background="@color/fundo_nexum"
+    tools:context=".TelaDePerfilContratante">
+
+    <ImageView
+        style="@style/MyImageViewStyleButtonVoltar"/>
+
+    <ImageView
+        android:id="@+id/LogoFooter"
+        style="@style/MyImageViewStyleLogoFooter"
+        />
+
+    <ScrollView
+        android:layout_marginTop="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rlInformacaoPerfil1"
+                style="@style/RelativeLayoutContentContainer">
+
+
+                <ImageView
+                    style="@style/Image_Perfil"
+                    android:id="@+id/ivFotoPerfil"
+                    android:src="@drawable/profile_picture_removebg_preview" />
+
+                <TextView
+                    style="@style/TextViewStyleNameProfileContratante"
+                    android:id="@+id/tvNomePerfil"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivIconiLocalizacao"
+                    style="@style/ImageViewStyleLocation"/>
+
+
+                <TextView
+                    style="@style/TextViewStyleLocation"
+                    android:id="@+id/tvCidadePerfil"
+                    />
+
+
+                <TextView
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    android:id="@+id/tvSobrePerfil"
+                    android:layout_below="@+id/ivFotoPerfil"
+                    android:text="@string/text_view_title_sobre"
+                    />
+
+                <ImageView
+                    android:id="@+id/ivEditarSobre"
+                    style="@style/ImageViewEditarLight"
+                    />
+
+                <TextView
+                    style="@style/MeuTextViewSobre"
+                    android:id="@+id/tvTextoSobrePerfil"
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_below="@+id/tvTextoSobrePerfil"
+                    android:text="@string/text_view_title_email"
+                    style="@style/TextViewStyleTitleCamposProfile"
+                    />
+
+                <EditText
+                    style="@style/EmailEditTextCampProfile"
+                    android:id="@+id/etEmail"
+                    android:layout_below="@+id/tvEmail"
+                    android:text="@string/text_view_inside_email"
+                    android:layout_marginBottom="20dp"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

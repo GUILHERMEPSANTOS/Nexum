@@ -12,19 +12,52 @@
         android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleButtonVoltar"/>
 
+    <ImageView
+        android:id="@+id/LogoFooter"
+        style="@style/MyImageViewStyleLogoFooter"
+        />
+s
+        <TextView
+            android:layout_marginTop="0dp"
+            android:layout_below="@id/LogoFooter"
+            style="@style/TextViewStyleTitleCamposProfile"
+            android:id="@+id/tvSobrePerfil"
+            android:text="@string/text_view_title_sobre"
+            />
+
+        <TextView
+            android:layout_marginTop="2dp"
+            style="@style/MeuTextViewSobre"
+            android:text="@string/text_view_edit_my_text_sobre"
+            android:id="@+id/tvTextoSobrePerfil"
+            android:layout_below="@+id/tvSobrePerfil"
+            />
+
+        <EditText
+            android:id="@+id/etCampEditSobre"
+            style="@style/Label_Edit_Sobre"
+            android:layout_width="370dp"
+            android:layout_height="190dp"
+            android:layout_below="@+id/tvTextoSobrePerfil"
+            />
+
     <TextView
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/etCampEditSobre"
         style="@style/TextViewStyleTitleCamposProfile"
         android:id="@+id/tvSobrePerfil"
         android:layout_below="@+id/btnVoltar"
         android:text="@string/text_view_title_sobre"
+        android:id="@+id/tvCepPerfil"
+        android:text="CEP"
         />
 
     <TextView
         android:layout_marginTop="2dp"
         style="@style/MeuTextViewSobre"
-        android:text="@string/text_view_edit_my_text_sobre"
-        android:id="@+id/tvTextoSobrePerfil"
-        android:layout_below="@+id/tvSobrePerfil"
+        android:text="Digite seu Cep"
+        android:id="@+id/tvTextoCep"
+        android:layout_below="@+id/tvCepPerfil"
         />
 
     <EditText
@@ -41,6 +74,22 @@
         android:text="@string/text_salvar"
         android:layout_marginTop="80dp"
         />
+
+
+        <EditText
+            android:layout_marginTop="8dp"
+            style="@style/Edit_Text_label"
+            android:id="@+id/etCampEditCep"
+            android:layout_below="@+id/tvTextoCep"
+            android:inputType="number"
+            />
+
+
+        <Button
+            style="@style/Button_Light"
+            android:layout_marginTop="100dp"
+            android:layout_below="@+id/etCampEditCep"
+            android:text="Salvar"/>
 
 
 </RelativeLayout>

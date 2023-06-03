@@ -1,36 +1,89 @@
-#!/usr/bin/env groovy
-properties([pipelineTriggers([githubPush()])])
-
 pipeline {
     agent any
+    
+    environment {
+        APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
+        APP_PATH = '/home/ubuntu/deploy/'
+    }
+    
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                dir('backend') {                 
-                  sh 'mvn clean package -DskipTests' 
+                dir('backend') {
+                    sh 'mvn clean package -DskipTests'
                 }
-           }
+            }
         }
-        stage('Start SQL') { 
+        
+        stage('Start SQL') {
             steps {
-              sh 'docker start nexum-db'
-           }
-       }
-        stage('Transfer Jar to Deploy Folder') { 
-            environment {            
-                APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
-                APP_PATH = "/home/ubuntu/deploy/"
-            }        
+                sh 'docker start nexum-db'
+            }
+        }
+        
+        stage('Transfer Jar to Deploy Folder') {
             steps {
-              dir('backend') {             
-                 sh "cp -f target/$APP_JAVA $APP_PATH"
-              }            
-           }
-       }
-        stage('Deploy') {                
+                dir('backend') {
+                    script {
+                        if (fileExists("$APP_PATH$APP_JAVA")) {
+                            sh "rm $APP_PATH$APP_JAVA"
+                        }
+                        sh "cp target/$APP_JAVA $APP_PATH"
+                        sh "chmod +x $APP_PATH$APP_JAVA"
+                    }
+                }
+            }
+        }
+        
+        stage('Docker Deploy') {
             steps {
-                sh 'docker start nexum-back'                      
-           }
-       }
-   }
+                script {
+                    stopAndRemoveContainer()
+                    removeImage()
+                    def buildSuccess = buildDockerImage()
+                    if (buildSuccess) {
+                        createDockerContainer()
+                    } else {
+                        error "Error: Failed to build Docker image"
+                    }
+                }
+            }
+        }
+    }
+}
+
+def stopAndRemoveContainer() {
+    sh "docker stop nexum-back || true"
+    sh "docker rm nexum-back || true"
+}
+
+def removeImage() {
+    sh "docker rmi nexum-back-image || true"
+}
+
+def buildDockerImage() {
+    def imageName = 'nexum-back-image'
+    def dockerfilePath = "${env.WORKSPACE}/backend/Dockerfile"
+    def dockerBuildContext = "${env.WORKSPACE}/backend"
+
+    def dockerBuildCommand = "docker build -t ${imageName} -f ${dockerfilePath} ${dockerBuildContext}"
+
+    def buildOutput = sh(returnStatus: true, script: dockerBuildCommand)
+
+    if (buildOutput == 0) {
+        return true
+    } else {
+        error "Error: Failed to build Docker image. Command output:\n${buildOutput}"
+        return false
+    }
+}
+
+def createDockerContainer() {
+    def containerName = 'nexum-back'
+    def imageName = 'nexum-back-image'
+    def APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
+    def APP_PATH = '/home/ubuntu/deploy/'
+
+    def createContainerCommand = "docker run -d -p 8000:8000 --network nexum-network --name ${containerName} -v ${APP_PATH}${APP_JAVA}:/app/${APP_JAVA} ${imageName}"
+    sh createContainerCommand
 }

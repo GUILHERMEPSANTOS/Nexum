@@ -77,6 +77,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".TelaDePerfilContratante"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Match"
             android:exported="false">
             <meta-data
