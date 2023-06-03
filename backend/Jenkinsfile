@@ -20,7 +20,9 @@ pipeline {
             }
             steps {
                 dir('backend') {
-                    sh "docker stop nexum-back || true"
+                     script {
+                        sh "docker stop nexum-back || true"
+                    }
                     sh "rm $APP_PATH$APP_JAVA || true"
                     sh "cp target/$APP_JAVA $APP_PATH"
                     sh "chmod +x $APP_PATH$APP_JAVA"
