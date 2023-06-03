@@ -37,9 +37,7 @@ pipeline {
        }
         stage('Deploy') {                
             steps {
-                sh "docker run -p 8000:8000 --network nexum-network --name  nexum-back -v /home/ubuntu/deploy/backend-0.0.1-SNAPSHOT.jar:/app/backend-0.0.1-SNAPSHOT.jar nexum-image-back"
-
-                sh 'docker start nexum-back'                      
+                sh "docker run -p 8000:8000 --network nexum-network --name  nexum-back -v /home/ubuntu/deploy/backend-0.0.1-SNAPSHOT.jar:/app/backend-0.0.1-SNAPSHOT.jar nexum-image-back"                    
            }
        }
    }
