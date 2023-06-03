@@ -7,7 +7,7 @@ import retrofit2.Call
 
 interface UsersRepositoryPort {
     fun getFreelancersList(): Call<List<Users>>
-    fun getFreelancerById(freelancer: User, getFreelancersListInDTO: User): Call<Users>
+    fun getFreelancerById(freelancer: Long): Call<Users>
 
-    fun getContratanteById(contratante: User,getFreelancersListInDTO: User): Call<Users>
+    fun getContratanteById(contratante:Long): Call<Users>
 }

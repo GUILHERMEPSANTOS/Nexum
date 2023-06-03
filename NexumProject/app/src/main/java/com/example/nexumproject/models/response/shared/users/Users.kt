@@ -9,4 +9,5 @@ data class Users(  val id_user: Long,
                    val endereco: Endereco?,
                    val profession: String?,
                    val sobre: String?,
+                   val celular: String?,
                    val email: String)

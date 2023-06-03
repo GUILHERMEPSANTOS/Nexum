@@ -20,6 +20,7 @@ import com.example.nexumproject.models.request.shared.controle.acesso.UserRegist
 import com.example.nexumproject.models.response.shared.controle.acesso.User
 import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoService
 import com.example.nexumproject.services.shared.controle.acesso.PerfilService
+import com.example.nexumproject.services.shared.controle.acesso.UsersService
 import java.util.Observer
 
 class TelaDePerfilFreelancer : AppCompatActivity() {
@@ -29,17 +30,24 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
 
     private lateinit var tvNomePerfil: TextView
     private lateinit var tvTextoSobrePerfil: TextView
+    private lateinit var etEmail: TextView
+    private lateinit var tvEstadoPerfil: TextView
+    private lateinit var tvCidadePerfil: TextView
     private lateinit var btnVoltar: ImageView
     private lateinit var ivEditarSobre: ImageView
 
-    private val perfilService: PerfilService = PerfilService();
+    private val userService: UsersService = UsersService();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_tela_de_perfil_freelancer)
         tvNomePerfil = findViewById(R.id.tvNomePerfil)
+        tvTextoSobrePerfil = findViewById(R.id.tvTextoSobrePerfil)
         btnVoltar = findViewById(R.id.btnVoltar)
         ivEditarSobre = findViewById(R.id.ivEditarSobre)
+        tvEstadoPerfil = findViewById(R.id.tvEstadoPerfil)
+        tvCidadePerfil = findViewById(R.id.tvCidadePerfil)
+        etEmail = findViewById(R.id.etEmail)
 
 //        imageProfile(this, REQUEST_IMAGE_CAPTURE)
         updateName()
@@ -75,12 +83,14 @@ fun getAbout() {
     val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
     val id = prefs.getString("USER_ID", null)
 
-    perfilService.getAboutUser(id!!.toLong());
+    userService.freelancerById(id!!.toLong());
 
-    Toast.makeText(this, perfilService.perfilAtual.toString(), Toast.LENGTH_SHORT).show()
-    perfilService.perfilAtual.observe(this) { perfil ->
+    userService.freelancerByIdList.observe(this) { perfil ->
         Log.d("TagPerfil", perfil.toString())
-        tvTextoSobrePerfil.setText(perfil)
+        tvTextoSobrePerfil.setText(perfil?.sobre)
+        etEmail.setText(perfil?.email)
+        tvCidadePerfil.setText(perfil?.endereco?.cidade)
+        tvEstadoPerfil.setText(perfil?.endereco?.estado)
     }
 }
     fun updateAbout() {
@@ -88,8 +98,6 @@ fun getAbout() {
             val intent = Intent(this, EditProfile::class.java)
             startActivity(intent)
         }
-
-
     }
     fun voltar() {
         this.btnVoltar.setOnClickListener {

@@ -126,7 +126,7 @@ const About = ({
                 </>
               ) : perfil == `"ROLE_CONTRATANTE"` ? (
                 <>
-                  {console.log(dataEndContratante?.endereco)}
+                  
                   <Text
                     isSmall={true}
                     text={`${dataEndContratante?.endereco?.cidade},`}
