@@ -19,4 +19,7 @@ class PerfilRepository constructor(private val retrofitService: RetrofitClient)
     override fun getAboutUser(id_user: Long): Call<String> {
         return apiService.getAboutUser(id_user)
     }
+    override fun putCEP(id_freelancer: Long, cep: String): Call<String> {
+        return apiService.putCEP(id_freelancer, cep)
+    }
 }

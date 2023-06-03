@@ -40,21 +40,8 @@
 
             <TextView
                 style="@style/Text_View_Functionalities"
-                android:id="@+id/tvContato"
-                android:layout_below="@+id/tvListaFreelancer"
-                android:text="@string/text_click_here_to_enter_contact_contractor" />
-
-            <TextView
-                style="@style/Text_View_Functionalities"
-                android:id="@+id/tvFavorito"
-                android:layout_below="@+id/tvContato"
-                android:text="@string/text_click_here_to_enter_favorites_contractor"
-                />
-
-            <TextView
-                style="@style/Text_View_Functionalities"
                 android:id="@+id/tvPerfil"
-                android:layout_below="@+id/tvFavorito"
+                android:layout_below="@+id/tvListaFreelancer"
                 android:text="@string/text_click_here_to_view_profile_contractor"
                 android:layout_marginBottom="30dp"
                 />

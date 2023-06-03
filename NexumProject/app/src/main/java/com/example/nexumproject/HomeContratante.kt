@@ -11,8 +11,6 @@ import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoSe
 class HomeContratante : AppCompatActivity() {
 
     private lateinit var tvSubTitlePage: TextView
-private lateinit var tvFavorito: TextView
-private lateinit var tvContato: TextView
 private lateinit var tvListaFreelancer: TextView
 private lateinit var tvPerfil: TextView
     private lateinit var btnVoltar: ImageView
@@ -22,22 +20,17 @@ private lateinit var tvPerfil: TextView
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_contratante)
         tvSubTitlePage = findViewById(R.id.tvSubTitlePage)
-            tvContato = findViewById(R.id.tvContato)
-             tvFavorito = findViewById(R.id.tvFavorito)
               tvListaFreelancer = findViewById(R.id.tvListaFreelancer)
                tvPerfil = findViewById(R.id.tvPerfil)
         btnVoltar = findViewById(R.id.btnVoltar)
         getData()
 
-
+        irParaPerfil()
 
             voltar()
 
 
 irParaListaDeFreelancers()
-irParaFavoritos()
-abrirContato()
-
     }
 fun voltar() {
     this.btnVoltar.setOnClickListener {
@@ -58,22 +51,10 @@ fun voltar() {
             startActivity(intent)
         }
     }
-       fun abrirContato() {
-        this.tvContato.setOnClickListener {
-        //   link: `mailto:{dataEmailFormatted}`,
-        //`https://wa.me/55{dataFormatted}`,
-        }
-    }
-       fun irParaFavoritos() {
-        this.tvFavorito.setOnClickListener {
-            val intent = Intent(this, Saved::class.java)
+       fun irParaPerfil() {
+        this.tvPerfil.setOnClickListener {
+            val intent = Intent(this, TelaDePerfilContratante::class.java)
             startActivity(intent)
         }
-    }
-      // fun irParaPerfil() {
-      //  this.btnLogin.setOnClickListener {
-       //     val intent = Intent(this, TelaDePerfilContratante::class.java)
-       //     startActivity(intent)
-      //  }
-  //}
+  }
 }

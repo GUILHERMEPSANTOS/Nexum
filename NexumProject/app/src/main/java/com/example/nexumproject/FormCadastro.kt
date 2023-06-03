@@ -102,7 +102,7 @@ class FormCadastro : AppCompatActivity() {
         }
         controleAcessoService.registerContratante(userRegister);
 
-        Toast.makeText(this, controleAcessoService.valRegisterContratante.toString(), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Usuáriio criado com sucesso", Toast.LENGTH_SHORT).show()
         irParaLogin()
 
     }

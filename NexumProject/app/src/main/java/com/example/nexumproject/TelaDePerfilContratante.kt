@@ -1,32 +1,14 @@
 package com.example.nexumproject
 
-import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
-import android.hardware.Camera
-import android.hardware.camera2.CameraDevice
 import android.os.Bundle
-import android.provider.ContactsContract.Profile
-import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
-import android.text.Editable
 import android.util.Log
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import com.example.nexumproject.models.request.shared.controle.acesso.Perfil
-import com.example.nexumproject.models.request.shared.controle.acesso.UserRegister
-import com.example.nexumproject.models.response.shared.controle.acesso.User
-import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoService
-import com.example.nexumproject.services.shared.controle.acesso.PerfilService
 import com.example.nexumproject.services.shared.controle.acesso.UsersService
-import java.util.Observer
 
-class TelaDePerfilFreelancer : AppCompatActivity() {
-
-
-//    val REQUEST_IMAGE_CAPTURE = 1
+class TelaDePerfilContratante : AppCompatActivity() {
 
     private lateinit var tvNomePerfil: TextView
     private lateinit var tvTextoSobrePerfil: TextView
@@ -39,8 +21,8 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
     private val userService: UsersService = UsersService();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_tela_de_perfil_contratante)
 
-        setContentView(R.layout.activity_tela_de_perfil_freelancer)
         tvNomePerfil = findViewById(R.id.tvNomePerfil)
         tvTextoSobrePerfil = findViewById(R.id.tvTextoSobrePerfil)
         btnVoltar = findViewById(R.id.btnVoltar)
@@ -49,7 +31,6 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
         tvCidadePerfil = findViewById(R.id.tvCidadePerfil)
         etEmail = findViewById(R.id.etEmail)
 
-//        imageProfile(this, REQUEST_IMAGE_CAPTURE)
         updateName()
         voltar()
         updateAbout()
@@ -66,10 +47,12 @@ fun getAbout() {
     val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
     val id = prefs.getString("USER_ID", null)
 
-    userService.freelancerById(id!!.toLong());
+    if (id != null) {
+        userService.contratanteById(id.toLong())
+    }
 
-    userService.freelancerByIdList.observe(this) { perfil ->
-        Log.d("TagPerfil", perfil.toString())
+    userService.contratanteByIdList.observe(this) { perfil ->
+        Log.d("tagPerfilContratante", perfil.toString())
         tvTextoSobrePerfil.setText(perfil?.sobre)
         etEmail.setText(perfil?.email)
         tvCidadePerfil.setText(perfil?.endereco?.cidade)
@@ -84,9 +67,8 @@ fun getAbout() {
     }
     fun voltar() {
         this.btnVoltar.setOnClickListener {
-            val intent = Intent(this, HomeFreelancer::class.java)
+            val intent = Intent(this, HomeContratante::class.java)
             startActivity(intent)
         }
     }
-
 }

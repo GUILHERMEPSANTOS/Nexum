@@ -50,6 +50,8 @@ class AdapterProposta(private val context: Context,private var dataSet: List<Use
         holder.ivIconHeard.setOnClickListener{
             matchService.putMatchRequest(id_freelancer, id_contratante)
             Toast.makeText(context, "Match realizado com sucesso", Toast.LENGTH_SHORT).show()
+
+
         }
 
 

@@ -17,4 +17,7 @@ interface PerfilApiService {
     fun updateProfile(@Body updateProfileInDTO: Perfil): Call<Profile>
     @GET("user/{id_user}/sobre")
     fun getAboutUser(@Path("id_user") id_user: Long): Call<String>
+
+    @PUT("freelancer/{id_freelancer}/update-endereco/{cep}")
+    fun putCEP(@Path("id_freelancer") id_freelancer: Long,@Path("cep") cep: String ): Call<String>
 }
