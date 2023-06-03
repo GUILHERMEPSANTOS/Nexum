@@ -9,6 +9,7 @@
     tools:context=".TelaDePerfilFreelancer">
 
     <ImageView
+        android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleButtonVoltar"/>
 
     <ImageView

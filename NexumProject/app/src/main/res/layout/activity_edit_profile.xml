@@ -9,13 +9,13 @@
     tools:context=".Proposal">
 
     <ImageView
-        android:id="@+id/BTNVoltar"
+        android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleButtonVoltar"/>
 
     <TextView
         style="@style/TextViewStyleTitleCamposProfile"
         android:id="@+id/tvSobrePerfil"
-        android:layout_below="@+id/BTNVoltar"
+        android:layout_below="@+id/btnVoltar"
         android:text="@string/text_view_title_sobre"
         />
 
@@ -34,7 +34,13 @@
         android:layout_height="250dp"
         android:layout_below="@+id/tvTextoSobrePerfil"
         />
-
+    <Button
+        style="@style/Button_Light"
+        android:id="@+id/btnLogin"
+        android:layout_below="@+id/tvCampEditSobre"
+        android:text="@string/text_salvar"
+        android:layout_marginTop="80dp"
+        />
 
 
 </RelativeLayout>

@@ -74,16 +74,6 @@
             android:layout_below="@+id/ivFotoProposta"
             />
 
-        <ImageView
-            android:id="@+id/ivEditarSobreProposta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_below="@+id/ivFotoProposta"
-            android:layout_marginEnd="10dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/editarlight" />
-
         <TextView
             android:textSize="20dp"
             android:layout_height="wrap_content"
@@ -107,7 +97,7 @@
             android:textColor="@color/white"
             android:text="Email"/>
 
-        <EditText
+        <TextView
             style="@style/Icone_Social_Network"
             android:id="@+id/etEmail"
             android:layout_below="@+id/tvEmail"
@@ -127,13 +117,7 @@
             android:layout_below="@+id/etEmail"
             android:layout_centerInParent="true">
 
-            <ImageView
-                android:id="@+id/ivIconJump"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:rotation="180"
-                android:src="@drawable/iconcard" />
+
 
             <ImageView
                 android:id="@+id/ivIconHeard"
@@ -141,13 +125,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_heart" />
 
-            <ImageView
-                android:id="@+id/ivIconClose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="-5dp"
-                android:layout_marginTop="28dp"
-                android:src="@drawable/icon_close_btn" />
+
 
         </LinearLayout>
 

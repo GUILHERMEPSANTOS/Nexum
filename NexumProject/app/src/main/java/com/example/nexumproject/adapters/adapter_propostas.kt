@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -24,7 +23,7 @@ class AdapterProposta(private val context: Context,private var dataSet: List<Use
         val tvEstadoProposta: TextView = view.findViewById(R.id.tvEstadoProposta)
         val tvCidadeProposta: TextView = view.findViewById(R.id.tvCidadeProposta)
         val tvTextoSobrePerfil: TextView = view.findViewById(R.id.tvTextoSobrePerfil)
-        val etEmail: EditText = view.findViewById(R.id.etEmail)
+        val etEmail: TextView = view.findViewById(R.id.etEmail)
         val ivIconHeard: ImageView = view.findViewById(R.id.ivIconHeard)
 
     }
@@ -43,8 +42,6 @@ class AdapterProposta(private val context: Context,private var dataSet: List<Use
         var id_freelancer = id?.toLongOrNull() ?: 0
         var id_contratante =  item?.id_user ?: 0
 
-        Log.d("Tagg", item.toString())
-
         holder.tvNomeProposta.text = item?.nome
         holder.tvCidadeProposta.text = endereco?.cidade
         holder.tvEstadoProposta.text = endereco?.estado
@@ -52,7 +49,7 @@ class AdapterProposta(private val context: Context,private var dataSet: List<Use
         holder.etEmail.text = item?.email
         holder.ivIconHeard.setOnClickListener{
             matchService.putMatchRequest(id_freelancer, id_contratante)
-            Toast.makeText(context, matchService.usersList.toString(), Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Match realizado com sucesso", Toast.LENGTH_SHORT).show()
         }
 
 

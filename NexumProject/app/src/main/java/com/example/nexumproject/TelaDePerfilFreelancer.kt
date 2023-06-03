@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.nexumproject.models.request.shared.controle.acesso.Perfil
@@ -27,15 +28,23 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
 
     private lateinit var tvNomePerfil: TextView
     private lateinit var tvTextoSobrePerfil: TextView
+    private lateinit var btnVoltar: ImageView
+    private lateinit var ivEditarSobre: ImageView
+
     private val perfilService: PerfilService = PerfilService();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_tela_de_perfil_freelancer)
         tvNomePerfil = findViewById(R.id.tvNomePerfil)
+        btnVoltar = findViewById(R.id.btnVoltar)
+        ivEditarSobre = findViewById(R.id.ivEditarSobre)
 
 //        imageProfile(this, REQUEST_IMAGE_CAPTURE)
         updateName()
+        voltar()
+        updateAbout()
+        getAbout()
     }
     fun updateName() {
         val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
@@ -60,20 +69,33 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
 //        }
 //    }
 
+fun getAbout() {
 
+    val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
+    val id = prefs.getString("USER_ID", null)
+
+    var textUpdate = gerarDadosDoPerfil();
+    perfilService.getAboutUser(id!!.toLong());
+
+    Toast.makeText(this, perfilService.perfilAtual.toString(), Toast.LENGTH_SHORT).show()
+    perfilService.perfilAtual.observe(this) { perfil ->
+        tvTextoSobrePerfil.setText(perfil)
+    }
+}
     fun updateAbout() {
-        var textUpdate = gerarDadosDoPerfil();
-        perfilService.updateProfile(textUpdate);
-
-
-        Toast.makeText(this, perfilService.perfilVar.toString(), Toast.LENGTH_SHORT).show()
-
-        perfilService.perfilVar.observe(this) { perfil ->
-            tvTextoSobrePerfil.setText(perfil?.sobre)
+        this.ivEditarSobre.setOnClickListener {
+            val intent = Intent(this, EditProfile::class.java)
+            startActivity(intent)
         }
 
-    }
 
+    }
+    fun voltar() {
+        this.btnVoltar.setOnClickListener {
+            val intent = Intent(this, HomeFreelancer::class.java)
+            startActivity(intent)
+        }
+    }
     fun updateCEP()  {
         //        val updateCEP = apiService.putCEP()
     }
