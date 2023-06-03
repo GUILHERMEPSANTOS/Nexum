@@ -27,7 +27,7 @@
         android:layout_below="@+id/tvSobrePerfil"
         />
 
-    <TextView
+    <EditText
         android:id="@+id/tvCampEditSobre"
         style="@style/Label_Edit_Sobre"
         android:layout_width="370dp"
@@ -36,7 +36,7 @@
         />
     <Button
         style="@style/Button_Light"
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSalvar"
         android:layout_below="@+id/tvCampEditSobre"
         android:text="@string/text_salvar"
         android:layout_marginTop="80dp"

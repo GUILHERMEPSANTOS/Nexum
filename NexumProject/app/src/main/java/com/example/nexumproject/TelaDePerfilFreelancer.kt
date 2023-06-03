@@ -10,6 +10,7 @@ import android.provider.ContactsContract.Profile
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
+import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -74,11 +75,11 @@ fun getAbout() {
     val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
     val id = prefs.getString("USER_ID", null)
 
-    var textUpdate = gerarDadosDoPerfil();
     perfilService.getAboutUser(id!!.toLong());
 
     Toast.makeText(this, perfilService.perfilAtual.toString(), Toast.LENGTH_SHORT).show()
     perfilService.perfilAtual.observe(this) { perfil ->
+        Log.d("TagPerfil", perfil.toString())
         tvTextoSobrePerfil.setText(perfil)
     }
 }
@@ -98,14 +99,6 @@ fun getAbout() {
     }
     fun updateCEP()  {
         //        val updateCEP = apiService.putCEP()
-    }
-    fun gerarDadosDoPerfil(): Perfil {
-
-        val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
-        val id = prefs.getString("USER_NAME", null)
-        var texto = ""
-
-        return Perfil( id!!.toLong(), texto);
     }
 
 }
