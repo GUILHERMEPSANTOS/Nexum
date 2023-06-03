@@ -217,6 +217,16 @@
         <item name="android:text">@string/text_view_name_profile</item>
     </style>
 
+    <style name="TextViewStyleNameProfileContratante">
+        <item name="android:textSize">23dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_marginTop">70dp</item>
+        <item name="android:layout_toEndOf">@+id/ivFotoPerfil</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/text_view_name_profile_contratante</item>
+    </style>
+
     <style name="TextViewStyleLocation">
         <item name="android:textSize">15dp</item>
         <item name="android:textColor">@color/white</item>

@@ -16,21 +16,22 @@
         style="@style/MyImageViewStyleLogoFooter"
         />
 
-            <ScrollView
-                android:layout_below="@+id/LogoFooter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_below="@id/LogoFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:spanCount="1"
+            tools:itemCount="2"
+            tools:listitem="@layout/res_library_freelance_profile_list"/>
 
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:id="@+id/list_recyclerView"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    app:layoutManager="android.support.v7.widget.GridLayoutManager"
-                    app:spanCount="1"
-                    tools:itemCount="2"
-                    tools:listitem="@layout/res_library_freelance_profile_list" />
+    </ScrollView>
 
-            </ScrollView>
+
 
 </RelativeLayout>
