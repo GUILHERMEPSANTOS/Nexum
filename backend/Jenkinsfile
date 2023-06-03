@@ -1,9 +1,11 @@
 pipeline {
     agent any
-     environment {
+    
+    environment {
         APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
         APP_PATH = '/home/ubuntu/deploy/'
-     }
+    }
+    
     stages {
         stage('Build') {
             steps {
@@ -12,44 +14,41 @@ pipeline {
                 }
             }
         }
+        
         stage('Start SQL') {
             steps {
                 sh 'docker start nexum-db'
             }
         }
+        
         stage('Transfer Jar to Deploy Folder') {
             steps {
                 dir('backend') {
-                    if (fileExists("$APP_PATH$APP_JAVA")) {
-                        sh "rm $APP_PATH$APP_JAVA"
+                    script {
+                        if (fileExists("$APP_PATH$APP_JAVA")) {
+                            sh "rm $APP_PATH$APP_JAVA"
+                        }
+                        sh "cp target/$APP_JAVA $APP_PATH"
+                        sh "chmod +x $APP_PATH$APP_JAVA"
                     }
-                    sh "cp target/$APP_JAVA $APP_PATH"
-                    sh "chmod +x $APP_PATH$APP_JAVA"
                 }
             }
         }
+        
         stage('Docker Deploy') {
-            script {
-                stopAndRemoveContainer()
-                removeImage()
-                def buildSuccess = buildDockerImage()
-                if (buildSuccess) {
-                    createDockerContainer()
-                } else {
-                    error  "Error: Failed to build Docker image"
+            steps {
+                script {
+                    stopAndRemoveContainer()
+                    removeImage()
+                    def buildSuccess = buildDockerImage()
+                    if (buildSuccess) {
+                        createDockerContainer()
+                    } else {
+                        error "Error: Failed to build Docker image"
+                    }
                 }
             }
         }
-
-    }
-}
-
-def isDockerInstalled() {
-    try {
-        sh 'docker --version'
-        return true
-    } catch (Exception e) {
-        return false
     }
 }
 
@@ -58,8 +57,7 @@ def stopAndRemoveContainer() {
     sh "docker rm nexum-back || true"
 }
 
-def removeImage() 
-{
+def removeImage() {
     sh "docker rmi nexum-back-image || true"
 }
 
@@ -69,24 +67,22 @@ def buildDockerImage() {
     def dockerBuildContext = 'nexum/backend'
 
     def dockerBuildCommand = "docker build -t ${imageName} -f ${dockerfilePath} ${dockerBuildContext}"
-    def buildOutput = sh(returnStdout: true, returnStatus: true, script: dockerBuildCommand).trim()
+    def buildOutput = sh(returnStatus: true, script: dockerBuildCommand)
 
     if (buildOutput == 0) {
         return true
     } else {
-        echo "Erro: Falha ao criar a imagem do Docker. Saída do comando:\n${buildOutput}"
+        error "Error: Failed to build Docker image. Command output:\n${buildOutput}"
         return false
     }
 }
-
 
 def createDockerContainer() {
     def containerName = 'nexum-back'
     def imageName = 'nexum-back-image'
     def APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
     def APP_PATH = '/home/ubuntu/deploy/'
-    
-    def createContainerCommand = "docker run -d -p 8000:8000 --network nexum-network --name ${containerName} -v ${APP_PATH}${APP_JAVA}:/app/${APP_JAVA}  ${imageName}"
+
+    def createContainerCommand = "docker run -d -p 8000:8000 --network nexum-network --name ${containerName} -v ${APP_PATH}${APP_JAVA}:/app/${APP_JAVA} ${imageName}"
     sh createContainerCommand
-    
 }
