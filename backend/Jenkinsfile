@@ -27,7 +27,7 @@ pipeline {
 
                  sh "cp target/$APP_JAVA $APP_PATH"
 
-                 sh "chmod +x backend-0.0.1-SNAPSHOT.jar"
+                 sh "chmod +x $APP_PATH$APP_JAVA"
 
                  sh "docker rm nexum-back"
               }            
