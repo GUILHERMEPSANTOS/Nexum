@@ -3,6 +3,7 @@ package com.example.nexumproject
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoService
 
@@ -14,6 +15,8 @@ private lateinit var tvFavorito: TextView
 private lateinit var tvContato: TextView
 private lateinit var tvListaFreelancer: TextView
 private lateinit var tvPerfil: TextView
+    private lateinit var btnVoltar: ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +26,12 @@ private lateinit var tvPerfil: TextView
              tvFavorito = findViewById(R.id.tvFavorito)
               tvListaFreelancer = findViewById(R.id.tvListaFreelancer)
                tvPerfil = findViewById(R.id.tvPerfil)
+        btnVoltar = findViewById(R.id.btnVoltar)
         getData()
+
+
+
+            voltar()
 
 
 irParaListaDeFreelancers()
@@ -31,7 +39,13 @@ irParaFavoritos()
 abrirContato()
 
     }
+fun voltar() {
+    this.btnVoltar.setOnClickListener {
+        val intent = Intent(this, FormLogin::class.java)
+        startActivity(intent)
+    }
 
+}
     fun getData() {
         val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
         val nome = prefs.getString("USER_NAME", null)

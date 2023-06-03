@@ -40,8 +40,8 @@ class UsersService {
             }
         });
     }
-    fun freelancerById(freelancerById: User,getFreelancersListInDTO: User) {
-        val httpResponse = usersRepository.getFreelancerById(freelancerById,getFreelancersListInDTO);
+    fun freelancerById(freelancerById: Long) {
+        val httpResponse = usersRepository.getFreelancerById(freelancerById);
 
         httpResponse.enqueue(object : Callback<Users> {
             override fun onResponse(call: Call<Users>, response: Response<Users>) {
@@ -58,8 +58,8 @@ class UsersService {
             }
         });
     }
-    fun contratanteById(contratanteById: User,getFreelancersListInDTO: User) {
-        val httpResponse = usersRepository.getFreelancerById(contratanteById,getFreelancersListInDTO);
+    fun contratanteById(contratanteById:Long) {
+        val httpResponse = usersRepository.getFreelancerById(contratanteById);
 
         httpResponse.enqueue(object : Callback<Users> {
             override fun onResponse(call: Call<Users>, response: Response<Users>) {

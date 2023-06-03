@@ -1,9 +1,13 @@
 package com.example.nexumproject.rest.interfaces
 
 
+import android.util.Log
 import com.example.nexumproject.models.request.shared.controle.acesso.Matches
 import com.example.nexumproject.models.response.shared.role.Match
 import com.example.nexumproject.models.response.shared.role.Users
+import com.example.nexumproject.repositories.shared.controle.acesso.MatchRepository
+import com.example.nexumproject.repositories.shared.controle.acesso.interfaces.MatchRepositoryPort
+import com.example.nexumproject.rest.RetrofitClient
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET

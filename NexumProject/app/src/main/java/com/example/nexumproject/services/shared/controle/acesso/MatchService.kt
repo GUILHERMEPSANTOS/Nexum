@@ -1,6 +1,8 @@
 package com.example.nexumproject.services.shared.controle.acesso
 
 import android.arch.lifecycle.MutableLiveData
+import android.util.Log
+import android.widget.Toast
 import com.example.nexumproject.models.request.shared.controle.acesso.Matches
 
 import com.example.nexumproject.models.response.shared.role.Match
@@ -24,7 +26,6 @@ class MatchService {
 
     fun sendMatchRequest(match: Matches) {
         val httpResponse = matchRepository.sendMatchRequest(match);
-
         httpResponse.enqueue(object : Callback<Match> {
             override fun onResponse(call: Call<Match>, response: Response<Match>) {
                 if (response.code() == HTTP_OK) {
@@ -52,7 +53,6 @@ class MatchService {
                 }
             }
 
-
             override fun onFailure(call: Call<List<Users>>, t: Throwable) {
                 errorMessage.postValue(t.message)
             }
@@ -60,19 +60,26 @@ class MatchService {
     }
     fun putMatchRequest(id_freelancer: Long, id_contratante: Long) {
         val httpResponse = matchRepository.putMatchRequest(id_freelancer,id_contratante);
+        Log.d("tagParametro",id_freelancer.toString() )
+        Log.d("tagParametro", id_contratante.toString())
 
         httpResponse.enqueue(object : Callback<Match> {
             override fun onResponse(call: Call<Match>, response: Response<Match>) {
+                Log.d("tagMensagemErro",response.message().toString())
                 if (response.code() == HTTP_OK) {
-                    contratanteByIdList.postValue(response.body())
+                    Log.d("tagIf","Deu certo")
+//                    contratanteByIdList.postValue(response.body())
                 } else {
                     errorMessage.postValue("Erro ao pegar lista de freelancers . ${response.code()}")
+                    Log.d("tagElsePut",response.code().toString())
+                    Log.d("tagMensagemErro",errorMessage.value.toString())
                 }
             }
 
 
             override fun onFailure(call: Call<Match>, t: Throwable) {
                 errorMessage.postValue(t.message)
+                Log.d("tagFailurePut",t.message.toString())
             }
         });
     }

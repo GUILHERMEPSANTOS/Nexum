@@ -9,6 +9,7 @@
     tools:context=".Proposal">
 
     <ImageView
+        android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleButtonVoltar"/>
 
     <ImageView

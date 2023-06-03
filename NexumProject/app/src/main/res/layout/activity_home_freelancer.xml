@@ -9,6 +9,7 @@
     tools:context=".HomeFreelancer">
 
     <ImageView
+        android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleBottonSair"/>
 
     <ImageView

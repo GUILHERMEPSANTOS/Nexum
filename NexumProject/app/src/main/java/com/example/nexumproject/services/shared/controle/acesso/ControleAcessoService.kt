@@ -1,6 +1,7 @@
 package com.example.nexumproject.services.shared.controle.acesso
 
 import android.arch.lifecycle.MutableLiveData
+import android.util.Log
 import com.example.nexumproject.models.request.shared.controle.acesso.UserRegister
 import com.example.nexumproject.models.request.shared.controle.acesso.UserSignIn
 import com.example.nexumproject.models.response.shared.controle.acesso.User
@@ -28,9 +29,11 @@ class ControleAcessoService {
         httpResponse.enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.code() == HTTP_OK) {
+
                     user.postValue(response.body())
                 } else {
                     errorMessage.postValue("Erro ao logar . ${response.code()}")
+
                 }
             }
 
