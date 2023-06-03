@@ -63,7 +63,7 @@ def removeImage() {
 
 def buildDockerImage() {
     def imageName = 'nexum-back-image'
-    def dockerfilePath = 'nexum/backend/Dockerfile'
+    def dockerfilePath = "${env.WORKSPACE}/backend/Dockerfile"
     def dockerBuildContext = "${env.WORKSPACE}/backend"
 
     def dockerBuildCommand = "docker build -t ${imageName} -f ${dockerfilePath} ${dockerBuildContext}"
