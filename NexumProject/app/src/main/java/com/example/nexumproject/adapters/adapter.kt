@@ -51,7 +51,7 @@ class Adapter(private val context: Context,private var dataSet: List<Users>) : R
         holder.ivIconHeard.setOnClickListener{
             val match = Matches(idContratante ?: 0, idFreelancer)
             matchService.sendMatchRequest(match)
-            Toast.makeText(context, matchService.usersList.toString(), Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Solicitaçao de match enviada", Toast.LENGTH_SHORT).show()
         }
 
 

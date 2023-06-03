@@ -17,10 +17,10 @@ class UsersRepository constructor(private val retrofitService: RetrofitClient)
         return apiService.getFreelancersList()
     }
 
-    override fun getFreelancerById(freelancer: User, getFreelancersListInDTO: User): Call<Users> {
-        return apiService.getFreelancerById(freelancer,getFreelancersListInDTO)
+    override fun getFreelancerById(freelancer: Long): Call<Users> {
+        return apiService.getFreelancerById(freelancer)
     };
-    override fun getContratanteById(contratante: User,getFreelancersListInDTO: User): Call<Users> {
-        return apiService.getContratanteById(contratante,getFreelancersListInDTO)
+    override fun getContratanteById(contratante: Long): Call<Users> {
+        return apiService.getContratanteById(contratante)
     };
 }

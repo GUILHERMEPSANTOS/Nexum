@@ -3,6 +3,7 @@ package com.example.nexumproject
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoService
 
@@ -15,6 +16,7 @@ class HomeFreelancer : AppCompatActivity() {
     private lateinit var tvContato: TextView
     private lateinit var tvPropostas: TextView
     private lateinit var tvPerfil: TextView
+    private lateinit var btnVoltar: ImageView
 
     private val controleAcessoService: ControleAcessoService = ControleAcessoService();
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,8 +26,12 @@ class HomeFreelancer : AppCompatActivity() {
         tvContato = findViewById(R.id.tvContato)
         tvPropostas = findViewById(R.id.tvPropostas)
         tvPerfil = findViewById(R.id.tvPerfil)
+        btnVoltar = findViewById(R.id.btnVoltar)
         getData()
         irParaPropostas()
+        irParaPerfil()
+        voltar()
+
     }
 
     fun getData() {
@@ -33,7 +39,12 @@ class HomeFreelancer : AppCompatActivity() {
         val nome = prefs.getString("USER_NAME", null)
         tvSubTitlePage.setText("Olá $nome, te desejamos uma ótima expêriencia ");
     }
-
+    fun voltar() {
+        this.btnVoltar.setOnClickListener {
+            val intent = Intent(this, FormLogin::class.java)
+            startActivity(intent)
+        }
+    }
     fun irParaPropostas() {
         this.tvPropostas.setOnClickListener {
             val intent = Intent(this, Proposal::class.java)

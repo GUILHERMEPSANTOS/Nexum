@@ -10,6 +10,7 @@
     tools:context=".HomeContratante">
 
     <ImageView
+        android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleBottonSair"/>
 
     <ImageView

@@ -9,6 +9,7 @@
     tools:context=".TelaDePerfilFreelancer">
 
     <ImageView
+        android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleButtonVoltar"/>
 
     <ImageView
@@ -46,14 +47,14 @@
 
 
                 <TextView
-                    style="@style/TextViewStyleLocation"
                     android:id="@+id/tvCidadePerfil"
-                    />
+                    style="@style/TextViewStyleLocation" />
 
                 <TextView
-                    style="@style/TextViewStyleActing"
-                    android:id="@+id/tvAtuacaoPerfil"
-                    />
+                    android:id="@+id/tvEstadoPerfil"
+                    style="@style/TextViewStyleLocation" />
+
+
 
                 <TextView
                     style="@style/TextViewStyleTitleCamposProfile"
@@ -163,7 +164,7 @@
                     style="@style/TextViewStyleTitleCamposProfile"
                     />
 
-                <EditText
+                <TextView
                     style="@style/EmailEditTextCampProfile"
                     android:id="@+id/etEmail"
                     android:layout_below="@+id/tvEmail"

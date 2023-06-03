@@ -14,12 +14,10 @@ interface UsersApiService {
     fun getFreelancersList(): Call<List<Users>>
 
     @GET("freelancer/{id}")
-    fun getFreelancerById(  @Path("id") idContratante: User,
-                            @Body
-                            getFreelancersListInDTO: User): Call<Users>
+    fun getFreelancerById(  @Path("id") id: Long
+                           ): Call<Users>
     @GET("contratante/{id}")
     fun getContratanteById(
-        @Path("id") idFreelancer: User,
-        @Body
-         getFreelancersListInDTO: User): Call<Users>
+        @Path("id") id: Long,)
+       : Call<Users>
 }

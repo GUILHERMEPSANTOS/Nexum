@@ -9,13 +9,14 @@
     tools:context=".Proposal">
 
     <ImageView
+        android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleButtonVoltar"/>
 
     <ImageView
         android:id="@+id/LogoFooter"
         style="@style/MyImageViewStyleLogoFooter"
         />
-
+s
         <TextView
             android:layout_marginTop="0dp"
             android:layout_below="@id/LogoFooter"
@@ -41,7 +42,7 @@
             />
 
     <TextView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:layout_below="@id/etCampEditSobre"
         style="@style/TextViewStyleTitleCamposProfile"
         android:id="@+id/tvCepPerfil"
@@ -56,6 +57,20 @@
         android:layout_below="@+id/tvCepPerfil"
         />
 
+    <EditText
+        android:id="@+id/tvCampEditSobre"
+        style="@style/Label_Edit_Sobre"
+        android:layout_width="370dp"
+        android:layout_height="250dp"
+        android:layout_below="@+id/tvTextoSobrePerfil"
+        />
+    <Button
+        style="@style/Button_Light"
+        android:id="@+id/btnSalvar"
+        android:layout_below="@+id/etCampEditCep"
+        android:text="@string/text_salvar"
+        android:layout_marginTop="80dp"
+        />
 
 
         <EditText
@@ -67,11 +82,7 @@
             />
 
 
-        <Button
-            style="@style/Button_Light"
-            android:layout_marginTop="100dp"
-            android:layout_below="@+id/etCampEditCep"
-            android:text="Salvar"/>
+
 
 
 </RelativeLayout>
