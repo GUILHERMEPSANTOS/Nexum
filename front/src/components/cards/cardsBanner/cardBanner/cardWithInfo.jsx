@@ -23,7 +23,7 @@ export const CardWithInfo = ({ data }) => {
   );
 };
 
-const CardWithInfo2 = ({ data }) => {
+export const CardWithInfo2 = ({ data }) => {
   return (
     <>
       {data.map(({ id_user, nome, endereco, profession }, i) => (
