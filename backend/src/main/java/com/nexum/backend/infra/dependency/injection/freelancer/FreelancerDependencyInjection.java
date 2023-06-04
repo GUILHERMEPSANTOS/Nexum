@@ -1,6 +1,7 @@
 package com.nexum.backend.infra.dependency.injection.freelancer;
 
 
+import com.nexum.backend.infra.streaming.StreamingService;
 import com.nexum.backend.repositories.freelancer.SpringFreelancerRepository;
 import com.nexum.backend.repositories.freelancer.certificacao.SpringCertificacaoRepository;
 import com.nexum.backend.repositories.freelancer.experiencia.SpringExperienciaRepository;
@@ -15,6 +16,7 @@ import com.nexum.backend.services.freelancer.*;
 import com.nexum.backend.services.freelancer.interfaces.*;
 import com.nexum.backend.services.shared.match.interfaces.MatchServicePort;
 import com.nexum.backend.services.shared.user.Interfaces.UserServicePort;
+import com.nexum.backend.streaming.services.FreelancerStreamingService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -90,4 +92,15 @@ public class FreelancerDependencyInjection {
                 matchServicePort
         );
     }
+
+    @Bean
+    FreelancerStreamingService freelancerStreamingService(
+            FreelancerServicePort freelancerServicePort
+    ) {
+        return new FreelancerStreamingService(
+                freelancerServicePort
+        );
+    }
+
+
 }

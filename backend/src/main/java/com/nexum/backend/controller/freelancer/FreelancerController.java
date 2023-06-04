@@ -3,9 +3,11 @@ package com.nexum.backend.controller.freelancer;
 import com.nexum.backend.services.freelancer.interfaces.FreelancerServicePort;
 import com.nexum.backend.dto.freelancer.FreelancerDTO;
 
+import com.nexum.backend.streaming.services.FreelancerStreamingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -15,9 +17,11 @@ import java.util.Collection;
 @CrossOrigin(origins =  {"http://nexum.hopto.org:8000", "http://localhost"})
 public class FreelancerController {
     private final FreelancerServicePort freelancerServicePort;
+    private final FreelancerStreamingService freelancerServiceStreaming;
 
-    public FreelancerController(FreelancerServicePort freelancerServicePort) {
+    public FreelancerController(FreelancerServicePort freelancerServicePort, FreelancerStreamingService freelancerServiceStreaming) {
         this.freelancerServicePort = freelancerServicePort;
+        this.freelancerServiceStreaming = freelancerServiceStreaming;
     }
 
     @PostMapping("create-account")
@@ -40,6 +44,11 @@ public class FreelancerController {
     @GetMapping("list")
     public ResponseEntity<Collection<FreelancerDTO>> listAll() {
         return ResponseEntity.status(200).body(this.freelancerServicePort.listAll());
+    }
+
+    @GetMapping("list-with-photo")
+    public StreamingResponseBody getAllUsersWithImages() {
+        return freelancerServiceStreaming.streamData();
     }
 
     @GetMapping("{id_freelancer}")

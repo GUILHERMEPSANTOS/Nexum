@@ -12,6 +12,8 @@ public interface FreelancerServicePort {
 
     Collection<FreelancerDTO> listAll();
 
+    Collection<FreelancerDTO> listAllWithImage();
+
     Integer countNumberFreelancers();
 
     FreelancerDTO getById(Long id);

@@ -88,15 +88,20 @@ public class FreelancerService implements FreelancerServicePort {
 
     @Override
     public Collection<FreelancerDTO> listAll() {
-
-//        var freelancerWithImage = springFreelancerRepository.findAllUsersWithImages();
-
-
         return springFreelancerRepository
                     .findAll()
                     .stream()
                     .map((freelancer -> FreelancerDTOMapper.toFreelancerDTO(freelancer)))
                     .collect(Collectors.toList());
+    }
+
+    @Override
+    public Collection<FreelancerDTO> listAllWithImage() {
+        return springFreelancerRepository
+                .findAllUsersWithImages()
+                .stream()
+                .map((freelancer -> FreelancerDTOMapper.toFreelancerDTO(freelancer)))
+                .collect(Collectors.toList());
     }
 
     @Override

@@ -35,7 +35,7 @@ public class ImageController {
     public ResponseEntity<StreamingResponseBody> getPhotoProfile(@PathVariable Long userId) {
         var imageProfile = imageServicePort.getProfileImage(userId);
         var imageBytes = imageProfile.getDataInByte();
-        var fileType = imageProfile.getFileType().replace("data:", "").replace(";base64", "");
+        var fileType = imageProfile.getFileType();
         var contentType = MediaType.parseMediaType(fileType);
 
             StreamingResponseBody responseBody = outputStream -> {

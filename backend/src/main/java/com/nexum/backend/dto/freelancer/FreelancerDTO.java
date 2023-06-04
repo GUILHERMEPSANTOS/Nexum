@@ -1,8 +1,10 @@
 package com.nexum.backend.dto.freelancer;
 
+import antlr.actions.python.CodeLexer;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.nexum.backend.dto.freelancer.experiencia.ExperienciaDTO;
 import com.nexum.backend.dto.freelancer.formacao.FormacaoDTO;
+import com.nexum.backend.dto.shared.photo.ImageDTO;
 import com.nexum.backend.enums.RoleName;
 import com.nexum.backend.dto.shared.match.MatchDTO;
 import com.nexum.backend.dto.freelancer.habilidade.HabilidadeFreelancerDTO;
@@ -29,6 +31,8 @@ public class FreelancerDTO {
     private Collection<HabilidadeFreelancerDTO> habilidades_freelancer = new ArrayList<>();
     private Collection<MatchDTO> matchs = new ArrayList<>();
     private Collection<SocialUserDTO> socialsUserDTO = new ArrayList<>();
+    private ImageDTO imageDTO;
+
 
     public FreelancerDTO() {
     }
@@ -45,7 +49,8 @@ public class FreelancerDTO {
             Collection<MatchDTO> matchs,
             Collection<SocialUserDTO> socialsUserDTO,
             Collection<ExperienciaDTO> experienciasDTO,
-            Collection<FormacaoDTO> formacoesDTO
+            Collection<FormacaoDTO> formacoesDTO,
+            ImageDTO image
     ) {
         this.id_user = id_user;
         this.nome = nome;
@@ -60,6 +65,7 @@ public class FreelancerDTO {
         this.socialsUserDTO = socialsUserDTO;
         this.experienciasDTO = experienciasDTO;
         this.formacoesDTO = formacoesDTO;
+        this.imageDTO = image;
     }
 
     public FreelancerDTO(
@@ -172,5 +178,13 @@ public class FreelancerDTO {
 
     public void setSobre(String sobre) {
         this.sobre = sobre;
+    }
+
+    public ImageDTO getImageDTO() {
+        return imageDTO;
+    }
+
+    public void setImageDTO(ImageDTO imageDTO) {
+        this.imageDTO = imageDTO;
     }
 }
