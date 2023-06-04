@@ -17,7 +17,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/admin")
-@CrossOrigin(origins = "https://nexum.hopto.org")
+@CrossOrigin(origins = "http://nexum.hopto.org")
 public class AdminController {
     private AdminServicePort adminServicePort;
 
