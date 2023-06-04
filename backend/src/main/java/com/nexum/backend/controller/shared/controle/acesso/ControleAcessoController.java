@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/controle-acesso")
-@CrossOrigin(origins = "http://nexum.hopto.org:8000")
+@CrossOrigin(origins =  {"http://nexum.hopto.org:8000", "http://localhost"})
 public class ControleAcessoController {
 
         private PilhaObj pilhaObj = new PilhaObj<>(100);

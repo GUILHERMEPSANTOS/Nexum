@@ -60,6 +60,11 @@ public class UserEntity {
     )
     private EnderecoEntity endereco;
 
+
+    @OneToOne(mappedBy = "userEntity", cascade = CascadeType.ALL)
+    private ImageEntity image;
+
+
     public UserEntity() {
     }
 
@@ -172,6 +177,15 @@ public class UserEntity {
     public void setEndereco(EnderecoEntity endereco) {
         endereco.setUser(this);
         this.endereco = endereco;
+    }
+
+    public ImageEntity getImage() {
+        return image;
+    }
+
+    public void setImage(ImageEntity image) {
+        this.image = image;
+        image.setUserEntity(this);
     }
 
 }
