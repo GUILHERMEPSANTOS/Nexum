@@ -31,7 +31,7 @@ public class FreelancerDTOMapper {
                 SocialUserDTOMapper.toCollectionSocialUserDTO(freelancerEntity.getSocialUsers()),
                 ExperienciaDTOMapper.toCollectionExperienciaDTOMapper(freelancerEntity.getExperiencias()),
                 FormacaoDTOMapper.toCollectionFormacaoDTOMapper(freelancerEntity.getFormacao()),
-                ImageDTOMapper.toImageDTOMapper(freelancerEntity.getImage())
+                ImageDTOMapper.toImageDTOMapper(null)
         );
     }
 

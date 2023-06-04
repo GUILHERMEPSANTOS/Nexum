@@ -10,9 +10,4 @@ import java.util.List;
 public interface SpringFreelancerRepository extends JpaRepository<FreelancerEntity, Long> {
     @Query("select count(*) from FreelancerEntity")
     Integer countNumberFreelancers();
-
-    @Query("SELECT DISTINCT freelancer FROM FreelancerEntity freelancer LEFT JOIN FETCH freelancer.image")
-    List<FreelancerEntity> findAllUsersWithImages();
-
-
 }
