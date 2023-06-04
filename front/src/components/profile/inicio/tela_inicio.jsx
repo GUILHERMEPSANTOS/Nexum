@@ -22,6 +22,10 @@ const InicioMain = () => {
     <>
         <Header options={OPTIONS} buttonText="Sair" link="/" />
     <Banner>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <div className={styles.mensagem}>
         <Title
           text={` Olá ${dataFormatted} , te desejamos uma ótima expêriencia`}
