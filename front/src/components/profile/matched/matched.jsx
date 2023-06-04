@@ -32,7 +32,7 @@ const Matched = () => {
                 nomeCompany={nome}
                 emailCompany={email}
                 enderecoCompany={endereco}
-                sobreCompany={sobre}
+                sobreCompany={sobre}s
                 socialCompany={socialsUserDTO}
                 canEdit={false}
                 isCompanyProfile={true}

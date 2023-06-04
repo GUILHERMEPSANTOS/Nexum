@@ -147,7 +147,7 @@ const About = ({
             </div>
 
             {isOtherView || perfil == `"ROLE_CONTRATANTE"` ? (
-              ""
+              ""  
             ) : (
               <Text text="Programador" />
             )}
@@ -166,9 +166,6 @@ const About = ({
                   <img src="../../assets/icons/like.svg" />
                 </button>
               </Link>
-              <button>
-                <img src="../../assets/icons/save.svg" />
-              </button>
             </div>
           )}
         </div>
