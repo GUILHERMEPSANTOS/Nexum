@@ -12,7 +12,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/experiencia")
-@CrossOrigin(origins = "http://nexum.hopto.org")
+@CrossOrigin(origins = "http://nexum.hopto.org:8080")
 public class ExperienciaController {
     private final ExperienciaServicePort experienciaServicePort;
 

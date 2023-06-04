@@ -13,7 +13,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/contratante")
-@CrossOrigin(origins = "http://nexum.hopto.org")
+@CrossOrigin(origins = "http://nexum.hopto.org:8080")
 public class ContratanteController {
 
     private FilaObj filaObj = new FilaObj(1000);
