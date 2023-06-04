@@ -5,7 +5,7 @@ import { getImageProfile } from "../../../../services/freelancer/user";
 
 import { Loading } from "../../../loading/loading";
 
-import styles from "../styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const ImageCard = ({ id_user }) => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -26,7 +26,7 @@ export const ImageCard = ({ id_user }) => {
 
   return (
     <img
-      className={styles.foto}
+      className={styles.fotoFreela}
       src={imageUrl ?? `../../../../../assets/imgs/avatar.png`}
     />
   );
