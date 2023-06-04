@@ -8,5 +8,5 @@ import retrofit2.Call
 interface MatchRepositoryPort {
     fun sendMatchRequest(matches: Matches): Call<Match>
     fun getMatchsRequestByFreelancerId(id_freelancer: Long):  Call<List<Users>>
-    fun putMatchRequest(id_freelancer: Long, id_contratante: Long): Call<Match>
+    fun putMatchRequest(id_freelancer: Long, id_contratante: Long): Call<Void>
 }

@@ -27,6 +27,6 @@ interface MatchApiService {
     fun putMatchRequest(
         @Path("id_freelancer") id_freelancer: Long,
         @Path("id_contratante") id_contratante: Long
-    ): Call<Match>
+    ):Call<Void>
 
 }
