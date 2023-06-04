@@ -11,7 +11,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/social-user/{id_user}")
-@CrossOrigin(origins = "http://nexum.hopto.org:8080")
+@CrossOrigin(origins = "http://nexum.hopto.org:8000")
 public class SocialUserController {
 
     private final SocialUserServicePort socialUserServicePort;

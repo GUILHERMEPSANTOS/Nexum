@@ -10,7 +10,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("api/v1/match")
-@CrossOrigin(origins = "http://nexum.hopto.org:8080")
+@CrossOrigin(origins = "http://nexum.hopto.org:8000")
 public class MatchController {
     private final MatchServicePort matchServicePort;
 

@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/v1/freelancer/{id_freelancer}/match")
-@CrossOrigin(origins = "http://nexum.hopto.org:8080")
+@CrossOrigin(origins = "http://nexum.hopto.org:8000")
 public class FreelancerMatchController {
 
     private final FreelancerMatchServicePort freelancerMatchServicePort;
