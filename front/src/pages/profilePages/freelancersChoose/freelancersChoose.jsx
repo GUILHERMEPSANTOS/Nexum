@@ -1,22 +1,16 @@
-import { useCallback, useState, useMemo } from "react";
+import { useCallback, useState } from "react";
 
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { getFreelancers } from "../../../services/freelancer/freelancer";
-import { sendMatchRequest } from "../../../services/freelancer/match/freelancer";
-
-import CreateOffer from "../../../components/modals/createOffer/createOffer";
-import CardWithInfo from "../../../components/cards/cardsBanner/cardBanner/cardWithInfo";
-
+import CardEscolha from "./cards";
 import ProfileContainer from "../profile";
-import Text from "../../../components/text/text";
+import { useQuery } from "@tanstack/react-query";
+import Modal from "../../../components/modals/modal";
+import Button from "../../../components/buttons/button";
+import { Loading } from "../../../components/loading/loading";
+import { getFreelancers } from "../../../services/freelancer/freelancer";
+import { getTxt, sendTxt } from "../../../services/importacao/freelancer";
+import { CardWithInfo2 } from "../../../components/cards/cardsBanner/cardBanner/cardWithInfo";
 
 import styles from "./styles.module.scss";
-import { getAboutUser } from "../../../services/freelancer/user";
-import CardEscolha from "./cards";
-import Button from "../../../components/buttons/button";
-import Modal from "../../../components/modals/modal";
-import { getTxt, sendTxt } from "../../../services/importacao/freelancer";
-import { Loading } from "../../../components/loading/loading";
 
 const FreelancerChoose = () => {
   const [modal, setModal] = useState(false);
@@ -43,7 +37,7 @@ const FreelancerChoose = () => {
       <ProfileContainer>
         <div className={styles.cardWrapper}>
           <div className={styles.cardContainer}>
-            <CardWithInfo data={data?.data ?? []} />
+            <CardWithInfo2 data={data?.data ?? []} />
           </div>
           <div className={styles.cardContainerInfo}>
             {data?.data?.map(({ nome, id_user }, i) => (

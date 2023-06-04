@@ -14,7 +14,7 @@ const UserMain = () => {
           <Text text="Conecte-se a pessoas que buscam crescer no mercado e freelancers que desejam ser vistos pelas suas habilidades" />
         </div>
         <div className={styles.box_conta}>
-          <Title text="Frelancer" />
+          <Title text="Freelancer" />
           <Text text="Para você que deseja encontrar o trabalho perfeito " />
           <div className={styles.buttons}>
             <Button text="Conta Freelancer" />

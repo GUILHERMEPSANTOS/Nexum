@@ -21,7 +21,7 @@ const Login = () => {
 
   const handleSubmit = useCallback(async () => {
     const handlelogin = await APILogin({ email, senha: password });
-   
+
     handlelogin.status == 200 ||
     handlelogin.status !== "" ||
     handlelogin.status !== null ||
@@ -101,7 +101,7 @@ const Login = () => {
           label={"Ops, senha ou usuário incorretos"}
           actualState={showError}
           setActualState={setShowError}
-        ></Modal>
+        />
       )}
     </>
   );
