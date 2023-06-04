@@ -20,23 +20,21 @@ const InicioMain = () => {
   }, []);
   return (
     <>
-        <Header options={OPTIONS} buttonText="Sair" link="/" />
-    <Banner>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <div className={styles.mensagem}>
-        <Title
-          text={` Olá ${dataFormatted} , te desejamos uma ótima expêriencia`}
-        />
-      </div>
-      <div className={styles.containerCards}>
-        {dataItems.map(({ title, text, link }) => (
-          <CardMain link={link} title={title} text={text} />
-        ))}
-      </div>
-    </Banner>
+      <Header options={OPTIONS} buttonText="Sair" link="/" />
+      <Banner>
+        <div className={styles.container}>
+          <div className={styles.mensagem}>
+            <Title
+              text={` Olá ${dataFormatted} , te desejamos uma ótima expêriencia`}
+            />
+          </div>
+          <div className={styles.containerCards}>
+            {dataItems.map(({ title, text, link }) => (
+              <CardMain link={link} title={title} text={text} />
+            ))}
+          </div>
+        </div>
+      </Banner>
     </>
   );
 };

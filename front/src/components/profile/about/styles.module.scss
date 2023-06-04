@@ -102,6 +102,10 @@
     @extend .edit;
     top: 53%;
   }
+  .imgProfile {
+    width: 70%;
+    margin-bottom: 20px;
+  }
 
   @include mobile {
     .profile {

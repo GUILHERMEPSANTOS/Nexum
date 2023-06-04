@@ -126,7 +126,6 @@ const About = ({
                 </>
               ) : perfil == `"ROLE_CONTRATANTE"` ? (
                 <>
-                  
                   <Text
                     isSmall={true}
                     text={`${dataEndContratante?.endereco?.cidade},`}
@@ -147,7 +146,7 @@ const About = ({
             </div>
 
             {isOtherView || perfil == `"ROLE_CONTRATANTE"` ? (
-              ""  
+              ""
             ) : (
               <Text text="Programador" />
             )}
