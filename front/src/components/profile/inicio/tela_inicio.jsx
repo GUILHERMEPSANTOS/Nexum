@@ -19,8 +19,9 @@ const InicioMain = () => {
       : setDataItems(TEXTS_CONTRATANTE);
   }, []);
   return (
-    <Banner>
+    <>
         <Header options={OPTIONS} buttonText="Sair" link="/" />
+    <Banner>
       <div className={styles.mensagem}>
         <Title
           text={` Olá ${dataFormatted} , te desejamos uma ótima expêriencia`}
@@ -32,6 +33,7 @@ const InicioMain = () => {
         ))}
       </div>
     </Banner>
+    </>
   );
 };
 
