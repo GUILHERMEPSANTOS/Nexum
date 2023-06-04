@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Base64;
+import java.util.Base64;    
 
 @RestController
 @RequestMapping("api/v1/profile-photo")
