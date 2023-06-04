@@ -103,12 +103,12 @@
         android:layout_below="@+id/rlCardPerfilUsuario"
         android:layout_centerInParent="true">
 
-        <ImageView
-            android:id="@+id/ivIconSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/iconsave" />
+<!--        <ImageView-->
+<!--            android:id="@+id/ivIconSave"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:src="@drawable/iconsave" />-->
 
         <ImageView
             android:id="@+id/ivIconHeard"
@@ -116,13 +116,13 @@
             android:layout_height="wrap_content"
             android:src="@drawable/icon_heart" />
 
-        <ImageView
-            android:id="@+id/ivIconClose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-5dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/icon_close_btn" />
+<!--        <ImageView-->
+<!--            android:id="@+id/ivIconClose"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="-5dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:src="@drawable/icon_close_btn" />-->
 
     </LinearLayout>
 

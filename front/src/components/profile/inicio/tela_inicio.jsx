@@ -1,5 +1,5 @@
 import Banner from "../../banner/banner";
-import { TEXTS_FREELANCER, TEXTS_CONTRATANTE } from "./constants";
+import { TEXTS_FREELANCER, TEXTS_CONTRATANTE, OPTIONS } from "./constants";
 import Title from "../../title/title";
 import CardMain from "../cardTelaInicio/card";
 import styles from "./styles.module.scss";
@@ -19,6 +19,7 @@ const InicioMain = () => {
   }, []);
   return (
     <Banner>
+        <Header options={OPTIONS} buttonText="Sair" link="/" />
       <div className={styles.mensagem}>
         <Title
           text={` Olá ${dataFormatted} , te desejamos uma ótima expêriencia`}

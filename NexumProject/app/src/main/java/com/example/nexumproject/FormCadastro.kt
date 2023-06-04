@@ -8,11 +8,8 @@ import android.text.Editable
 import android.view.View
 import android.widget.*
 import com.example.nexumproject.models.request.shared.controle.acesso.UserRegister
-import com.example.nexumproject.models.request.shared.controle.acesso.UserSignIn
 import com.example.nexumproject.models.response.shared.controle.acesso.User
 import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoService
-import org.json.JSONObject
-//import com.example.nexumproject.Endpoints.ApiService
 
 class FormCadastro : AppCompatActivity() {
     private val controleAcessoService: ControleAcessoService = ControleAcessoService();
@@ -105,6 +102,10 @@ class FormCadastro : AppCompatActivity() {
         Toast.makeText(this, "Usuáriio criado com sucesso", Toast.LENGTH_SHORT).show()
         irParaLogin()
 
+        this.btnCriarConta.setOnClickListener {
+            val intent = Intent(this, FormLogin::class.java)
+            startActivity(intent)
+        }
     }
     fun gerarUserCadastro(): UserRegister {
         var email = etCampEmail.text.toString();

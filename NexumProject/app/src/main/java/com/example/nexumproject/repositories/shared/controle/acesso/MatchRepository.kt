@@ -23,6 +23,6 @@ class MatchRepository constructor(private val retrofitService: RetrofitClient)
     }
 
     override fun putMatchRequest( id_freelancer: Long,id_contratante: Long): Call<Void> {
-        return apiService.putMatchRequest( id_contratante,id_freelancer)
+        return apiService.putMatchRequest( id_freelancer,id_contratante)
     };
 }

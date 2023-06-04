@@ -60,8 +60,6 @@ class MatchService {
     }
     fun putMatchRequest(id_freelancer: Long, id_contratante: Long) {
         val httpResponse = matchRepository.putMatchRequest(id_freelancer,id_contratante);
-        Log.d("tagResponseB", httpResponse.request().body()?.javaClass.toString())
-        Log.d("tagResponseH", httpResponse.request().headers().toString())
 
         httpResponse.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {

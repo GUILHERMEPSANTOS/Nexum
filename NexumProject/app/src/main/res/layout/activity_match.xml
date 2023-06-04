@@ -9,6 +9,7 @@
     tools:context=".Match">
 
     <ImageView
+        android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleButtonVoltar"/>
 
     <ImageView
@@ -20,7 +21,7 @@
         style="@style/Text_View_Greetings_Home_Page"
         android:id="@+id/tvMensagemParabenizando"
         android:layout_below="@+id/LogoFooter"
-        android:text="Parabéns, Ana Carolina, você tem um Match"
+        android:text="Parabéns, você tem um Match"
         />
 
     <ScrollView

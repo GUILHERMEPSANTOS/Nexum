@@ -2,16 +2,15 @@ package com.example.nexumproject
 
 import android.content.Context
 import android.content.Intent
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import com.example.nexumproject.models.request.shared.controle.acesso.Matches
 import com.example.nexumproject.models.response.shared.role.Users
 import com.example.nexumproject.services.shared.controle.acesso.MatchService
 
@@ -48,10 +47,18 @@ class AdapterProposta(private val context: Context,private var dataSet: List<Use
         holder.tvTextoSobrePerfil.text = item?.sobre
         holder.etEmail.text = item?.email
         holder.ivIconHeard.setOnClickListener{
+            val intent = Intent(holder.itemView.context, Match::class.java)
+            holder.itemView.context.startActivity(intent)
+
             matchService.putMatchRequest(id_freelancer, id_contratante)
             Toast.makeText(context, "Match realizado com sucesso", Toast.LENGTH_SHORT).show()
 
+            val prefs = context.getSharedPreferences("USER_INFO", AppCompatActivity.MODE_PRIVATE)
+            val editor = prefs.edit()
 
+            editor.putString("USER_EMAIL",  item?.email.toString())
+            editor.putString("USER_CELULAR",  item?.celular.toString())
+            editor.apply()
         }
 
 
