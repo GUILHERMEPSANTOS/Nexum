@@ -19,6 +19,7 @@ const PhotoProfile = ({ setEditPhoto, refetch = () => {} }) => {
       onSuccess: (data) => {
         setImageUrl(URL.createObjectURL(data.data));
         refetch();
+        window.reload();
       },
     }
   );
