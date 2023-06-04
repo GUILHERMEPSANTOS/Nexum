@@ -63,4 +63,23 @@ Log.d("tagAboutProps", id_user.toString())
             }
         });
     }
+    fun putCEP(id_freelancer: Long, cep: String) {
+        val httpResponse = perfilRepository.putCEP(id_freelancer,cep);
+
+        httpResponse.enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if (response.code() == HTTP_OK) {
+                    perfilAtual.postValue(response.body())
+                } else {
+                    errorMessage.postValue("Erro ao logar . ${response.code()}")
+                }
+            }
+
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                errorMessage.postValue(t.message)
+                Log.d("tagAboutonFailure", errorMessage.value.toString())
+            }
+        });
+    }
 }

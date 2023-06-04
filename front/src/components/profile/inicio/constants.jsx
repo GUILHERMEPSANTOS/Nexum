@@ -9,10 +9,10 @@ export const TEXTS_FREELANCER = [
     text: "Perfil",
     link: "/perfil",
   },
-  {
-    title: "Clique aqui para entrar em ",
-    text: "Contato",
-  },
+  // {
+  //   title: "Clique aqui para entrar em ",
+  //   text: "Contato",
+  // },
 ];
 export const TEXTS_CONTRATANTE = [
   {
@@ -25,10 +25,10 @@ export const TEXTS_CONTRATANTE = [
     text: "Perfil",
     link: "/perfil",
   },
-  {
-    title: "Clique aqui para entrar em ",
-    text: "Contato",
-  },
+  // {
+  //   title: "Clique aqui para entrar em ",
+  //   text: "Contato",
+  // },
 ];
 
 export const OPTIONS = [
@@ -37,9 +37,9 @@ export const OPTIONS = [
     path: "/inicio",
   },
   { name: "Perfil", path: "/perfil" },
-  {
-    name: "Favoritos",
-    path: "/favoritos",
-  },
+  // {
+  //   name: "Favoritos",
+  //   path: "/favoritos",
+  // },
 
 ];

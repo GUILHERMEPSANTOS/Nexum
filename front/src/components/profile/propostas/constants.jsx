@@ -27,8 +27,8 @@ export const OPTIONS = [
     path: "/inicio",
   },
   { name: "Perfil", path: "/perfil" },
-  {
-    name: "Favoritos",
-    path: "/favoritos",
-  },
+  // {
+  //   name: "Favoritos",
+  //   path: "/favoritos",
+  // },
 ];

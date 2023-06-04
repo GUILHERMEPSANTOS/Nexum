@@ -18,6 +18,6 @@ interface UsersApiService {
                            ): Call<Users>
     @GET("contratante/{id}")
     fun getContratanteById(
-        @Path("id") id: Long,)
+        @Path("id") id: Long)
        : Call<Users>
 }

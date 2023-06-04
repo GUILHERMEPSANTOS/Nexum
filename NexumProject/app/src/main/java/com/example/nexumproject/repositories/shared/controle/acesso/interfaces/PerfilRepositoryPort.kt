@@ -9,4 +9,6 @@ import retrofit2.Call
 interface PerfilRepositoryPort {
     fun updatePerfil(perfil: Perfil): Call<Profile>
     fun getAboutUser(id_user: Long): Call<String>
+
+    fun putCEP(id_freelancer: Long, cep: String): Call<String>
 }

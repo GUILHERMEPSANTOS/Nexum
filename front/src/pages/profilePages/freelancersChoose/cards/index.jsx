@@ -55,9 +55,9 @@ const CardEscolha = ({ id_user }) => {
         <button onClick={() => handleSubmit(id_user)}>
           <img src="../../assets/icons/like.svg" />
         </button>
-        <button>
+        {/* <button>
           <img src="../../assets/icons/save.svg" />
-        </button>
+        </button> */}
       </div>
       <Text isSmall={true} text={idData?.data} />
 

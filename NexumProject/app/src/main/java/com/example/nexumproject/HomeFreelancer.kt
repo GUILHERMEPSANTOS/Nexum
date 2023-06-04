@@ -12,8 +12,6 @@ import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoSe
 class HomeFreelancer : AppCompatActivity() {
 
     private lateinit var tvSubTitlePage: TextView
-    private lateinit var tvFavorito: TextView
-    private lateinit var tvContato: TextView
     private lateinit var tvPropostas: TextView
     private lateinit var tvPerfil: TextView
     private lateinit var btnVoltar: ImageView
@@ -23,7 +21,6 @@ class HomeFreelancer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_freelancer)
         tvSubTitlePage = findViewById(R.id.tvSubTitlePage)
-        tvContato = findViewById(R.id.tvContato)
         tvPropostas = findViewById(R.id.tvPropostas)
         tvPerfil = findViewById(R.id.tvPerfil)
         btnVoltar = findViewById(R.id.btnVoltar)
@@ -51,14 +48,6 @@ class HomeFreelancer : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-    fun abrirContato() {
-        this.tvContato.setOnClickListener {
-            //   link: `mailto:{dataEmailFormatted}`,
-            //`https://wa.me/55{dataFormatted}`,
-        }
-    }
-
 
     fun irParaPerfil() {
         this.tvPerfil.setOnClickListener {

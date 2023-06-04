@@ -83,12 +83,12 @@ const Login = () => {
           <p className={styles.error}>{errorPassword}</p>
         </div>
         <div className={styles.settings}>
-          <label
+          {/* <label
             onClick={() => setEditSenha(true)}
             className={styles.labelsSenha}
           >
             Esqueci a senha
-          </label>
+          </label> */}
         </div>
         <div className={styles.buttons}>
           <Button disabled={disabled} onClick={handleSubmit} text="Entrar" />

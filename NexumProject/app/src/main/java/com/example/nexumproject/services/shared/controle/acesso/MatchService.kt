@@ -60,11 +60,11 @@ class MatchService {
     }
     fun putMatchRequest(id_freelancer: Long, id_contratante: Long) {
         val httpResponse = matchRepository.putMatchRequest(id_freelancer,id_contratante);
-        Log.d("tagParametro",id_freelancer.toString() )
-        Log.d("tagParametro", id_contratante.toString())
+        Log.d("tagResponseB", httpResponse.request().body()?.javaClass.toString())
+        Log.d("tagResponseH", httpResponse.request().headers().toString())
 
-        httpResponse.enqueue(object : Callback<Match> {
-            override fun onResponse(call: Call<Match>, response: Response<Match>) {
+        httpResponse.enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 Log.d("tagMensagemErro",response.message().toString())
                 if (response.code() == HTTP_OK) {
                     Log.d("tagIf","Deu certo")
@@ -72,12 +72,11 @@ class MatchService {
                 } else {
                     errorMessage.postValue("Erro ao pegar lista de freelancers . ${response.code()}")
                     Log.d("tagElsePut",response.code().toString())
-                    Log.d("tagMensagemErro",errorMessage.value.toString())
                 }
             }
 
 
-            override fun onFailure(call: Call<Match>, t: Throwable) {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
                 errorMessage.postValue(t.message)
                 Log.d("tagFailurePut",t.message.toString())
             }

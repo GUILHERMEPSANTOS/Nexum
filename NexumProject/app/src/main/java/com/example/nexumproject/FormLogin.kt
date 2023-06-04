@@ -81,8 +81,6 @@ class FormLogin : AppCompatActivity() {
         var userSignIn = gerarUserSignIn();
         controleAcessoService.signIn(userSignIn);
 
-        Toast.makeText(this, controleAcessoService.user.toString(), Toast.LENGTH_SHORT).show()
-
         controleAcessoService.user.observe(this) { user ->
             val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
             val editor = prefs.edit()

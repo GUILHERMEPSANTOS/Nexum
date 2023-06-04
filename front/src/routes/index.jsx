@@ -35,10 +35,10 @@ export const router = createBrowserRouter([
     path: "/card",
     element: <CardMain />,
   },
-  {
-    path: "/favoritos",
-    element: <FreelancersOptions />,
-  },
+  // {
+  //   path: "/favoritos",
+  //   element: <FreelancersOptions />,
+  // },
   {
     path: "/escolha-freelancer",
     element: <FreelancerChoose />,

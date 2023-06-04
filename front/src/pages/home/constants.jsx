@@ -3,5 +3,5 @@ export const OPTIONS = [
   { name: "Sobre nós", path: "/" },
   { name: "Freelancer", path: "/" },
   { name: "Contratante", path: "/" },
-  { name: "Contato", path: "/" },
+  // { name: "Contato", path: "/" },
 ];

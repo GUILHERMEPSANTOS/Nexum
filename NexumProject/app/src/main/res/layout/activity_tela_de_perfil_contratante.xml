@@ -8,6 +8,7 @@
     tools:context=".TelaDePerfilContratante">
 
     <ImageView
+        android:id="@+id/btnVoltar"
         style="@style/MyImageViewStyleButtonVoltar"/>
 
     <ImageView
@@ -47,6 +48,10 @@
                 <TextView
                     style="@style/TextViewStyleLocation"
                     android:id="@+id/tvCidadePerfil"
+                    />
+                <TextView
+                    style="@style/TextViewStyleLocation"
+                    android:id="@+id/tvEstadoPerfil"
                     />
 
 
