@@ -4,6 +4,7 @@ import Title from "../../title/title";
 import CardMain from "../cardTelaInicio/card";
 import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
+import Header from "../../header/header";
 
 const InicioMain = () => {
   const data = localStorage.getItem("name") ? localStorage.getItem("name") : "";
