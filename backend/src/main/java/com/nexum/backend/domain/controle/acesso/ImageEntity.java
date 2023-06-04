@@ -60,4 +60,8 @@ public class ImageEntity {
     public void setFileType(String fileType) {
         this.fileType = fileType;
     }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
 }

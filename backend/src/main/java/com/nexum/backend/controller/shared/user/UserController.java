@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/user")
-@CrossOrigin(origins = "http://nexum.hopto.org:8000")
+@CrossOrigin(origins =  {"http://nexum.hopto.org:8000", "http://localhost"})
 public class UserController {
     private final UserServicePort userServicePort;
 

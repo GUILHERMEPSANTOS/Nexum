@@ -1082,7 +1082,7 @@ resources:
     created: 1664495971907
     name: Base Environment
     data:
-      api: http://localhost:8080/
+      api: http://localhost80/
     dataPropertyOrder:
       "&":
         - api
