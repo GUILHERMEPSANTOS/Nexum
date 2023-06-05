@@ -9,8 +9,6 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.RectF
-import android.util.Log
-import com.example.nexumproject.models.request.shared.controle.acesso.User
 import com.example.nexumproject.models.response.shared.role.Users
 
 
@@ -90,13 +88,11 @@ class UsersService {
 
             override fun onFailure(call: Call<Users>, t: Throwable) {
                 errorMessage.postValue(t.message)
-                Log.d("tagFailure",t.message.toString())
             }
         });
     }
     fun getImageProfile(userId:Long) {
         val httpResponse = usersRepository.getImageProfile(userId);
-        Log.d("tagParam",userId.toString())
 
         httpResponse.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
@@ -104,16 +100,13 @@ class UsersService {
                     val responseBody = response.body()
                     val roundedBitmap = handleImage(responseBody ?: return)
                     foto.postValue(roundedBitmap)
-                    Log.d("tagIf",response.body().toString())
                 } else {
                     errorMessage.postValue("Erro ao pegar lista de freelancers . ${response.code()}")
-                    Log.d("tagElse",response.code().toString())
                 }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 errorMessage.postValue(t.message)
-                Log.d("tagFailure",t.message.toString())
             }
         });
     }

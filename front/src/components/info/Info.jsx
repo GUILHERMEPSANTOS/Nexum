@@ -20,7 +20,6 @@ const Info = () => {
     refetch: refetchContratante,
   } = useQuery(["count contratante"], async () => await countContratantes());
 
-  console.log(dataContratante);
   return (
     <div className={styles.wrapper}>
       <section className={styles.background}>
