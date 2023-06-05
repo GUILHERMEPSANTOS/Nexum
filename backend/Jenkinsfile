@@ -21,6 +21,20 @@ pipeline {
             }
         }
         
+        stage('Create Persistent Volume') {
+            steps {
+                    script {
+                        def volumeExists = sh(script: "docker volume inspect nexum-volume", returnStatus: true)
+                        if (volumeExists == 0) {
+                            echo "Volume 'nexum-volume' already exists"
+                        } else {
+                            sh 'docker volume create nexum-volume'
+                            echo "Volume 'nexum-volume' created"
+                        }
+                    }
+                }
+          }
+
         stage('Transfer Jar to Deploy Folder') {
             steps {
                 dir('backend') {
@@ -51,6 +65,8 @@ pipeline {
         }
     }
 }
+
+
 
 def stopAndRemoveContainer() {
     sh "docker stop nexum-back || true"
@@ -84,6 +100,6 @@ def createDockerContainer() {
     def APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
     def APP_PATH = '/home/ubuntu/deploy/'
 
-    def createContainerCommand = "docker run -d -p 8000:8000 --network nexum-network --name ${containerName} -v ${APP_PATH}${APP_JAVA}:/app/${APP_JAVA} ${imageName}"
+    def createContainerCommand = "docker run -d -p 8000:8000 --network nexum-network --name ${containerName} -v nexum-volume:/app/${APP_JAVA} ${imageName}"
     sh createContainerCommand
 }
