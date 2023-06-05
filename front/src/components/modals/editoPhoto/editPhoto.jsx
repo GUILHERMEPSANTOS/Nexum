@@ -20,6 +20,7 @@ const EditProfile = ({ actualState, setActualState }) => {
     {
       onSuccess: () => {
         setActualState(false);
+        location.reload();
       },
     }
   );

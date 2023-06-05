@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 import { useQuery, useMutation } from "@tanstack/react-query";
 
@@ -20,7 +20,7 @@ const EditInfo = ({ actualState, setActualState }) => {
   const [figma, setFigma] = useState(false);
 
   const [habilidades, setHabilidades] = useState([]);
-
+  const userId = useMemo(() => localStorage.getItem("user_id"));
   const { data } = useQuery(
     ["consultar habilidades"],
     () => listHabilidades(),
@@ -39,7 +39,7 @@ const EditInfo = ({ actualState, setActualState }) => {
     ({ data, userId }) => postHabilidades(data, userId),
     {
       onSuccess: () => {
-        refetch();
+        // refetch();
       },
     }
   );

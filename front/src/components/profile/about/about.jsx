@@ -118,7 +118,7 @@ const About = ({
               perfil={true}
             />
           )}
-        
+
           <div>
             {isOtherView ? (
               <h1 className={styles.title}>{nomeCompany} </h1>

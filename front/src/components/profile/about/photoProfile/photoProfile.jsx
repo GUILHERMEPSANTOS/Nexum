@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 
@@ -13,43 +13,38 @@ const PhotoProfile = ({
   isOtherView,
   setEditPhoto,
   perfil,
-  refetch = () => {},
+  refetch,
 }) => {
   const userId = useMemo(() => localStorage.getItem("user_id"));
   const companyId = useMemo(() => localStorage.getItem("company_id"));
   const [imageUrl, setImageUrl] = useState(null);
   const [imageUrlContratante, setImageUrlContratante] = useState(null);
-
-  const { data: dataImage, isLoading } = useQuery(
-    ["consultar imagem Perfil", userId],
-    () => getImageProfile({ userId }),
-    {
-      onSuccess: (data) => {
-        setImageUrl(URL.createObjectURL(data.data));
-        refetch();
-        // location.reload();
-      },
+  if (perfil) {
+    const { data: dataImage, isLoading } = useQuery(
+      ["consultar imagem Perfil", userId],
+      () => getImageProfile({ userId }),
+      {
+        onSuccess: (data) => {
+          setImageUrl(URL.createObjectURL(data.data));
+        },
+      }
+    );
+    if (isLoading) {
+      return <Loading />;
     }
-  );
-  {
-  }
-  const { data: dataImageContratante, isLoadingContratante } = useQuery(
-    ["consultar imagem Perfil contratante", companyId],
-    () => getImageProfile({ userId: companyId }),
-    {
-      onSuccess: (data) => {
-        setImageUrlContratante(URL.createObjectURL(data.data));
-        refetch();
-        // location.reload();
-      },
+  } else {
+    const { data: dataImageContratante, isLoadingContratante } = useQuery(
+      ["consultar imagem Perfil contratante", companyId],
+      () => getImageProfile({ userId: companyId }),
+      {
+        onSuccess: (data) => {
+          setImageUrlContratante(URL.createObjectURL(data.data));
+        },
+      }
+    );
+    if (isLoadingContratante) {
+      return <Loading />;
     }
-  );
-
-  if (isLoading) {
-    return <Loading />;
-  }
-  if (isLoadingContratante) {
-    return <Loading />;
   }
 
   return (
