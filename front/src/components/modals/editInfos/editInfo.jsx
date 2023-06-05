@@ -20,7 +20,7 @@ const EditInfo = ({ actualState, setActualState }) => {
   const [figma, setFigma] = useState(false);
 
   const [habilidades, setHabilidades] = useState([]);
-  // const userId = useMemo(() => localStorage.getItem("user_id"));
+  const userId = useMemo(() => localStorage.getItem("user_id"));
   const { data } = useQuery(
     ["consultar habilidades"],
     () => listHabilidades(),
