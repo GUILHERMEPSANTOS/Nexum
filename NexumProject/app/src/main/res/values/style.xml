@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <style name="Border_card">
+        <item name="android:background">@drawable/border_card</item>
+    </style>
     
     <style name="Edit_Text_label">
         <item name="android:layout_height">35dp</item>

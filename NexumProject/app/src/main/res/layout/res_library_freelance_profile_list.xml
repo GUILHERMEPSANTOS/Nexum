@@ -8,8 +8,12 @@
     android:gravity="fill"
     android:layout_height="wrap_content">
 
-
-
+<RelativeLayout
+    style="@style/Border_card"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/rlCardPerfilUsuario"
@@ -103,12 +107,12 @@
         android:layout_below="@+id/rlCardPerfilUsuario"
         android:layout_centerInParent="true">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/ivIconSave"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:src="@drawable/iconsave" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/ivIconSave"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:src="@drawable/iconsave" />-->
 
         <ImageView
             android:id="@+id/ivIconHeard"
@@ -116,13 +120,13 @@
             android:layout_height="wrap_content"
             android:src="@drawable/icon_heart" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/ivIconClose"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="-5dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:src="@drawable/icon_close_btn" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/ivIconClose"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="-5dp"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:src="@drawable/icon_close_btn" />-->
 
     </LinearLayout>
 
@@ -135,7 +139,7 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/white"
         android:id="@+id/tvSobrePerfil"
-        android:text="Sobre"
+        android:text="@string/text_view_title_sobre"
         android:layout_below="@+id/llOpcoes"
         />
 
@@ -160,7 +164,7 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/white"
         android:id="@+id/tvHabilidades"
-        android:text="Habilidades"
+        android:text="@string/text_view_title_habilites"
         android:layout_below="@+id/tvTextoSobrePerfil"
         />
 
@@ -201,8 +205,13 @@
 
         <Button
             style="@style/Button_Light"
-            android:text="Ver mais"/>
+            android:text="@string/button_view_more"/>
 
     </LinearLayout>
+
+</RelativeLayout>
+
+
+
 
 </RelativeLayout>

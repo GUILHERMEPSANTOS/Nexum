@@ -19,13 +19,13 @@
     <string name="text_salvar">Salvar</string>
     <string name="text_click_here_to_view_proposals_contractor">Clique aqui para visualizar Propostas</string>
      <string name="text_click_here_to_view_freelancers_contractor">Clique aqui para visualizar Freelancers</string>
-    <string name="text_click_here_to_enter_contact_contractor">Clique aqui para entrar em Contato</string>
-    <string name="text_click_here_to_enter_favorites_contractor">Clique aqui para entrar em Favoritos</string>
+    <string name="text_click_here_to_enter_contact_contractor" translatable="false">Clique aqui para entrar em Contato</string>
+    <string name="text_click_here_to_enter_favorites_contractor" translatable="false">Clique aqui para entrar em Favoritos</string>
     <string name="text_click_here_to_view_profile_contractor">Clique aqui para visualizar Perfil</string>
-    <string name="text_view_name_profile">Vinícius Pieroni</string>
-    <string name="text_view_name_profile_contratante">Stefanini</string>
-    <string name="text_view_location">São Caetano do Sul, SP</string>
-    <string name="text_view_Acting">Analista de testes jr</string>
+    <string name="text_view_name_profile" translatable="false">Vinícius Pieroni</string>
+    <string name="text_view_name_profile_contratante" translatable="false">Stefanini</string>
+    <string name="text_view_location" translatable="false">São Caetano do Sul, SP</string>
+    <string name="text_view_Acting" translatable="false">Analista de testes jr</string>
     <string name="text_view_title_sobre">Sobre</string>
     <string name="text_view_title_edit_profile">Perfil</string>
     <string name="text_view_title_social_network">Rede Social</string>
@@ -36,10 +36,15 @@
     <string name="text_view_title_formation">Formação</string>
     <string name="text_view_title_certification">Certificação</string>
     <string name="text_view_title_email">Email</string>
-    <string name="text_view_inside_email">vinizanetini@gmail.com</string>
-    <string name="text_view_inside_match">Matchs: 24</string>
+    <string name="text_view_inside_email" translatable="false">vinizanetini@gmail.com</string>
+    <string name="text_view_inside_match" translatable="false">Matchs: 24</string>
     <string name="text_view_inside_Date">Ingressou em 04/08/2004</string>
-    <string name="text_view_my_text_sobre">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</string>
+    <string name="text_view_my_text_sobre" translatable="false">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</string>
     <string name="text_view_edit_my_text_sobre">Fale sobre você</string>
+    <string name="button_view_more">Ver mais</string>
+    <string name="text_congratulation">Parabéns, você tem um Match</string>
+    <string name="text_contact_zap">Clique aqui para conversar por WhatsApp</string>
+    <string name="text_contact_email">Clique aqui para conversar por E-mail</string>
+
 
 </resources>

@@ -82,7 +82,7 @@
         android:layout_below="@+id/btnLogin"
         android:layout_marginTop="20dp"
         style="@style/Button_Dark"
-        android:text="Criar conta"
+        android:text="@string/button_create_an_account"
         android:onClick="irParaCadastro"
         />
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nexum Project</string>
+    <string name="text_title_page_register">Create an account</string>
+    <string name="text_title_page_login">Welcome</string>
+    <string name="text_sub_title_page_register">Register to connect</string>
+    <string name="text_sub_title_page_login">Fill in the fields to continue</string>
+    <string name="title_input_user">User</string>
+    <string name="title_input_cell_phone">Cell phone</string>
+    <string name="title_input_email">Email</string>
+    <string name="title_input_password">Password</string>
+    <string name="title_input_confirm_password">Confirm password</string>
+    <string name="radio_button_contractor">Contractor</string>
+    <string name="radio_button_freelancer">Freelancer</string>
+    <string name="text_question_leading_to_login">Already have an account?</string>
+    <string name="button_create_an_account">Create an account</string>
+    <string name="check_box_checkk_box_remember_account">Remember account</string>
+    <string name="text_forgot_password">Forgot account</string>
+    <string name="text_enter">Enter</string>
+    <string name="text_salvar">Save</string>
+    <string name="text_click_here_to_view_proposals_contractor">Click here to view Proposals</string>
+    <string name="text_click_here_to_view_freelancers_contractor">Click here to view Freelancers</string>
+    <string name="text_click_here_to_view_profile_contractor">Click here to view Profile</string>
+    <string name="text_view_title_sobre">About</string>
+    <string name="text_view_title_edit_profile">Profile</string>
+    <string name="text_view_title_social_network">Social Network</string>
+    <string name="text_view_title_information">Information</string>
+    <string name="text_view_title_habilites">Skills</string>
+    <string name="text_view_title_Analyzation">Analysis</string>
+    <string name="text_view_title_Exp">Experience</string>
+    <string name="text_view_title_formation">Training</string>
+    <string name="text_view_title_certification">Certification</string>
+    <string name="text_view_title_email">Email</string>
+    <string name="text_view_inside_Date">Joined in 08/04/2004</string>
+    <string name="text_view_edit_my_text_sobre">Talk about you</string>
+    <string name="button_view_more">View more</string>
+    <string name="text_congratulation">Congratulations, you have a Match</string>
+    <string name="text_contact_zap">Click here to chat via WhatsApp</string>
+    <string name="text_contact_email">Click here to chat via E-mail</string>
+</resources>
