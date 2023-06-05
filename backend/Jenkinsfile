@@ -51,7 +51,7 @@ pipeline {
         
         stage('Copy Jar to Volume Directory') {
             steps {
-               sh 'docker run --rm -v nexum-volume:/app -v "${env.WORKSPACE}/backend/target:/source" alpine cp /source/backend-0.0.1-SNAPSHOT.jar /app'
+               sh "docker run --rm -v nexum-volume:/app -v ${env.WORKSPACE}/backend/target:/source alpine cp /source/backend-0.0.1-SNAPSHOT.jar /app"
             }
         }
         
