@@ -32,7 +32,6 @@ const PhotoProfile = ({
     }
   );
   {
-    console.log(idCompany);
   }
   const { data: dataImageContratante, isLoadingContratante } = useQuery(
     ["consultar imagem Perfil contratante", companyId],

@@ -117,7 +117,7 @@ const About = ({
               perfil={true}
             />
           )}
-          {console.log(idCompany)}
+        
           <div>
             {isOtherView ? (
               <h1 className={styles.title}>{nomeCompany} </h1>
