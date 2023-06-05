@@ -40,8 +40,8 @@ const FreelancerChoose = () => {
             <CardWithInfo2 data={data?.data ?? []} />
           </div>
           <div className={styles.cardContainerInfo}>
-            {data?.data?.map(({ nome, id_user }, i) => (
-              <CardEscolha id_user={id_user} />
+            {data?.data?.slice(9).map(({ nome, id_user, sobre }, i) => (
+              <CardEscolha sobre={sobre} id_user={id_user} />
             ))}
           </div>
         </div>
