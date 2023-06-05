@@ -13,7 +13,7 @@
 
 <p align="center">SEMPRE TRABALHE NA SUA BRANCH E DEPOIS FECHE E EXCLUA SUA ISSUE E BRANCH</p>
 
-<sup>:star:Passo 1</sup> 
+<sup>:star:Passo 1:</sup> 
 
 - [x] :point_right: **Clicar em issues**
 
