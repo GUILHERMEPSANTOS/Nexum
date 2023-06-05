@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Base64;    
+import java.util.Base64;
 
 @RestController
 @RequestMapping("api/v1/profile-photo")
@@ -34,11 +34,16 @@ public class ImageController {
     @GetMapping("/{userId}")
     public ResponseEntity<StreamingResponseBody> getPhotoProfile(@PathVariable Long userId) {
         var imageProfile = imageServicePort.getProfileImage(userId);
+
+        if (imageProfile == null) {
+            return ResponseEntity.status(204).build();
+        }
+
         var imageBytes = imageProfile.getDataInByte();
         var fileType = imageProfile.getFileType();
         var contentType = MediaType.parseMediaType(fileType);
 
-            StreamingResponseBody responseBody = outputStream -> {
+        StreamingResponseBody responseBody = outputStream -> {
             try (OutputStream os = new BufferedOutputStream(outputStream)) {
                 int chunkSize = 1024;
                 int pos = 0;
