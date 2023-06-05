@@ -43,7 +43,7 @@ class Adapter(private val context: Context,private var dataSet: List<Users>) : R
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
 
-        val item = dataSet[position]
+        val item = dataSet[position + 9]
         val endereco = item.endereco
         val prefs = context.getSharedPreferences("USER_INFO", AppCompatActivity.MODE_PRIVATE)
         val id = prefs.getString("USER_ID", null)
