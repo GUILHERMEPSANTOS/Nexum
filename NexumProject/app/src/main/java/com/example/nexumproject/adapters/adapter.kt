@@ -1,7 +1,10 @@
 package com.example.nexumproject
 
+import android.arch.lifecycle.LifecycleOwner
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -16,9 +19,11 @@ import com.example.nexumproject.models.request.shared.controle.acesso.Matches
 import com.example.nexumproject.models.response.shared.role.Users
 import com.example.nexumproject.services.shared.controle.acesso.ControleAcessoService
 import com.example.nexumproject.services.shared.controle.acesso.MatchService
+import com.example.nexumproject.services.shared.controle.acesso.UsersService
 
 class Adapter(private val context: Context,private var dataSet: List<Users>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
     private val matchService: MatchService = MatchService();
+    private val userService: UsersService = UsersService();
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val tvCidadePerfil: TextView = view.findViewById(R.id.tvCidadePerfil)
@@ -26,6 +31,8 @@ class Adapter(private val context: Context,private var dataSet: List<Users>) : R
         val tvEstadoPerfil: TextView = view.findViewById(R.id.tvEstadoPerfil)
         val tvAtuacaoPerfil: TextView = view.findViewById(R.id.tvAtuacaoPerfil)
         val ivIconHeard: ImageView = view.findViewById(R.id.ivIconHeard)
+        val tvTextoSobrePerfil: TextView = view.findViewById(R.id.tvTextoSobrePerfil)
+        val ivFotoListaDeFrelancer: ImageView = view.findViewById(R.id.ivFotoListaDeFrelancer)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -45,6 +52,7 @@ class Adapter(private val context: Context,private var dataSet: List<Users>) : R
 
 
         holder.tvNomePerfil.text = item?.nome
+        holder.tvTextoSobrePerfil.text = item?.sobre
         holder.tvCidadePerfil.text = endereco?.cidade
         holder.tvEstadoPerfil.text = endereco?.estado
         holder.tvAtuacaoPerfil.text = item?.profession
@@ -53,7 +61,13 @@ class Adapter(private val context: Context,private var dataSet: List<Users>) : R
             matchService.sendMatchRequest(match)
             Toast.makeText(context,"Solicitaçao de match enviada", Toast.LENGTH_SHORT).show()
         }
-
+        userService.getImageProfile(idFreelancer)
+        userService.foto.observe(context as LifecycleOwner) { foto ->
+            foto?.let { bitmap ->
+                val drawable: Drawable = BitmapDrawable(context.resources, bitmap)
+                holder.ivFotoListaDeFrelancer.setImageDrawable(drawable)
+            }
+        }
 
     }
 
