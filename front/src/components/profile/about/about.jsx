@@ -113,6 +113,7 @@ const About = ({
             <PhotoProfile
               isOtherView={true}
               idCompany={idCompany}
+              setEditPhoto={setEditPhoto}
               refetch={refetchImage}
               perfil={true}
             />
