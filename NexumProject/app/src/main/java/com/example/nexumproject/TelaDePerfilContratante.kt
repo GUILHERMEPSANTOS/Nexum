@@ -1,6 +1,8 @@
 package com.example.nexumproject
 
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -17,6 +19,7 @@ class TelaDePerfilContratante : AppCompatActivity() {
     private lateinit var tvCidadePerfil: TextView
     private lateinit var btnVoltar: ImageView
     private lateinit var ivEditarSobre: ImageView
+    private lateinit var ivFotoPerfil: ImageView
 
     private val userService: UsersService = UsersService();
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +32,7 @@ class TelaDePerfilContratante : AppCompatActivity() {
         ivEditarSobre = findViewById(R.id.ivEditarSobre)
         tvEstadoPerfil = findViewById(R.id.tvEstadoPerfil)
         tvCidadePerfil = findViewById(R.id.tvCidadePerfil)
+        ivFotoPerfil = findViewById(R.id.tvCidadePerfil)
         etEmail = findViewById(R.id.etEmail)
 
         updateName()
@@ -40,6 +44,17 @@ class TelaDePerfilContratante : AppCompatActivity() {
         val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
         val nome = prefs.getString("USER_NAME", null)
         tvNomePerfil.setText(nome);
+
+        val id = prefs.getString("USER_ID", null)
+        tvNomePerfil.setText(nome);
+
+        userService.getImageProfile(id?.toLong() ?: 0)
+        userService.foto.observe(this) { foto ->
+            foto?.let { bitmap ->
+                val drawable: Drawable = BitmapDrawable(this.resources, bitmap)
+                ivFotoPerfil.setImageDrawable(drawable)
+            }
+        }
     }
 
 fun getAbout() {

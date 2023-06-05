@@ -1,7 +1,10 @@
 package com.example.nexumproject
 
+import android.arch.lifecycle.LifecycleOwner
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
@@ -13,9 +16,11 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.nexumproject.models.response.shared.role.Users
 import com.example.nexumproject.services.shared.controle.acesso.MatchService
+import com.example.nexumproject.services.shared.controle.acesso.UsersService
 
 class AdapterProposta(private val context: Context,private var dataSet: List<Users>) : RecyclerView.Adapter<AdapterProposta.ViewHolder>() {
     private val matchService: MatchService = MatchService();
+    private val userService: UsersService = UsersService();
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val tvNomeProposta: TextView = view.findViewById(R.id.tvNomeProposta)
@@ -24,6 +29,7 @@ class AdapterProposta(private val context: Context,private var dataSet: List<Use
         val tvTextoSobrePerfil: TextView = view.findViewById(R.id.tvTextoSobrePerfil)
         val etEmail: TextView = view.findViewById(R.id.etEmail)
         val ivIconHeard: ImageView = view.findViewById(R.id.ivIconHeard)
+        val ivFotoProposta: ImageView = view.findViewById(R.id.ivFotoProposta)
 
     }
 
@@ -59,9 +65,17 @@ class AdapterProposta(private val context: Context,private var dataSet: List<Use
             editor.putString("USER_EMAIL",  item?.email.toString())
             editor.putString("USER_CELULAR",  item?.celular.toString())
             editor.apply()
+
+
         }
 
-
+        userService.getImageProfile(id_contratante)
+        userService.foto.observe(context as LifecycleOwner) { foto ->
+            foto?.let { bitmap ->
+                val drawable: Drawable = BitmapDrawable(context.resources, bitmap)
+                holder.ivFotoProposta.setImageDrawable(drawable)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

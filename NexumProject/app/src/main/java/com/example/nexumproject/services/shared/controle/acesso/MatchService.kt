@@ -1,8 +1,6 @@
 package com.example.nexumproject.services.shared.controle.acesso
 
 import android.arch.lifecycle.MutableLiveData
-import android.util.Log
-import android.widget.Toast
 import com.example.nexumproject.models.request.shared.controle.acesso.Matches
 
 import com.example.nexumproject.models.response.shared.role.Match
@@ -63,20 +61,20 @@ class MatchService {
 
         httpResponse.enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                Log.d("tagMensagemErro",response.message().toString())
+
                 if (response.code() == HTTP_OK) {
-                    Log.d("tagIf","Deu certo")
+
 //                    contratanteByIdList.postValue(response.body())
                 } else {
                     errorMessage.postValue("Erro ao pegar lista de freelancers . ${response.code()}")
-                    Log.d("tagElsePut",response.code().toString())
+
                 }
             }
 
 
             override fun onFailure(call: Call<Void>, t: Throwable) {
                 errorMessage.postValue(t.message)
-                Log.d("tagFailurePut",t.message.toString())
+
             }
         });
     }

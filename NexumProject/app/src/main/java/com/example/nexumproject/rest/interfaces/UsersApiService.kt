@@ -3,6 +3,7 @@ package com.example.nexumproject.rest.interfaces
 
 import com.example.nexumproject.models.request.shared.controle.acesso.User
 import com.example.nexumproject.models.response.shared.role.Users
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -20,4 +21,9 @@ interface UsersApiService {
     fun getContratanteById(
         @Path("id") id: Long)
        : Call<Users>
+
+    @GET("profile-photo/{userId}")
+    fun getImageProfile(
+    @Path("userId") userId: Long)
+    : Call<ResponseBody>
 }

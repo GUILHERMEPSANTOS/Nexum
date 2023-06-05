@@ -3,6 +3,7 @@ package com.example.nexumproject.repositories.shared.controle.acesso.interfaces
 
 import com.example.nexumproject.models.request.shared.controle.acesso.User
 import com.example.nexumproject.models.response.shared.role.Users
+import okhttp3.ResponseBody
 import retrofit2.Call
 
 interface UsersRepositoryPort {
@@ -10,4 +11,5 @@ interface UsersRepositoryPort {
     fun getFreelancerById(freelancer: Long): Call<Users>
 
     fun getContratanteById(contratante:Long): Call<Users>
+    fun getImageProfile(userId:Long): Call<ResponseBody>
 }
