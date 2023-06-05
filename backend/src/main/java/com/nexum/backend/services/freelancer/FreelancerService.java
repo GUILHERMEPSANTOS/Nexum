@@ -64,7 +64,6 @@ public class FreelancerService implements FreelancerServicePort {
 
         while ((cep2 = br.readLine()) != null){
             jsonCep.append(cep2);
-
         }
 
         EnderecoDTOUpdateRequest enderecoDTOUpdateRequest =
@@ -89,7 +88,16 @@ public class FreelancerService implements FreelancerServicePort {
 
     @Override
     public Collection<FreelancerDTO> listAll() {
-        return springFreelancerRepository.findAll().stream().map((freelancer -> FreelancerDTOMapper.toFreelancerDTO(freelancer))).collect(Collectors.toList());
+        return springFreelancerRepository
+                    .findAll()
+                    .stream()
+                    .map((freelancer -> FreelancerDTOMapper.toFreelancerDTO(freelancer)))
+                    .collect(Collectors.toList());
+    }
+
+    @Override
+    public Collection<FreelancerDTO> listAllWithImage() {
+        return null;
     }
 
     @Override

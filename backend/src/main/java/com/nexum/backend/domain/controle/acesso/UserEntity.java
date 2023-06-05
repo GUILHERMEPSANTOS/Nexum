@@ -60,6 +60,7 @@ public class UserEntity {
     )
     private EnderecoEntity endereco;
 
+
     public UserEntity() {
     }
 
@@ -173,5 +174,4 @@ public class UserEntity {
         endereco.setUser(this);
         this.endereco = endereco;
     }
-
 }

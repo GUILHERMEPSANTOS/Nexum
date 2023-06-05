@@ -4,7 +4,9 @@
 .mensagem {
   height: 21%;
   width: 35%;
-  margin-left: 15%;
+  margin-left: 50px;
+  margin-right: 100px;
+  margin-top: 130px;
   float: left;
 }
 
@@ -13,6 +15,10 @@
   flex-direction: column;
   justify-content: space-between;
   margin-top: 80px;
+}
+
+.container {
+  padding-top: 150px;
 }
 @include mobile {
   div:not(.mensagem, .containerCards > div) {

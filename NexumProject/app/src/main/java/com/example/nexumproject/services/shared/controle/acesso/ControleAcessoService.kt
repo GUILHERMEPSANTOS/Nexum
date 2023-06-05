@@ -1,7 +1,6 @@
 package com.example.nexumproject.services.shared.controle.acesso
 
 import android.arch.lifecycle.MutableLiveData
-import android.util.Log
 import com.example.nexumproject.models.request.shared.controle.acesso.UserRegister
 import com.example.nexumproject.models.request.shared.controle.acesso.UserSignIn
 import com.example.nexumproject.models.response.shared.controle.acesso.User

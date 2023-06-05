@@ -1,7 +1,8 @@
 import CardInfo from "../cardInfo/cardInfo";
+import { ImageCard } from "./ImageCard";
 import styles from "./styles.module.scss";
 
-const CardWithInfo = ({ data }) => {
+export const CardWithInfo = ({ data }) => {
   return (
     <>
       {data.map(({ id_user, nome, endereco, profession }, i) => (
@@ -19,6 +20,28 @@ const CardWithInfo = ({ data }) => {
           />
         </div>
       ))}
+    </>
+  );
+};
+
+export const CardWithInfo2 = ({ data }) => {
+  return (
+    <>
+      {data
+        .slice(9)
+        .map(({ id_user, nome, endereco, profession, sobre }, i) => (
+          <>
+            <div key={`${id_user}-${nome}-${i}`} className={styles.card}>
+              <ImageCard id_user={id_user} />
+              <CardInfo
+                name={nome}
+                locationCity={endereco?.cidade}
+                location={endereco?.estado}
+                profession={profession}
+              />
+            </div>
+          </>
+        ))}
     </>
   );
 };

@@ -6,7 +6,6 @@ import com.nexum.backend.repositories.shared.controle.acesso.SpringUserRepositor
 import com.nexum.backend.repositories.shared.photo.SpringImageRepository;
 import com.nexum.backend.services.shared.photo.interfaces.ImageServicePort;
 
-
 public class ImageService implements ImageServicePort {
     private final SpringImageRepository springImageRepository;
     private  final SpringUserRepository springUserRepository;

@@ -13,7 +13,10 @@
   }
 }
 .foto {
-  min-height: 608px;
+ height: 450px;
+  padding: 20px;
+ 
+
 }
 .card {
   overflow: hidden;
@@ -21,9 +24,24 @@
   border-radius: $border-images;
 
   img {
-    border-radius: $border-images;
+    
+    border-radius: 20px;
     @include tablet {
       width: 250px;
     }
   }
+  
+}
+.fotoFreela {
+  min-width: 360px;
+  min-height: 500px;
+  max-height: 500px;
+}
+
+.sobre {
+  color: white;
+  margin-top: 20px;
+  position: absolute;
+  bottom: -20px;
+  padding: 20px;
 }

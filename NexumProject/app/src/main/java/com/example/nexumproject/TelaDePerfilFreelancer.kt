@@ -1,8 +1,11 @@
 package com.example.nexumproject
 
 import android.app.Activity
+import android.arch.lifecycle.LifecycleOwner
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.hardware.Camera
 import android.hardware.camera2.CameraDevice
 import android.os.Bundle
@@ -35,6 +38,7 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
     private lateinit var tvCidadePerfil: TextView
     private lateinit var btnVoltar: ImageView
     private lateinit var ivEditarSobre: ImageView
+    private lateinit var ivFotoPerfil: ImageView
 
     private val userService: UsersService = UsersService();
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +49,7 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
         tvTextoSobrePerfil = findViewById(R.id.tvTextoSobrePerfil)
         btnVoltar = findViewById(R.id.btnVoltar)
         ivEditarSobre = findViewById(R.id.ivEditarSobre)
+        ivFotoPerfil = findViewById(R.id.ivFotoPerfil)
         tvEstadoPerfil = findViewById(R.id.tvEstadoPerfil)
         tvCidadePerfil = findViewById(R.id.tvCidadePerfil)
         etEmail = findViewById(R.id.etEmail)
@@ -58,7 +63,16 @@ class TelaDePerfilFreelancer : AppCompatActivity() {
     fun updateName() {
         val prefs = getSharedPreferences("USER_INFO", MODE_PRIVATE)
         val nome = prefs.getString("USER_NAME", null)
+        val id = prefs.getString("USER_ID", null)
         tvNomePerfil.setText(nome);
+
+        userService.getImageProfile(id?.toLong() ?: 0)
+        userService.foto.observe(this) { foto ->
+            foto?.let { bitmap ->
+                val drawable: Drawable = BitmapDrawable(this.resources, bitmap)
+                ivFotoPerfil.setImageDrawable(drawable)
+            }
+        }
     }
 
 fun getAbout() {

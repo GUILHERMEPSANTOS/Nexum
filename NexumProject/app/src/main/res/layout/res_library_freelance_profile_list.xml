@@ -27,7 +27,8 @@
             android:id="@+id/ivFotoListaDeFrelancer"
             android:layout_width="wrap_content"
             android:layout_height="500dp"
-            android:src="@drawable/person_card_1"/>
+            android:minWidth="400dp"
+            android:src="@drawable/avatar"/>
 
         <RelativeLayout
             style="@style/MyCustomRelativeLayoutContainerMatchInformationPerson"

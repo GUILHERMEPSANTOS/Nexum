@@ -45,7 +45,7 @@ const About = ({
     : "";
   const nomeFormatted = nome.replace(/"/g, "");
   const emailFormatted = email.replace(/"/g, "");
-
+  localStorage.setItem("company_id", idCompany);
   const [editPhoto, setEditPhoto] = useState(false);
   const [editAbout, setEditAbout] = useState(false);
   const [editSocial, setEditSocial] = useState(false);
@@ -56,6 +56,10 @@ const About = ({
     ["consultar imagem Perfil", userId],
     () => getImageProfile({ userId })
   );
+  const { data: dataImageContratante, refetch: refetchImageContratante } =
+    useQuery(["consultar imagem Perfil contratante", idCompany], () =>
+      getImageProfile({ userId: idCompany })
+    );
 
   const {
     data: dataEnd,
@@ -101,12 +105,18 @@ const About = ({
       <section className={styles.container}>
         <div className={styles.profile}>
           {isOtherView ? (
-            <img
-              className={styles.imgProfile}
-              src="../../assets/imgs/empresa.png"
+            <PhotoProfile
+              refetch={refetchImageContratante}
+              setEditPhoto={setEditPhoto}
             />
           ) : (
-            <PhotoProfile refetch={refetchImage} setEditPhoto={setEditPhoto} />
+            <PhotoProfile
+              isOtherView={true}
+              idCompany={idCompany}
+              setEditPhoto={setEditPhoto}
+              refetch={refetchImage}
+              perfil={true}
+            />
           )}
 
           <div>
@@ -126,7 +136,6 @@ const About = ({
                 </>
               ) : perfil == `"ROLE_CONTRATANTE"` ? (
                 <>
-                  
                   <Text
                     isSmall={true}
                     text={`${dataEndContratante?.endereco?.cidade},`}
@@ -147,7 +156,7 @@ const About = ({
             </div>
 
             {isOtherView || perfil == `"ROLE_CONTRATANTE"` ? (
-              ""  
+              ""
             ) : (
               <Text text="Programador" />
             )}

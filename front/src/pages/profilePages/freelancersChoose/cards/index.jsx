@@ -6,8 +6,9 @@ import styles from "./styles.module.scss";
 import { listHabilidadesByUserId } from "../../../../services/freelancer/habilidades";
 import { useCallback, useMemo } from "react";
 import { sendMatchRequest } from "../../../../services/freelancer/match/freelancer";
+import Button from "../../../../components/buttons/button";
 
-const CardEscolha = ({ id_user }) => {
+const CardEscolha = ({ id_user, sobre }) => {
   const {
     data: idData,
     isLoading: LoadingData,
@@ -55,12 +56,14 @@ const CardEscolha = ({ id_user }) => {
         <button onClick={() => handleSubmit(id_user)}>
           <img src="../../assets/icons/like.svg" />
         </button>
-        {/* <button>
-          <img src="../../assets/icons/save.svg" />
-        </button> */}
       </div>
-      <Text isSmall={true} text={idData?.data} />
-
+      <Text isSmall={true} text={sobre} />
+      {/* <Button
+        onClick={() => localStorage.setItem("idClicado", id_freelancer)}
+        isEmpty={true}
+        link="/freelancer-escolhido"
+        text="ver mais"
+      /> */}
       {dataFreelancerHabilidades?.data?.length > 0 && (
         <List list={dataFreelancerHabilidades?.data} />
       )}

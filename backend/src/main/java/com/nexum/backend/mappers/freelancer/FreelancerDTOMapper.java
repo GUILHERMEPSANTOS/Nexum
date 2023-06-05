@@ -3,11 +3,13 @@ package com.nexum.backend.mappers.freelancer;
 import com.nexum.backend.domain.controle.acesso.FreelancerEntity;
 
 import com.nexum.backend.dto.freelancer.FreelancerDTO;
+import com.nexum.backend.dto.shared.photo.ImageDTO;
 import com.nexum.backend.mappers.freelancer.experiencia.ExperienciaDTOMapper;
 import com.nexum.backend.mappers.freelancer.formacao.FormacaoDTOMapper;
 import com.nexum.backend.mappers.freelancer.habilidades.HabilidadeFreelancerDTOMapper;
 import com.nexum.backend.mappers.shared.endereco.EnderecoDTOMapper;
 import com.nexum.backend.mappers.shared.match.MatchDTOMapper;
+import com.nexum.backend.mappers.shared.photo.ImageDTOMapper;
 import com.nexum.backend.mappers.shared.social.SocialUserDTOMapper;
 
 import java.util.Collection;
@@ -28,7 +30,8 @@ public class FreelancerDTOMapper {
                 MatchDTOMapper.toCollectionMatchDTO(freelancerEntity.getMatch()),
                 SocialUserDTOMapper.toCollectionSocialUserDTO(freelancerEntity.getSocialUsers()),
                 ExperienciaDTOMapper.toCollectionExperienciaDTOMapper(freelancerEntity.getExperiencias()),
-                FormacaoDTOMapper.toCollectionFormacaoDTOMapper(freelancerEntity.getFormacao())
+                FormacaoDTOMapper.toCollectionFormacaoDTOMapper(freelancerEntity.getFormacao()),
+                ImageDTOMapper.toImageDTOMapper(null)
         );
     }
 

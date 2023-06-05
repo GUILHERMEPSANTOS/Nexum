@@ -40,9 +40,9 @@ class Match : AppCompatActivity() {
 setData()
         abrirWhats()
         abrirEmail()
-
+        voltar()
     }
-    fun voltar() {
+    fun  voltar() {
         this.btnVoltar.setOnClickListener {
             val intent = Intent(this, TelaDePerfilFreelancer::class.java)
             startActivity(intent)

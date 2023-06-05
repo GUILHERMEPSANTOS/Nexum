@@ -16,7 +16,7 @@ import java.util.Base64;
 
 @RestController
 @RequestMapping("api/v1/profile-photo")
-@CrossOrigin(origins = "http://nexum.hopto.org:8000")
+@CrossOrigin(origins = {"http://nexum.hopto.org:8000", "http://localhost"})
 public class ImageController {
     private final ImageServicePort imageServicePort;
 
@@ -34,8 +34,13 @@ public class ImageController {
     @GetMapping("/{userId}")
     public ResponseEntity<StreamingResponseBody> getPhotoProfile(@PathVariable Long userId) {
         var imageProfile = imageServicePort.getProfileImage(userId);
+
+        if (imageProfile == null) {
+            return ResponseEntity.status(204).build();
+        }
+
         var imageBytes = imageProfile.getDataInByte();
-        var fileType = imageProfile.getFileType().replace("data:", "").replace(";base64", "");
+        var fileType = imageProfile.getFileType();
         var contentType = MediaType.parseMediaType(fileType);
 
         StreamingResponseBody responseBody = outputStream -> {
