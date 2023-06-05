@@ -49,6 +49,12 @@ pipeline {
             }
         }
         
+        stage('Copy Jar to Volume Directory') {
+            steps {
+               sh 'docker run --rm -v nexum-volume:/app -v "${env.WORKSPACE}/backend/target:/source" alpine cp /source/backend-0.0.1-SNAPSHOT.jar /app'
+            }
+        }
+        
         stage('Docker Deploy') {
             steps {
                 script {
@@ -100,6 +106,7 @@ def createDockerContainer() {
     def APP_JAVA = 'backend-0.0.1-SNAPSHOT.jar'
     def APP_PATH = '/home/ubuntu/deploy/'
 
-    def createContainerCommand = "docker run -d -p 8000:8000 --network nexum-network --name ${containerName} -v nexum-volume:/app/${APP_JAVA} ${imageName}"
+    def createContainerCommand = "docker run -d -p 8000:8000 --network nexum-network --name ${containerName} -v nexum-volume:/app ${imageName}"
+
     sh createContainerCommand
 }
