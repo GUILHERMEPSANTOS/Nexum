@@ -7,5 +7,6 @@ data class User(  val id_user: Long,
                   val nome: String,
                   val endereco: Endereco?,
                   val profession: String?,
+                  val celular: String?,
 val sobre: String?,
 val email: String?)
